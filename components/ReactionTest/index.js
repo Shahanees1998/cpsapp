@@ -4,15 +4,28 @@ import {
   Text,
   TouchableOpacity,
   ImageBackground,
+
   ScrollView,
 } from 'react-native';
 import { Audio } from 'expo-av';
 import Footer from '../Footer';
-import { HeartIcon, ClubIcon, SpadeIcon, TriangleIcon, TrophyIcon, BugIcon } from './Icon';
-import { MaterialIcons } from 'react-native-vector-icons';
+import { Icon1, Icon2, Icon3, Icon4, Icon5, Icon6 } from './Icon'; // Import your icons
+import { MaterialIcons } from 'react-native-vector-icons'; // Import MaterialIcons for tick icon
 import styles from '../CPS/Styles';
 import Navbar from '../Navbar';
 import ReactionDetail from './ReactionDetails';
+import { HeartIcon, ClubIcon, SpadeIcon, TriangleIcon, TrophyIcon, BugIcon } from './Icon'
+
+const colors = [
+  '#E90379',
+  '#00B507',
+  '#7655CA',
+  '#FF8300',
+  '#FFCC00',
+  '#964B00',
+];
+
+const icons = [Icon1, Icon2, Icon3, Icon4, Icon5, Icon6];
 
 export default function ReactionTest({ navigation }) {
   const [isTestRunning, setIsTestRunning] = useState(false);
@@ -26,14 +39,6 @@ export default function ReactionTest({ navigation }) {
   const [isStartGame, setIsStartGame] = useState(false);
   const [activeIcon, setActiveIcon] = useState(null);
   const [startTime, setStartTime] = useState(null);
-  const [iconColors, setIconColors] = useState({
-    0: "#E7E7E7",
-    1: "#E7E7E7",
-    2: "#E7E7E7",
-    3: "#E7E7E7",
-    4: "#E7E7E7",
-    5: "#E7E7E7"
-  });
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -51,31 +56,29 @@ export default function ReactionTest({ navigation }) {
 
     loadSound();
     return () => {
-      clearTimeout(timer);
+      clearTimeout(timer)
       if (clickSound) {
         clickSound.unloadAsync();
       }
     };
   }, []);
 
+
   const handleIconClick = (index) => {
     if (index === activeIcon) {
       const endTime = Date.now();
       setReactionTime(((endTime - startTime) / 1000).toFixed(2)); // Calculate reaction time in seconds
-      setIsModalVisible(true);
+      setIsModalOpen(true);
       setActiveIcon(null); // Reset active icon
-
-      // Update icon color to indicate successful click
-      const newIconColors = { ...iconColors, [index]: "#28A745" }; // Green color for correct click
-      setIconColors(newIconColors);
     }
   };
+
 
   const startTest = () => {
     setIsTestRunning(true);
     setReactionTime(null);
     setIsModalVisible(false);
-    setRandomIconIndex(Math.floor(Math.random() * 6));
+    setRandomIconIndex(Math.floor(Math.random() * icons.length));
 
     const delay = Math.random() * (5000 - 1000) + 1000;
     setTimeout(() => {
@@ -91,9 +94,6 @@ export default function ReactionTest({ navigation }) {
       setIsTestRunning(false);
       setIsModalVisible(true);
       playSound();
-      // Update icon color for the pressed icon
-      const newIconColors = { ...iconColors, [index]: "#007BFF" }; // Blue color when pressed
-      setIconColors(newIconColors);
     }
   };
 
@@ -111,14 +111,6 @@ export default function ReactionTest({ navigation }) {
     setIsTestRunning(false);
     setReactionTime(null);
     setIsModalVisible(false);
-    setIconColors({
-      0: "#E7E7E7",
-      1: "#E7E7E7",
-      2: "#E7E7E7",
-      3: "#E7E7E7",
-      4: "#E7E7E7",
-      5: "#E7E7E7"
-    });
   };
 
   const toggleFullScreen = () => {
@@ -127,7 +119,20 @@ export default function ReactionTest({ navigation }) {
       resetTest();
     }
   };
-
+  const renderIcon = (index) => (
+    <div
+      key={index}
+      onClick={() => handleIconClick(index)}
+      style={{
+        width: "50px",
+        height: "50px",
+        backgroundColor: index === activeIcon ? "red" : "gray",
+        margin: "10px",
+        display: "inline-block",
+        cursor: "pointer",
+      }}
+    ></div>
+  );
   return (
     <ScrollView>
       <ImageBackground
@@ -144,113 +149,112 @@ export default function ReactionTest({ navigation }) {
               Take a free test to become a pro at your favorite challenge:
             </Text>
           </View>
-          {!isStartGame ? (
-       <View
-       style={{
-         backgroundColor: 'rgba(3,109,248,.234)',
-         borderRadius: 8,
-         padding: 15,
-         marginBottom: 150,
-         maxHeight: 500,
-         alignItems: 'center',
-       }}
-     >
-       <Text style={styles.tagline}>
-         Take a free test to become a pro at your favorite challenge:
-       </Text>
-       <View style={styles.animatesContainer}>
-         {icons.map((Icon, index) => (
-           <TouchableOpacity
-             key={index}
-             onPress={() => handleIconPress(index)}
-             style={styles.iconCircle}
-           >
-             <Icon color={'#fff'} size={20} />
-           </TouchableOpacity>
-         ))}
-       </View>
+          {!isStartGame ? <View
+            style={{
+              backgroundColor: 'rgba(3,109,248,.234)',
+              borderRadius: 8,
+              padding: 15,
+              marginBottom: 150,
+              maxHeight: 500,
+              alignItems: 'center',
+            }}
+          >
+            <Text style={styles.tagline}>
+              Take a free test to become a pro at your favorite challenge:
+            </Text>
+            <View style={styles.animatesContainer}>
+              {icons.map((Icon, index) => (
+                <TouchableOpacity
+                  key={index}
+                  onPress={() => handleIconPress(index)}
+                  style={styles.iconCircle}
+                >
+                  <Icon color={'#fff'} size={20} />
+                </TouchableOpacity>
+              ))}
+            </View>
 
-       <View style={styles.noticeBoard}>
-         <View style={styles.noticeRow}>
-           <View style={styles.pointBox}>
-             <MaterialIcons name="check" size={20} color="#fff" />
-           </View>
-           <Text style={styles.pointLine}>
-             You have to click on start test to begin Reflex Test.
-           </Text>
-         </View>
-         <View style={styles.noticeRow}>
-           <View style={styles.pointBox}>
-             <MaterialIcons name="check" size={20} color="#fff" />
-           </View>
-           <Text style={styles.pointLine}>
-             Every time you will see 6 monsters on screen.
-           </Text>
-         </View>
-         <View style={styles.noticeRow}>
-           <View style={styles.pointBox}>
-             <MaterialIcons name="check" size={20} color="#fff" />
-           </View>
-           <Text style={styles.pointLine}>
-             Whenever any monster changes its color, you have to click on
-             it quickly.
-           </Text>
-         </View>
-         <View style={styles.noticeRow}>
-           <View style={styles.pointBox}>
-             <MaterialIcons name="check" size={20} color="#fff" />
-           </View>
-           <Text style={styles.pointLine}>
-             The time duration between clicking on the monster who changed
-             its color will result in your reaction or reflex time.
-           </Text>
-         </View>
-         <TouchableOpacity
-           style={styles.startButton}
-           onPress={() => setIsStartGame(true)}
-         >
-           <Text style={styles.startButtonText}>Start Test</Text>
-         </TouchableOpacity>
-       </View>
-
-
-     </View>
-          ) : (
-            <View
-              style={{
-                backgroundColor: 'rgba(3,109,248,.234)',
-                borderRadius: 8,
-                padding: 15,
-                marginBottom: 150,
-                maxHeight: 500,
-                alignItems: 'center',
-              }}
-            >
-              <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
-                <View style={styles.iconContainer}>
-                  <HeartIcon style={styles.icon} color={iconColors[0]} />
+            <View style={styles.noticeBoard}>
+              <View style={styles.noticeRow}>
+                <View style={styles.pointBox}>
+                  <MaterialIcons name="check" size={20} color="#fff" />
                 </View>
-                <View style={styles.iconContainer}>
-                  <ClubIcon style={styles.icon} color={iconColors[1]} />
-                </View>
-                <View style={styles.iconContainer}>
-                  <SpadeIcon style={styles.icon} color={iconColors[2]} />
-                </View>
+                <Text style={styles.pointLine}>
+                  You have to click on start test to begin Reflex Test.
+                </Text>
               </View>
+              <View style={styles.noticeRow}>
+                <View style={styles.pointBox}>
+                  <MaterialIcons name="check" size={20} color="#fff" />
+                </View>
+                <Text style={styles.pointLine}>
+                  Every time you will see 6 monsters on screen.
+                </Text>
+              </View>
+              <View style={styles.noticeRow}>
+                <View style={styles.pointBox}>
+                  <MaterialIcons name="check" size={20} color="#fff" />
+                </View>
+                <Text style={styles.pointLine}>
+                  Whenever any monster changes its color, you have to click on
+                  it quickly.
+                </Text>
+              </View>
+              <View style={styles.noticeRow}>
+                <View style={styles.pointBox}>
+                  <MaterialIcons name="check" size={20} color="#fff" />
+                </View>
+                <Text style={styles.pointLine}>
+                  The time duration between clicking on the monster who changed
+                  its color will result in your reaction or reflex time.
+                </Text>
+              </View>
+              <TouchableOpacity
+                style={styles.startButton}
+                onPress={() => setIsStartGame(true)}
+              >
+                <Text style={styles.startButtonText}>Start Test</Text>
+              </TouchableOpacity>
+            </View>
 
-              <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "100%", marginTop: 80 }}>
+
+          </View> :
+            <View style={{
+              backgroundColor: 'rgba(3,109,248,.234)',
+              borderRadius: 8,
+              padding: 15,
+              marginBottom: 150,
+              maxHeight: 500,
+              alignItems: 'center',
+            }}>
+
+
+              <HeartIcon style={styles.icon} />
+
+
+              <ClubIcon style={styles.icon} />
+
+
+              <SpadeIcon style={styles.icon} />
+
+
+
+              <View style={styles.row}>
                 <View style={styles.iconContainer}>
-                  <TriangleIcon style={styles.icon} color={iconColors[3]} />
+                  <TriangleIcon style={styles.icon} />
                 </View>
                 <View style={styles.iconContainer}>
-                  <TrophyIcon style={styles.icon} color={iconColors[4]} />
+                  <TrophyIcon style={styles.icon} />
                 </View>
                 <View style={styles.iconContainer}>
-                  <BugIcon style={styles.icon} color={iconColors[5]} />
+                  <BugIcon style={styles.icon} />
                 </View>
               </View>
             </View>
-          )}
+
+
+
+          }
         </View>
       </ImageBackground>
       <ReactionDetail />
