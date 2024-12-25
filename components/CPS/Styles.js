@@ -379,13 +379,14 @@ iconCircle: {
     backgroundColor:"#7655CA",
     borderRadius:9,
     maxWidth:150,
+    marginVertical:10,
     alignSelf:"center"
     
   },
   startButtonText:{
     color:"white",
     fontFamily:"Poppins-Regular",
-    fontSize:14,
+    fontSize:18,
     textAlign:"center"
   },
   row: {

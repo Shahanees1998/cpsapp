@@ -6,6 +6,7 @@ import {
   ImageBackground,
 
   ScrollView,
+  Image,
 } from 'react-native';
 import { Audio } from 'expo-av';
 import Footer from '../Footer';
@@ -17,12 +18,12 @@ import ReactionDetail from './ReactionDetails';
 import { HeartIcon, ClubIcon, SpadeIcon, TriangleIcon, TrophyIcon, BugIcon } from './Icon'
 
 const colors = [
-  '#E90379',
-  '#00B507',
-  '#7655CA',
-  '#FF8300',
-  '#FFCC00',
-  '#964B00',
+  { code: '#E90379', label: 'red' },
+  { code: '#00B507', label: 'green' },
+  { code: '#7655CA', label: 'purple' },
+  { code: '#FF8300', label: 'orange' },
+  { code: '#FFCC00', label: 'yellow' },
+  { code: '#964B00', label: 'brown' },
 ];
 
 const icons = [Icon1, Icon2, Icon3, Icon4, Icon5, Icon6];
@@ -39,6 +40,11 @@ export default function ReactionTest({ navigation }) {
   const [isStartGame, setIsStartGame] = useState(false);
   const [activeIcon, setActiveIcon] = useState(null);
   const [startTime, setStartTime] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedColorName, setSelectedColorName] = useState('');
+  const [colorDisplayTime, setColorDisplayTime] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [colorChangeTimes, setColorChangeTimes] = useState([]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -65,52 +71,87 @@ export default function ReactionTest({ navigation }) {
 
 
   const handleIconClick = (index) => {
-    if (index === activeIcon) {
+    if (index === randomIconIndex) {
       const endTime = Date.now();
-      setReactionTime(((endTime - startTime) / 1000).toFixed(2)); // Calculate reaction time in seconds
-      setIsModalOpen(true);
-      setActiveIcon(null); // Reset active icon
+      const timeTaken = endTime - startTime;
+      setReactionTime(timeTaken);
+      const colorData = {
+        name: selectedColorName,
+        code: selectedColor,
+        time: timeTaken,
+        icon: index
+      };
+      setColorChangeTimes(prevTimes => {
+        const updatedTimes = [...prevTimes, colorData];
+        if (updatedTimes.length === 6) {
+          setIsTestRunning(false);
+        }
+        return updatedTimes;
+      });
+      setShowModal(true);
+      setRandomIconIndex(null);
     }
   };
 
 
   const startTest = () => {
+
     setIsTestRunning(true);
     setReactionTime(null);
     setIsModalVisible(false);
-    setRandomIconIndex(Math.floor(Math.random() * icons.length));
+    setRandomIconIndex(null)
+    // setRandomIconIndex(Math.floor(Math.random() * icons.length));
+
+    // Pick a random color and set its name
+    const availableColors = colors.filter((color, index) =>
+      !colorChangeTimes.some(change => change?.code === color?.code)
+    );
+    const randomColorIndex = Math.floor(Math.random() * availableColors.length);
+    const color = availableColors[randomColorIndex];
+    setSelectedColor(color?.code);
+    setSelectedColorName(color?.label);
 
     const delay = Math.random() * (5000 - 1000) + 1000;
     setTimeout(() => {
       setIconDisplayTime(Date.now());
+      setColorDisplayTime(Date.now());
       setIsTestRunning(true);
+      // Apply the selected color to a random icon after 2 seconds
+      setTimeout(() => {
+        const getNewIndex = () => {
+          let newIndex;
+          do {
+            newIndex = Math.floor(Math.random() * icons.length);
+          } while (colorChangeTimes.some(change => change.icon === newIndex));
+          return newIndex;
+        };
+
+        const newIndex = getNewIndex();
+        setRandomIconIndex(newIndex);
+      }, 2000);
     }, delay);
   };
 
-  const handleIconPress = (index) => {
-    if (isTestRunning && index === randomIconIndex) {
-      const timeTaken = Date.now() - iconDisplayTime;
-      setReactionTime(timeTaken);
-      setIsTestRunning(false);
-      setIsModalVisible(true);
-      playSound();
-    }
-  };
-
-  const playSound = async () => {
-    if (isSoundEnabled && clickSound) {
-      try {
-        await clickSound.replayAsync();
-      } catch (error) {
-        console.log('Error playing sound:', error);
-      }
-    }
-  };
-
   const resetTest = () => {
-    setIsTestRunning(false);
+    setShowModal(false)
+    setSelectedColor(null);
+    setRandomIconIndex(null);
+    setSelectedColorName(null);
     setReactionTime(null);
     setIsModalVisible(false);
+    startTest()
+  };
+
+  const tryAgain = () => {
+    setIsTestRunning(false);
+    setShowModal(false)
+    setSelectedColor(null);
+    setRandomIconIndex(null);
+    setSelectedColorName(null);
+    setReactionTime(null);
+    setIsModalVisible(false);
+    setColorChangeTimes([]);
+    startTest()
   };
 
   const toggleFullScreen = () => {
@@ -119,20 +160,17 @@ export default function ReactionTest({ navigation }) {
       resetTest();
     }
   };
-  const renderIcon = (index) => (
-    <div
-      key={index}
-      onClick={() => handleIconClick(index)}
-      style={{
-        width: "50px",
-        height: "50px",
-        backgroundColor: index === activeIcon ? "red" : "gray",
-        margin: "10px",
-        display: "inline-block",
-        cursor: "pointer",
-      }}
-    ></div>
-  );
+
+  useEffect(() => {
+    startTest()
+  }, []);
+
+  const calculateAverageTime = () => {
+    if (colorChangeTimes.length === 0) return 0;
+    const total = colorChangeTimes.reduce((acc, time) => acc + time.time, 0);
+    return (total / colorChangeTimes.length).toFixed(2); // Average time rounded to 2 decimal places
+  };
+
   return (
     <ScrollView>
       <ImageBackground
@@ -148,6 +186,7 @@ export default function ReactionTest({ navigation }) {
             <Text style={styles.tagline}>
               Take a free test to become a pro at your favorite challenge:
             </Text>
+            <Text style={styles.colorDisplay}>{selectedColorName}</Text>
           </View>
           {!isStartGame ? <View
             style={{
@@ -155,24 +194,24 @@ export default function ReactionTest({ navigation }) {
               borderRadius: 8,
               padding: 15,
               marginBottom: 150,
-              maxHeight: 500,
+              maxHeight: 700,
               alignItems: 'center',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              justifyContent: 'space-around',
             }}
           >
-            <Text style={styles.tagline}>
-              Take a free test to become a pro at your favorite challenge:
-            </Text>
-            <View style={styles.animatesContainer}>
-              {icons.map((Icon, index) => (
-                <TouchableOpacity
-                  key={index}
-                  onPress={() => handleIconPress(index)}
-                  style={styles.iconCircle}
-                >
-                  <Icon color={'#fff'} size={20} />
-                </TouchableOpacity>
-              ))}
+            <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center' }}>
+              <Text style={{ width: 220, color: 'white', fontSize: 16, textAlign: 'center', marginTop: 50, marginBottom: 50 }}>
+                This Reaction Time Test is originally designed by cpstest.io to measure the reaction time for users. Please read the instructions first before proceeding to play this Reflex Test game.
+              </Text>
             </View>
+            <HeartIcon size={40} />
+            <ClubIcon size={40} />
+            <SpadeIcon size={40} />
+            <TriangleIcon size={40} />
+            <TrophyIcon size={40} />
+            <BugIcon size={40} />
 
             <View style={styles.noticeBoard}>
               <View style={styles.noticeRow}>
@@ -219,41 +258,96 @@ export default function ReactionTest({ navigation }) {
 
 
           </View> :
-            <View style={{
-              backgroundColor: 'rgba(3,109,248,.234)',
-              borderRadius: 8,
-              padding: 15,
-              marginBottom: 150,
-              maxHeight: 500,
-              alignItems: 'center',
-            }}>
+            isTestRunning ?
+              <View style={{ backgroundColor: 'rgba(3,109,248,.234)', borderRadius: 20 }}>
+                {
+                  showModal ? <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: 300 }}>
+                    <Image
+                      source={require('../../assets/reaction-time.jpg')}
+                      style={styles.animationImage}
+                    />
+                    <Text style={{ color: 'black', fontSize: 40 }}>{reactionTime} MS</Text>
+                    <Text style={{ color: 'black', fontSize: 20 }}>your Average Reaction Time</Text>
+                    <TouchableOpacity onPress={() => { setShowModal(false); resetTest() }}><Text style={{ color: 'white', backgroundColor: '#7655ca', paddingInline: 40, paddingVertical: 10, borderRadius: 10, marginTop: 20 }}>Next</Text></TouchableOpacity>
 
+                  </View>
+                    :
+                    <View>
+                      {selectedColorName && <View style={{ width: '100%', marginTop: 20, display: 'flex', alignItems: 'center', justifyContent: 'center' }}> <Text style={{ color: 'white' }}>Click on <Text style={{ color: selectedColor, fontSize: 18 }}>{selectedColorName} icon</Text></Text></View>}
+                      {reactionTime != null && <Text style={{ color: 'white' }}>your reaction time is {reactionTime} milliseconds</Text>}
+                      <View style={{
+                        borderRadius: 50,
+                        overflow: 'hidden',
+                        padding: 15,
+                        maxHeight: 500,
+                        alignItems: 'center',
+                        flexDirection: 'row',
+                        flexWrap: 'wrap',
+                        justifyContent: 'space-around',
+                      }}>
+                        {icons.map((Icon, index) => {
+                          // Check if the icon exists in colorChangeTimes
+                          const colorChange = colorChangeTimes.find(change => change.icon === index);
+                          const iconColor = colorChange ? colorChange?.code : (index === randomIconIndex ? selectedColor : "white");
 
-              <HeartIcon style={styles.icon} />
+                          return (
+                            <View key={index} style={{ marginTop: 10, marginBottom: 10, paddingTop: 20, paddingBottom: 20 }}>
+                              <TouchableOpacity onPress={() => handleIconClick(index)}>
+                                {React.createElement(Icon, {
+                                  style: {
+                                    width: "50px",
+                                    height: "50px",
+                                    backgroundColor: iconColor,
+                                    margin: "10px",
+                                    paddingTop: 20,
+                                    paddingBottom: 20,
+                                    cursor: "pointer",
+                                  },
+                                  color: iconColor
+                                })}
+                              </TouchableOpacity>
+                            </View>
+                          );
+                        })}
+                      </View>
+                    </View>}
+                {/* <View style={{ height: 200 }}></View>
+              <View style={{
+                borderRadius: 8,
+                padding: 15,
+                maxHeight: 500,
+                alignItems: 'center',
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                justifyContent: 'space-around',
+              }}>
+                {icons.slice(3).map((Icon, index) => (
+                  <Icon
+                    key={index}
+                    color={colors[index]?.code}
+                  />
+                ))}
+              </View> */}
+              </View>
 
-
-              <ClubIcon style={styles.icon} />
-
-
-              <SpadeIcon style={styles.icon} />
-
-
-
-              <View style={styles.row}>
-                <View style={styles.iconContainer}>
-                  <TriangleIcon style={styles.icon} />
-                </View>
-                <View style={styles.iconContainer}>
-                  <TrophyIcon style={styles.icon} />
-                </View>
-                <View style={styles.iconContainer}>
-                  <BugIcon style={styles.icon} />
+              :
+                <View style={{backgroundColor: 'rgba(3,109,248,.234)', borderRadius: 20 , display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: 450 }}>
+                  <Text style={{ color: 'white',width:'80%', paddingVertical:10, textAlign:'center', fontSize: 22 }}>your Average Reaction Time</Text>
+                  <Image
+                    source={require('../../assets/reaction-time.jpg')}
+                    style={styles.animationImage}
+                  />
+                  <Text style={{ color: 'black', fontSize: 30,paddingVertical:10 }}>{calculateAverageTime()} MS</Text>
+                  <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'between', flexWrap: 'wrap' }}>
+                    {colorChangeTimes.map((time, index) => (
+                      <Text key={index} style={{ color: time?.code,paddingLeft:2,paddingRight:2, fontSize: 10 }}>{time.time} MS</Text>
+                    ))}
+                  </View>
+                  <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
+                    <TouchableOpacity onPress={() => tryAgain()}><Text style={{ marginRight: 10, color: 'white', backgroundColor: '#7655ca', paddingInline: 30, paddingVertical: 10, borderRadius: 10, marginTop: 20 }}>Try Again</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={() => { setIsStartGame(false) }}><Text style={{ marginLeft: 10, color: 'white', backgroundColor: '#7655ca', paddingInline: 30, paddingVertical: 10, borderRadius: 10, marginTop: 20 }}>Close</Text></TouchableOpacity>
                 </View>
               </View>
-            </View>
-
-
-
           }
         </View>
       </ImageBackground>
