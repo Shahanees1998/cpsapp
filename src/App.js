@@ -14,6 +14,7 @@ import Disclaimer from "../components/Disclaimer/Disclaimer";
 import ContactUs from "../components/ContactUs";
 import ReactionTest from "../components/ReactionTest";
 import CarousalComponent from '../components/CPS/CarousalComponent';
+import { LanguageProvider } from './context/LanguageContext';
 
 const Stack = createStackNavigator();
 
@@ -38,8 +39,9 @@ const App = () => {
   }
 
   return (
-    
+    <LanguageProvider>
       <Stack.Navigator initialRouteName="CPSTest">
+       
         <Stack.Screen name="CPSTest" component={CPSTest} options={{ headerShown: false }} />
         <Stack.Screen name="KohiTest" component={KohiTest} options={{ headerShown: false }} />
         <Stack.Screen name="ReactionTest" component={ReactionTest} options={{ headerShown: false }} />
@@ -52,7 +54,9 @@ const App = () => {
         <Stack.Screen name="About" component={About} options={{ headerShown: false }} />
         <Stack.Screen name="ContactUs" component={ContactUs} options={{ headerShown: false }} />
         <Stack.Screen name="CarousalComponent" component={CarousalComponent} options={{ headerShown: false }} />
-      </Stack.Navigator>
+        
+     </Stack.Navigator>
+     </LanguageProvider>
     
   );
 };

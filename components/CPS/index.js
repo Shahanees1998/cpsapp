@@ -13,6 +13,7 @@ import Footer from '../Footer';
 import Stats from '../Stats/Stats';
 import CarousalComponent from './CarousalComponent';
 import { MusicIcon, SoundIcon } from '../icons';
+import { useLanguage } from '../../src/context/LanguageContext';
 
 export default function CPSTest({ navigation }) {
   const [clicks, setClicks] = useState(0);
@@ -29,6 +30,7 @@ export default function CPSTest({ navigation }) {
   const [circleColor, setCircleColor] = useState('#7455CA'); // Initial circle color
   const [isSoundOn, setIsSoundOn] = useState(true);
   const [isMusicOn, setIsMusicOn] = useState(true);
+  const { texts } = useLanguage();
 
 
   // Get screen dimensions
@@ -161,14 +163,14 @@ export default function CPSTest({ navigation }) {
             <View style={styles.container}>
               <Navbar onToggle={toggleFullScreen} navigation={navigation} />
               <View style={styles.headerContainer}>
-                <Text style={styles.headerTitle}>CPS TEST | CLICKS PER SECOND</Text>
+                <Text style={styles.headerTitle}>{texts?.cpsTest?.title}</Text>
                 <Text style={styles.tagline}>
-                  Test your click speed with our Click Speed Test. Choose from 1 to 100 seconds to measure and improve your CPS quickly and accurately!
+                  {texts?.cpsTest?.smallDescription}
                 </Text>
               </View>
               <View style={styles.mainLayout}>
                 <LeftTestListBar navigation={navigation} title={"CPS Test Online"} />
-                <Text style={styles.sidebarTitle}>{selectedTime} Second Per Click</Text>
+                <Text style={styles.sidebarTitle}>{selectedTime} {texts?.cpsTest?.secondClickTest}</Text>
                 <View style={styles.mainContent}>
                   <View style={styles.centerContent}>
                     <View style={styles.testArea}>

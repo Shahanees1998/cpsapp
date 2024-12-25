@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, Pressable, Animated,TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
 import { MenuIcon } from '../icons';
+import { useLanguage } from '../../src/context/LanguageContext';
 
 const Navbar = ({ onMenuToggle,navigation }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [menuHeight] = useState(new Animated.Value(0));
+  const { texts, setLanguage } = useLanguage();
+  
 
   const toggleMenu = () => {
     const newState = !isMenuOpen;
@@ -49,7 +52,15 @@ const Navbar = ({ onMenuToggle,navigation }) => {
         <TouchableOpacity onPress={()=>navigation.navigate('AimTrainerTest')} style={styles.menuItem}>
           <Text style={styles.menuText}>Aim Trainer</Text>
         </TouchableOpacity>
-        
+        <TouchableOpacity onPress={() => { setIsMenuOpen(false); setLanguage('en'); }} style={styles.menuItem}>
+          <Text style={styles.menuText}>English</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => { setIsMenuOpen(false); setLanguage('es'); }} style={styles.menuItem}>
+          <Text style={styles.menuText}>Spanish</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => { setIsMenuOpen(false); setLanguage('fr'); }} style={styles.menuItem}>
+          <Text style={styles.menuText}>French</Text>
+        </TouchableOpacity>
       </Animated.View>
     </View>
   );

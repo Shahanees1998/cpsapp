@@ -16,6 +16,7 @@ import styles from '../CPS/Styles';
 import Navbar from '../Navbar';
 import ReactionDetail from './ReactionDetails';
 import { HeartIcon, ClubIcon, SpadeIcon, TriangleIcon, TrophyIcon, BugIcon } from './Icon'
+import { useLanguage } from '../../src/context/LanguageContext';
 
 const colors = [
   { code: '#E90379', label: 'red' },
@@ -45,6 +46,7 @@ export default function ReactionTest({ navigation }) {
   const [colorDisplayTime, setColorDisplayTime] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [colorChangeTimes, setColorChangeTimes] = useState([]);
+  const { texts, setLanguage } = useLanguage();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -81,7 +83,7 @@ export default function ReactionTest({ navigation }) {
         time: timeTaken,
         icon: index
       };
-      
+
       setColorChangeTimes(prevTimes => {
         const updatedTimes = [...prevTimes, colorData];
         if (updatedTimes.length === 6) {
