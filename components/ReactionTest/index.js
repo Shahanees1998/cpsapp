@@ -81,6 +81,7 @@ export default function ReactionTest({ navigation }) {
         time: timeTaken,
         icon: index
       };
+      
       setColorChangeTimes(prevTimes => {
         const updatedTimes = [...prevTimes, colorData];
         if (updatedTimes.length === 6) {
