@@ -387,5 +387,13 @@ iconCircle: {
     fontFamily:"Poppins-Regular",
     fontSize:14,
     textAlign:"center"
-  }
+  },
+  row: {
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: "20px",
+  },
+  iconContainer: {
+    
+  },
 });
