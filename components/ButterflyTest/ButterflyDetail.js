@@ -1,73 +1,65 @@
-// ButterflyClickDetail.js
+// CPSDetail.js
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Linking } from 'react-native';
-
+import { View, Text, StyleSheet, ScrollView, Linking, ImageBackground } from 'react-native';
+import { useLanguage } from '../../src/context/LanguageContext';
 const ButterflyDetail = () => {
+  const { texts } = useLanguage();
   return (
-    <View style={styles.detailBackground}>
-      <ScrollView contentContainerStyle={styles.contentScreen}>
-        <View style={styles.mainContentContainer}>
-          <View style={styles.cpsTest}>
-            <Text style={styles.header}>
-              What is <Text style={styles.cpsColor}>the Butterfly Click Test?</Text>
-            </Text>
-            <Text style={styles.paragraph}>
-              Our butterfly click test is a quick and easy way to measure how fast you can click within a set time. It’s a popular technique where you use your index and middle finger to alternate clicks on the same mouse button at rapid speed. So if you’re looking to improve your combat or PvP skills, take our butterfly click test and find out where you stand!
-            </Text>
-          </View>
-          <View style={styles.cpsTest}>
-            <Text style={styles.header}>
-              How to <Text style={styles.cpsColor}>Use the Butterfly Click Test?</Text>
-            </Text>
-            <Text style={styles.paragraph}>Our butterfly click test is similar to any click test. Here’s how you can start the butterfly click test:</Text>
-            <View style={styles.bulletList}>
-              <Text style={styles.bulletPoint}>• Launch our <Text style={styles.link} onPress={() => Linking.openURL('/butterfly-click')}>butterfly click test.</Text></Text>
-              <Text style={styles.bulletPoint}>• Choose your time limit from 1 second to 100 seconds.</Text>
-              <Text style={styles.bulletPoint}>• Get your mouse ready in the space, placing your index and middle fingers on the button.</Text>
-              <Text style={styles.bulletPoint}>• Start clicking as fast as you can by alternating between the two fingers.</Text>
-              <Text style={styles.bulletPoint}>• Once the timer runs out, you’ll see your total clicks and CPS (clicks per second).</Text>
-            </View>
-          </View>
-          <View style={styles.cpsTest}>
-            <Text style={styles.header}>
-              Why is <Text style={styles.cpsColor}>Butterfly Clicking Speed Important?</Text>
-            </Text>
-            <Text style={styles.paragraph}>
-              For Minecraft PvP or fast-paced shooters, speed matters. Butterfly clicking lets you click way faster than normal, giving you an edge when every millisecond counts. Whether you're attacking, building, or performing quick actions, faster clicking means faster gameplay.
-            </Text>
-          </View>
-          <View style={styles.cpsTest}>
-            <Text style={styles.header}>
-              Benefits of <Text style={styles.cpsColor}>Butterfly Clicking</Text>
-            </Text>
-            <View style={styles.bulletList}>
-              <Text style={styles.bulletPoint}><Text style={styles.bold}>Boosted clicking speed:</Text> It’s faster than regular clicking, helping you hit those higher CPS numbers. Whether it's for work or gaming, high CPS numbers make you better at what you do.</Text>
-              <Text style={styles.bulletPoint}><Text style={styles.bold}>Better finger coordination:</Text> Using two fingers instead of one helps improve your hand speed and coordination.</Text>
-              <Text style={styles.bulletPoint}><Text style={styles.bold}>Gaming advantage:</Text> In PvP or games that need quick reactions, butterfly clicking can be a game-changer. You can defeat enemies, build anything on a large scale, and do it all faster than before!</Text>
-              <Text style={styles.bulletPoint}><Text style={styles.bold}>Less finger fatigue:</Text> Switching between fingers helps reduce the strain on a single finger, keeping you in the game longer.</Text>
-            </View>
-          </View>
-          <View style={styles.cpsTest}>
-            <Text style={styles.header}>
-              How Does <Text style={styles.cpsColor}>the Butterfly Click Test Work?</Text>
-            </Text>
-            <Text style={styles.paragraph}>
-              The butterfly click test counts how many times you can click in a specific time frame. It records each click and calculates your CPS (clicks per second). Our test even shows how consistent your clicking speed is throughout the timer, so you can work on staying steady during longer gaming sessions.
-            </Text>
-          </View>
-          <View style={styles.cpsTest}>
-            <Text style={styles.header}>
-              How to <Text style={styles.cpsColor}>Get Better at Butterfly Clicking?</Text>
-            </Text>
-            <Text style={styles.paragraph}>
-              To get better at butterfly clicking, regular practice is key. The more you practice, the faster and more precise you'll become. It’s also important to use a good mouse with responsive buttons, as this makes it easier to click at high speeds.
-            </Text>
-            <Text style={styles.paragraph}>
-              Make sure your finger positioning is comfortable to maintain accuracy and speed. Start with shorter clicking sessions to build up your endurance, gradually increasing the duration to improve stamina. Finally, remember to keep your hand relaxed since tensing up can slow you down. With consistent practice, you'll see your CPS soar and start dominating every game you play!
-            </Text>
+    <View
+
+      style={styles.detailBackground}
+    >
+      <View style={styles.mainContentContainer}>
+        <View style={styles.cpsTest}>
+          <Text style={styles.header}>{texts?.ButterflyTest?.container1?.question1} <Text style={styles.cpsColor}>{texts?.cpsTest?.container1?.questiontitle} </Text></Text>
+          <Text style={styles.paragraph}>
+            {texts?.ButterflyTest?.container1?.answer1}
+          </Text>
+        </View>
+        <View style={styles.cpsTest}>
+          <Text style={styles.header}>{texts?.ButterflyTest?.container2?.question1} <Text style={styles.cpsColor}>{texts?.cpsTest?.container2?.questiontitle}</Text></Text>
+          <Text style={styles.paragraph}>{texts?.ButterflyTest?.container2?.answer1}</Text>
+          <View style={styles.bulletList}>
+            <Text style={styles.bulletPoint}>• {texts?.ButterflyTest?.container2?.bullets.bullet1}</Text>
+            <Text style={styles.bulletPoint}>• {texts?.ButterflyTest?.container2?.bullets.bullet2}</Text>
+            <Text style={styles.bulletPoint}>• {texts?.ButterflyTest?.container2?.bullets.bullet3}</Text>
+            <Text style={styles.bulletPoint}>• {texts?.ButterflyTest?.container2?.bullets.bullet4}</Text>
           </View>
         </View>
-      </ScrollView>
+        <View style={styles.cpsTest}>
+          <Text style={styles.header}>{texts?.ButterflyTest?.container3?.question1}<Text style={styles.cpsColor}>{texts?.cpsTest?.container3?.questiontitle}</Text></Text>
+          <Text style={styles.paragraph}>
+            {texts?.ButterflyTest?.container3?.answer1}
+          </Text>
+        </View>
+        <View style={styles.cpsTest}>
+          <Text style={styles.header}>{texts?.ButterflyTest?.container4?.question1} <Text style={styles.cpsColor}>{texts?.cpsTest?.container4?.questiontitle}</Text></Text>
+          <Text style={styles.paragraph}>
+            {texts?.ButterflyTest?.container4?.answer1}
+          </Text>
+          <View style={styles.bulletList}>
+            <Text style={styles.bulletPoint}>• <Text style={styles.bold}>{texts?.ButterflyTest?.container4?.bullets.bullet1.part1}</Text> {texts?.cpsTest?.container6?.bullets.bullet1.part2}</Text>
+            <Text style={styles.bulletPoint}>• <Text style={styles.bold}>{texts?.ButterflyTest?.container4?.bullets.bullet2.part1}</Text> {texts?.cpsTest?.container6?.bullets.bullet2.part2}</Text>
+            <Text style={styles.bulletPoint}>• <Text style={styles.bold}>{texts?.ButterflyTest?.container4?.bullets.bullet3.part1}</Text> {texts?.cpsTest?.container6?.bullets.bullet3.part2}</Text>
+            <Text style={styles.bulletPoint}>• <Text style={styles.bold}>{texts?.ButterflyTest?.container4?.bullets.bullet4.part1}</Text>{texts?.cpsTest?.container6?.bullets.bullet4.part2} </Text>
+          </View>
+        </View>
+        <View style={styles.cpsTest}>
+          <Text style={styles.header}>{texts?.ButterflyTest?.container5?.question1} <Text style={styles.cpsColor}>{texts?.cpsTest?.container5?.questiontitle}</Text></Text>
+          <Text style={styles.paragraph}>
+            {texts?.ButterflyTest?.container5?.answer1}
+          </Text>
+        </View>
+        <View style={styles.cpsTest}>
+          <Text style={styles.header}>{texts?.ButterflyTest?.container6?.question1}<Text style={styles.cpsColor}>{texts?.cpsTest?.container6?.questiontitle}</Text></Text>
+          <Text style={styles.paragraph}>{texts?.ButterflyTest?.container6?.answer1}</Text>
+          <Text style={styles.paragraph}>
+            {texts?.ButterflyTest?.container6?.answer2}
+          </Text>
+        </View>
+      
+      </View>
+
     </View>
   );
 };
@@ -76,7 +68,7 @@ const styles = StyleSheet.create({
   detailBackground: {
     flex: 1,
     padding: 35,
-    backgroundColor: "transparent",
+    backgroundColor: "transparent"
   },
   contentScreen: {
     flexGrow: 1,
@@ -108,11 +100,18 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-Regular",
   },
   link: {
-    color: '#007BFF',
-    textDecorationLine: 'underline',
+    color: 'black',
+    textDecorationLine: 'none',
   },
   bold: {
     fontWeight: 'bold',
+  },
+  cpsTestMainHr: {
+    marginVertical: 10,
+  },
+  hr: {
+    height: 1,
+    backgroundColor: '#ccc',
   },
 });
 
