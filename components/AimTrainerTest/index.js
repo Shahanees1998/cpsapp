@@ -8,10 +8,12 @@ import Navbar from '../Navbar'
 import CarousalComponent from "../CPS/CarousalComponent";
 import AimTrainerDetail from "./AimTrainerDetail";
 import Footer from "../Footer";
+import { useLanguage } from '../../src/context/LanguageContext';
 
 const Dot = ({ id, x, y, onRemove, onHit, size, color }) => {
   const [currentSize, setCurrentSize] = useState(size);
   const [growing, setGrowing] = useState(true);
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -79,6 +81,8 @@ export default function AimTrainerTest({ navigation }) {
   const [dots, setDots] = useState([]);
   const [selectedColor, setSelectedColor] = useState('#FF0000'); // Default color
   const [targetSize, setTargetSize] = useState(30); // Default size
+  const { texts } = useLanguage();
+
   const toggleFullScreen = () => {
     setIsFullScreen(!isFullScreen);
     if (!isFullScreen) {
@@ -158,8 +162,8 @@ export default function AimTrainerTest({ navigation }) {
         <View style={styles.container}>
           <Navbar onToggle={toggleFullScreen} />
           <View style={styles.headerContainer}>
-            <Text style={styles.headerTitle}> Trainer & Mouse  Accuracy Test</Text>
-            <Text style={styles.tagline}> Aim Trainer lets you practice your aiming skills in gaming competition and eventually improve your Mouse Accuracy.</Text>
+            <Text style={styles.headerTitle}>{texts?.AimTrainerTest?.title}</Text>
+            <Text style={styles.tagline}> {texts?.AimTrainerTest?.tagline} </Text>
           </View>
 
           {isTestRunning ? (
@@ -186,7 +190,7 @@ export default function AimTrainerTest({ navigation }) {
             </View>
           ) : (
             <View style={styles.configurationContainer}>
-              <Text style={styles.dropdownLabel}>Select Dot Color:</Text>
+              <Text style={styles.dropdownLabel}>{texts?.AimTrainerDetail?.shapecolor}</Text>
               <Picker
                 selectedValue={selectedColor}
                 onValueChange={(itemValue) => setSelectedColor(itemValue)}
@@ -200,7 +204,7 @@ export default function AimTrainerTest({ navigation }) {
                 <Picker.Item label="Orange" value="#FFA500" />
               </Picker>
 
-              <Text style={styles.dropdownLabel}>Select Target Size:</Text>
+              <Text style={styles.dropdownLabel}>{texts?.AimTrainerDetail?.targetSize}</Text>
               <Picker
                 selectedValue={targetSize}
                 onValueChange={(itemValue) => setTargetSize(itemValue)}
@@ -212,7 +216,7 @@ export default function AimTrainerTest({ navigation }) {
                 <Picker.Item label="Extra Large" value={65} />
               </Picker>
 
-              <Text style={styles.dropdownLabel}>Select Time:</Text>
+              <Text style={styles.dropdownLabel}>{texts?.AimTrainerDetail?.time}</Text>
               <Picker
                 selectedValue={selectedTime}
                 onValueChange={(itemValue) => setSelectedTime(itemValue)}
@@ -252,7 +256,6 @@ export default function AimTrainerTest({ navigation }) {
         </View>
       </ImageBackground>
       <AimTrainerDetail />
-      <CarousalComponent />
       <Footer navigation={navigation} />
     </ScrollView>
   );
