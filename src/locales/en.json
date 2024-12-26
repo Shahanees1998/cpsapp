@@ -96,7 +96,6 @@
       "question1": " Why is",
       "questiontitle": "clicking speed important?",
       "answer1": "In competitive gaming, every millisecond counts. Whether you’re battling in Minecraft, Fortnite, or any fast-paced game, the faster you can click, the quicker you can respond to in-game events. This can give you a big edge when attacking enemies, building structures, or pulling off fast combos. If you're into PvP games, having a high clicking speed can help you dominate the competition. But even if you’re not exactly a gamer, improving your clicking speed can also help you become more efficient in everyday computer tasks.",
-      
     },
     "container3": {
       "question1": "What is",
@@ -116,7 +115,7 @@
         "bullet1": "Start the click test by clicking on the circle labeled “Click to Test.”",
         "bullet2": "Once the test starts, click your mouse as fast as you can within a set time limit (usually 5 to 10 seconds).",
         "bullet3": "After the time’s up, you’ll see your clicks per second (CPS) score.",
-        "bullet4":"Try the test again and see if you can beat your previous score!"
+        "bullet4": "Try the test again and see if you can beat your previous score!"
       }
     },
     "container6": {
@@ -146,6 +145,75 @@
       "question1": "Take the",
       "questiontitle": "Kohi Click test",
       "answer1": "The Kohi Click Test is another super popular CPS test among gamers, especially in the Minecraft community. Named after the Minecraft PvP server 'Kohi,' it measures your clicking speed in a simple interface. Just start the timer and click as fast as you can to see your CPS. Many Minecraft players use this test to sharpen their clicking skills and prepare for PvP battles."
+    }
+  },
+  "ButterflyTest": {
+    "title": "Butterfly Click Test",
+    "tagline": "Take the Butterfly Click Test and choose a time range from 1 to 100 seconds. Perfect your butterfly clicking and maximize your CPS!",
+    "leftsidetitle": "Butterfly Test Online",
+    "selectTimetitle": " Seconds Click Kohi Test",
+    "circletext": "Click to Start",
+    "achievementtitle": "Your Achievements",
+    "close": "Close",
+    "sloth": "Sloth!",
+    "clickspeeddesc": "You clicked with the speed of",
+    "clicksin": "Clicks in",
+    "seconds": "seconds",
+    "feelings": "Stop feeling sorry for yourself, Don't be a loser",
+    "tryagain": "Try Again",
+    "container1": {
+      "question1": "What is ",
+      "questiontitle": "the Butterfly Click Test?",
+      "answer1": "Our butterfly click test is a quick and easy way to measure how fast you can click within a set time. It’s a popular technique where you use your index and middle finger to alternate clicks on the same mouse button at rapid speed. So if you’re looking to improve your combat or PvP skills, take our butterfly click test and find out where you stand!"
+    },
+    "container2": {
+      "question1": "How to",
+      "questiontitle": "Use the Butterfly Click Test?",
+      "answer1": "Our butterfly click test is similar to any click test. Here’s how you can start the butterfly click test:",
+      "bullets": {
+        "bullet1": "Launch our butterfly click test.",
+        "bullet2": "Choose your time limit from 1 second to 100 seconds.",
+        "bullet3": "Get your mouse ready in the space, placing your index and middle fingers on the button.",
+        "bullet4": "Start clicking as fast as you can by alternating between the two fingers.",
+        "bullet5": "Start clicking as fast as you can by alternating between the two fingers."
+      }
+    },
+    "container3": {
+      "question1": "Why is",
+      "questiontitle": "Butterfly Clicking Speed Important?",
+      "answer1": "For Minecraft PvP or fast-paced shooters, speed matters. Butterfly clicking lets you click way faster than normal, giving you an edge when every millisecond counts. Whether you're attacking, building, or performing quick actions, faster clicking means faster gameplay."
+    },
+    "container4": {
+      "question1": "Benefits of",
+      "questiontitle": "Butterfly Clicking",
+      "bullets": {
+        "bullet1": {
+          "part1": "Boosted clicking speed: ",
+          "part2": "It’s faster than regular clicking, helping you hit those higher CPS numbers. Whether it's for work or gaming, high CPS numbers make you better at what you do."
+        },
+        "bullet2": {
+          "part1": "Better finger coordination:",
+          "part2": "Using two fingers instead of one helps improve your hand speed and coordination."
+        },
+        "bullet3": {
+          "part1": "Gaming advantage: ",
+          "part2": " In PvP or games that need quick reactions, butterfly clicking can be a game-changer. You can defeat enemies, build anything on a large scale, and do it all faster than before!"
+        },
+        "bullet4": {
+          "part1": "Less finger fatigue:",
+          "part2": "Switching between fingers helps reduce the strain on a single finger, keeping you in the game longer."
+        }
+      }
+    },
+    "container5": {
+      "question1": "How Does",
+      "questiontitle": "the Butterfly Click Test Work?",
+      "answer1": "The butterfly click test counts how many times you can click in a specific time frame. It records each click and calculates your CPS (clicks per second). Our test even shows how consistent your clicking speed is throughout the timer, so you can work on staying steady during longer gaming sessions.",
+    },
+    "container6": {
+      "question1": "How to",
+      "questiontitle": "Get Better at Butterfly Clicking?",
+      "answer1": "To get better at butterfly clicking, regular practice is key. The more you practice, the faster and more precise you'll become. It’s also important to use a good mouse with responsive buttons, as this makes it easier to click at high speeds.",
     }
   }
 }
