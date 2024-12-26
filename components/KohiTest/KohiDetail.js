@@ -1,8 +1,10 @@
 // path/to/your/component/KohiDetails.js
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { useLanguage } from '@/src/context/LanguageContext';
 
 const KohiDetails = () => {
+    const { texts } = useLanguage();
     return (
         <ScrollView style={styles.container}>
             <View style={styles.detailBackground}>

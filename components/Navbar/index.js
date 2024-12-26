@@ -14,11 +14,16 @@ const Navbar = ({ onMenuToggle,navigation }) => {
     const newState = !isMenuOpen;
     setIsMenuOpen(newState);
     Animated.timing(menuHeight, {
-      toValue: newState ? 280 : 0,
+      toValue: newState ? 320 : 0,
       duration: 300,
       useNativeDriver: false,
     }).start();
     onMenuToggle?.(newState);
+  };
+
+  const changeLanguage = (lang) => {
+    setLanguage(lang);
+    toggleMenu();
   };
 
   return (
@@ -52,14 +57,35 @@ const Navbar = ({ onMenuToggle,navigation }) => {
         <TouchableOpacity onPress={()=>navigation.navigate('AimTrainerTest')} style={styles.menuItem}>
           <Text style={styles.menuText}>Aim Trainer</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => { setIsMenuOpen(false); setLanguage('en'); }} style={styles.menuItem}>
+        <TouchableOpacity onPress={() => changeLanguage('en')} style={styles.menuItem}>
+          <View style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+          <Image 
+            source={require('../../assets/en.jpg')}
+            style={{width:30,height:30,borderRadius:0, marginRight:10}}
+            resizeMode="contain"
+          />
           <Text style={styles.menuText}>English</Text>
+          </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => { setIsMenuOpen(false); setLanguage('es'); }} style={styles.menuItem}>
+        <TouchableOpacity onPress={() => changeLanguage('es')} style={styles.menuItem}>
+        <View style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+          <Image 
+            source={require('../../assets/es.png')}
+            style={{width:30,height:30,borderRadius:0, marginRight:10}}
+            resizeMode="contain"
+          />
           <Text style={styles.menuText}>Spanish</Text>
+        </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => { setIsMenuOpen(false); setLanguage('fr'); }} style={styles.menuItem}>
+        <TouchableOpacity onPress={() => changeLanguage('fr')} style={styles.menuItem}>
+        <View style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+          <Image 
+            source={require('../../assets/fr.jpg')}
+            style={{width:30,height:30,borderRadius:0, marginRight:10}}
+            resizeMode="contain"
+          />
           <Text style={styles.menuText}>French</Text>
+        </View>
         </TouchableOpacity>
       </Animated.View>
     </View>

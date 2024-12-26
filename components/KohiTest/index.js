@@ -11,7 +11,7 @@ import Footer from '../Footer';
 import Stats from '../Stats/Stats'; 
 import Navbar from '../Navbar';
 import CarousalComponent from '../CPS/CarousalComponent';
-
+import { useLanguage } from '@/src/context/LanguageContext';
 export default function KohiTest({ navigation }) {
   const [clicks, setClicks] = useState(0);
   const [cps, setCps] = useState(0);
@@ -24,7 +24,7 @@ export default function KohiTest({ navigation }) {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [isSoundOn, setIsSoundOn] = useState(true);
   const [isMusicOn, setIsMusicOn] = useState(true);
-
+  const {texts} = useLanguage();
   // Get screen dimensions
   const { width: screenWidth } = Dimensions.get('window');
   const width = isFullScreen ? screenWidth : 220;
@@ -142,14 +142,14 @@ export default function KohiTest({ navigation }) {
           <View style={styles.container}>
           <Navbar onToggle={toggleFullScreen} />
             <View style={styles.headerContainer}>
-              <Text style={styles.headerTitle}>Kohi Click Test</Text>
+              <Text style={styles.headerTitle}>{texts?.cpsTest.title}</Text>
               <Text style={styles.tagline}>
-                Test your clicking speed with the Kohi Click Test. Click as fast as you can!
+                {texts?.cpsTest.smallDescription}
               </Text>
             </View>
             <View style={styles.mainLayout}>
               <LeftTestListBar navigation={navigation} title={"Kohi Test Online"} />
-              <Text style={styles.sidebarTitle}>{selectedTime} Second Per Click</Text>
+              <Text style={styles.sidebarTitle}>{selectedTime} {texts?.seconds}</Text>
               <View style={styles.mainContent}>
                 <View style={styles.centerContent}>
                   <View style={styles.testArea}>
@@ -193,8 +193,8 @@ export default function KohiTest({ navigation }) {
                         />
                       </Svg>
                       <Text style={styles.clickText}>
-                        {!isTestRunning ? 'Click to Start' :
-                          timePassed >= selectedTime ? 'Test Complete' : 'Click!'}
+                        {!isTestRunning ? texts?.clickToStartTest :
+                          timePassed >= selectedTime ? texts?.testComplete : texts?.click}
                       </Text>
                     </TouchableOpacity>
                   </View>
@@ -229,7 +229,7 @@ export default function KohiTest({ navigation }) {
                       <Text style={styles.closeBtnText}>Close</Text>
                     </TouchableOpacity>
                     <View style={styles.modalTitleContainer}>
-                      <Text style={styles.modalTitle}>Your Achievements</Text>
+                      <Text style={styles.modalTitle}>{texts?.yourAchievments}</Text>
                     </View>
                   </View>
                   <View style={styles.resultOuterContainer}>
@@ -254,15 +254,15 @@ export default function KohiTest({ navigation }) {
                             <Text style={styles.statHeading}>{cps.toFixed(2)} CPS</Text>
                           </View>
                           <View style={styles.cpsStatRow}>
-                            <Text style={styles.statSubheading}>{clicks} Clicks in {selectedTime} Seconds</Text>
+                            <Text style={styles.statSubheading}>{clicks} {texts?.clicks} {texts?.in} {selectedTime} {texts?.seconds}</Text>
                           </View>
                         </View>
                         <View style={styles.resultContentRow}>
-                          <Text style={styles.modalNote}>Stop feeling sorry for yourself, Don't be a loser</Text>
+                          <Text style={styles.modalNote}>{texts?.stopFeelingSorryFoYourself}</Text>
                         </View>
                         <View style={styles.resultContentRow}>
                           <TouchableOpacity style={styles.tryBtn} onPress={resetTest}>
-                            <Text style={styles.tryBtnText}>Try Again</Text>
+                            <Text style={styles.tryBtnText}>{texts?.tryAgain}</Text>
                           </TouchableOpacity>
                         </View>
                       </View>
@@ -322,8 +322,8 @@ export default function KohiTest({ navigation }) {
                 />
               </Svg>
               <Text style={styles.clickText}>
-                {!isTestRunning ? 'Click to Start' :
-                  timePassed >= selectedTime ? 'Test Complete' : 'Click!'}
+                {!isTestRunning ? texts?.clickToStartTest :
+                  timePassed >= selectedTime ? texts?.testComplete : texts?.click}
               </Text>
             </TouchableOpacity>
           </View>
@@ -346,7 +346,7 @@ export default function KohiTest({ navigation }) {
                     <Text style={styles.closeBtnText}>Close</Text>
                   </TouchableOpacity>
                   <View style={styles.modalTitleContainer}>
-                    <Text style={styles.modalTitle}>Your Achievements</Text>
+                    <Text style={styles.modalTitle}>{texts?.yourAchievments}</Text>
                   </View>
                 </View>
                 <View style={styles.resultOuterContainer}>
@@ -371,15 +371,15 @@ export default function KohiTest({ navigation }) {
                           <Text style={styles.statHeading}>{cps.toFixed(2)} CPS</Text>
                         </View>
                         <View style={styles.cpsStatRow}>
-                          <Text style={styles.statSubheading}>{clicks} Clicks in {selectedTime} Seconds</Text>
+                          <Text style={styles.statSubheading}>{clicks} {texts?.clicks} {texts?.in} {selectedTime} {texts?.seconds}</Text>
                         </View>
                       </View>
                       <View style={styles.resultContentRow}>
-                        <Text style={styles.modalNote}>Stop feeling sorry for yourself, Don't be a loser</Text>
+                        <Text style={styles.modalNote}>{texts?.stopFeelingSorryFoYourself}</Text>
                       </View>
                       <View style={styles.resultContentRow}>
                         <TouchableOpacity style={styles.tryBtn} onPress={resetTest}>
-                          <Text style={styles.tryBtnText}>Try Again</Text>
+                          <Text style={styles.tryBtnText}>{texts?.tryAgain}</Text>
                         </TouchableOpacity>
                       </View>
                     </View>
