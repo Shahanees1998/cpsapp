@@ -106,15 +106,18 @@ export default function CPSTest({ navigation }) {
       setIsTestRunning(true);
       setStartTime(Date.now());
       setTimePassed(0);
-      setClicks(0);
       setCps(0);
     }
 
     if (isTestRunning && timePassed < selectedTime) {
       const currentTime = Date.now();
       const elapsedTime = (currentTime - startTime) / 1000;
-      setClicks((prev) => prev + 1);
-      setCps((clicks + 1) / elapsedTime);
+
+      setClicks((prevClicks) => {
+        const newClicks = prevClicks + 1;
+        setCps(newClicks / elapsedTime);
+        return newClicks;
+      });
 
       playSound();
 
@@ -139,9 +142,9 @@ export default function CPSTest({ navigation }) {
 
   const toggleFullScreen = () => {
     setIsFullScreen(!isFullScreen);
-    if (!isFullScreen) {
-      resetTest();
-    }
+    // if (!isFullScreen) {
+    //   resetTest();
+    // }
   };
 
   const toggleSound = () => {
@@ -180,11 +183,11 @@ export default function CPSTest({ navigation }) {
                         </TouchableOpacity>
                         <View style={{ display: "flex", flexDirection: "row" }}>
                           <TouchableOpacity
+                            style={{ marginRight: 10 }}
                             onPress={() => {
                               setIsMusicOn(!isMusicOn);
 
                             }}
-                            style={styles.iconButton}
                           >
                             <MusicIcon isEnabled={isMusicOn} />
                           </TouchableOpacity>
@@ -331,7 +334,7 @@ export default function CPSTest({ navigation }) {
                   setIsMusicOn(!isMusicOn);
 
                 }}
-                style={styles.iconButton}
+                style={{ marginRight: 10 }}
               >
                 <MusicIcon isEnabled={isMusicOn} />
               </TouchableOpacity>
@@ -340,28 +343,37 @@ export default function CPSTest({ navigation }) {
               </TouchableOpacity>
             </View>
           </View>
-          <View style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 50, marginBottom: 50 }}>
+          <View style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 50, marginBottom: 10 }}>
             <TouchableOpacity
-              style={styles.clickCircle}
+              style={{
+                width: screenWidth-50,
+                height: screenWidth-50,
+                display:'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                alignSelf: 'center',
+                borderRadius:220,
+                overflow:'hidden'
+              }}
               onPress={handleClick}
               activeOpacity={0.7}
             >
-              <Svg width={screenWidth} height={screenWidth}>
+              <Svg width={screenWidth} height={screenWidth-50}>
                 <Circle
                   stroke={circleColor}
                   fill="transparent"
                   strokeWidth="15"
-                  r={screenWidth / 2 - 15}
+                  r={screenWidth / 2 - 45}
                   cx={screenWidth / 2}
-                  cy={screenWidth / 2 + 20}
+                  cy={screenWidth / 2 -20}
                 />
                 <Circle
                   stroke="#b32f60"
                   fill="transparent"
                   strokeWidth="15"
-                  r={screenWidth / 2 - 15}
+                  r={screenWidth / 2 - 45}
                   cx={screenWidth / 2}
-                  cy={screenWidth / 2 + 20}
+                  cy={screenWidth / 2 -20}
                   strokeDasharray={circumference}
                   strokeDashoffset={circumference - (timePassed / selectedTime) * circumference}
                 />
