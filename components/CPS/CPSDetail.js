@@ -1,8 +1,9 @@
 // CPSDetail.js
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Linking, ImageBackground } from 'react-native';
-
+import { useLanguage } from '../../src/context/LanguageContext';
 const CPSDetail = () => {
+  const { texts } = useLanguage();
   return (
     <View
     
@@ -10,53 +11,53 @@ const CPSDetail = () => {
     >
         <View style={styles.mainContentContainer}>
           <View style={styles.cpsTest}>
-            <Text style={styles.header}>What is <Text style={styles.cpsColor}>CPS TEST?</Text></Text>
+            <Text style={styles.header}>{texts?.cpsTest?.container1?.question1} <Text style={styles.cpsColor}>{texts?.cpsTest?.container1?.questiontitle} </Text></Text>
             <Text style={styles.paragraph}>
-              The CPS (Clicks Per Second) test is a simple tool that measures how fast you can click your mouse in a specific time frame, usually in seconds. It’s widely used by gamers to test and improve their clicking speed for games that require quick reflexes, such as Minecraft, first-person shooters, and other competitive games. The test records your clicks and calculates your CPS to show how many times you can click per second.
+             {texts?.cpsTest?.container1?.answer1}
             </Text>
           </View>
           <View style={styles.cpsTest}>
-            <Text style={styles.header}>How to take <Text style={styles.cpsColor}>CPS Test</Text></Text>
-            <Text style={styles.paragraph}>Taking a CPS test is as straightforward as it can be. Here’s how you can quickly test your clicking speed with our tool:</Text>
+            <Text style={styles.header}>{texts?.cpsTest?.container2?.question1} <Text style={styles.cpsColor}>{texts?.cpsTest?.container2?.questiontitle}</Text></Text>
+            <Text style={styles.paragraph}>{texts?.cpsTest?.container2?.answer1}</Text>
             <View style={styles.bulletList}>
-              <Text style={styles.bulletPoint}>• Launch our <Text style={styles.link} onPress={() => Linking.openURL('/')}>CPS Test.</Text></Text>
-              <Text style={styles.bulletPoint}>• Choose your time limit from 1 second to 100 seconds.</Text>
-              <Text style={styles.bulletPoint}>• Place your finger on the mouse and click as fast as possible during the countdown.</Text>
-              <Text style={styles.bulletPoint}>• Once the time is up, the tool will display your total clicks and your CPS score. You can repeat the test to track improvements in your clicking speed.</Text>
+              <Text style={styles.bulletPoint}>• {texts?.cpsTest?.container2?.bullets.bullet1}</Text>
+              <Text style={styles.bulletPoint}>• {texts?.cpsTest?.container2?.bullets.bullet2}</Text>
+              <Text style={styles.bulletPoint}>• {texts?.cpsTest?.container2?.bullets.bullet3}</Text>
+              <Text style={styles.bulletPoint}>• {texts?.cpsTest?.container2?.bullets.bullet4}</Text>
             </View>
           </View>
           <View style={styles.cpsTest}>
-            <Text style={styles.header}>How many clicks per second <Text style={styles.cpsColor}>is fast?</Text></Text>
+            <Text style={styles.header}>{texts?.cpsTest?.container3?.question1}<Text style={styles.cpsColor}>{texts?.cpsTest?.container3?.questiontitle}</Text></Text>
             <Text style={styles.paragraph}>
-              A CPS of around 6 to 7 clicks per second is considered average for most people. However, if you're able to hit 8 to 10 CPS, you're doing quite well and can be considered fast. Skilled gamers and experienced clickers often aim for a CPS of 10 or higher, depending on their goals and the specific clicking techniques they use, like jitter or butterfly clicking.
+            {texts?.cpsTest?.container3?.answer1}
             </Text>
           </View>
           <View style={styles.cpsTest}>
-            <Text style={styles.header}>What is <Text style={styles.cpsColor}>CPS in Minecraft?</Text></Text>
+            <Text style={styles.header}>{texts?.cpsTest?.container4?.question1} <Text style={styles.cpsColor}>{texts?.cpsTest?.container4?.questiontitle}</Text></Text>
             <Text style={styles.paragraph}>
-              In Minecraft, CPS refers to how fast you can click per second and is important in PvP combat. The higher your CPS, the faster you can hit opponents or place blocks. For most Minecraft players, achieving a CPS between 6 and 8 is sufficient, but competitive players often aim for 10 CPS or higher to get an edge in fast-paced battles.
+            {texts?.cpsTest?.container4?.answer1}
             </Text>
           </View>
           <View style={styles.cpsTest}>
-            <Text style={styles.header}>How do you <Text style={styles.cpsColor}>calculate clicks per second?</Text></Text>
+            <Text style={styles.header}>{texts?.cpsTest?.container5?.question1} <Text style={styles.cpsColor}>{texts?.cpsTest?.container5?.questiontitle}</Text></Text>
             <Text style={styles.paragraph}>
-              Calculating clicks per second (CPS) is simple. Take the total number of clicks you made during a test and divide it by the duration of the test in seconds. For example, if you made 50 clicks in 10 seconds, your CPS would be 50 ÷ 10 = 5 CPS.
+            {texts?.cpsTest?.container5?.answer1}
             </Text>
           </View>
           <View style={styles.cpsTest}>
-            <Text style={styles.header}>How to <Text style={styles.cpsColor}>improve clicks per second?</Text></Text>
-            <Text style={styles.paragraph}>To improve your CPS, try the following techniques:</Text>
+            <Text style={styles.header}>{texts?.cpsTest?.container6?.question1}<Text style={styles.cpsColor}>{texts?.cpsTest?.container6?.questiontitle}</Text></Text>
+            <Text style={styles.paragraph}>{texts?.cpsTest?.container6?.answer1}</Text>
             <View style={styles.bulletList}>
-              <Text style={styles.bulletPoint}>• <Text style={styles.bold}>Practice regularly:</Text> The more you practice, the faster you’ll get.</Text>
-              <Text style={styles.bulletPoint}>• <Text style={styles.bold}>Try different clicking techniques:</Text> Experiment with methods like jitter clicking, butterfly clicking, or drag clicking to find what works best for you.</Text>
-              <Text style={styles.bulletPoint}>• <Text style={styles.bold}>Use a good mouse:</Text> A mouse with responsive, low-resistance buttons will help you click faster.</Text>
-              <Text style={styles.bulletPoint}>• <Text style={styles.bold}>Stay relaxed:</Text> Tension in your hand or fingers can slow you down. Keep your hand loose and light to click more efficiently.</Text>
+              <Text style={styles.bulletPoint}>• <Text style={styles.bold}>{texts?.cpsTest?.container6?.bullets.bullet1.part1}</Text> {texts?.cpsTest?.container6?.bullets.bullet1.part2}</Text>
+              <Text style={styles.bulletPoint}>• <Text style={styles.bold}>{texts?.cpsTest?.container6?.bullets.bullet2.part1}</Text> {texts?.cpsTest?.container6?.bullets.bullet2.part2}</Text>
+              <Text style={styles.bulletPoint}>• <Text style={styles.bold}>{texts?.cpsTest?.container6?.bullets.bullet3.part1}</Text> {texts?.cpsTest?.container6?.bullets.bullet3.part2}</Text>
+              <Text style={styles.bulletPoint}>• <Text style={styles.bold}>{texts?.cpsTest?.container6?.bullets.bullet4.part1}</Text>{texts?.cpsTest?.container6?.bullets.bullet4.part2} </Text>
             </View>
           </View>
           <View style={styles.cpsTest}>
-            <Text style={styles.header}>Take the <Text style={styles.cpsColor}>Kohi Click test</Text></Text>
+            <Text style={styles.header}>{texts?.cpsTest?.container7?.question1}<Text style={styles.cpsColor}>{texts?.cpsTest?.container7?.questiontitle}</Text></Text>
             <Text style={styles.paragraph}>
-              The <Text style={styles.link} onPress={() => Linking.openURL('/kohi-click-test')}>Kohi Click Test</Text> is another super popular CPS test among gamers, especially in the Minecraft community. Named after the Minecraft PvP server 'Kohi,' it measures your clicking speed in a simple interface. Just start the timer and click as fast as you can to see your CPS. Many Minecraft players use this test to sharpen their clicking skills and prepare for PvP battles.
+            {texts?.cpsTest?.container7?.answer1}
             </Text>
           </View>
         </View>
