@@ -12,7 +12,9 @@ import Footer from '../Footer';
 import Stats from '../Stats/Stats';
 import { MusicIcon, SoundIcon } from '../icons';
 import { useLanguage } from '../../src/context/LanguageContext';
-import KohiDetails from './KohiDetail'
+import KohiDetails from './KohiDetail';
+
+
 export default function KohiTest({ navigation }) {
   const [clicks, setClicks] = useState(0);
   const [cps, setCps] = useState(0);
@@ -282,14 +284,14 @@ export default function KohiTest({ navigation }) {
           <View style={styles.container}>
             <Navbar onToggle={toggleFullScreen} navigation={navigation} />
             <View style={styles.headerContainer}>
-              <Text style={styles.headerTitle}>Kohi Click Test</Text>
+              <Text style={styles.headerTitle}>{texts?.KohiTest?.title}</Text>
               <Text style={styles.tagline}>
-              Try the Kohi Click Test to measure your CPS over 1 to 100 seconds. Track your clicking speed and refine your skills with custom time ranges.
+              {texts?.KohiTest?.tagline}
               </Text>
             </View>
             <View style={styles.mainLayout}>
-              <LeftTestListBar navigation={navigation} title={"Kohi Test Online"} />
-              <Text style={styles.sidebarTitle}>{selectedTime} {texts?.cpsTest?.secondClickTest}</Text>
+              <LeftTestListBar navigation={navigation} title={texts?.KohiTest?.leftsidetitle} />
+              <Text style={styles.sidebarTitle}>{selectedTime} {texts?.KohiTest?.selectTimetitle}</Text>
               <View style={styles.mainContent}>
                 <View style={styles.centerContent}>
                   <View style={styles.testArea}>
@@ -348,8 +350,8 @@ export default function KohiTest({ navigation }) {
                         ))}
                       </Svg>
                       <Text style={styles.clickText}>
-                        {!isTestRunning ? 'Click to Start' :
-                          timePassed >= selectedTime ? 'Test Complete' : 'Click!'}
+                        {!isTestRunning ? texts.cpsTest.circletext:
+                          timePassed >= selectedTime ? '' : ''}
                       </Text>
                     </TouchableOpacity>
                   </View>
@@ -382,10 +384,10 @@ export default function KohiTest({ navigation }) {
                 >
                   <View style={styles.modalTopBar}>
                     <TouchableOpacity onPress={resetTest} style={styles.closeBtn}>
-                      <Text style={styles.closeBtnText}>Close</Text>
+                      <Text style={styles.closeBtnText}>{texts?.KohiTest?.close}</Text>
                     </TouchableOpacity>
                     <View style={styles.modalTitleContainer}>
-                      <Text style={styles.modalTitle}>Your Achievements</Text>
+                      <Text style={styles.modalTitle}>{texts?.KohiTest?.achievementtitle}</Text>
                     </View>
                   </View>
                   <View style={styles.resultOuterContainer}>
@@ -400,25 +402,25 @@ export default function KohiTest({ navigation }) {
                       </View>
                       <View style={styles.resultContentContainer}>
                         <View style={styles.resultContentRow}>
-                          <Text style={styles.animeTitle}>Sloth!</Text>
+                          <Text style={styles.animeTitle}>{texts?.KohiTest?.sloth}</Text>
                         </View>
                         <View style={styles.modalStatsContainer}>
                           <View style={styles.cpsStatRow}>
-                            <Text style={styles.normalText}>You clicked with the speed of</Text>
+                            <Text style={styles.normalText}>{texts?.KohiTest?.clickspeeddesc}</Text>
                           </View>
                           <View style={styles.cpsStatRow}>
                             <Text style={styles.statHeading}>{cps.toFixed(2)} CPS</Text>
                           </View>
                           <View style={styles.cpsStatRow}>
-                            <Text style={styles.statSubheading}>{clicks} Clicks in {selectedTime} Seconds</Text>
+                            <Text style={styles.statSubheading}>{clicks} {texts?.KohiTest?.clicksin} {selectedTime} {texts?.KohiTest?.seconds}</Text>
                           </View>
                         </View>
                         <View style={styles.resultContentRow}>
-                          <Text style={styles.modalNote}>Stop feeling sorry for yourself, Don't be a loser</Text>
+                          <Text style={styles.modalNote}>{texts?.KohiTest?.feelings}</Text>
                         </View>
                         <View style={styles.resultContentRow}>
                           <TouchableOpacity style={styles.tryBtn} onPress={resetTest}>
-                            <Text style={styles.tryBtnText}>Try Again</Text>
+                            <Text style={styles.tryBtnText}>{texts?.KohiTest?.tryagain} </Text>
                           </TouchableOpacity>
                         </View>
                       </View>
@@ -513,64 +515,65 @@ export default function KohiTest({ navigation }) {
           <Stats cps={cps} timePassed={timePassed} score={clicks} /> {/* Pass props to Stats */}
         </View>
         <Modal
-          animationType="slide"
-          transparent={true}
-          visible={isModalVisible}
-          onRequestClose={resetTest}
-        >
-          <View style={styles.modalOverlay}>
-            <ImageBackground
-              source={require('../../assets/modal-bg.jpg')} // Replace with your modal background image path
-              style={styles.modalInnerContainer}
+              animationType="slide"
+              transparent={true}
+              visible={isModalVisible}
+              onRequestClose={resetTest}
             >
-              <View style={styles.modalTopBar}>
-                <TouchableOpacity onPress={resetTest} style={styles.closeBtn}>
-                  <Text style={styles.closeBtnText}>Close</Text>
-                </TouchableOpacity>
-                <View style={styles.modalTitleContainer}>
-                  <Text style={styles.modalTitle}>Your Achievements</Text>
-                </View>
-              </View>
-              <View style={styles.resultOuterContainer}>
-                <View style={styles.resultContainer}>
-                  <View style={styles.animationContainer}>
-                    <View style={styles.animeLgDisplay}>
-                      <Image
-                        source={require('../../assets/sloath.jpg')} // Replace with your image path
-                        style={styles.animationImage}
-                      />
+              <View style={styles.modalOverlay}>
+                <ImageBackground
+                  source={require('../../assets/modal-bg.jpg')} // Replace with your modal background image path
+                  style={styles.modalInnerContainer}
+                >
+                  <View style={styles.modalTopBar}>
+                    <TouchableOpacity onPress={resetTest} style={styles.closeBtn}>
+                      <Text style={styles.closeBtnText}>{texts?.KohiTest?.close}</Text>
+                    </TouchableOpacity>
+                    <View style={styles.modalTitleContainer}>
+                      <Text style={styles.modalTitle}>{texts?.KohiTest?.achievementtitle}</Text>
                     </View>
                   </View>
-                  <View style={styles.resultContentContainer}>
-                    <View style={styles.resultContentRow}>
-                      <Text style={styles.animeTitle}>Sloth!</Text>
-                    </View>
-                    <View style={styles.modalStatsContainer}>
-                      <View style={styles.cpsStatRow}>
-                        <Text style={styles.normalText}>You clicked with the speed of</Text>
+                  <View style={styles.resultOuterContainer}>
+                    <View style={styles.resultContainer}>
+                      <View style={styles.animationContainer}>
+                        <View style={styles.animeLgDisplay}>
+                          <Image
+                            source={require('../../assets/sloath.jpg')} // Replace with your image path
+                            style={styles.animationImage}
+                          />
+                        </View>
                       </View>
-                      <View style={styles.cpsStatRow}>
-                        <Text style={styles.statHeading}>{cps.toFixed(2)} CPS</Text>
+                      <View style={styles.resultContentContainer}>
+                        <View style={styles.resultContentRow}>
+                          <Text style={styles.animeTitle}>{texts?.KohiTest?.sloth}</Text>
+                        </View>
+                        <View style={styles.modalStatsContainer}>
+                          <View style={styles.cpsStatRow}>
+                            <Text style={styles.normalText}>{texts?.KohiTest?.clickspeeddesc}</Text>
+                          </View>
+                          <View style={styles.cpsStatRow}>
+                            <Text style={styles.statHeading}>{cps.toFixed(2)} CPS</Text>
+                          </View>
+                          <View style={styles.cpsStatRow}>
+                            <Text style={styles.statSubheading}>{clicks} {texts?.KohiTest?.clicksin} {selectedTime} {texts?.KohiTest?.seconds}</Text>
+                          </View>
+                        </View>
+                        <View style={styles.resultContentRow}>
+                          <Text style={styles.modalNote}>{texts?.KohiTest?.feelings}</Text>
+                        </View>
+                        <View style={styles.resultContentRow}>
+                          <TouchableOpacity style={styles.tryBtn} onPress={resetTest}>
+                            <Text style={styles.tryBtnText}>{texts?.KohiTest?.tryagain} </Text>
+                          </TouchableOpacity>
+                        </View>
                       </View>
-                      <View style={styles.cpsStatRow}>
-                        <Text style={styles.statSubheading}>{clicks} Clicks in {selectedTime} Seconds</Text>
-                      </View>
-                    </View>
-                    <View style={styles.resultContentRow}>
-                      <Text style={styles.modalNote}>Stop feeling sorry for yourself, Don't be a loser</Text>
-                    </View>
-                    <View style={styles.resultContentRow}>
-                      <TouchableOpacity style={styles.tryBtn} onPress={resetTest}>
-                        <Text style={styles.tryBtnText}>Try Again</Text>
-                      </TouchableOpacity>
                     </View>
                   </View>
-                </View>
-              </View>
 
-            </ImageBackground>
-          </View>
-        </Modal>
+                </ImageBackground>
+              </View>
+            </Modal>
+
       </ImageBackground>
     )}
   </ScrollView>

@@ -72,5 +72,80 @@
       "questiontitle": "Kohi Click test",
       "answer1": "The Kohi Click Test is another super popular CPS test among gamers, especially in the Minecraft community. Named after the Minecraft PvP server 'Kohi,' it measures your clicking speed in a simple interface. Just start the timer and click as fast as you can to see your CPS. Many Minecraft players use this test to sharpen their clicking skills and prepare for PvP battles."
     }
+  },
+  "KohiTest": {
+    "title": "Kohi Click Test",
+    "tagline": "Try the Kohi Click Test to measure your CPS over 1 to 100 seconds. Track your clicking speed and refine your skills with custom time ranges.",
+    "leftsidetitle": "Kohi Test Online",
+    "selectTimetitle": " Seconds Click Kohi Test",
+    "circletext": "Click to Start",
+    "achievementtitle": "Your Achievements",
+    "close": "Close",
+    "sloth": "Sloth!",
+    "clickspeeddesc": "You clicked with the speed of",
+    "clicksin": "Clicks in",
+    "seconds": "seconds",
+    "feelings": "Stop feeling sorry for yourself, Don't be a loser",
+    "tryagain": "Try Again",
+    "container1": {
+      "question1": "What is ",
+      "questiontitle": "the Kohi Click Test?",
+      "answer1": "The Kohi Click Test is a fun way to see how fast you can click your mouse in a short amount of time. Originally created for Minecraft PvP fans, it’s become super popular among gamers who want to improve their clicking speed. Whether you’re gearing up for an intense battle or just curious about your clicking skills, the Kohi Click Test is a great way to see how quick your reflexes really are."
+    },
+    "container2": {
+      "question1": " Why is",
+      "questiontitle": "clicking speed important?",
+      "answer1": "In competitive gaming, every millisecond counts. Whether you’re battling in Minecraft, Fortnite, or any fast-paced game, the faster you can click, the quicker you can respond to in-game events. This can give you a big edge when attacking enemies, building structures, or pulling off fast combos. If you're into PvP games, having a high clicking speed can help you dominate the competition. But even if you’re not exactly a gamer, improving your clicking speed can also help you become more efficient in everyday computer tasks.",
+      
+    },
+    "container3": {
+      "question1": "What is",
+      "questiontitle": "a good click speed?",
+      "answer1": "The average player usually clocks around 6–7 clicks per second (CPS). But if you're aiming to be more competitive, you’ll want to hit 8 CPS or more. In the Kohi Click Test, some of the best players can reach 10-12 CPS, which is considered an awesome score. So if you’re hitting double digits, you’re definitely on the right track!"
+    },
+    "container4": {
+      "question1": "How did",
+      "questiontitle": "the Kohi Click Test get its name?",
+      "answer1": "The Kohi Click Test gets its name from the popular Kohi Minecraft server, which was famous for its hardcore PvP battles. Players on this server were always looking for ways to improve their combat skills, and fast clicking was a big part of that. Over time, “Kohi Click” became a thing, and now it’s a standard for anyone wanting to check or improve their click speed."
+    },
+    "container5": {
+      "question1": "How to",
+      "questiontitle": "take a Kohi Click Test",
+      "answer1": "Ready to test your speed? Here’s how you can take the Kohi Click Test:",
+      "bullets": {
+        "bullet1": "Start the click test by clicking on the circle labeled “Click to Test.”",
+        "bullet2": "Once the test starts, click your mouse as fast as you can within a set time limit (usually 5 to 10 seconds).",
+        "bullet3": "After the time’s up, you’ll see your clicks per second (CPS) score.",
+        "bullet4":"Try the test again and see if you can beat your previous score!"
+      }
+    },
+    "container6": {
+      "question1": "How to",
+      "questiontitle": "improve your click score?",
+      "answer1": "Want to improve your clicking speed? Here are a few tips to get your CPS up:",
+      "bullets": {
+        "bullet1": {
+          "part1": "Get a good mouse: ",
+          "part2": "A solid gaming mouse can make a world of difference. Look for one that’s comfortable and responsive."
+        },
+        "bullet2": {
+          "part1": "Experiment with grips:",
+          "part2": "The way you hold your mouse matters. The claw or fingertip grip often allows for faster clicking."
+        },
+        "bullet3": {
+          "part1": "Practice, practice, practice:",
+          "part2": "The more you do it, the better you’ll get. Try clicking challenges or even games to help you improve."
+        },
+        "bullet4": {
+          "part1": "Learn jitter clicking:",
+          "part2": "Some players use a technique called jitter clicking, where you rapidly tense and relax your hand to click faster. It takes practice but can boost your speed."
+        }
+      }
+    },
+    "container7": {
+      "question1": "Take the",
+      "questiontitle": "Kohi Click test",
+      "answer1": "The Kohi Click Test is another super popular CPS test among gamers, especially in the Minecraft community. Named after the Minecraft PvP server 'Kohi,' it measures your clicking speed in a simple interface. Just start the timer and click as fast as you can to see your CPS. Many Minecraft players use this test to sharpen their clicking skills and prepare for PvP battles."
+    }
   }
 }
