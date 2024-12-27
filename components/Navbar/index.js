@@ -14,7 +14,7 @@ const Navbar = ({ onMenuToggle,navigation }) => {
     const newState = !isMenuOpen;
     setIsMenuOpen(newState);
     Animated.timing(menuHeight, {
-      toValue: newState ? 320 : 0,
+      toValue: newState ? 400 : 0,
       duration: 300,
       useNativeDriver: false,
     }).start();
@@ -46,16 +46,19 @@ const Navbar = ({ onMenuToggle,navigation }) => {
 
       <Animated.View style={[styles.dropdown, { height: menuHeight }]}>
         <TouchableOpacity onPress={()=>navigation.navigate('KohiTest')} style={styles.menuItem}>
-          <Text style={styles.menuText}>Kohi Click Test</Text>
+          <Text style={styles.menuText}>{texts?.testName?.kohi}</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={()=>navigation.navigate('ButterflyTest')} style={styles.menuItem}>
-          <Text style={styles.menuText}>Butterfly Test</Text>
+          <Text style={styles.menuText}>{texts?.testName?.butter}</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={()=>navigation.navigate('ReactionTest')} style={styles.menuItem}>
-          <Text style={styles.menuText}>Reaction Test</Text>
+          <Text style={styles.menuText}>{texts?.testName?.reaction}</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={()=>navigation.navigate('AimTrainerTest')} style={styles.menuItem}>
-          <Text style={styles.menuText}>Aim Trainer</Text>
+          <Text style={styles.menuText}>{texts?.testName?.aim}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate('CPSTest')} style={styles.menuItem}>
+          <Text style={styles.menuText}>{texts?.testName?.cps}</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => changeLanguage('en')} style={styles.menuItem}>
           <View style={{display:'flex',flexDirection:'row',alignItems:'center'}}>

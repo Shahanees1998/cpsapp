@@ -1,30 +1,32 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useLanguage } from '../../src/context/LanguageContext';
 
 const Footer = ({navigation}) => {
+    const { texts } = useLanguage();
+
     return (
         <View style={styles.footer}>
             <Text style={styles.footerText}>
-                Copyright © 2024 tapspeedtest.com All rights reserved
+                {texts?.footer?.copyright}
             </Text>
             <View style={styles.footerLinks}>
                 <TouchableOpacity onPress={() => navigation.navigate("PrivacyPolicy")}>
-                    <Text style={styles.footerLink}>Privacy Policy</Text>
+                    <Text style={styles.footerLink}>{texts?.footer?.privacyPolicy}</Text>
                 </TouchableOpacity>
                 <Text style={styles.separator}>—</Text>
                 <TouchableOpacity onPress={() => navigation.navigate("Disclaimer")}>
-                    <Text style={styles.footerLink}>Disclaimer</Text>
+                    <Text style={styles.footerLink}>{texts?.footer?.disclaimer}</Text>
                 </TouchableOpacity>
                 <Text style={styles.separator}>/</Text>
                 <TouchableOpacity onPress={() => navigation.navigate("ContactUs")}>
-                    <Text style={styles.footerLink}>Contact Us</Text>
+                    <Text style={styles.footerLink}>{texts?.footer?.contactUs}</Text>
                 </TouchableOpacity>
                 <Text style={styles.separator}>/</Text>
-                
             </View>
             <TouchableOpacity onPress={() => navigation.navigate("About")} style={{alignSelf:"flex-start",marginLeft:30}}>
-                    <Text style={styles.footerLink}>About</Text>
-                </TouchableOpacity>
+                <Text style={styles.footerLink}>{texts?.footer?.about}</Text>
+            </TouchableOpacity>
         </View>
     );
 };

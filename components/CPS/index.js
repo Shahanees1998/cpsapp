@@ -316,7 +316,7 @@ export default function CPSTest({ navigation }) {
 
             </View>
           </ImageBackground>
-          <CPSDetail />
+          <CPSDetail navigation={navigation}/>
           {/* <CarousalComponent/> */}
           <Footer navigation={navigation} />
         </>

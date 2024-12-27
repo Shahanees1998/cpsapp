@@ -1,8 +1,8 @@
 // CPSDetail.js
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Linking, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Linking, ImageBackground, TouchableOpacity } from 'react-native';
 import { useLanguage } from '../../src/context/LanguageContext';
-const CPSDetail = () => {
+const CPSDetail = (navigation) => {
   const { texts } = useLanguage();
   return (
     <View
@@ -11,7 +11,7 @@ const CPSDetail = () => {
     >
         <View style={styles.mainContentContainer}>
           <View style={styles.cpsTest}>
-            <Text style={styles.header}>{texts?.cpsTest?.container1?.question1} <Text style={styles.cpsColor}>{texts?.cpsTest?.container1?.questiontitle} </Text></Text>
+            <Text style={styles.header}>{texts?.cpsTest?.container1?.question1}<Text style={styles.cpsColor}>{texts?.cpsTest?.container1?.questiontitle} </Text></Text>
             <Text style={styles.paragraph}>
              {texts?.cpsTest?.container1?.answer1}
             </Text>
@@ -20,7 +20,7 @@ const CPSDetail = () => {
             <Text style={styles.header}>{texts?.cpsTest?.container2?.question1} <Text style={styles.cpsColor}>{texts?.cpsTest?.container2?.questiontitle}</Text></Text>
             <Text style={styles.paragraph}>{texts?.cpsTest?.container2?.answer1}</Text>
             <View style={styles.bulletList}>
-              <Text style={styles.bulletPoint}>• {texts?.cpsTest?.container2?.bullets.bullet1}</Text>
+            <Text style={styles.bulletPoint}>• {texts?.cpsTest?.container2?.bullets.bullet1} <Text style={styles.cpsColor}>{texts?.cpsTest?.container1?.questiontitle} </Text></Text>
               <Text style={styles.bulletPoint}>• {texts?.cpsTest?.container2?.bullets.bullet2}</Text>
               <Text style={styles.bulletPoint}>• {texts?.cpsTest?.container2?.bullets.bullet3}</Text>
               <Text style={styles.bulletPoint}>• {texts?.cpsTest?.container2?.bullets.bullet4}</Text>
@@ -33,7 +33,7 @@ const CPSDetail = () => {
             </Text>
           </View>
           <View style={styles.cpsTest}>
-            <Text style={styles.header}>{texts?.cpsTest?.container4?.question1} <Text style={styles.cpsColor}>{texts?.cpsTest?.container4?.questiontitle}</Text></Text>
+            <Text style={styles.header}>{texts?.cpsTest?.container4?.question1}<Text style={styles.cpsColor}>{texts?.cpsTest?.container4?.questiontitle}</Text></Text>
             <Text style={styles.paragraph}>
             {texts?.cpsTest?.container4?.answer1}
             </Text>
@@ -45,7 +45,7 @@ const CPSDetail = () => {
             </Text>
           </View>
           <View style={styles.cpsTest}>
-            <Text style={styles.header}>{texts?.cpsTest?.container6?.question1}<Text style={styles.cpsColor}>{texts?.cpsTest?.container6?.questiontitle}</Text></Text>
+            <Text style={styles.header}>{texts?.cpsTest?.container6?.question1} <Text style={styles.cpsColor}>{texts?.cpsTest?.container6?.questiontitle}</Text></Text>
             <Text style={styles.paragraph}>{texts?.cpsTest?.container6?.answer1}</Text>
             <View style={styles.bulletList}>
               <Text style={styles.bulletPoint}>• <Text style={styles.bold}>{texts?.cpsTest?.container6?.bullets.bullet1.part1}</Text> {texts?.cpsTest?.container6?.bullets.bullet1.part2}</Text>
@@ -55,7 +55,7 @@ const CPSDetail = () => {
             </View>
           </View>
           <View style={styles.cpsTest}>
-            <Text style={styles.header}>{texts?.cpsTest?.container7?.question1}<Text style={styles.cpsColor}>{texts?.cpsTest?.container7?.questiontitle}</Text></Text>
+            <Text style={styles.header}>{texts?.cpsTest?.container7?.question1} <Text style={styles.cpsColor}>{texts?.cpsTest?.container7?.questiontitle}</Text></Text>
             <Text style={styles.paragraph}>
             {texts?.cpsTest?.container7?.answer1}
             </Text>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   detailBackground: {
     flex: 1,
     padding: 35,
-    backgroundColor:"transparent"
+    backgroundColor:"white"
   },
   contentScreen: {
     flexGrow: 1,

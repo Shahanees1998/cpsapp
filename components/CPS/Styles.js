@@ -135,6 +135,8 @@ iconCircle: {
     color: '#fff',
     fontSize: 18,
     position: 'absolute',
+    width:120,
+    textAlign:"center"
   },
   statsContainer: {
     flexDirection: 'row',

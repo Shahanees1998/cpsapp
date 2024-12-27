@@ -185,10 +185,8 @@ export default function ReactionTest({ navigation }) {
             <Navbar onToggle={toggleFullScreen} />
           </View>
           <View style={styles.headerContainer}>
-            <Text style={styles.headerTitle}>Reaction Time Test</Text>
-            <Text style={styles.tagline}>
-              Take a free test to become a pro at your favorite challenge:
-            </Text>
+            <Text style={styles.headerTitle}>{texts?.ReactionTest?.title}</Text>
+            <Text style={styles.tagline}>{texts?.ReactionTest?.tagline}</Text>
             <Text style={styles.colorDisplay}>{selectedColorName}</Text>
           </View>
           {!isStartGame ? <View
@@ -206,7 +204,7 @@ export default function ReactionTest({ navigation }) {
           >
             <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center' }}>
               <Text style={{ width: 220, color: 'white', fontSize: 16, textAlign: 'center', marginTop: 50, marginBottom: 50 }}>
-                This Reaction Time Test is originally designed by cpstest.io to measure the reaction time for users. Please read the instructions first before proceeding to play this Reflex Test game.
+                {texts?.ReactionTest?.tagline2}
               </Text>
             </View>
             <HeartIcon size={40} />
@@ -270,14 +268,15 @@ export default function ReactionTest({ navigation }) {
                       style={styles.animationImage}
                     />
                     <Text style={{ color: 'black', fontSize: 40 }}>{reactionTime} MS</Text>
-                    <Text style={{ color: 'black', fontSize: 20 }}>your Average Reaction Time</Text>
-                    <TouchableOpacity onPress={() => { setShowModal(false); resetTest() }}><Text style={{ color: 'white', backgroundColor: '#7655ca', paddingInline: 40, paddingVertical: 10, borderRadius: 10, marginTop: 20 }}>Next</Text></TouchableOpacity>
-
+                    <Text style={{ color: 'black', fontSize: 20 }}>{texts?.ReactionTest?.averageReactionTime}</Text>
+                    <TouchableOpacity onPress={() => { setShowModal(false); resetTest() }}>
+                      <Text style={{ color: 'white', backgroundColor: '#7655ca', paddingInline: 40, paddingVertical: 10, borderRadius: 10, marginTop: 20 }}>{texts?.ReactionTest?.tryAgain}</Text>
+                    </TouchableOpacity>
                   </View>
                     :
                     <View>
-                      {selectedColorName && <View style={{ width: '100%', marginTop: 20, display: 'flex', alignItems: 'center', justifyContent: 'center' }}> <Text style={{ color: 'white' }}>Click on <Text style={{ color: selectedColor, fontSize: 18 }}>{selectedColorName} icon</Text></Text></View>}
-                      {reactionTime != null && <Text style={{ color: 'white' }}>your reaction time is {reactionTime} milliseconds</Text>}
+                      {selectedColorName && <View style={{ width: '100%', marginTop: 20, display: 'flex', alignItems: 'center', justifyContent: 'center' }}> <Text style={{ color: 'white' }}>{texts?.ReactionTest?.clickOn} <Text style={{ color: selectedColor, fontSize: 18 }}>{selectedColorName} icon</Text></Text></View>}
+                      {reactionTime != null && <Text style={{ color: 'white' }}>{texts?.ReactionTest?.yourReactionTime} {reactionTime} milliseconds</Text>}
                       <View style={{
                         borderRadius: 50,
                         overflow: 'hidden',
@@ -335,7 +334,7 @@ export default function ReactionTest({ navigation }) {
 
               :
                 <View style={{backgroundColor: 'rgba(3,109,248,.234)', borderRadius: 20 , display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: 450 }}>
-                  <Text style={{ color: 'white',width:'80%', paddingVertical:10, textAlign:'center', fontSize: 22 }}>your Average Reaction Time</Text>
+                  <Text style={{ color: 'white',width:'80%', paddingVertical:10, textAlign:'center', fontSize: 22 }}>{texts?.ReactionTest?.averageReactionTime}</Text>
                   <Image
                     source={require('../../assets/reaction-time.jpg')}
                     style={styles.animationImage}

@@ -1,5 +1,6 @@
 {
   "cpsTest": {
+    "second" : "Second",
     "title": "CPS TEST | CLICKS PER SECOND",
     "tagline": "Test your click speed with our Click Speed Test. Choose from 1 to 100 seconds to measure and improve your CPS quickly and accurately!",
     "leftsidetitle": "CPS Test Online",
@@ -23,7 +24,7 @@
       "questiontitle": "CPS Test",
       "answer1": "Taking a CPS test is as straightforward as it can be. Here’s how you can quickly test your clicking speed with our tool:",
       "bullets": {
-        "bullet1": "Launch our CPS Test.",
+        "bullet1": "Launch our.",
         "bullet2": " Choose your time limit from 1 second to 100 seconds.",
         "bullet3": "Place your finger on the mouse and click as fast as possible during the countdown.",
         "bullet4": "Once the time is up, the tool will display your total clicks and your CPS score. You can repeat the test to track improvements in your clicking speed."
@@ -95,7 +96,7 @@
     "container2": {
       "question1": " Why is",
       "questiontitle": "clicking speed important?",
-      "answer1": "In competitive gaming, every millisecond counts. Whether you’re battling in Minecraft, Fortnite, or any fast-paced game, the faster you can click, the quicker you can respond to in-game events. This can give you a big edge when attacking enemies, building structures, or pulling off fast combos. If you're into PvP games, having a high clicking speed can help you dominate the competition. But even if you’re not exactly a gamer, improving your clicking speed can also help you become more efficient in everyday computer tasks.",
+      "answer1": "In competitive gaming, every millisecond counts. Whether you’re battling in Minecraft, Fortnite, or any fast-paced game, the faster you can click, the quicker you can respond to in-game events. This can give you a big edge when attacking enemies, building structures, or pulling off fast combos. If you're into PvP games, having a high clicking speed can help you dominate the competition. But even if you’re not exactly a gamer, improving your clicking speed can also help you become more efficient in everyday computer tasks."
     },
     "container3": {
       "question1": "What is",
@@ -208,7 +209,7 @@
     "container5": {
       "question1": "How Does",
       "questiontitle": "the Butterfly Click Test Work?",
-      "answer1": "The butterfly click test counts how many times you can click in a specific time frame. It records each click and calculates your CPS (clicks per second). Our test even shows how consistent your clicking speed is throughout the timer, so you can work on staying steady during longer gaming sessions.",
+      "answer1": "The butterfly click test counts how many times you can click in a specific time frame. It records each click and calculates your CPS (clicks per second). Our test even shows how consistent your clicking speed is throughout the timer, so you can work on staying steady during longer gaming sessions."
     },
     "container6": {
       "question1": "How to",
@@ -281,6 +282,10 @@
    
   },
   "ReactionTest": {
+    "averageReactionTime": "Your Average Reaction Time",
+    "clickOn": "Click on",
+    "yourReactionTime": "Your reaction time is",
+    "tryAgain": "Try Again",
     "title": "Reaction Time Test",
     "tagline": "Take a free reaction time test to become a pro at your favorite challenge:",
     "tagline2": "This Reaction Time Test is originally designed by cpstest.io to measure the reaction time for users. Please read the instructions first before proceeding to play this Reflex Test game.",
@@ -341,6 +346,159 @@
         }
       }
     }
-   
+  },
+  "about": {
+    "headerTitle": "About",
+    "whoWeAre": "Who We Are",
+    "whoWeAreText": "At TapSpeedTest.com, we’ve built a thriving community of individuals who are passionate about gaming and technology. We understand the importance of speed and precision in competitive gaming, which is why we’ve developed our click speed test (CPS Test) with a strong focus on accuracy and user experience.",
+    "ourMission": "Our Mission",
+    "ourMissionText": "Our mission is to provide gamers with the best tools to track and improve their clicking speed. We prioritize accuracy and ease of use, allowing gamers of all levels to quickly and efficiently test their skills. Through our tests, we aim to help users improve their gaming performance, one click at a time.",
+    "whatWeOffer": "What We Offer",
+    "ourVision": "Our Vision",
+    "ourVisionText": "We envision TapSpeedTest.com as a leading platform where gamers can continuously improve their skills with tools tailored to their needs. Our goal is to keep enhancing the platform by introducing more variations and modes to meet the evolving demands of the gaming community.",
+    "stayConnected": "Stay Connected",
+    "stayConnectedText": "We’re constantly evolving, and we encourage you to keep visiting our site as we roll out new features and tools. If you have any questions, feedback, or suggestions, don’t hesitate to reach out to us via the Contact page.",
+    "thankYou": "Thank you for choosing TapSpeedTest.com — let’s click our way to victory!"
+  },
+  "AimTrainerTestModal": {
+    "title": "Your Results",
+    "hits": "Hits: ",
+    "missed": "Missed: ",
+    "time": "Time: ",
+    "close": "Close"
+  },
+  "ContactUs": {
+    "headerTitle": "Contact Us",
+    "customerSupport": {
+      "heading": "Customer Support",
+      "paragraph": "Feeling lost or need assistance? Our Customer Support heroes are ready to help! If our support resources haven’t resolved your issue, feel free to reach out directly at support@tapspeedtest.com. We’ll get back to you as soon as possible to make sure your journey with Tap Speed Test is a joyful one!"
+    },
+    "communitySupport": {
+      "heading": "Community Support",
+      "paragraph": "Need help with login, registration, or using our tools? Our amazing user community is here to assist! Share your questions, vote on ideas, and engage with other users who are just as passionate about Tap Speed Test as you are. If you're stuck, drop a message, and a fellow user will be happy to help! You can also contact us at community@tapspeedtest.com."
+    },
+    "reportBug": {
+      "heading": "Report a Bug",
+      "paragraph": "Oops! Spotted a bug while using one of our tools or games? Let us know! Your reports are invaluable in helping us keep Tap Speed Test running smoothly. If you find a glitch, send us the details along with any images or videos at bugs@tapspeedtest.com. We’ll work quickly to fix the issue and improve your experience."
+    },
+    "collaboration": {
+      "heading": "Collaboration & Advertising",
+      "paragraph": "Got exciting ideas or want to explore partnership and advertising opportunities with Tap Speed Test? We’re all ears! Whether you’re looking to collaborate or bring something new to the table, let’s create something amazing together. Contact us at collaborate@tapspeedtest.com and let’s make some magic happen."
+    },
+    "socialMedia": {
+      "heading": "Social Media:",
+      "paragraph": "Stay connected and reach out to us on social media for quick support and updates: Twitter: @TapSpeedTest"
+    }
+  },
+  "CarousalComponent": {
+    "header": "Other Tools",
+    "description": "For creating responsive and feature-rich carousels in React, libraries like react-slick and swiper offer extensive."
+  },
+  "Disclaimer": {
+    "title": "Disclaimer",
+    "content": "The information held on this website is for general information purposes only. Tap Speed Test does not make representations or warranties of any kind about the accuracy or reliability of the tools or website or the products or services contained on this website for any purpose. While the information is periodically updated, errors and omissions may occur. No guarantee is given that the information provided on this website is correct and up-to-date. Users may rely on such information at their own risk. In no case will Tap Speed Test and its contributors be responsible or answerable for any loss or damage arising from the use of the content or tools on the website.",
+    "externalWebsites": "Through this website, you can visit other external websites by following hyperlinks. We do not have control or liability over the content and availability of these sites, even though we endeavor to provide only quality links to legitimate and valuable websites.",
+    "consent": "By using the website, you agree to accept the Terms of Use. Tap Speed Test and its contributors have the right to alter, modify, or update these terms of use at any time. Please read these terms and conditions carefully. The terms and conditions can be accessed from the link at the bottom of any page of our website.",
+    "updates": "We constantly put in efforts to keep the website up and ensure its smooth functionality. However, Tap Speed Test will not be responsible if the website is temporarily unavailable due to technical problems that are not under our control.",
+    "copyright": "Tap Speed Test and its suppliers own all copyrights on this website. We recommend you not copy or display content or any portion of this site for redistribution to third parties without the permission of Tap Speed Test."
+  },
+  "footer": {
+    "copyright": "Copyright © 2024 tapspeedtest.com All rights reserved",
+    "privacyPolicy": "Privacy Policy",
+    "disclaimer": "Disclaimer",
+    "contactUs": "Contact Us",
+    "about": "About"
+  },
+  "privacy": {
+    "tagline": "If you would like any more information or have questions regarding our privacy policy, please feel free to reach out to us. The privacy of our guests is of the utmost importance to us. The following information outlines how personal data is received and collected by us.",
+    "heading": "Privacy Policy for Tap Speed Test",
+    "content1": "At Tap Speed Test, accessible at",
+    "content2": "one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that are collected and recorded by Tap Speed Test and how we use it. If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us through email at",
+    "policyDescription": "This privacy policy applies only to our online activities and is valid for visitors to our website with regard to the information that they share and/or collect in Tap Speed Test. This policy does not apply to any information collected offline or via channels other than this website.",
+    "consentHeading": "Consent",
+    "consentText": "By using our website, you hereby consent to our Privacy Policy and agree to its terms.",
+    "informationHeading": "Information we collect",
+    "informationDescription": "The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.",
+    "contactDescription": "If you contact us directly, we may receive additional information about you, such as your name, email address, phone number, the contents of the message and/or attachments you may send us, and any other information you may choose to provide.",
+    "registrationDescription": "When you register for an account, we may ask for your contact information, including items such as name, company name, address, email address, and telephone number.",
+    "usageHeading": "How we use your information",
+    "usageDescription": "We use the information we collect in various ways, including to:",
+    "usageItem1": "Provide, operate, and maintain our website",
+    "usageItem2": "Improve, personalize, and expand our website",
+    "usageItem3": "Understand and analyze how you use our website",
+    "usageItem4": "Develop new products, services, features, and functionality",
+    "usageItem5": "Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes",
+    "usageItem6": "Send you emails",
+    "usageItem7": "Find and prevent fraud",
+    "logFileHeading": "Log File",
+    "logFileDescription": "Tap Speed Test follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this as part of hosting services' analytics. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any personally identifiable information. The purpose of the information is to analyze trends, administer the site, track users' movement on the website, and gather demographic information.",
+    "cookiesHeading": "Cookies and Web Beacons",
+    "cookiesDescription": "Like any other website, Tap Speed Test uses ‘cookies’. These cookies are used to store information, including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.",
+    "dartCookieHeading": "DoubleClick DART Cookie",
+    "dartCookieDescription": "Google is one of the third-party vendors on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – Some advertisers on our site may use cookies and web beacons.",
+    "advertisingPoliciesHeading": "Advertising Partners Privacy Policies",
+    "advertisingPoliciesDescription": "You may consult this list to find the Privacy Policy for each of the advertising partners of Tap Speed Test. Third-party ad servers or ad networks use technologies like cookies, JavaScript, or web beacons that are used in their respective advertisements and links that appear on Tap Speed Test, which are sent directly to users' browsers. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.",
+    "gdprHeading": "GDPR Privacy Policy (Data Protection Rights)",
+    "gdprDescription": "We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following: The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service. The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete. The right to erasure – You have the right to request that we erase your personal data, under certain conditions. The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions. The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions. The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.",
+    "childrenHeading": "Children's Information",
+    "childrenDescription": "Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. Tap Speed Test does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records."
+  },
+  "jitterDetails": {
+    "heading1": "What is Jitter Clicking?",
+    "detail1": "Jitter clicking is a technique used to click a mouse button at an extremely high rate, often for gaming purposes, particularly in games like Minecraft or first-person shooters where fast clicking can give players an advantage. The idea behind jitter clicking is to tense your arm or wrist muscles to create rapid vibrations that allow your finger to press the mouse button much faster than regular clicking.",
+    "heading2": "What is a good jitter test result?",
+    "detail2": "A good jitter-clicking test result usually measures the Clicks Per Second (CPS). An average person can click around 6-7 CPS, while experienced jitter clickers can reach anywhere between 10-15 CPS or even higher. However, anything over 12 CPS is generally considered a good result in gaming.",
+    "heading3": "How to Jitter Click?",
+    "steps": [
+      "1. Grip the mouse: Hold the mouse firmly but don't grip it too tightly. Most people prefer a claw or fingertip grip for jitter-clicking.",
+      "2. Tense your arm: Focus on tensing your forearm and wrist muscles to produce rapid vibrations. Avoid only moving your finger.",
+      "3. Vibrate your finger: Allow the vibration to transfer through to your finger so it moves up and down on the mouse button, creating quick clicks.",
+      "4. Practice: Like any skill, jitter clicking requires practice to control speed and accuracy. It may take time to get comfortable with the technique."
+    ],
+    "heading4": "Is Jitter Clicking bad?",
+    "detail3": "Jitter clicking has been known to cause some forms of discomfort in numerous cases. It can hurt your arm and wrist muscles as it causes excessive strain for a long period of time, leading to conditions like Tendinitis and even Carpal Tunnel Syndrome! In some cases, you can even face a loss of control of muscles because you’re vibrating your hand consistently. This can reduce your accuracy when you’re playing games like Minecraft!",
+    "heading5": "Alternatives to Jitter Click Test",
+    "detail4": "If you're concerned about the risks of jitter clicking, there are safer alternatives for fast clicking:",
+    "alternative1": "Butterfly Clicking: This involves using two fingers to alternate clicks on the same button. It's easier on the hands and can also achieve high CPS.",
+    "alternative2": "Drag Clicking: By dragging your finger lightly across the mouse button, friction can create a high number of clicks per second, though this is a more advanced technique and not recommended for all mice.",
+    "alternative3": "Normal Clicking: While slower, regular clicking puts less strain on your hands and arms, making it a safer option.",
+    "conclusion": "Each method comes with its own learning curve and CPS potential, but Butterfly Clicking is usually the most viable alternative for fast CPS without excessive strain."
+  },
+  "ReactionDetail": {
+    "header1": "What is a Reaction Time Test?",
+    "paragraph1": "A reaction time test measures how quickly a person responds to a stimulus, such as a visual or auditory cue. It evaluates your reflexes and cognitive processing speed. Reaction time tests are commonly used in a variety of fields—from medical assessments to sports and gaming—to determine how fast a person can react to certain triggers.",
+    "header2": "Why is Reaction Time Important?",
+    "subHeader1": "Helps identify health issues",
+    "paragraph2": "Reaction time can be an indicator of neurological conditions like ADHD (Attention Deficit Hyperactivity Disorder) or Parkinson's disease, where delayed or inconsistent responses can suggest underlying health concerns.",
+    "subHeader2": "Improves your performance in competitive gaming",
+    "paragraph3": "Faster reaction times give players a significant advantage in competitive gaming, where quick decisions and reflexes can mean the difference between winning and losing.",
+    "subHeader3": "Makes you a better driver",
+    "paragraph4": "A quicker reaction time allows you to respond more effectively to sudden changes in traffic, reducing the risk of accidents.",
+    "subHeader4": "Makes you better at attention-focused jobs",
+    "paragraph5": "Professions requiring focus and alertness, such as air traffic controllers, surgeons, or athletes, benefit greatly from a sharp reaction time, allowing for faster and more accurate decision-making.",
+    "header3": "How to Test Your Reaction Time?",
+    "paragraph6": "Here’s how you can test your reaction time:",
+    "bullet1": "1. Launch our website.",
+    "bullet2": "2. Read the instructions provided before starting the test to ensure you understand the process.",
+    "bullet3": "3. Click on the “Start Test” button to begin. You’ll be prompted to respond to a stimulus as quickly as possible.",
+    "bullet4": "4. Your reaction time will be recorded based on how fast you respond to the cue, and the results will be displayed at the end of the test.",
+    "header4": "How to Improve Reaction Time?",
+    "bulletPoint1": "Train your weak points: Identify specific areas where your reaction time might be slower and focus on improving those areas through targeted exercises or drills.",
+    "bulletPoint2": "Practice: Consistent practice helps you get faster. Engaging in activities like video games, sports, or reaction time drills can significantly enhance your response time over time.",
+    "bulletPoint3": "Have the right nutrition intake: A healthy, balanced diet supports cognitive function. Nutrients like omega-3 fatty acids, found in fish, and antioxidants, found in fruits and vegetables, are essential for maintaining brain health and quick thinking.",
+    "bulletPoint4": "Engage in physical exercises: Physical fitness improves both the brain and body’s ability to react quickly. Cardiovascular exercises, strength training, and coordination drills can sharpen your reflexes.",
+    "bulletPoint5": "Practice cognitive exercises: Engage in mental exercises like puzzles, brain-training games, or tasks that require quick decisions to stimulate cognitive speed and improve your reaction time.",
+    "header5": "Factors that Influence Reaction Time",
+    "bulletPoint6": "Age: As we age, our reaction times tend to slow down due to natural cognitive and physical decline.",
+    "bulletPoint7": "Fitness: Higher levels of physical fitness are associated with faster reaction times because of improved coordination and muscle response.",
+    "bulletPoint8": "Stimulus complexity: Simpler stimuli result in faster reaction times, while more complex stimuli may slow down response time as they require more processing.",
+    "bulletPoint9": "Hydration: Dehydration can negatively affect cognitive function and reaction speed. Staying properly hydrated is important for maintaining optimal brain and body performance."
+  },
+  "testName" : {
+    "kohi" : "Kohi Click Test",
+    "reaction" : "Reaction Click Test",
+    "butter" : "Butterfly Click",
+    "aim" : "Aim Trainer Test",
+    "cps" : "CPS Test"
   }
 }

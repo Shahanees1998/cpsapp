@@ -35,13 +35,12 @@ const App = () => {
   }, []);
 
   if (!fontsLoaded) {
-    return null; 
+    return null;
   }
 
   return (
     <LanguageProvider>
       <Stack.Navigator initialRouteName="CPSTest">
-       
         <Stack.Screen name="CPSTest" component={CPSTest} options={{ headerShown: false }} />
         <Stack.Screen name="KohiTest" component={KohiTest} options={{ headerShown: false }} />
         <Stack.Screen name="ReactionTest" component={ReactionTest} options={{ headerShown: false }} />
@@ -54,10 +53,9 @@ const App = () => {
         <Stack.Screen name="About" component={About} options={{ headerShown: false }} />
         <Stack.Screen name="ContactUs" component={ContactUs} options={{ headerShown: false }} />
         <Stack.Screen name="CarousalComponent" component={CarousalComponent} options={{ headerShown: false }} />
-        
-     </Stack.Navigator>
-     </LanguageProvider>
-    
+      </Stack.Navigator>
+    </LanguageProvider>
+
   );
 };
 

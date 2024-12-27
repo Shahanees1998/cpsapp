@@ -2,14 +2,16 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { KohiIcon, ButterflyIcon, AimIcon, ReactionIcon, APMIcon } from '../icons'; // Adjust the import path as necessary
 import styles from './Styles';
-
+import { useLanguage } from '@/src/context/LanguageContext';
 const LeftTestListBar = ({ navigation, title }) => {
+  const {texts} = useLanguage()
+
   const tests = [
-    { name: 'Kohi Click Test', Icon: KohiIcon, route: 'KohiTest' },
-    { name: 'Reaction Click Test', Icon: ReactionIcon, route: 'ReactionTest' },
-    { name: 'Butterfly Click', Icon: ButterflyIcon, route: 'ButterflyTest' },
-    { name: 'Aim Trainer Test', Icon: AimIcon, route: 'AimTrainerTest' },
-    { name: 'APM Test', Icon: APMIcon, route: 'APMTest' },
+    { name: texts?.testName?.kohi, Icon: KohiIcon, route: 'KohiTest' },
+    { name: texts?.testName?.reaction, Icon: ReactionIcon, route: 'ReactionTest' },
+    { name: texts?.testName?.butter, Icon: ButterflyIcon, route: 'ButterflyTest' },
+    { name: texts?.testName?.aim, Icon: AimIcon, route: 'AimTrainerTest' },
+    { name: texts?.testName?.cps, Icon: APMIcon, route: 'CPSTest' },
   ];
 
   return (

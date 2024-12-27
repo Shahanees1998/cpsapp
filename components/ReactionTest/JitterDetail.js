@@ -1,8 +1,10 @@
 // path/to/your/component/JitterDetail.js
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Linking } from 'react-native';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const JitterDetail = () => {
+    const { texts } = useLanguage();
     return (
         <ScrollView style={styles.container}>
             <View style={styles.detailBackground}>
@@ -10,10 +12,10 @@ const JitterDetail = () => {
                     <View style={styles.mainContentContainer}>
                         <View style={styles.cpsTest}>
                             <Text style={styles.heading}>
-                                What is <Text style={styles.cpsColor}>Jitter Clicking?</Text>
+                                {texts?.jitterDetails?.heading1}
                             </Text>
                             <Text style={styles.detailP}>
-                                Jitter clicking is a technique used to click a mouse button at an extremely high rate, often for gaming purposes, particularly in games like Minecraft or first-person shooters where fast clicking can give players an advantage. The idea behind jitter clicking is to tense your arm or wrist muscles to create rapid vibrations that allow your finger to press the mouse button much faster than regular clicking.
+                                {texts?.jitterDetails?.detail1}
                             </Text>
                         </View>
                         <View style={styles.cpsTestMainHr}>
@@ -21,10 +23,10 @@ const JitterDetail = () => {
                         </View>
                         <View style={styles.cpsTest}>
                             <Text style={styles.heading}>
-                                What is <Text style={styles.cpsColor}>a good jitter test result?</Text>
+                                {texts?.jitterDetails?.heading2}
                             </Text>
                             <Text>
-                                A good jitter-clicking test result usually measures the Clicks Per Second (CPS). An average person can click around 6-7 CPS, while experienced jitter clickers can reach anywhere between 10-15 CPS or even higher. However, anything over 12 CPS is generally considered a good result in gaming.
+                                {texts?.jitterDetails?.detail2}
                             </Text>
                         </View>
                         <View style={styles.cpsTestMainHr}>
@@ -32,23 +34,22 @@ const JitterDetail = () => {
                         </View>
                         <View style={styles.cpsTest}>
                             <Text style={styles.heading}>
-                                How to <Text style={styles.cpsColor}>Jitter Click?</Text>
+                                {texts?.jitterDetails?.heading3}
                             </Text>
                             <Text>Here are some steps to jitter click effectively:</Text>
-                            <Text style={styles.listItem}>1. <Text style={styles.bold}>Grip the mouse:</Text> Hold the mouse firmly but don't grip it too tightly. Most people prefer a claw or fingertip grip for jitter-clicking.</Text>
-                            <Text style={styles.listItem}>2. <Text style={styles.bold}>Tense your arm:</Text> Focus on tensing your forearm and wrist muscles to produce rapid vibrations. Avoid only moving your finger.</Text>
-                            <Text style={styles.listItem}>3. <Text style={styles.bold}>Vibrate your finger:</Text> Allow the vibration to transfer through to your finger so it moves up and down on the mouse button, creating quick clicks.</Text>
-                            <Text style={styles.listItem}>4. <Text style={styles.bold}>Practice:</Text> Like any skill, jitter clicking requires practice to control speed and accuracy. It may take time to get comfortable with the technique.</Text>
+                            {texts?.jitterDetails?.steps.map((step, index) => (
+                                <Text key={index} style={styles.listItem}>{step}</Text>
+                            ))}
                         </View>
                         <View style={styles.cpsTestMainHr}>
                             <View style={styles.hr} />
                         </View>
                         <View style={styles.cpsTest}>
                             <Text style={styles.heading}>
-                                Is <Text style={styles.cpsColor}>Jitter Clicking bad?</Text>
+                                {texts?.jitterDetails?.heading4}
                             </Text>
                             <Text>
-                                Jitter clicking has been known to cause some forms of discomfort in numerous cases. It can hurt your arm and wrist muscles as it causes excessive strain for a long period of time, leading to conditions like Tendinitis and even Carpal Tunnel Syndrome! In some cases, you can even face a loss of control of muscles because you’re vibrating your hand consistently. This can reduce your accuracy when you’re playing games like Minecraft!
+                                {texts?.jitterDetails?.detail3}
                             </Text>
                         </View>
                         <View style={styles.cpsTestMainHr}>
@@ -56,14 +57,16 @@ const JitterDetail = () => {
                         </View>
                         <View style={styles.cpsTest}>
                             <Text style={styles.heading}>
-                                Alternatives to <Text style={styles.cpsColor}>Jitter Click Test</Text>
+                                {texts?.jitterDetails?.heading5}
                             </Text>
-                            <Text>If you're concerned about the risks of jitter clicking, there are safer alternatives for fast clicking:</Text>
-                            <Text style={styles.listItem}><Text style={styles.bold}>Butterfly Clicking:</Text> This involves using two fingers to alternate clicks on the same button. It's easier on the hands and can also achieve high CPS.</Text>
-                            <Text style={styles.listItem}><Text style={styles.bold}>Drag Clicking:</Text> By dragging your finger lightly across the mouse button, friction can create a high number of clicks per second, though this is a more advanced technique and not recommended for all mice.</Text>
-                            <Text style={styles.listItem}><Text style={styles.bold}>Normal Clicking:</Text> While slower, regular clicking puts less strain on your hands and arms, making it a safer option.</Text>
                             <Text>
-                                Each method comes with its own learning curve and CPS potential, but <Text style={styles.link} onPress={() => Linking.openURL('/butterfly-click')}>Butterfly Clicking</Text> is usually the most viable alternative for fast CPS without excessive strain.
+                                {texts?.jitterDetails?.detail4}
+                            </Text>
+                            <Text style={styles.listItem}>{texts?.jitterDetails?.alternative1}</Text>
+                            <Text style={styles.listItem}>{texts?.jitterDetails?.alternative2}</Text>
+                            <Text style={styles.listItem}>{texts?.jitterDetails?.alternative3}</Text>
+                            <Text>
+                                {texts?.jitterDetails?.conclusion}
                             </Text>
                         </View>
                         <View style={styles.cpsTestMainHr}>

@@ -1,293 +1,501 @@
 {
-    "lang": "es",
-    "startTest": "Iniciar prueba",
-    "clickTest": "Prueba de clic",
-    "chooseYourTime": "Elija su tiempo conveniente para calcular el puntaje de CPS",
-    "second": "Segundo",
-    "seconds": "Segundos",
-    "click": "Hacer clic",
-    "clicks": "Clics",
-    "clickToStartTest": "HAGA CLIC PARA INICIAR LA PRUEBA",
-    "pressSpacebarButton": "Presione el botón <span class='spacebar_span'>espaciadora</span>",
-    "timer": "Temporizador",
-    "score": "Puntuación",
-    "cpsTestOnline": "Prueba de CPS en línea",
-    "toolBarTagline": "Desafíate a medir los clics por segundo",
-    "spacebarCounter": "Contador de barra espaciadora",
-    "startGame": "Iniciar juego",
-    "easy": "Fácil",
-    "normal": "Normal",
-    "medium": "Medio",
-    "fast": "Rápido",
-    "tiny": "Pequeño",
-    "small": "Pequeño",
-    "large": "Grande",
-    "percentage": "Porcentaje",
-    "tryAgain": "Intentar de nuevo",
+  "cpsTest": {
+    "second" : "Segundo",
+    "title": "PRUEBA CPS | CLICKS POR SEGUNDO",
+    "tagline": "Prueba tu velocidad de clics con nuestra Prueba de Velocidad de Clics. ¡Elige entre 1 y 100 segundos para medir y mejorar tu CPS rápida y precisamente!",
+    "leftsidetitle": "Prueba CPS en Línea",
+    "selectTimetitle": "Prueba CPS en Segundos",
+    "circletext": "Haz clic para comenzar",
+    "achievementtitle": "Tus Logros",
     "close": "Cerrar",
-    "next": "Siguiente",
-    "icon": "Icono",
-    "cpsTest": {
-      "metaTitle": "Prueba CPS – Verifica Tus Clics Por Segundo | Prueba de Velocidad de Clics",
-      "metaDescription": "¡Prueba tu velocidad de clics con nuestra Prueba de Velocidad de Clics! Elige entre 1 y 100 segundos para medir y mejorar tu CPS de manera rápida y precisa.",
-      "name": "Prueba de CPS",
-      "secondClickTest": "Prueba de clic de segundo CPS",
-      "title": "Prueba de CPS<span > | Clics</span> por segundo",
-      "smallDescription": "¡Prueba tu velocidad de clic con nuestra Prueba de Velocidad de Clic! Elige entre 1 y 100 segundos para medir y mejorar tu CPS de manera rápida y precisa.",
-      "detail": "<div class='content-screen'><div class='main-content-container'><div class='cps_test'><h2>¿Qué es<span class='cps_color'> la prueba CPS?</span></h2><p>La prueba CPS (Clics Por Segundo) es una herramienta sencilla que mide cuán rápido puedes hacer clic con tu mouse en un marco de tiempo específico, generalmente en segundos. Es muy utilizada por los jugadores para probar y mejorar su velocidad de clics en juegos que requieren reflejos rápidos, como Minecraft, juegos de disparos en primera persona y otros juegos competitivos. La prueba registra tus clics y calcula tu CPS para mostrar cuántas veces puedes hacer clic por segundo.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo hacer<span class='cps_color'> la prueba CPS?</span></h2><p>Hacer una prueba CPS es tan fácil como puede ser. Aquí te explicamos cómo puedes probar rápidamente tu velocidad de clics con nuestra herramienta:</p><ul><li>Inicia nuestra <a href='/' class='link-color'>prueba de CPS.</a></li><li>Elige tu límite de tiempo de 1 a 100 segundos.</li><li>Coloca tu dedo en el mouse y haz clic tan rápido como puedas durante la cuenta regresiva.</li><li>Una vez que el tiempo se agote, la herramienta mostrará tu total de clics y tu puntuación CPS. Puedes repetir la prueba para seguir tus mejoras en la velocidad de clics.</li></ul></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cuántos clics por segundo<span class='cps_color'> son rápidos?</span></h2><p>Un CPS de alrededor de 6 a 7 clics por segundo se considera promedio para la mayoría de las personas. Sin embargo, si puedes alcanzar de 8 a 10 CPS, ¡lo estás haciendo muy bien y se puede considerar rápido! Los jugadores habilidosos y los “clicadores” experimentados a menudo apuntan a un CPS de 10 o más, dependiendo de sus metas y las técnicas específicas de clic que utilizan, como el clic de jitter o el clic de mariposa.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Qué es<span class='cps_color'> el CPS en Minecraft?</span></h2><p>En Minecraft, el CPS se refiere a cuán rápido puedes hacer clic por segundo y es importante en el combate PvP. Cuanto más alto sea tu CPS, más rápido podrás golpear a los oponentes o colocar bloques. Para la mayoría de los jugadores de Minecraft, alcanzar un CPS entre 6 y 8 es suficiente, pero los jugadores competitivos a menudo apuntan a 10 CPS o más para obtener una ventaja en batallas rápidas.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo<span class='cps_color'> se calculan los clics por segundo?</span></h2><p>Calcular los clics por segundo (CPS) es sencillo. Toma el número total de clics que hiciste durante una prueba y divídelo por la duración de la prueba en segundos. Por ejemplo, si hiciste 50 clics en 10 segundos, tu CPS sería 50 ÷ 10 = 5 CPS.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo<span class='cps_color'> mejorar los clics por segundo?</span></h2><p>Para mejorar tu CPS, prueba las siguientes técnicas:</p><ul><li><b>Practica regularmente:</b> Cuanto más practiques, más rápido serás.</li><li><b>Intenta diferentes técnicas de clic:</b> Experimenta con métodos de clic como el jitter, mariposa, o arrastrado para encontrar lo que mejor te funcione.</li><li><b>Usa un buen mouse:</b> Un mouse con botones receptivos y de baja resistencia te ayudará a hacer clic más rápido.</li><li><b>Mantente relajado:</b> La tensión en tu mano o dedos puede ralentizarte. Mantén tu mano suelta y ligera para hacer clic de manera más eficiente.</li></ul></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>Realiza<span class='cps_color'> la prueba de clic Kohi</span></h2><p>La <a href='/kohi-click-test' class='link-color'>prueba de clic Kohi</a> es otra prueba de CPS súper popular entre los jugadores, especialmente en la comunidad de Minecraft. Nombrada así por el servidor PvP de Minecraft 'Kohi', mide tu velocidad de clics en una interfaz sencilla. Solo inicia el temporizador y haz clic tan rápido como puedas para ver tu CPS. Muchos jugadores de Minecraft utilizan esta prueba para afinar sus habilidades de clic y prepararse para batallas PvP.</p></div></div></div>"
+    "sloth": "¡Perezoso!",
+    "clickspeeddesc": "Hiciste clic a la velocidad de",
+    "clicksin": "Clics en",
+    "seconds": "segundos",
+    "feelings": "Deja de sentir pena por ti mismo, no seas un perdedor",
+    "tryagain": "Intenta de nuevo",
+    "container1": {
+      "question1": "¿Qué es ",
+      "questiontitle": "la Prueba CPS?",
+      "answer1": "La prueba CPS (Clicks Por Segundo) es una herramienta simple que mide qué tan rápido puedes hacer clic con el mouse en un marco de tiempo específico, generalmente en segundos. Es ampliamente utilizada por los jugadores para probar y mejorar su velocidad de clics para juegos que requieren reflejos rápidos, como Minecraft, juegos de disparos en primera persona y otros juegos competitivos. La prueba registra tus clics y calcula tu CPS para mostrar cuántas veces puedes hacer clic por segundo."
     },
-    "cpsCalculator": {
-      "metaTitle": "Calculadora CPS – Verifica tus clics por segundo | Prueba de velocidad de clics",
-      "metaDescription": "¡Pon a prueba tu velocidad de clics con nuestra Calculadora de Prueba de Velocidad de Clics! Elige entre 1 y 100 segundos para medir y mejorar tu CPS de manera rápida y precisa.",
-      "name": "Calculadora de CPS",
-      "secondClickTest": "Prueba de clic de segundo CPS",
-      "title": "Prueba de <span >Ratón</span>",
-      "smallDescription": "Realice la <span class='des-span'>prueba de ratón</span> ahora para mayor precisión. ¡Asegure el máximo potencial de su ratón! Verifique la funcionalidad de la rueda de desplazamiento y los botones del ratón en línea.",
-      "detail": "<div class='main-content-container'><div class='cps_test'><h2>¿Qué es<span class='cps_color'> la Calculadora CPS?</span></h2><p>La prueba CPS (Clics Por Segundo) es una herramienta sencilla que mide qué tan rápido puedes hacer clic con tu mouse en un tiempo específico, usualmente en segundos. Los jugadores la utilizan mucho para probar y mejorar su velocidad de clics en juegos que requieren reflejos rápidos, como Minecraft, shooters en primera persona y otros juegos competitivos. La prueba registra tus clics y calcula tu CPS para mostrar cuántas veces puedes hacer clic por segundo.</p></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>¿Cómo hacer<span class='cps_color'> la prueba CPS?</span></h2><p>Hacer una prueba CPS es tan fácil como puede ser. ¡Así es como puedes probar rápidamente tu velocidad de clics con nuestra herramienta!</p><ol><li>Abre nuestra prueba CPS.</li><li>Elige tu límite de tiempo de 1 segundo a 100 segundos.</li><li>Coloca tu dedo en el mouse y haz clic lo más rápido posible durante la cuenta regresiva.</li><li>Una vez que se acabe el tiempo, la herramienta mostrará tu total de clics y tu puntaje CPS.</li><li>Puedes repetir la prueba para seguir el progreso en tu velocidad de clics.</li></ol></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>¿Cuántos<span class='cps_color'> clics por segundo</span> son rápidos?</h2><p>Un CPS de alrededor de 6 a 7 clics por segundo se considera promedio para la mayoría de las personas. Sin embargo, si logras alcanzar entre 8 y 10 CPS, ¡estás haciendo un gran trabajo y se te puede considerar rápido! Los jugadores hábiles y los clicadores experimentados a menudo apuntan a un CPS de 10 o más, dependiendo de sus objetivos y las técnicas de clic que utilizan, como jitter o mariposa.</p></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>¿Qué es<span class='cps_color'> CPS en Minecraft?</span></h2><p>En Minecraft, el CPS se refiere a cuán rápido puedes hacer clic por segundo y es importante en el combate PvP. Cuanto más alto sea tu CPS, más rápido podrás golpear a tus oponentes o colocar bloques. Para la mayoría de los jugadores de Minecraft, alcanzar un CPS entre 6 y 8 es suficiente, pero los jugadores competitivos a menudo apuntan a 10 CPS o más para tener ventaja en batallas rápidas.</p></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>¿Cómo se<span class='cps_color'> calculan los clics por segundo?</span></h2><p>Calcular los clics por segundo (CPS) es simple. Toma el total de clics que hiciste durante una prueba y divídelo por la duración de la prueba en segundos. Por ejemplo, si hiciste 50 clics en 10 segundos, tu CPS sería 50 ÷ 10 = 5 CPS.</p></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>¿Cómo<span class='cps_color'> mejorar los clics por segundo?</span></h2><p>Para mejorar tu CPS, prueba las siguientes técnicas:</p><ul><li><b>Practica regularmente:</b> Cuanto más practiques, más rápido serás.</li><li><b>Prueba diferentes técnicas de clic:</b> Experimenta con métodos de clic jitter clicking, mariposa o arrastre para encontrar lo que mejor te funcione.</li><li><b>Usa un buen mouse:</b> Un mouse con botones responsivos y de baja resistencia te ayudará a hacer clic más rápido.</li><li><b>Mantente relajado:</b> La tensión en tu mano o dedos puede ralentizarte. Mantén tu mano suelta y ligera para hacer clic de manera más eficiente.</li></ul></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>Haz la<span class='cps_color'> prueba de clic Kohi</span></h2><p>La Prueba de Clic Kohi es otra prueba de CPS súper popular entre los jugadores, especialmente en la comunidad de Minecraft. Nombrada así por el servidor PvP de Minecraft 'Kohi', mide tu velocidad de clics en una interfaz sencilla. Solo inicia el temporizador y haz clic tan rápido como puedas para ver tu CPS. Muchos jugadores de Minecraft usan esta prueba para afinar sus habilidades de clic y prepararse para las batallas PvP.</p></div></div>"
+    "container2": {
+      "question1": "¿Cómo tomar",
+      "questiontitle": "la Prueba CPS?",
+      "answer1": "Tomar una prueba CPS es tan sencillo como puede ser. Aquí te mostramos cómo puedes probar rápidamente tu velocidad de clics con nuestra herramienta:",
+      "bullets": {
+        "bullet1": "Lanza nuestra Prueba CPS.",
+        "bullet2": "Elige tu límite de tiempo de 1 segundo a 100 segundos.",
+        "bullet3": "Coloca tu dedo en el mouse y haz clic tan rápido como puedas durante la cuenta regresiva.",
+        "bullet4": "Una vez que el tiempo se haya agotado, la herramienta mostrará tu total de clics y tu puntuación CPS. Puedes repetir la prueba para rastrear mejoras en tu velocidad de clics."
+      }
     },
-    "kohiClickTest": {
-      "metaTitle": "Prueba de Clic Kohi | Prueba de Velocidad de Clics",
-      "metaDescription": "Ensaya Prueba de Clic Kohi para medir tus CPS en 1 a 100 segundos. Controla tu velocidad de clic y perfecciona tus habilidades con rangos de tiempo personalizados.",
-      "name": "Prueba de clic de Kohi",
-      "secondClickTest": "Prueba de clic de segundo Kohi",
-      "title": "Prueba de clic de <span >Kohi</span>",
-      "smallDescription": "Realice la&nbsp;<span class='kohi_tagline_span'>Prueba de Clic de Kohi&nbsp;</span>gratis y descubra su velocidad de clics ahora. Para comenzar, simplemente haga clic en el botón y siga haciendo clic lo más rápido que pueda.",
-      "detail": "<div class='main-content-container'><div class='cps_test'><h2>¿Qué es la<span class='cps_color'> Prueba de Clic Kohi?</span></h2><p class='detail-p'>La Prueba de Clic Kohi es una forma divertida de ver qué tan rápido puedes hacer clic con el mouse en un corto período de tiempo. Creado originalmente para los fanáticos de PvP en Minecraft, se ha vuelto muy popular entre los jugadores que desean mejorar su velocidad de clic.</p><p>Ya sea que te estés preparando para una batalla intensa o simplemente tengas curiosidad sobre tus habilidades de clic, la Prueba de Clic Kohi es una excelente manera de ver qué tan rápidos son realmente tus reflejos.</p></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>¿Por qué es<span class='cps_color'> Importante la Velocidad de Clic?</span></h2><p>En los juegos competitivos, cada milisegundo cuenta. Ya sea que estés luchando en Minecraft, Fortnite, o cualquier otro juego de ritmo rápido, cuanto más rápido puedas hacer clic, más rápido podrás responder a los eventos del juego.</p><p>Esto puede darte una gran ventaja al atacar enemigos, construir estructuras o ejecutar combos rápidos. Si te gustan los juegos de PvP, tener una alta velocidad de clic puede ayudarte a dominar la competencia.</p><p>Pero incluso si no eres un jugador, mejorar tu velocidad de clic también puede ayudarte a ser más eficiente en las tareas cotidianas de la computadora.</p></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>¿Cuál es<span class='cps_color'> una Buena Velocidad de Clic?</span></h2><p>El jugador promedio suele hacer entre 6 y 7 clics por segundo (CPS). Pero si tu objetivo es ser más competitivo, querrás alcanzar 8 CPS o más. En la Prueba de Clic Kohi, algunos de los mejores jugadores pueden llegar a 10-12 CPS, lo cual se considera una puntuación impresionante. Así que si estás alcanzando dos dígitos, ¡definitivamente vas por el buen camino!</p></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>¿Cómo se<span class='cps_color'> Originó el Nombre Prueba de Clic Kohi?</span></h2><p>La Prueba de Clic Kohi recibe su nombre del popular servidor de Minecraft Kohi, que era famoso por sus batallas PvP hardcore. Los jugadores en este servidor siempre buscaban formas de mejorar sus habilidades de combate, y hacer clic rápido era una gran parte de eso.</p><p>Con el tiempo, 'Kohi Click' se convirtió en algo habitual, y ahora es un estándar para cualquiera que quiera verificar o mejorar su velocidad de clic.</p></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>¿Cómo<span class='cps_color'> Realizar una Prueba de Clic Kohi?</span></h2><p>¿Listo para probar tu velocidad? Aquí te explicamos cómo puedes realizar la Prueba de Clic Kohi:</p><ul><li>Comienza la prueba de clics haciendo clic en el círculo etiquetado como 'Clic para Probar'.</li><li>Una vez que comience la prueba, haz clic con tu mouse tan rápido como puedas dentro de un límite de tiempo establecido (generalmente de 5 a 10 segundos).</li><li>Después de que se acabe el tiempo, verás tu puntuación de clics por segundo (CPS).</li><li>¡Intenta la prueba de nuevo y ve si puedes superar tu puntuación anterior!</li></ul></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>Cómo<span class='cps_color'> Mejorar tu Puntuación de Clics</span></h2><p>¿Quieres mejorar tu velocidad de clic? Aquí tienes algunos consejos para aumentar tu CPS:</p><ul><li><b>Consigue un buen mouse:</b> Un mouse sólido puede hacer una gran diferencia. Busca uno que sea cómodo y sensible.</li><li><b>Experimenta con diferentes agarres:</b> La forma en que sostienes el mouse importa. El agarre de garra o el agarre de punta a menudo permiten hacer clic más rápido.</li><li><b>Practica, practica, practica:</b> Cuanto más lo hagas, mejor te volverás. Prueba desafíos de clics o incluso juegos para ayudarte a mejorar.</li><li><b>Aprende a hacer clic jitter:</b> Algunos jugadores utilizan una técnica llamada 'jitter clicking', donde aprietan y relajan rápidamente la mano para hacer clic más rápido. Requiere práctica, pero puede aumentar tu velocidad.</li><li><b>Mantente relajado:</b> ¡No te tenses! Una mano relajada te permitirá hacer clic más rápido sin agotarte.</li></ul></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>Clic<span class='cps_color'> Kohi para Jugadores</span></h2><p>Las habilidades de clic rápido son cruciales en los juegos, especialmente en Minecraft. Los jugadores deben tener un puntaje de clics por segundo de 8-10 CPS para golpear y combatir a los oponentes en juegos como Kohi Minecraft. El Test de Clic Kohi ayuda a los usuarios a obtener el puntaje CPS aceptable.</p><p>Cuando los jugadores intentan el Test CPS Kohi, intentan registrar el máximo de clics de ratón. Según su rendimiento de clics, el puntaje CPS aparece en su pantalla. Pueden analizar y mejorar su rendimiento de clics usando este puntaje.</p><p>Si su puntaje CPS es bajo y no están satisfechos con su rendimiento, pueden repetir el test varias veces y practicar regularmente para dominar la velocidad de clic. Así, el Clicker Kohi ayuda a los usuarios a mejorar su CPS.</p></div><div class='cps_test_main_hr'><hr class='thin-hr'></div></div>"
+    "container3": {
+      "question1": "¿Cuántos clics por segundo",
+      "questiontitle": "son rápidos?",
+      "answer1": "Un CPS de alrededor de 6 a 7 clics por segundo se considera promedio para la mayoría de las personas. Sin embargo, si puedes alcanzar de 8 a 10 CPS, lo estás haciendo bastante bien y puedes ser considerado rápido. Los jugadores hábiles y los clicadores experimentados a menudo apuntan a un CPS de 10 o más, dependiendo de sus objetivos y las técnicas específicas de clic que utilizan, como el jitter o el butterfly clicking."
     },
-    "badlionClickTest": {
-      "metaTitle": "Prueba de Clic Badlion | Prueba de Velocidad de Clics",
-      "metaDescription": "Prueba y mejora tu CPS con la Prueba de Clic Badlion. ¡Rastrea tu velocidad de clics y potencia tus habilidades en Minecraft para un rendimiento óptimo!",
-      "name": "Prueba de clic de Badlion",
-      "secondClickTest": "Prueba de clic de segundo CPS",
-      "title": "Prueba de clic de <span >Badlion | Clics</span> por segundo",
-      "smallDescription": "Pon a prueba y mejora tu CPS con la Prueba de Clic Badlion. Rastrea tu velocidad de clics y mejora tus habilidades en Minecraft para alcanzar un rendimiento máximo.",
-      "detail": "<div class='content-screen'><div class='main-content-container'><div class='cps_test'><h2>¿Qué es<span class='cps_color'> la prueba de clic Badlion?</span></h2><p>La prueba de clic Badlion es una herramienta que mide cuán rápido puedes hacer clic en un tiempo determinado, generalmente utilizada por jugadores de Minecraft para evaluar y mejorar su velocidad de clics. Nombrada en honor al popular servidor PvP de Minecraft 'Badlion', esta prueba permite a los jugadores determinar su CPS (clics por segundo) y rastrear su rendimiento de clics durante el juego competitivo.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Por qué hacer<span class='cps_color'> la prueba de clic Badlion?</span></h2><p>La prueba de clic Badlion es un punto de referencia para tu rendimiento en Minecraft PvP. Hacer la prueba permite a los jugadores entender su nivel actual de CPS, dándoles una idea clara de cuán rápido pueden actuar en medio de la batalla.</p><p>Nuestra prueba de clic Badlion también te permite rastrear tu progreso a lo largo del tiempo. Hacer la prueba regularmente te ayuda a monitorear tu mejora y a ver cómo evoluciona tu CPS con la práctica. También permite a los jugadores establecer metas de rendimiento basadas en su CPS actual, ayudándoles a enfocarse en áreas específicas como aumentar la velocidad o perfeccionar su técnica de clics.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Por qué es<span class='cps_color'> importante la prueba de clic Badlion en Minecraft?</span></h2><p>En Minecraft, la velocidad a la que haces clic impacta directamente tu capacidad para atacar y defender. Un CPS más alto significa golpes más rápidos, colocaciones de bloques o acciones, lo que puede ser la diferencia entre ganar o perder una batalla. La prueba de clic Badlion es importante porque le brinda a los jugadores de Minecraft una plataforma para afilar estas habilidades, asegurando que estén preparados para intensas peleas en el juego.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo hacer<span class='cps_color'> la prueba de clic Badlion?</span></h2><p>¿Listo para ver qué tan bien lo haces en una prueba de clic Badlion? Aquí tienes cómo puedes descubrir tu puntuación ahora mismo:</p><ul><li>Abre nuestra <a href='/badlion-click-test' class='link-color'>prueba de clic Badlion</a>.</li><li>Selecciona la duración de la prueba que prefieras, entre 1 y 100 segundos.</li><li>Comienza la prueba haciendo clic en el círculo 'Clic para Probar' y haz clic lo más rápido posible hasta que se acabe el tiempo.</li><li>Una vez terminado, la prueba mostrará tu CPS, indicando cuántos clics lograste por segundo.</li></ul></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cuál es la<span class='cps_color'> tasa de clics regular en la prueba de clic Badlion?</span></h2><p>La tasa de clics regular en la prueba de clic Badlion para la mayoría de los jugadores se encuentra entre 6 y 8 CPS. Sin embargo, los jugadores experimentados que buscan jugar de manera competitiva en Minecraft a menudo se esfuerzan por alcanzar 10 CPS o más, especialmente al usar técnicas de clic como jitter o mariposa.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>Pruebas alternativas a<span class='cps_color'> la prueba de clic Badlion</span></h2><p>Si buscas alternativas a la prueba de clic Badlion, aquí tienes algunas opciones populares:</p><ul><li><b><a href='/kohi-click-test' class='link-color'>Prueba de clic Kohi</a>:</b> Otra prueba de CPS centrada en Minecraft, popular entre los jugadores de PvP.</li><li><b><a href='/' class='link-color'>Prueba de Velocidad de Clics</a>:</b> Una prueba de CPS general disponible en muchos sitios web de juegos y pruebas, que ofrece diferentes intervalos de tiempo.</li><li><b><a href='/aim-trainer-test' class='link-color'>Prueba Aim Trainer</a>:</b> Una herramienta que te ayuda a practicar no solo la velocidad de clics, sino también la precisión de puntería, lo cual es útil en juegos de PvP.</li></ul></div></div></div>"
+    "container4": {
+      "question1": "¿Qué es",
+      "questiontitle": " CPS en Minecraft?",
+      "answer1": "En Minecraft, CPS se refiere a qué tan rápido puedes hacer clic por segundo y es importante en el combate PvP. Cuanto mayor sea tu CPS, más rápido podrás golpear a los oponentes o colocar bloques. Para la mayoría de los jugadores de Minecraft, lograr un CPS entre 6 y 8 es suficiente, pero los jugadores competitivos a menudo apuntan a 10 CPS o más para obtener una ventaja en batallas rápidas."
     },
-    "jitterTest": {
-      "metaTitle": "Prueba de clic Jitter – Mejora tu Velocidad de Clics | Prueba de Velocidad de Toque",
-      "metaDescription": "Mejora tu técnica de clic jitter con nuestra Prueba de Clic Jitter. Mide tus CPS y perfecciona esta técnica para obtener clic más rápidos y eficientes.",
-      "name": "Prueba de clic de Jitter",
-      "secondClickTest": "Prueba de clic de segundo CPS",
-      "title": "Prueba de clic de <span >Jitter</span>",
-      "smallDescription": "Mejora tu técnica de clic jitter con nuestra prueba de clic jitter. Mide tu CPS y perfecciona esta técnica de clic rápido para obtener clics más rápidos y eficientes.",
-      "detail": "<div class='main-content-container'><div class='cps_test'><h2>¿Qué es<span class='cps_color'> el Clic Jitter?</span></h2><p>El clic jitter es una técnica que se utiliza para hacer clic en un botón del mouse a una velocidad extremadamente alta, especialmente en juegos como Minecraft o shooters en primera persona, donde hacer clic rápidamente puede dar una ventaja a los jugadores. La idea detrás del clic jitter es tensar los músculos del brazo o la muñeca para generar vibraciones rápidas que permiten que tu dedo presione el botón del mouse mucho más rápido que con un clic normal.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cuál es un<span class='cps_color'> buen resultado en la prueba de clic jitter?</span></h2><p>Un buen resultado en la prueba clic de jitter generalmente mide los Clics Por Segundo (CPS). Una persona promedio puede hacer clic alrededor de 6-7 CPS, mientras que los “jitter clickers” pueden alcanzar entre 10-15 CPS o incluso más. Sin embargo, cualquier resultado por encima de 12 CPS se considera generalmente bueno en el contexto de los videojuegos.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo hacer<span class='cps_color'> Clic Jitter?</span></h2><p>Aquí tienes algunos pasos para realizar el clic jitter de manera efectiva:</p><ol><li><b>Sujeta el mouse:</b> Mantén el mouse con firmeza, pero sin apretarlo demasiado. La mayoría de las personas prefieren un agarre tipo garra o de punta de dedo para el clic jitter.</li><li><b>Tensa tu brazo:</b> Concéntrate en tensar los músculos de tu antebrazo y muñeca para generar vibraciones rápidas. Evita mover solo el dedo.</li><li><b>Vibra tu dedo:</b> Permite que la vibración se transfiera a tu dedo, moviéndolo hacia arriba y hacia abajo sobre el botón del mouse para crear clics rápidos.</li><li><b>Práctica:</b> Como cualquier habilidad, el clic jitter requiere práctica para controlar la velocidad y la precisión. Puede llevar tiempo sentirte cómodo con la técnica.</li></ol></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Es<span class='cps_color'> el Clic Jitter malo?</span></h2><p>Se ha observado que el clic jitter puede causar incomodidad en algunos casos. Puede afectar los músculos de tu brazo y muñeca, ya que provoca tensión excesiva durante períodos prolongados, lo que puede llevar a condiciones como la tendinitis o incluso el síndrome del túnel carpiano. En algunos casos, podrías perder el control de los músculos debido a la vibración constante de tu mano. ¡Esto puede reducir tu precisión al jugar juegos como Minecraft!</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>Alternativas a<span class='cps_color'> la Prueba de Clic Jitter</span></h2><p>Si te preocupan los riesgos del clic jitter, hay alternativas más seguras para hacer clic rápidamente:</p><ul><li><b><a href='/butterfly-click' class='link-color'>Clic Mariposa:</a></b> Consiste en usar dos dedos para alternar clics en el mismo botón. Es más suave para las manos y también puede lograr un alto CPS.</li><li><b><a href='/drag-click' class='link-color'>Clic de Arrastre:</a></b> Al arrastrar ligeramente tu dedo sobre el botón del mouse, la fricción puede generar un gran número de clics por segundo, aunque esta técnica es más avanzada y no se recomienda para cualquier mouse.</li><li><b>Clic Normal:</b> Aunque es más lento, el clic normal ejerce menos tensión en tus manos y brazos, convirtiéndose en una opción más segura.</li></ul><p>Cada método tiene su propia curva de aprendizaje y potencial de CPS, pero <a href='/butterfly-click' class='link-color'>el Clic Mariposa</a> suele ser la alternativa más viable para lograr un CPS rápido sin causar tensión excesiva.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div></div>"
+    "container5": {
+      "question1": "¿Cómo se",
+      "questiontitle": "calcula los clics por segundo?",
+      "answer1": "Calcular los clics por segundo (CPS) es simple. Toma el número total de clics que hiciste durante una prueba y divídelo por la duración de la prueba en segundos. Por ejemplo, si hiciste 50 clics en 10 segundos, tu CPS sería 50 ÷ 10 = 5 CPS."
     },
-    "butterflyTest": {
-      "metaTitle": "Prueba de Clic Mariposa – Domina tu CPS | Prueba de Velocidad de Clics",
-      "metaDescription": "Participa en la Prueba de Clic Mariposa y selecciona un rango de tiempo de 1 a 100 segundos. ¡Perfecciona tu técnica de clic mariposa y maximiza tu CPS!",
-      "name": "Prueba de clic de Mariposa",
-      "secondClickTest": "Prueba de clic de segundo CPS",
-      "title": "Prueba de clic de <span >Mariposa</span>",
-      "smallDescription": "Realiza la prueba de clic mariposa y selecciona un rango de tiempo entre 1 y 100 segundos. ¡Perfecciona tu técnica de clic mariposa y maximiza tu CPS!",
-      "detail": "<div class='main-content-container'><div class='cps_test'><h2>¿Qué es<span class='cps_color'> la prueba de clic mariposa?</span></h2><p>Nuestra prueba de clic mariposa es una manera rápida y sencilla de medir cuán rápido puedes hacer clic en un tiempo determinado. Es una técnica popular en la que utilizas tus dedos índice y medio para alternar clics en el mismo botón del mouse a gran velocidad. Así que, si deseas mejorar tus habilidades en combate o en PvP, ¡realiza nuestra prueba de clic mariposa y descubre tu nivel!</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo<span class='cps_color'> usar la prueba de clic mariposa?</span></h2><p>Esta prueba es similar a cualquier otra prueba de clics. A continuación te mostramos cómo empezar la prueba de clic mariposa:</p><ul><li>Lanza nuestra <a href='/butterfly-click' class='link-color'>prueba de clic mariposa</a>.</li><li>Selecciona tu límite de tiempo entre 1 y 100 segundos.</li><li>Prepara tu mouse, posicionando tus dedos índice y medio sobre el botón.</li><li>Comienza a hacer clic lo más rápido posible, alternando entre ambos dedos.</li><li>Una vez que se detenga el temporizador, verás tu total de clics y tu CPS (clics por segundo).</li></ul></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Por qué es<span class='cps_color'> importante la velocidad de clic mariposa?</span></h2><p>En juegos como Minecraft PvP o en shooters rápidos, la velocidad es crucial. El clic mariposa te permite hacer clic mucho más rápido que el método tradicional, dándote una ventaja cuando cada milisegundo cuenta. Ya sea que estés atacando, construyendo o realizando acciones rápidas, un clic más veloz significa un juego más dinámico.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>Beneficios de<span class='cps_color'> hacer clic mariposa</span></h2><ul><li><b>Mayor velocidad de clics:</b> Es más rápido que hacer clic normalmente, lo que te ayuda a alcanzar esos números altos de CPS. Ya sea para trabajar o jugar, un alto CPS te convierte en un mejor jugador.</li><li><b>Mejor coordinación de dedos:</b> Usar dos dedos en lugar de uno mejora la velocidad y la coordinación de tus manos.</li><li><b>Ventaja en los juegos:</b> En PvP o en juegos que requieren reacciones rápidas, el clic mariposa puede ser un cambio total en la partida. ¡Podrás vencer a tus enemigos, construir a gran velocidad y realizar todo más rápido que nunca!</li><li><b>Menos fatiga en los dedos:</b> Alternar entre los dedos reduce la tensión en uno solo, permitiéndote jugar por más tiempo.</li></ul></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo funciona<span class='cps_color'> la prueba de clic mariposa?</span></h2><p>La prueba de clic mariposa cuenta cuántas veces puedes hacer clic en un intervalo de tiempo específico. Registra cada clic y calcula tu CPS (clics por segundo). Nuestra prueba también muestra cuán constante es tu velocidad de clics durante el tiempo del temporizador, para que puedas trabajar en mantenerte estable durante sesiones de juego más largas.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo<span class='cps_color'> mejorar en el clic mariposa?</span></h2><p>Para mejorar en la técnica de clic mariposa, la práctica regular es fundamental. Cuanto más practiques, más rápido y preciso serás. También es esencial usar un buen mouse con botones receptivos, ya que esto facilita hacer clic a altas velocidades.</p><p>Asegúrate de que la posición de tus dedos sea cómoda para mantener precisión y velocidad. Comienza con sesiones de clics cortas para desarrollar tu resistencia, aumentando gradualmente la duración para mejorar tu aguante. Recuerda mantener tu mano relajada, ya que la tensión puede ralentizarte. ¡Con práctica constante, verás cómo tu CPS aumenta y comenzarás a dominar cada juego que juegues!</p></div></div></div>"
-    },
-    "spacebarTest": {
-      "metaTitle": "Contador de Prueba de la Barra Espaciadora | Prueba de Velocidad de Pulsación",
-      "metaDescription": "Mide la velocidad de clics de tu barra espaciadora con nuestra prueba gratuita. ¡Presiona la barra espaciadora tan rápido como puedas dentro de un tiempo establecido y obtén tu puntuación ahora!",
-      "name": "Prueba de barra espaciadora",
-      "secondClickTest": "Prueba de clic de segundo CPS",
-      "title": "Contador de barra espaciadora | Haga clic en la barra espaciadora",
-      "smallDescription": "<span class='kohi_tagline_span'>El contador de barra espaciadora&nbsp;</span>es otra herramienta atractiva que le ayuda a saber cuántas veces presiona la barra espaciadora en su teclado.",
-      "detail": "<div class='content-screen'><div class='main-content-container'><div class='cps_test'><h2>¿Qué es<span class='cps_color'> la Prueba de la Barra Espaciadora?</span></h2><p>Una Prueba de la Barra Espaciadora mide cuántas veces puedes presionar la tecla espaciadora en tu teclado durante un período de tiempo determinado. Esta prueba se utiliza típicamente para evaluar la velocidad de tus dedos y la precisión al escribir, enfocándose específicamente en la tecla espaciadora, una de las teclas más utilizadas. A menudo, es utilizada por jugadores y mecanógrafos para mejorar la destreza en el teclado y la fuerza de los dedos.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Por qué es<span class='cps_color'> importante la velocidad de la barra espaciadora?</span></h2><ul><li><b>Mejora el rendimiento en juegos rápidos:</b> Muchos videojuegos dependen de presiones rápidas de la tecla espaciadora para acciones como saltar o interactuar con elementos del juego. Una mayor velocidad puede darte una ventaja competitiva.</li><li><b>Aumenta la velocidad y precisión al escribir:</b> Poder presionar la barra espaciadora de manera rápida y precisa ayuda en la fluidez al escribir, especialmente al redactar documentos largos o manejar tareas profesionales.</li><li><b>Desarrolla la fuerza y destreza de los dedos:</b> Practicar regularmente la velocidad de la barra espaciadora mejora la fuerza y flexibilidad de tus dedos, permitiendo movimientos más precisos y rápidos al escribir o jugar.</li><li><b>Útil para desafíos de juegos y escritura:</b> Ya sea en desafíos de teclado o mecánicas específicas de juegos, mejorar tu velocidad en la tecla espaciadora puede hacerte más eficiente en entornos competitivos.</li></ul></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo<span class='cps_color'> realizar la Prueba de la Barra Espaciadora?</span></h2><ol><li>Lanza nuestro sitio web y permite que la prueba se cargue.</li><li>Elige la duración deseada de la prueba. Puedes ajustar el temporizador entre 1 y 100 segundos, según cuánto tiempo quieras probar.</li><li>Haz clic en el botón “Clic para Probar” para comenzar.</li><li>Una vez que el temporizador comience, presiona la tecla espaciadora tan rápido como puedas hasta que se acabe el tiempo.</li><li>Cuando termine la prueba, aparecerá tu puntuación, mostrando cuántas veces presionaste la tecla espaciadora y tu promedio de pulsaciones por segundo (PPS).</li></ol></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo<span class='cps_color'> mejorar tu velocidad en la barra espaciadora?</span></h2><ul><li><b>Practica de manera constante:</b> La práctica regular es la forma más efectiva de aumentar la velocidad. Reserva tiempo cada día para trabajar en tus pulsaciones de la tecla espaciadora, mejorando gradualmente tu rendimiento.</li><li><b>Fortalece tus dedos:</b> Ejercicios que se enfoquen en los músculos de las manos y los dedos, como apretar una pelota antiestrés o usar agarres de dedos, pueden ayudarte a presionar más rápido sin cansar tus dedos.</li><li><b>Usa la postura y técnica adecuadas:</b> Asegúrate de que tus manos y dedos estén posicionados correctamente mientras escribes. Una mala postura puede llevar a un rendimiento más lento y fatiga, mientras que una técnica adecuada asegura la máxima eficiencia.</li><li><b>Aumenta la sensibilidad del teclado:</b> Algunos teclados te permiten ajustar la sensibilidad de las teclas, lo que puede resultar en pulsaciones más rápidas y ligeras de la barra espaciadora, ayudándote a obtener mejores puntuaciones.</li></ul></div></div></div>"
-    },
-    "aimTrainer": {
-      "metaTitle": "Prueba de Aim Trainer - Mejora tu Habilidad en Juegos FPS | Prueba de Velocidad de Clic",
-      "metaDescription": "¡El Aim Trainer te ayuda a mejorar tu puntería con una prueba gratuita en el navegador para que domines todos los juegos FPS que juegues!",
-      "name": "Entrenador de puntería",
-      "secondClickTest": "Prueba de clic de segundo CPS",
-      "level": "Nivel",
-      "targetSize": "Tamaño del objetivo",
-      "shapeColor": "Color de la forma",
-      "cursor": "Cursor",
-      "timePeriod": "Período de tiempo",
-      "soundVoice": "Sonido / Voz",
-      "hits": "Aciertos",
-      "miss": "Fallos",
-      "title": "Entrenador de puntería<span > & Prueba de precisión del ratón</span>",
-      "smallDescription": "<span class='kohi_tagline_span'>Entrenador de puntería&nbsp;</span>le permite practicar su precisión de puntería en la competencia de juegos y, en última instancia, mejorar la precisión de su ratón.",
-      "detail": "<div class='content-screen'><div class='main-content-container'><div class='cps_test'><h2>¿Qué es una<span class='cps_color'> Prueba de Aim Trainer?</span></h2><p>La Prueba de Aim Trainer es una herramienta diseñada para ayudarte a practicar y mejorar tus habilidades de puntería mediante la evaluación de tu capacidad para hacer clic rápida y precisamente en los objetivos. Es ampliamente utilizada por jugadores, especialmente en juegos de disparos en primera persona (FPS) u otros juegos competitivos, donde la precisión y los reflejos rápidos son críticos. La prueba desafía tu coordinación mano-ojo y tiempo de reacción, brindándote retroalimentación instantánea sobre tu rendimiento en el apuntado.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Por qué es<span class='cps_color'> Importante la Precisión al Apuntar?</span></h2><p>La precisión al apuntar es crucial en muchos escenarios de juego, especialmente para los jugadores competitivos. En juegos como Counter-Strike, Call of Duty o Valorant, tu capacidad para apuntar y disparar rápida y precisamente determina tu rendimiento. Una alta precisión te da una ventaja para eliminar oponentes antes de que puedan reaccionar.</p><p>El entrenamiento de puntería mejora cómo trabajan tus ojos y manos juntos, permitiéndote apuntar con precisión a objetos en movimiento o pequeños en la pantalla. Una buena puntería no solo se trata de velocidad, sino también de precisión. Practicar te ayuda a reaccionar más rápido manteniendo la precisión, lo cual es especialmente útil en juegos de ritmo rápido donde cada milisegundo cuenta.</p><p>Incluso fuera de los shooters, el entrenamiento de puntería puede mejorar tu experiencia general de juego al hacerte más receptivo y concentrado.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo Realizar la<span class='cps_color'> Prueba de Aim Trainer?</span></h2><ol><li>Ingresa a nuestro sitio web y espera a que se cargue la Prueba de Aim Trainer.</li><li>Elige tu nivel de dificultad preferido. Puedes seleccionar entre principiante, intermedio o avanzado, dependiendo de tu nivel de habilidad.</li><li>Haz clic en el botón “Iniciar Juego” para comenzar.</li><li>Cuando la prueba empiece, apunta y haz clic en los objetivos tan pronto como aparezcan. Los objetivos se moverán por la pantalla o aparecerán aleatoriamente, poniendo a prueba tu velocidad y precisión.</li><li>Una vez que la prueba termine, se mostrará tu puntuación. Esta puntuación incluye métricas como precisión, tiempo de reacción y el número de objetivos que lograste impactar exitosamente.</li></ol></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo Mejorar tu<span class='cps_color'> Puntería?</span></h2><ul><li><b>Práctica constante:</b> La práctica regular es clave para mejorar tu puntería. Usa herramientas como la Prueba de Aim Trainer para trabajar en tu precisión y velocidad de reacción de manera regular.</li><li><b>Encuentra la sensibilidad adecuada:</b> Encontrar la sensibilidad del ratón y la configuración de DPI (puntos por pulgada) adecuadas es crucial para un apuntado preciso. Un DPI más alto permite un movimiento más rápido, mientras que un DPI más bajo puede ofrecer un mejor control, dependiendo de tu preferencia.</li><li><b>Mejora la coordinación mano-ojo:</b> El apuntado está directamente relacionado con la coordinación mano-ojo. Puedes mejorar esto practicando con ejercicios específicos, como enfocarte en objetos en movimiento rápido o jugar juegos que requieran precisión.</li><li><b>Mejora tu tiempo de reacción:</b> Cuanto más rápido puedas reaccionar a los objetivos, mejor será tu puntería. Participa en ejercicios diseñados para mejorar tu tiempo de reacción, como jugar juegos de ritmo rápido o usar herramientas especializadas de entrenamiento de reacción.</li></ul></div></div></div>"
-    },
-    "dragClickTest": {
-      "metaTitle": "Prueba de Clic de Arrastre – ¡Prueba tu Velocidad de Clics! | Prueba de Velocidad de Toque",
-      "metaDescription": "Mide tu velocidad de clic de arrastre con nuestra Prueba de Clic de Arrastre. Selecciona entre 1 y 100 segundos y descubre cuán rápido y eficientemente puedes hacer el clic de arrastre.",
-      "name": "Prueba de clic y arrastre",
-      "secondClickTest": "Prueba de clic de segundo CPS",
-      "title": "Prueba de clic y arrastre<span ></span>",
-      "smallDescription": "Mide tu velocidad de clic de arrastre con nuestra prueba de clic de arrastre. Selecciona de 1 a 100 segundos y descubre qué tan rápido y eficientemente puedes hacer clic arrastrado.",
-      "detail": "<div class='content-screen'><div class='main-content-container'><div class='cps_test'><h2>¿Qué es el<span class='cps_color'> Clic de Arrastre?</span></h2><p>El clic de arrastre es una técnica en la que arrastras suavemente tu dedo sobre el botón del mouse, haciendo que registre múltiples clics en un corto período. En lugar de presionar rápidamente el botón, este método crea fricción entre tu dedo y el botón, resultando en una explosión de clics. Los jugadores utilizan el clic de arrastre para alcanzar CPS extremadamente altos, especialmente en juegos que requieren acciones de clic rápido como Minecraft PvP.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Qué es la<span class='cps_color'> Prueba de Clic de Arrastre?</span></h2><p>Nuestra prueba de clic de arrastre es una herramienta en línea que mide cuántos clics puedes generar usando la técnica de clic de arrastre dentro de un tiempo establecido de 1 a 100 segundos. Está diseñada para los jugadores que quieren ver cuán efectivo es su clic de arrastre y si pueden alcanzar números de CPS más altos en comparación con otros métodos de clic.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo realizar una<span class='cps_color'> Prueba de Clic de Arrastre?</span></h2><p>Para realizar la prueba de clic de arrastre:</p><ul><li>Abre nuestra <a href='/drag-click' class='link-color'>prueba de clic de arrastre</a>.</li><li>Elige tu límite de tiempo de 1 a 100 segundos.</li><li>Coloca tu dedo suavemente sobre el botón del mouse.</li><li>Arrastra tu dedo sobre el botón, generando tantos clics como sea posible dentro del tiempo establecido.</li><li>Una vez que el temporizador finalice, se mostrará tu número total de clics y CPS.</li></ul></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cuál es el<span class='cps_color'> CPS promedio para el Clic de Arrastre?</span></h2><p>Una persona promedio puede hacer clic rápido a alrededor de 6 clics por segundo (CPS), mientras que alguien con reflejos rápidos podría alcanzar hasta 15 clics por segundo. Sin embargo, el clic de arrastre lleva esto a un nivel completamente nuevo. ¡Algunos jugadores podrían lograr hasta 30 CPS, dependiendo de su configuración y técnicas!</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo hacer<span class='cps_color'> el Clic de Arrastre en Cualquier Mouse?</span></h2><p>Para realizar el clic de arrastre con éxito en cualquier mouse, sigue estos pasos para obtener mejores resultados:</p><ul><li><b>Selecciona la cinta adecuada:</b> Elige cinta eléctrica o médica suave, ya que ambas proporcionan una superficie consistente que mejora la fricción necesaria para el clic arrastrado. Estas cintas ayudan a crear la resistencia adecuada entre tu dedo y el botón del mouse.</li><li><b>Aplica cinta a tu dedo:</b> Corta un pequeño trozo de cinta y colócalo en la punta de tu dedo. Esto le dará a tu dedo un agarre extra, que es esencial para generar clics mientras arrastras sobre el botón.</li><li><b>Posiciona tu dedo:</b> Descansa tu dedo con cinta suavemente sobre el botón del mouse. Asegúrate de no presionar demasiado fuerte; solo lo suficiente para mantener el contacto con la superficie del botón.</li><li><b>Comienza a arrastrar tu dedo con una ligera presión:</b> Arrastra suavemente tu dedo sobre el botón del mouse, permitiendo que la cinta genere clics a medida que se mueve. Usa una presión mínima para crear la fricción necesaria para que el mouse registre múltiples clics.</li></ul></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Es el<span class='cps_color'> Clic de Arrastre Mejor que el Clic Mariposa?</span></h2><p>La elección entre el clic de arrastre y el <a href='/butterfly-click' class='link-color'>Clic Mariposa</a> depende de lo que priorices: velocidad o control. El clic de arrastre se trata de alcanzar el CPS más alto posible, a menudo superando los 30 clics por segundo. Es perfecto para tareas o juegos que se benefician de explosiones rápidas de clics, aunque puede ser menos preciso y más difícil de realizar de manera consistente.</p><p>Por otro lado, el clic mariposa ofrece un enfoque más equilibrado. Si bien proporciona un CPS más bajo, normalmente alrededor de 15 a 20 clics por segundo, te da mucho más control sobre tus acciones. Esto hace que el clic mariposa sea ideal para escenarios donde la precisión y la exactitud son tan importantes como la velocidad, como en combates PvP o tareas de construcción en juegos.</p></div></div></div>"
-    },
-    "apmTest": {
-      "metaTitle": "Prueba de Acciones por Minuto - Verifica tu APM | Prueba de Velocidad de Toque",
-      "metaDescription": "Descubre tu APM con nuestra sencilla prueba para descubrir cuántas acciones puedes realizar en un tiempo específico.",
-      "name": "Prueba de APM",
-      "secondAPMTest": "Prueba de segundo APM",
-      "effectiveClicks": "Clics efectivos",
-      "title": "Prueba de<span class='cps_color'> acciones por minuto</span> (APM)",
-      "smallDescription": "¡Libere su potencial de juego! Mida sus habilidades de <b>acciones por minuto</b> (APM) con nuestra <b>prueba de APM</b> en línea y domine su arena de juego.",
-      "detail": "<div class='content-screen'><div class='main-content-container'><div class='cps_test'><h2>¿Qué es una<span class='cps_color'> Prueba de APM?</span></h2><p>Una prueba de APM (Acciones por Minuto) mide el número de acciones distintas que un jugador puede realizar en un minuto, a menudo utilizada para evaluar la velocidad y eficiencia de un jugador en videojuegos, particularmente en juegos de estrategia en tiempo real (RTS) y eSports.</p><p>Cada acción puede involucrar un clic del mouse, un comando del teclado o cualquier tarea que afecte directamente la jugabilidad. La métrica de APM es crítica en los juegos competitivos, ya que refleja la capacidad del jugador para gestionar recursos, unidades y estrategias en escenarios de ritmo rápido.</p><p>Por ejemplo, los jugadores profesionales en títulos como StarCraft o League of Legends pueden alcanzar cuentas de APM en los cientos, ejecutando múltiples tareas por segundo, haciendo del APM un factor clave para mantenerse por delante de los oponentes.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo<span class='cps_color'> Practicar la Prueba de APM?</span></h2><ul><li><b>Juega juegos de estrategia en tiempo real (RTS):</b> Gestiona diversas unidades, estructuras y decisiones en el juego. La práctica regular en tales juegos te ayudará a aumentar tu velocidad.</li><li><b>Memoriza los atajos de teclado y combinaciones de teclas:</b> Confiar solo en los movimientos del mouse puede ralentizarte, mientras que los atajos del teclado permiten acciones mucho más rápidas.</li><li><b>Practica tanto micro como macro:</b> “Micro” se refiere a gestionar unidades individuales, mientras que “macro” implica controlar recursos a gran escala y la economía. Equilibrar ambos es clave para aumentar el APM efectivo.</li><li><b>Utiliza herramientas de entrenamiento APM:</b> Hay aplicaciones específicas y herramientas basadas en navegadores diseñadas para desafiarte a realizar acciones rápidamente y con precisión, proporcionando retroalimentación en tiempo real sobre tu progreso.</li><li><b>Concéntrate en la consistencia:</b> No te limites a buscar velocidad; mantén un ritmo constante a lo largo del juego. El entrenamiento consistente ayuda a desarrollar la memoria muscular y mejora las habilidades de toma de decisiones rápidas.</li><li><b>Juega en situaciones de alta presión:</b> Participa en juegos competitivos o pruebas de APM cronometradas que simulan el estrés de una partida real. Esto te ayudará a mejorar tu tiempo de reacción y rendimiento bajo presión.</li></ul></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo<span class='cps_color'> Jugar a la Prueba de Acciones por Minuto?</span></h2><ul><li>Abre tu navegador web y navega a nuestro sitio de prueba de APM.</li><li>Una vez que la página cargue, selecciona un temporizador para tu prueba. Puedes elegir cualquier duración entre 1 segundo y 100 segundos, dependiendo de cuánto tiempo quieras que dure la prueba.</li><li>Después de seleccionar el tiempo deseado, haz clic en el botón “Iniciar Juego” para comenzar.</li><li>En cuanto el juego comience, verás que aparecen losetas blancas en la pantalla. Haz clic en ellas tan rápido como puedas. Sigue haciendo clic en cada nueva loseta que aparezca, tratando de registrar tantos clics como puedas antes de que se acabe el tiempo.</li><li>Cuando termine el temporizador, tu puntuación aparecerá automáticamente en la pantalla. Esta puntuación muestra tus acciones por minuto en función de cuántas losetas blancas hiciste clic con éxito durante el juego.</li></ul></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Qué Factores son Importantes en<span class='cps_color'> Acciones por Minuto?</span></h2><h5>1. Precisión</h5><p>La velocidad es esencial, pero la precisión también es crítica para lograr un alto APM. Cada acción debe tener un propósito, ya sea mover una unidad, hacer una orden de construcción o seleccionar habilidades. Si las acciones son imprecisas o implican clics erróneos excesivos, pueden inflar el APM sin contribuir al éxito en el juego. Los jugadores eficientes tienen un APM alto y precisión, haciendo que cada clic cuente.</p><h5>2. Resultado</h5><p>Un alto APM solo tiene sentido si conduce a resultados positivos en el juego. Las acciones que tienen un impacto real, como ataques exitosos, defensa o gestión de recursos, importan más que una ráfaga de acciones sin sentido. Enfócate en la calidad de tus acciones, asegurándote de que cada una te ayude a alcanzar tus objetivos.</p><h5>3. Spamming</h5><p>El spamming se refiere a realizar muchas acciones innecesarias o repetitivas simplemente para inflar tu APM. Aunque esto puede aumentar artificialmente el número, no mejora tu habilidad ni te ayuda a ganar. En algunos casos, el spamming puede obstaculizar la jugabilidad al hacer que pierdas enfoque en decisiones importantes o malgastes recursos.</p></div></div></div>"
-    },
-    "reactionTest": {
-      "metaTitle": "Prueba de Tiempo de Reacción | Prueba de Velocidad de Toque",
-      "metaDescription": "Mejora tu tiempo de reacción y potencia tu rendimiento en juegos y en el trabajo con nuestra precisa prueba de tiempo de reacción.",
-      "name": "Prueba de reacción",
-      "waitFor": "Esperar",
-      "clickOn": "Haga clic en",
-      "colour": "Color...",
-      "yourAverageTime": "Su tiempo de reacción promedio",
-      "getReadyForNextChallenge": "Prepárese para el próximo desafío",
-      "title": "Prueba de<span > tiempo de reacción</span>",
-      "originallyDesignedParagraph": "Esta prueba de reacción fue diseñada originalmente por cpstest.io para medir el tiempo de reacción de los usuarios. Lea las instrucciones antes de continuar con este juego de prueba de reflejos.",
-      "steps": "<div ><div class='notic-row'><div class='point-box'><div><img class='point-icon' src='/assets/images/icons/white-tick.svg' alt='Tick Icon'></div></div><div class='point-line'>Tienes que hacer clic en iniciar prueba para comenzar el Test de Reflejos.</div></div><div class='notic-row'><div class='point-box'><div><img class='point-icon' src='/assets/images/icons/white-tick.svg' alt='Tick Icon'></div></div><div class='point-line'>Cada vez verás 6 monstruos en la pantalla.</div></div><div class='notic-row'><div class='point-box'><div><img class='point-icon' src='/assets/images/icons/white-tick.svg' alt='Tick Icon'></div></div><div class='point-line'>Cuando cualquier monstruo cambie de color, debes hacer clic en él rápidamente.</div></div><div class='notic-row'><div class='point-box'><div><img class='point-icon' src='/assets/images/icons/white-tick.svg' alt='Tick Icon'></div></div><div class='point-line'>El tiempo entre hacer clic en el monstruo que cambió de color resultará en tu tiempo de reacción o reflejo.</div></div></div>",
-      "smallDescription": "Realice una prueba gratuita de <span class='kohi_tagline_span'>reacción</span> para convertirse en un profesional en su desafío favorito:",
-      "detail": "<div class='content-screen'><div class='main-content-container'><div class='cps_test'><h2>¿Qué es una <span class='cps_color'>Prueba de Tiempo de Reacción?</span></h2><p>Una prueba de tiempo de reacción mide qué tan rápido una persona responde a un estímulo, como una señal visual o auditiva. Evalúa tus reflejos y la velocidad de procesamiento cognitivo. Las pruebas de tiempo de reacción se utilizan comúnmente en una variedad de campos, desde evaluaciones médicas hasta deportes y videojuegos, para determinar qué tan rápido una persona puede reaccionar a ciertos estímulos.</p></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>¿Por qué es <span class='cps_color'>Importante el Tiempo de Reacción?</span></h2><h4>Ayuda a identificar problemas de salud</h4>El tiempo de reacción puede ser un indicador de condiciones neurológicas como el TDAH (Trastorno por Déficit de Atención e Hiperactividad) o la enfermedad de Parkinson, donde respuestas tardías o inconsistentes pueden sugerir problemas de salud subyacentes.<br><h4>Mejora tu rendimiento en juegos competitivos</h4>Un tiempo de reacción más rápido otorga a los jugadores una ventaja significativa en los juegos competitivos, donde las decisiones rápidas y los reflejos son clave para ganar o perder.<br><h4>Te hace un mejor conductor</h4>Un tiempo de reacción rápido te permite responder de manera más efectiva a cambios repentinos en el tráfico, reduciendo el riesgo de accidentes.<br><h4>Te hace mejor en trabajos que requieren concentración</h4>Las profesiones que requieren enfoque y alerta, como los controladores de tráfico aéreo, cirujanos o atletas, se benefician enormemente de un tiempo de reacción agudo, lo que permite tomar decisiones más rápidas y precisas.</div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>¿Cómo <span class='cps_color'>Probar tu Tiempo de Reacción?</span></h2><ol><li>Abre nuestro sitio web.</li><li>Lee las instrucciones proporcionadas antes de comenzar la prueba para asegurarte de entender el proceso.</li><li>Haz clic en el botón “Iniciar prueba” para comenzar. Se te pedirá que respondas a un estímulo lo más rápido posible.</li><li>Tu tiempo de reacción se registrará en función de la rapidez con que respondas al estímulo, y los resultados se mostrarán al final de la prueba.</li></ol></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>¿Cómo <span class='cps_color'>Mejorar tu Tiempo de Reacción?</span></h2><ul><li><b>Entrena tus puntos débiles:</b> Identifica áreas específicas donde tu tiempo de reacción sea más lento y enfócate en mejorar esas áreas a través de ejercicios o entrenamientos dirigidos.</li><li><b>Práctica:</b> La práctica constante te ayudará a volverte más rápido. Participar en actividades como videojuegos, deportes o ejercicios de tiempo de reacción puede mejorar significativamente tu tiempo de respuesta con el tiempo.</li><li><b>Mantén una dieta adecuada:</b> Una dieta equilibrada apoya la función cognitiva. Nutrientes como los ácidos grasos omega-3 y antioxidantes presentes en pescados, frutas y vegetales son esenciales para mantener la salud cerebral y el pensamiento rápido.</li><li><b>Realiza ejercicios físicos:</b> El estado físico mejora tanto la capacidad cerebral como la del cuerpo para reaccionar rápidamente. Ejercicios cardiovasculares, entrenamiento de fuerza y ejercicios de coordinación pueden afinar tus reflejos.</li><li><b>Realiza ejercicios cognitivos:</b> Participa en ejercicios mentales como acertijos, juegos de entrenamiento cerebral o tareas que requieran decisiones rápidas para estimular la velocidad cognitiva y mejorar tu tiempo de reacción.</li></ul></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>Factores que Influyen en el <span class='cps_color'>Tiempo de Reacción</span></h2><ul><li><b>Edad:</b> A medida que envejecemos, nuestros tiempos de reacción tienden a ralentizarse debido al deterioro cognitivo y físico natural.</li><li><b>Estado físico:</b> Un mayor nivel de estado físico está asociado con tiempos de reacción más rápidos, debido a la mejor coordinación y respuesta muscular.</li><li><b>Complejidad del estímulo:</b> Los estímulos más simples resultan en tiempos de reacción más rápidos, mientras que los estímulos más complejos pueden ralentizar el tiempo de respuesta ya que requieren más procesamiento.</li><li><b>Hidratación:</b> La deshidratación puede afectar negativamente la función cognitiva y la velocidad de reacción. Mantenerse adecuadamente hidratado es importante para mantener el rendimiento óptimo del cerebro y el cuerpo.</li></ul></div></div></div>"
-    },
-    "mouseSenstivity": {
-      "metaTitle": "Calculadora de Sensibilidad del Mouse | Prueba de Velocidad de Toque",
-      "metaDescription": "Convierte la sensibilidad de tu mouse para un juego óptimo o uso diario. Descubre cómo la sensibilidad afecta el rendimiento y cómo usar nuestra calculadora de sensibilidad del mouse de manera efectiva.",
-      "name": "Sensibilidad del ratón",
-      "convertMouseSenstivityOf": "Convertir sensibilidad del ratón de",
-      "to": "a",
-      "convertFrom": "Convertir de",
-      "convertTo": "Convertir a",
-      "senstivity": "Sensibilidad",
-      "showAdvance": "Mostrar avanzado",
-      "showLess": "Mostrar menos",
-      "mouseDPI": "DPI del ratón",
-      "inchPer": "Pulgada por",
-      "cmPer": "cm por",
-      "title": "Calculadora de<span > sensibilidad del ratón</span>",
-      "smallDescription": "Calculadora de<span class='kohi_tagline_span'> sensibilidad del ratón</span> gratis y convierta la sensibilidad del ratón de inmediato. Esta calculadora le permite ajustar rápidamente la sensibilidad del ratón entre juegos.",
-      "detail": "<div class='content-screen'><br /><br /><br /><div class='cps_test'><h2>¿Qué es<span class='cps_color'> la Sensibilidad del Mouse?</span></h2><p>La sensibilidad del mouse se refiere a qué tan rápido se mueve tu cursor en respuesta al movimiento de tu mouse. Una mayor sensibilidad significa que el cursor se desplazará más lejos por la pantalla con un movimiento físico mínimo, mientras que una menor sensibilidad requiere más movimiento para cubrir la misma distancia.</p><p>Las configuraciones de sensibilidad de tu mouse son cruciales para mantener el nivel de control adecuado, ya sea para jugar, trabajar en diseño o navegar por Internet en el día a día.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Por qué es<span class='cps_color'> importante la Sensibilidad del Mouse?</span></h2><p>La sensibilidad del mouse juega un papel muy importante tanto en los juegos como en el uso diario de la computadora. Para los jugadores, especialmente en juegos de disparos en primera persona (FPS) o de estrategia en tiempo real (RTS), encontrar la sensibilidad correcta puede mejorar significativamente la precisión y los tiempos de reacción.</p><p>Una sensibilidad demasiado alta puede dificultar la puntería, mientras que una sensibilidad demasiado baja puede ralentizar los tiempos de respuesta. Fuera del ámbito de los juegos, encontrar el equilibrio adecuado también puede aumentar la productividad en diseño, edición de vídeo o navegación general en la computadora, al reducir la tensión y mejorar la comodidad.</p></div><div class='cps_test_main_hr'><hr class='thin-hr' /></div><div class='cps_test'><h2>¿Cómo usar el<span class='cps_color'> Convertidor de Sensibilidad del Mouse?</span></h2><p>Usar el Convertidor de Sensibilidad del Mouse es simple y efectivo. Sigue estos pasos para optimizar tus configuraciones:</p><p><b>1.&nbsp;</b>Ingresa tus configuraciones de sensibilidad actuales de tu juego o aplicación en el convertidor.</p><p><b>2.&nbsp;</b>Elige el juego o plataforma deseada a la que quieras transferir la sensibilidad.</p><p><b>3.&nbsp;</b>El convertidor calculará y mostrará la sensibilidad correspondiente, permitiéndote transferir tus configuraciones preferidas entre diferentes juegos o entornos.</p><p><b>4.&nbsp;</b>Ajusta y afina según sea necesario hasta que encuentres la sensibilidad que se sienta bien para ti.</p><p>Ya sea que estés cambiando entre juegos o simplemente buscando las configuraciones perfectas para un mejor rendimiento, esta herramienta te ayuda a lograr una sensibilidad consistente en todas las plataformas para una experiencia más fluida.</p></div></div>"
-    },
-    "mouseTest": {
-      "metaTitle": "Prueba del Mouse - Prueba los Botones del Mouse | Prueba de Velocidad de Toque",
-      "metaDescription": "¡Usa nuestro probador de mouse en línea para verificar qué tan bien funciona tu mouse— o no! Una prueba rápida para confirmar si todas las partes de tu mouse están funcionando como deberían.",
-      "name": "Prueba de ratón",
-      "title": "Prueba de ratón",
-      "smallDescription": "Realice la <span class='kohi_tagline_span'>prueba de ratón </span> ahora para mayor precisión. ¡Asegure el máximo potencial de su ratón! Verifique la funcionalidad de la rueda de desplazamiento y los botones del ratón en línea.",
-      "aboutHeading": "Acerca de<span class='h-color'> la prueba de ratón</span>",
-      "aboutDetail": "La prueba de ratón es una herramienta fácil de usar y eficiente que prueba el rendimiento del ratón del usuario. Esta herramienta de prueba de ratón en línea prueba con precisión la rueda de desplazamiento de su ratón, los botones izquierdo, medio, derecho y laterales. ¡Los usuarios pueden usar esta herramienta sin problemas sin descargar ninguna aplicación de terceros!",
-      "purposeHeading": "¿Cuál es el<span class='h-color'> propósito de la prueba de</span> ratón?",
-      "purposeDetailP1": "Un ratón es una herramienta esencial para cada computadora. Incluso para pequeños usos de la computadora, debemos usar el ratón para realizar la tarea. Una prueba de ratón es una herramienta útil porque ayuda a detectar todos los problemas importantes dentro de su ratón para ayudarlo a solucionar esos problemas.",
-      "purposeDetailP2": "Los usuarios pueden usar esta prueba para verificar si su ratón de computadora portátil o MacBook funciona correctamente o no.",
-      "purposeDetailP3": "Ayuda a los jugadores a descubrir si tienen problemas con sus ratones actuales. También les proporciona información valiosa sobre cómo mejorar sus habilidades de juego.",
-      "detail": "<div class='content-screen'><div class='main-content-container'><div class='cps_test'><h2>¿Qué es<span class='cps_color'> una Prueba del Mouse?</span></h2><p>Una prueba del mouse es una herramienta en línea diseñada para evaluar la funcionalidad y el rendimiento de tu mouse. Permite a los usuarios revisar varios aspectos del mouse, incluyendo la respuesta de los botones, la funcionalidad de la rueda de desplazamiento, la precisión del puntero y la exactitud del sensor.</p><p>Para jugadores y diseñadores gráficos, la prueba del mouse puede darte una idea de qué tan bien funciona tu mouse y si necesitas cambiar algo para mejorar tu precisión.</p></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>¿Por qué deberías realizar <span class='cps_color'>pruebas del mouse en línea?</span></h2><br /><h4>Garantiza la funcionalidad</h4>Una prueba del mouse asegura que todas las partes de tu mouse— botones, desplazamientos y sensores— estén funcionando correctamente. Esto es especialmente útil si notas problemas como clics que no responden o movimientos erráticos del cursor.<br /><br /><h4>Optimiza el rendimiento del mouse</h4>Las pruebas ayudan a optimizar la configuración y el rendimiento de tu mouse, asegurando que sea sensible y funcione al máximo, especialmente para actividades como juegos o trabajo de diseño.<br /><br /><h4>Identifica problemas</h4>Las pruebas del mouse te ayudan a identificar problemas potenciales de hardware o software. Si experimentas problemas como movimientos erráticos del cursor, botones que no responden o una rueda de desplazamiento que no funciona, una prueba del mouse puede ayudar a diagnosticar si el problema está en el mouse o si está relacionado con otros factores, como la compatibilidad del controlador o la configuración del sistema.<br /><br /></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>Características de nuestra <span class='cps_color'>Prueba del Mouse</span></h2><br /><h4>Sin necesidad de instalación o descarga</h4>Nuestra prueba del mouse es accesible directamente desde tu navegador web, eliminando la necesidad de instalaciones o descargas. ¡Es rápida, conveniente y tan simple como puede ser!<br /><br /><h4>Uso gratuito</h4>¿Quieres revisar tu mouse sin necesidad de pagar? Nuestra prueba es gratuita y accesible para cualquiera que quiera comprobar el rendimiento de su mouse sin gastar un centavo.<br /><br /><h4>Compatible con varios dispositivos</h4>Ya sea que estés usando un escritorio, laptop o tablet, la prueba del mouse funciona sin problemas en diferentes plataformas y sistemas operativos, brindando flexibilidad a todos los usuarios.<br /><br /><h4>Sensor del mouse preciso</h4>¿Quieres que el rendimiento de tu mouse sea verificado con 100% de precisión? ¡Nuestra prueba evalúa con exactitud el rendimiento del sensor para asegurar un movimiento y seguimiento precisos del cursor!<br /><br /></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>¿Cómo realizar una <span class='cps_color'>prueba del mouse?</span></h2><ol><li>Abre nuestra herramienta de prueba del mouse en tu navegador web de elección.</li><li>Haz clic en cada botón del mouse, incluyendo los botones izquierdo, derecho y central, para verificar la respuesta adecuada. Cada clic debería registrarse de inmediato, sin ningún retraso. Nuestra prueba resaltará estos botones si están funcionando en la pantalla.</li><li>Usa la rueda de desplazamiento para moverte hacia arriba y hacia abajo en la página. Si el desplazamiento funciona correctamente, también será resaltado.</li></ol></div><div class='cps_test_main_hr'><hr class='thin-hr'></div><div class='cps_test'><h2>¿Qué hacer si mi <span class='cps_color'>prueba del mouse falla?</span></h2><p>Si tu mouse no pasa la prueba o muestra alguna irregularidad, sigue estos pasos de solución de problemas:</p><ul><li><b>Verifica las conexiones:</b><br />Asegúrate de que tu mouse esté conectado de manera segura a tu dispositivo, ya sea a través de USB o Bluetooth.</li><li><b>Actualiza los controladores del mouse:</b><br />Los controladores desactualizados o incompatibles pueden afectar el rendimiento. Verifica si hay actualizaciones disponibles para los controladores de tu mouse e instálalas.</li><li><b>Prueba con otro dispositivo:</b><br />Conecta tu mouse a otro ordenador o dispositivo para ver si el problema persiste. Si funciona bien en otro dispositivo, el problema puede estar en la configuración de tu sistema.</li><li><b>Reemplaza las baterías:</b><br />Si estás usando un mouse inalámbrico, las baterías débiles o agotadas pueden causar problemas de rendimiento. Intenta reemplazarlas con baterías nuevas.</li><li><b>Considera reemplazar el mouse:</b><br />Si tu mouse continúa fallando después de la solución de problemas, podría ser el momento de reemplazarlo, especialmente si es un modelo más antiguo que ha tenido un uso extenso.</li></ul></div></div></div>"
-    },
-  
-    "tools": {
-      "title": "Otras Herramientas",
-      "description": "Para crear carruseles receptivos y ricos en funciones en React, bibliotecas como react-slick y swiper ofrecen opciones extensas.",
-      "items": [
-        {
-          "name": "Sensibilidad del Ratón",
-          "icon": "mouseIcon",
-          "href": "/mouse-sensitivity"
+    "container6": {
+      "question1": "¿Cómo",
+      "questiontitle": "mejorar los clics por segundo?",
+      "answer1": "Para mejorar tu CPS, prueba las siguientes técnicas:",
+      "bullets": {
+        "bullet1": {
+          "part1": "Practica regularmente:",
+          "part2": " Cuanto más practiques, más rápido te volverás."
         },
-        {
-          "name": "Prueba de Clic Kohi",
-          "icon": "kohiIcon",
-          "href": "/kohi-click-test"
+        "bullet2": {
+          "part1": "Prueba diferentes técnicas de clic:",
+          "part2": "Experimenta con métodos como jitter clicking, butterfly clicking o drag clicking para encontrar lo que mejor funcione para ti."
         },
-        {
-          "name": "Prueba AMP",
-          "icon": "apmIcon",
-          "href": "/apm-test"
+        "bullet3": {
+          "part1": "Usa un buen mouse:",
+          "part2": "Un mouse con botones receptivos y de baja resistencia te ayudará a hacer clic más rápido."
         },
-        {
-          "name": "Prueba de Reacción",
-          "icon": "reactionIcon",
-          "href": "/reaction-test"
-        },
-        {
-          "name": "Calculadora CPS",
-          "icon": "kohiIcon",
-          "href": "/cps-calculator"
-        },
-        {
-          "name": "Prueba del Ratón",
-          "icon": "apmIcon",
-          "href": "/mouse-test"
-        },
-        {
-          "name": "Prueba de Arrastre de Clic",
-          "icon": "mouseIcon",
-          "href": "/drag-click"
-        },
-        {
-          "name": "Prueba de Clic Badlion",
-          "icon": "reactionIcon",
-          "href": "/badlion-click-test"
+        "bullet4": {
+          "part1": "Mantente relajado:",
+          "part2": "La tensión en tu mano o dedos puede ralentizarte. Mantén tu mano suelta y ligera para hacer clic de manera más eficiente."
         }
-      ]
+      }
     },
-    "headerElement": {
-      "aboutTitle": "Sobre Nosotros",
-      "aboutDetail": " ",
-      "contactTitle": "Contáctanos",
-      "contactDetail": "¡Gracias por querer ponerte en contacto con nosotros! Ya sea que tengas preguntas sobre alguna de nuestras herramientas, comentarios sobre nuestro sitio web o necesites asistencia técnica, no dudes en comunicarte con nosotros. ¡Valoramos tu opinión por encima de todo y estamos comprometidos a ofrecer la mejor experiencia posible!",
-      "privacyTitle": "Privacidad & Política",
-      "privacyDetail": "Si deseas obtener más información o tienes preguntas sobre nuestra política de privacidad, no dudes en contactarnos. La privacidad de nuestros invitados es de suma importancia para nosotros. La siguiente información describe cómo recibimos y recopilamos los datos personales.",
-      "mouseSensitivityTitle": "CALCULADORA DE SENSIBILIDAD DEL RATÓN",
-      "mouseSensitivityDetail": "Calculadora de sensibilidad del ratón gratuita para convertir la sensibilidad del ratón de manera realista. Esta calculadora te permite ajustar rápidamente la sensibilidad del ratón entre juegos.",
-      "disclaimerTitle": "Aviso Legal",
-      "disclaimerDetail": ""
+    "container7": {
+      "question1": "Toma el",
+      "questiontitle": "test de clics Kohi",
+      "answer1": "El test de clics Kohi es otra prueba de CPS muy popular entre los jugadores, especialmente en la comunidad de Minecraft. Nombrado así por el servidor PvP de Minecraft 'Kohi', mide tu velocidad de clics en una interfaz simple. Solo inicia el temporizador y haz clic tan rápido como puedas para ver tu CPS. Muchos jugadores de Minecraft utilizan esta prueba para agudizar sus habilidades de clic y prepararse para batallas PvP."
+    }
+  },
+  "KohiTest": {
+    "title": "Prueba de Clics Kohi",
+    "tagline": "Prueba la Prueba de Clics Kohi para medir tu CPS durante 1 a 100 segundos. Rastrea tu velocidad de clics y refina tus habilidades con rangos de tiempo personalizados.",
+    "leftsidetitle": "Prueba Kohi en Línea",
+    "selectTimetitle": " Prueba Kohi en Segundos",
+    "circletext": "Haz clic para comenzar",
+    "achievementtitle": "Tus Logros",
+    "close": "Cerrar",
+    "sloth": "¡Perezoso!",
+    "clickspeeddesc": "Hiciste clic a la velocidad de",
+    "clicksin": "Clics en",
+    "seconds": "segundos",
+    "feelings": "Deja de sentir pena por ti mismo, no seas un perdedor",
+    "tryagain": "Intenta de nuevo",
+    "container1": {
+      "question1": "¿Qué es ",
+      "questiontitle": "la Prueba de Clics Kohi?",
+      "answer1": "La Prueba de Clics Kohi es una forma divertida de ver qué tan rápido puedes hacer clic con tu mouse en un corto período de tiempo. Originalmente creada para los fanáticos de PvP de Minecraft, se ha vuelto muy popular entre los jugadores que desean mejorar su velocidad de clics. Ya sea que te estés preparando para una intensa batalla o simplemente tengas curiosidad por tus habilidades de clic, la Prueba de Clics Kohi es una excelente manera de ver qué tan rápidos son realmente tus reflejos."
     },
-    "contactContent": {
-      "sections": [
-        {
-          "title": "Soporte al Cliente",
-          "details": [
-            "¿Te sientes perdido o necesitas ayuda? ¡Nuestros héroes de Soporte al Cliente están listos para ayudar! Si nuestros recursos de soporte no han resuelto tu problema, no dudes en contactarnos directamente a support@tapspeedtest.com. Te responderemos lo antes posible para asegurarnos de que tu experiencia con Tap Speed Test sea placentera."
-          ]
+    "container2": {
+      "question1": " ¿Por qué es",
+      "questiontitle": "importante la velocidad de clics?",
+      "answer1": "En los juegos competitivos, cada milisegundo cuenta. Ya sea que estés luchando en Minecraft, Fortnite o cualquier juego rápido, cuanto más rápido puedas hacer clic, más rápido podrás responder a los eventos del juego. Esto puede darte una gran ventaja al atacar enemigos, construir estructuras o realizar combinaciones rápidas. Si te gustan los juegos PvP, tener una alta velocidad de clic puede ayudarte a dominar la competencia. Pero incluso si no eres exactamente un jugador, mejorar tu velocidad de clic también puede ayudarte a ser más eficiente en tareas informáticas diarias."
+    },
+    "container3": {
+      "question1": "¿Qué es",
+      "questiontitle": "una buena velocidad de clic?",
+      "answer1": "El jugador promedio suele registrar alrededor de 6–7 clics por segundo (CPS). Pero si aspiras a ser más competitivo, querrás alcanzar 8 CPS o más. En la Prueba de Clics Kohi, algunos de los mejores jugadores pueden alcanzar de 10 a 12 CPS, lo que se considera una puntuación impresionante. Así que si estás alcanzando cifras de dos dígitos, ¡definitivamente estás en el camino correcto!"
+    },
+    "container4": {
+      "question1": "¿Cómo se",
+      "questiontitle": "llama la Prueba de Clics Kohi?",
+      "answer1": "La Prueba de Clics Kohi recibe su nombre del popular servidor de Minecraft Kohi, que era famoso por sus intensas batallas PvP. Los jugadores en este servidor siempre buscaban formas de mejorar sus habilidades de combate, y hacer clic rápido era una gran parte de eso. Con el tiempo, “Kohi Click” se convirtió en un término, y ahora es un estándar para cualquiera que quiera verificar o mejorar su velocidad de clic."
+    },
+    "container5": {
+      "question1": "¿Cómo tomar",
+      "questiontitle": "una Prueba de Clics Kohi?",
+      "answer1": "¿Listo para probar tu velocidad? Aquí te mostramos cómo puedes tomar la Prueba de Clics Kohi:",
+      "bullets": {
+        "bullet1": "Inicia la prueba de clics haciendo clic en el círculo etiquetado 'Haz clic para probar'.",
+        "bullet2": "Una vez que comience la prueba, haz clic con tu mouse tan rápido como puedas dentro de un límite de tiempo establecido (generalmente de 5 a 10 segundos).",
+        "bullet3": "Después de que se acabe el tiempo, verás tu puntuación de clics por segundo (CPS).",
+        "bullet4": "¡Intenta la prueba de nuevo y ve si puedes superar tu puntuación anterior!"
+      }
+    },
+    "container6": {
+      "question1": "¿Cómo",
+      "questiontitle": "mejorar tu puntuación de clics?",
+      "answer1": "¿Quieres mejorar tu velocidad de clics? Aquí hay algunos consejos para aumentar tu CPS:",
+      "bullets": {
+        "bullet1": {
+          "part1": "Consigue un buen mouse: ",
+          "part2": "Un mouse de juego sólido puede hacer una gran diferencia. Busca uno que sea cómodo y receptivo."
         },
-        {
-          "title": "Soporte Comunitario",
-          "details": [
-            "¿Necesitas ayuda con el inicio de sesión, registro o el uso de nuestras herramientas? ¡Nuestra increíble comunidad de usuarios está aquí para asistirte! Comparte tus preguntas, vota por ideas y conéctate con otros usuarios que son tan apasionados por Tap Speed Test como tú. Si estás atascado, deja un mensaje y un compañero usuario estará encantado de ayudarte. También puedes contactarnos en community@tapspeedtest.com."
-          ]
+        "bullet2": {
+          "part1": "Experimenta con agarres:",
+          "part2": "La forma en que sostienes tu mouse importa. El agarre de garra o de punta a menudo permite un clic más rápido."
         },
-        {
-          "title": "Reportar un Error",
-          "details": [
-            "¡Ups! ¿Has encontrado un error mientras usabas una de nuestras herramientas o juegos? ¡Háznoslo saber! Tus informes son invaluables para ayudarnos a mantener Tap Speed Test funcionando sin problemas. Si encuentras un fallo, envíanos los detalles junto con cualquier imagen o video a bugs@tapspeedtest.com. Trabajaremos rápidamente para solucionar el problema y mejorar tu experiencia."
-          ]
+        "bullet3": {
+          "part1": "Practica, practica, practica:",
+          "part2": "Cuanto más lo hagas, mejor te volverás. Intenta desafíos de clics o incluso juegos para ayudarte a mejorar."
         },
-        {
-          "title": "Colaboración y Publicidad",
-          "details": [
-            "¿Tienes ideas emocionantes o quieres explorar oportunidades de colaboración y publicidad con Tap Speed Test? ¡Estamos listos para escucharte! Ya sea que busques colaborar o aportar algo nuevo, creemos algo asombroso juntos. Contáctanos en collaborate@tapspeedtest.com y hagamos que la magia suceda."
-          ]
-        },
-        {
-          "title": "Redes Sociales",
-          "details": [
-            "Mantente conectado y contáctanos en las redes sociales para obtener soporte rápido y actualizaciones:",
-            "Twitter: @TapSpeedTest"
-          ]
+        "bullet4": {
+          "part1": "Aprende a hacer jitter clicking:",
+          "part2": "Algunos jugadores utilizan una técnica llamada jitter clicking, donde tensan y relajan rápidamente su mano para hacer clic más rápido. Requiere práctica, pero puede aumentar tu velocidad."
         }
-      ]
+      }
     },
-  
-    "mouse": "Ratón",
-    "contactUs": "Contáctenos",
-    "about": "Acerca de",
-    "privacyPolicy": "Política de privacidad",
-    "disclaimer": "Descargo de responsabilidad",
-    "copyrights": "Derechos de autor © 2024",
-    "allRightsReserved": "Todos los derechos reservados",
-    "clicksIn": "Clics en",
-    "yourAchievments": "Tus logros",
-    "youClickedWithSpeedOf": "Hiciste clic con una velocidad de",
-    "stopFeelingSorryFoYourself": "Deja de sentir lástima por ti mismo, No seas un perdedor",
-    "youScore": "Tu puntuación",
-    "in": "en",
-    "accuracy": "Precisión",
-    "accuracyPercentage": "Porcentaje de precisión",
-    "youAPMIs": "Tu APM es",
-    "checkYouScore": "Verifica tu puntuación",
-    "aboutUsPageContent": "<h2>Quiénes Somos</h2><p>En TapSpeedTest.com, hemos construido una comunidad próspera de individuos apasionados por los videojuegos y la tecnología. Entendemos la importancia de la velocidad y la precisión en los juegos competitivos, por lo que hemos desarrollado nuestra prueba de velocidad de clic (CPS Test) con un fuerte enfoque en la precisión y la experiencia del usuario.</p><p>Nuestra plataforma ofrece diversas herramientas y pruebas, cada una diseñada para ayudarte a dominar diferentes métodos de clic y intervalos de tiempo. Ya sea que estés practicando el clic jitter, Kohi, o simplemente trabajando para mejorar tu CPS, tenemos las herramientas para satisfacer tus necesidades.</p><h2>Nuestra Misión</h2><p>Nuestra misión es proporcionar a los jugadores las mejores herramientas para rastrear y mejorar su velocidad de clic. Priorizamos la precisión y la facilidad de uso, permitiendo que jugadores de todos los niveles prueben sus habilidades de manera rápida y eficiente. A través de nuestras pruebas, buscamos ayudar a los usuarios a mejorar su rendimiento en los videojuegos, un clic a la vez.</p><h2>Lo Que Ofrecemos</h2><ul><li><b>Resultados Precisos y Rápidos:</b> Nuestra prueba CPS está diseñada para ofrecer mediciones precisas de tu velocidad de clic en múltiples intervalos de tiempo.</li><li><b>Múltiples Pruebas de Clic:</b> Practica de manera constante con una variedad de pruebas, incluida la Prueba de Clic Jitter y la Prueba de Clic Kohi, para agudizar tus habilidades.</li><li><b>Acceso Ilimitado y Gratuito:</b> Los usuarios pueden practicar tanto como deseen, completamente gratis.</li><li><b>Interfaz Amigable:</b> Nuestra plataforma es simple e intuitiva, lo que facilita su uso para jugadores de cualquier edad sin complicaciones.</li></ul><h2>Nuestra Visión</h2><p>Visualizamos CPSTest.io como una plataforma líder donde los jugadores pueden mejorar continuamente sus habilidades con herramientas adaptadas a sus necesidades. Nuestro objetivo es seguir mejorando la plataforma introduciendo más variaciones y modos para satisfacer las demandas en evolución de la comunidad de jugadores.</p><p>Queremos empoderar a los jugadores de todo el mundo para que rastreen su progreso, perfeccionen sus habilidades y alcancen nuevos niveles de rendimiento.</p><h2>Mantente Conectado</h2><p>Estamos en constante evolución y te animamos a seguir visitando nuestro sitio mientras lanzamos nuevas características y herramientas. Si tienes preguntas, comentarios o sugerencias, no dudes en contactarnos a través de la página de Contacto.</p><p>¡Gracias por elegir CPSTest.io — vamos a clicar hacia la victoria!</p>",
-    "contactUsPageContent": "<h1>Contáctenos</h1><p class='contact_paragraph'>¡Estamos encantados de saber de ti! Ya sea que tengas preguntas, comentarios o simplemente quieras saludar, estamos aquí para ayudar. Envíanos un mensaje y te responderemos lo antes posible. Tus pensamientos y sugerencias son valiosos para nosotros. ¡Mantengámonos en contacto!</p><div class='contactfirst_part'><div class='contactfirst_part_left'><div class='contactfirst_part_lefticon'><i class='fa-solid fa-comments'></i></div></div><div class='contactsecond_part_left'><h2>Hablemos</h2><p>¿Te sientes un poco perdido en el laberinto de CPSTest.io? ¡No te preocupes, estamos aquí para ayudarte! 🤗 Si estás buscando y nuestro sitio de soporte o comunidad no han resuelto el problema, contáctanos en emma@cpstest.io</p><p>Nuestros héroes del soporte al cliente 🦸 están listos para intervenir y salvar el día. Tu viaje alegre es nuestra Estrella del Norte! ⭐ ¡Hagamos equipo y hagamos que tu experiencia en CPSTest.io sea verdaderamente legendaria. 🚀</p></div></div><div class='contactfirst_part'><div class='contactfirst_part_left'><div class='contactfirst_part_lefticon'><i class='fa-solid fa-comments'></i></div></div><div class='contactsecond_part_left'><h2>Comunidad de Testers CPS</h2><p>¿Listo para conquistar el mundo de CPSTest.io pero atascado en el inicio de sesión o el registro? No te preocupes, nuestra fantástica comunidad de usuarios está lista para intervenir y salvar el día! 🦸‍♂️ ¿No puedes descifrar el código? Deja tu consulta como un micrófono 🎤 y otro usuario será tu superhéroe.</p><p>Además, desata tus ideas, vota por los conceptos más geniales y charla con otros entusiastas. 🎉 ¡Co-creemos la magia de CPSTest.io juntos! Contáctanos en admin@cpstest.io 📬</p></div></div><div class='contactfirst_part'><div class='contactfirst_part_left'><div class='contactfirst_part_lefticon'><i class='fa-solid fa-comments'></i></div></div><div class='contactsecond_part_left'><h2>Reportar un Bug:</h2><p>¡Oh, no! ¿Has encontrado un error mientras tinkering con las herramientas de CPSTest.io o jugando nuestros juegos? No te preocupes, estamos aquí para salvar el día! Danos toda la información sobre el error que has descubierto e incluso puedes enviarnos una imagen o video que muestre el problema.</p><p>Tus comentarios son como oro para nosotros, ayudándonos a mejorar tu experiencia. Hagamos equipo y aseguremos que CPSTest.io se mantenga fluido y sin errores! Contáctanos en admin@cps.test.io</p></div></div><div class='contactfirst_part'><div class='contactfirst_part_left'><div class='contactfirst_part_lefticon'><i class='fa-solid fa-comments'></i></div></div><div class='contactsecond_part_left'><h2>Colaboración y Publicidad</h2><p>¿Tienes grandes ideas en mente? ¿Deseas colaborar con CPSTest.io o sumergirte en deslumbrantes aventuras publicitarias? 🌟 ¡Pintemos la ciudad con innovación! Nuestras puertas están abiertas de par en par para asociaciones que añaden magia 🎩 a nuestros usuarios.</p><p>¿Listo para surfear esta ola de aventuras? 🏄‍♂️ Reunámonos y compongamos una sinfonía de brillantez 🎵 para amplificar la experiencia de CPSTest.io. No seas tímido, contáctanos en emma@cpstest.io y encendamos las chispas de la creatividad. 🚀</p></div></div><div class='contactfirst_part'><div class='contactfirst_part_left'><div class='contactfirst_part_lefticon'><i class='fa-solid fa-comments'></i></div></div><div class='contactsecond_part2_left'><h2>@CPSTest_io:</h2><p>¿Te apetece una charla? Contáctanos en Twitter y haremos todo lo posible para ayudarte. ¡Tu satisfacción es nuestra misión!</p></div></div>",
-    "privacyPageContent": "<h2>Política de Privacidad de Tap Speed Test</h2><p>En Tap Speed Test, accesible en <a href='https://tapspeedtest.com'>https://tapspeedtest.com</a>, una de nuestras principales prioridades es la privacidad de nuestros visitantes. Este documento de Política de Privacidad contiene los tipos de información que son recopilados y registrados por Tap Speed Test y cómo los utilizamos. Si tienes preguntas adicionales o necesitas más información sobre nuestra Política de Privacidad, no dudes en contactarnos por correo electrónico a <a href='mailto:admin@tapspeedtest.com'>admin@tapspeedtest.com</a>.</p><p>Esta política de privacidad se aplica únicamente a nuestras actividades en línea y es válida para los visitantes de nuestro sitio web en relación con la información que comparten y/o recopilan en Tap Speed Test. Esta política no se aplica a ninguna información recopilada fuera de línea o a través de canales que no sean este sitio web.</p><h2>Consentimiento</h2><p>Al utilizar nuestro sitio web, consientes nuestra Política de Privacidad y aceptas sus términos.</p><h2>Información que recopilamos</h2><p>La información personal que se te pide y las razones por las que se te solicita, se te aclarará en el momento en que te pidamos que nos brindes tu información personal.</p><p>Si te contactas directamente con nosotros, podemos recibir información adicional sobre ti, como tu nombre, dirección de correo electrónico, número de teléfono, el contenido del mensaje y/o archivos adjuntos que nos puedas enviar, y cualquier otra información que elijas proporcionar.</p><p>Cuando te registras para una cuenta, podemos pedir tu información de contacto, incluyendo elementos como nombre, nombre de la empresa, dirección, dirección de correo electrónico y número de teléfono.</p><h2>Cómo utilizamos tu información</h2><p>Utilizamos la información que recopilamos de diversas maneras, incluyendo para:</p><ul><li>Proveer, operar y mantener nuestro sitio web</li><li>Mejorar, personalizar y expandir nuestro sitio web</li><li>Entender y analizar cómo utilizas nuestro sitio web</li><li>Desarrollar nuevos productos, servicios, características y funcionalidades</li><li>Comunicarnos contigo, ya sea directamente o a través de uno de nuestros socios, incluyendo para servicio al cliente, para proporcionar actualizaciones y otra información relacionada con el sitio web, y para fines de marketing y promoción</li><li>Enviarte correos electrónicos</li><li>Detectar y prevenir fraudes</li></ul><h2>Archivos de Registro</h2><p>Tap Speed Test sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando visitan sitios web. Todas las empresas de alojamiento hacen esto como parte de los análisis de servicios de alojamiento. La información recopilada por los archivos de registro incluye direcciones de protocolo de Internet (IP), tipo de navegador, Proveedor de Servicios de Internet (ISP), fecha y hora, páginas de referencia/salida y, posiblemente, el número de clics. Estas no están vinculadas a ninguna información personal identificable. El propósito de la información es analizar tendencias, administrar el sitio, rastrear el movimiento de los usuarios en el sitio web y recopilar información demográfica.</p><p>Estas no están vinculadas a ninguna información personal identificable. El propósito de la información es analizar tendencias, administrar el sitio, rastrear el movimiento de los usuarios en el sitio web y recopilar información demográfica.</p><h2>Cookies y Web Beacons</h2><p>Al igual que cualquier otro sitio web, Tap Speed Test utiliza ‘cookies’. Estas cookies se utilizan para almacenar información, incluyendo las preferencias de los visitantes y las páginas en el sitio web que el visitante accede o visita. La información se utiliza para optimizar la experiencia de los usuarios personalizando el contenido de nuestra página web según el tipo de navegador de los visitantes y/o otra información.</p><h2>Cookie DART de DoubleClick</h2><p>Google es uno de los proveedores externos en nuestro sitio. También utiliza cookies, conocidas como cookies DART, para servir anuncios a nuestros visitantes en función de su visita a tapspeedtest.com y otros sitios en Internet. Sin embargo, los visitantes pueden optar por rechazar el uso de cookies DART visitando la Política de Privacidad de la red de anuncios y contenido de Google en la siguiente URL – <a href='https://policies.google.com/technologies/ads'>https://policies.google.com/technologies/ads</a>.</p><p>Algunos anunciantes en nuestro sitio pueden usar cookies y balizas web. Nuestros socios publicitarios se enumeran a continuación. Cada uno de nuestros socios publicitarios tiene su propia Política de Privacidad para sus políticas sobre datos de usuarios. Para un acceso más fácil, hemos incluido enlaces a sus Políticas de Privacidad a continuación.</p><p>Google: <a href='https://policies.google.com/technologies/ads'>https://policies.google.com/technologies/ads</a>.</p><h2>Políticas de Privacidad de Socios Publicitarios</h2><p>Puedes consultar esta lista para encontrar la Política de Privacidad de cada uno de los socios publicitarios de Tap Speed Test.</p><p>Los servidores de anuncios externos o redes de anuncios utilizan tecnologías como cookies, JavaScript o balizas web que se utilizan en sus respectivos anuncios y enlaces que aparecen en Tap Speed Test, los cuales se envían directamente a los navegadores de los usuarios. Reciben automáticamente tu dirección IP cuando esto ocurre. Estas tecnologías se utilizan para medir la efectividad de sus campañas publicitarias y/o personalizar el contenido publicitario que ves en los sitios web que visitas.</p><p>Ten en cuenta que Tap Speed Test no tiene acceso ni control sobre estas cookies que utilizan los anunciantes externos.</p><h2>Políticas de Privacidad de Terceros</h2><p>La Política de Privacidad de Tap Speed Test no se aplica a otros anunciantes o sitios web. Por lo tanto, te aconsejamos consultar las respectivas Políticas de Privacidad de estos servidores de anuncios de terceros para obtener información más detallada. Puede incluir sus prácticas e instrucciones sobre cómo optar por no participar en ciertas opciones. Puedes elegir deshabilitar las cookies a través de las opciones de tu navegador. La información detallada sobre la gestión de cookies con navegadores específicos se puede encontrar en los sitios web de los respectivos navegadores.</p><h2>Política de Privacidad CCPA (No Vender Mi Información Personal)</h2><p>Bajo la CCPA, entre otros derechos, los consumidores de California tienen el derecho de:</p><ul><li>Solicitar que un negocio que recopila datos personales de un consumidor revele las categorías y elementos específicos de datos personales que ha recopilado sobre los consumidores.</li><li>Solicitar que un negocio elimine cualquier dato personal sobre el consumidor que haya recopilado.</li><li>Solicitar que un negocio que vende datos personales de un consumidor, no venda los datos personales del consumidor.</li></ul><h2>Política de Privacidad GDPR (Derechos de Protección de Datos)</h2><p>Nos gustaría asegurarnos de que estés completamente al tanto de todos tus derechos de protección de datos. Cada usuario tiene derecho a lo siguiente:</p><ul><li>El derecho a acceder: Tienes el derecho de solicitar copias de tus datos personales. Podemos cobrarte una pequeña tarifa por este servicio.</li><li>El derecho a la rectificación: Tienes el derecho de solicitar que corrijamos cualquier información que creas que es inexacta. También tienes el derecho de solicitar que completemos la información que creas que está incompleta.</li><li>El derecho a la eliminación: Tienes el derecho de solicitar que eliminemos tus datos personales, bajo ciertas condiciones.</li><li>El derecho a restringir el procesamiento: Tienes el derecho de solicitar que restrinjamos el procesamiento de tus datos personales, bajo ciertas condiciones.</li><li>El derecho a oponerse al procesamiento: Tienes el derecho de oponerte a nuestro procesamiento de tus datos personales, bajo ciertas condiciones.</li><li>El derecho a la portabilidad de datos: Tienes el derecho de solicitar que transfiramos los datos que hemos recopilado a otra organización, o directamente a ti, bajo ciertas condiciones.</li></ul><h2>Información de Niños</h2><p>Otra parte de nuestra prioridad es agregar protección para los niños mientras utilizan Internet. Animamos a los padres y tutores a observar, participar y/o monitorear y guiar su actividad en línea.</p><p>Tap Speed Test no recopila intencionalmente ninguna Información Personal Identificable de niños menores de 13 años. Si crees que tu hijo proporcionó este tipo de información en nuestro sitio web, te animamos a que nos contactes de inmediato y haremos nuestro mejor esfuerzo para eliminar dicha información de nuestros registros de manera rápida.</p>",
-    "disclaimerPageContent": "<div><h2>Contenido</h2><p>La información contenida en este sitio web es solo para fines de información general. Tap Speed Test no hace declaraciones ni garantías de ningún tipo sobre la precisión o fiabilidad de las herramientas o del sitio web, ni de los productos o servicios que contiene para ningún propósito. Aunque la información se actualiza periódicamente, pueden ocurrir errores y omisiones.</p><p>No se garantiza que la información proporcionada en este sitio web sea correcta y esté actualizada. Los usuarios pueden confiar en dicha información bajo su propio riesgo. En ningún caso Tap Speed Test y sus colaboradores serán responsables o responderán por cualquier pérdida o daño que surja del uso del contenido o las herramientas en el sitio web.</p><p>Tap Speed Test se reserva el derecho de realizar cambios en el contenido del sitio web en cualquier momento y sin previo aviso.</p><h2>Sitios web externos</h2><p>A través de este sitio web, puedes visitar otros sitios externos siguiendo hipervínculos. No tenemos control ni responsabilidad sobre el contenido y la disponibilidad de estos sitios, aunque nos esforzamos por proporcionar solo enlaces de calidad a sitios legítimos y valiosos.</p><p>La inclusión de estos enlaces no implica una recomendación o respaldo de las opiniones presentadas en ellos por parte de Tap Speed Test. Ninguno de los administradores, escritores o colaboradores asociados con Tap Speed Test puede hacerse responsable de tu uso de los detalles contenidos en o vinculados a estas páginas web.</p><p>Cuando visites sitios web externos, estos tendrán una política de privacidad y términos y condiciones diferentes que no están bajo nuestro control. Te recomendamos revisar las políticas de privacidad y los términos y condiciones de estos sitios antes de confiar en cualquier información o antes de adquirir alguno de sus servicios.</p><h2>Consentimiento</h2><p>Al utilizar el sitio web, aceptas los Términos de Uso. Tap Speed Test y sus colaboradores tienen el derecho de alterar, modificar o actualizar estos términos de uso en cualquier momento. Por favor, lee estos términos y condiciones con atención. Los términos y condiciones se pueden acceder a través del enlace en la parte inferior de cualquier página de nuestro sitio web.</p><p>Tap Speed Test utiliza cookies [como se indica en la política de privacidad] para ofrecer a los usuarios visitas más cómodas al sitio web. Acceder al sitio implica que el usuario acepta la política de uso de cookies.</p><h2>Actualizaciones</h2><p>Constantemente nos esforzamos por mantener el sitio web activo y asegurar su buen funcionamiento. Sin embargo, Tap Speed Test no será responsable si el sitio web está temporalmente fuera de servicio debido a problemas técnicos que están fuera de nuestro control.</p><h2>Derechos de autor</h2><p>Tap Speed Test y sus proveedores poseen todos los derechos de autor en este sitio web. Te recomendamos que no copies ni muestres contenido o ninguna parte de este sitio para redistribución a terceros sin el permiso de Tap Speed Test.</p></div>"
+    "container7": {
+      "question1": "Toma el",
+      "questiontitle": "test de clics Kohi",
+      "answer1": "El test de clics Kohi es otra prueba de CPS muy popular entre los jugadores, especialmente en la comunidad de Minecraft. Nombrado así por el servidor PvP de Minecraft 'Kohi', mide tu velocidad de clics en una interfaz simple. Solo inicia el temporizador y haz clic tan rápido como puedas para ver tu CPS. Muchos jugadores de Minecraft utilizan esta prueba para agudizar sus habilidades de clic y prepararse para batallas PvP."
+    }
+  },
+  "ButterflyTest": {
+    "title": "Prueba de Clics Butterfly",
+    "tagline": "Realiza la Prueba de Clics Butterfly y elige un rango de tiempo de 1 a 100 segundos. ¡Perfecciona tu clic de mariposa y maximiza tu CPS!",
+    "leftsidetitle": "Prueba Butterfly en Línea",
+    "selectTimetitle": " Prueba Kohi en Segundos",
+    "circletext": "Haz clic para comenzar",
+    "achievementtitle": "Tus Logros",
+    "close": "Cerrar",
+    "sloth": "¡Perezoso!",
+    "clickspeeddesc": "Hiciste clic a la velocidad de",
+    "clicksin": "Clics en",
+    "seconds": "segundos",
+    "feelings": "Deja de sentir pena por ti mismo, no seas un perdedor",
+    "tryagain": "Intenta de nuevo",
+    "container1": {
+      "question1": "¿Qué es ",
+      "questiontitle": "la Prueba de Clics Butterfly?",
+      "answer1": "Nuestra prueba de clics butterfly es una forma rápida y fácil de medir qué tan rápido puedes hacer clic dentro de un tiempo establecido. Es una técnica popular donde usas tu dedo índice y medio para alternar clics en el mismo botón del mouse a una velocidad rápida. Así que si estás buscando mejorar tus habilidades de combate o PvP, realiza nuestra prueba de clics butterfly y descubre dónde te encuentras."
+    },
+    "container2": {
+      "question1": "¿Cómo",
+      "questiontitle": "usar la Prueba de Clics Butterfly?",
+      "answer1": "Nuestra prueba de clics butterfly es similar a cualquier prueba de clic. Aquí te mostramos cómo puedes comenzar la prueba de clics butterfly:",
+      "bullets": {
+        "bullet1": "Lanza nuestra prueba de clics butterfly.",
+        "bullet2": "Elige tu límite de tiempo de 1 segundo a 100 segundos.",
+        "bullet3": "Prepara tu mouse en el espacio, colocando tus dedos índice y medio en el botón.",
+        "bullet4": "Comienza a hacer clic tan rápido como puedas alternando entre los dos dedos.",
+        "bullet5": "Comienza a hacer clic tan rápido como puedas alternando entre los dos dedos."
+      }
+    },
+    "container3": {
+      "question1": "¿Por qué es",
+      "questiontitle": "importante la velocidad de clics Butterfly?",
+      "answer1": "Para Minecraft PvP o juegos de disparos rápidos, la velocidad importa. Hacer clic de mariposa te permite hacer clic mucho más rápido que lo normal, dándote una ventaja cuando cada milisegundo cuenta. Ya sea que estés atacando, construyendo o realizando acciones rápidas, hacer clic más rápido significa un juego más rápido."
+    },
+    "container4": {
+      "question1": "Beneficios de",
+      "questiontitle": "hacer clic de mariposa",
+      "bullets": {
+        "bullet1": {
+          "part1": "Velocidad de clic aumentada: ",
+          "part2": "Es más rápido que hacer clic normalmente, ayudándote a alcanzar esos números CPS más altos. Ya sea para trabajar o jugar, tener altos números de CPS te hace mejor en lo que haces."
+        },
+        "bullet2": {
+          "part1": "Mejor coordinación de dedos:",
+          "part2": "Usar dos dedos en lugar de uno ayuda a mejorar tu velocidad de mano y coordinación."
+        },
+        "bullet3": {
+          "part1": "Ventaja en juegos: ",
+          "part2": " En PvP o juegos que requieren reacciones rápidas, hacer clic de mariposa puede cambiar el juego. Puedes derrotar enemigos, construir cualquier cosa a gran escala y hacerlo todo más rápido que antes."
+        },
+        "bullet4": {
+          "part1": "Menos fatiga en los dedos:",
+          "part2": "Alternar entre dedos ayuda a reducir la tensión en un solo dedo, manteniéndote en el juego por más tiempo."
+        }
+      }
+    },
+    "container5": {
+      "question1": "¿Cómo funciona",
+      "questiontitle": "la Prueba de Clics Butterfly?",
+      "answer1": "La prueba de clics butterfly cuenta cuántas veces puedes hacer clic en un marco de tiempo específico. Registra cada clic y calcula tu CPS (clics por segundo). Nuestra prueba incluso muestra cuán consistente es tu velocidad de clic a lo largo del temporizador, para que puedas trabajar en mantenerte constante durante sesiones de juego más largas."
+    },
+    "container6": {
+      "question1": "¿Cómo",
+      "questiontitle": "mejorar en hacer clic de mariposa?",
+      "answer1": "Para mejorar en hacer clic de mariposa, la práctica regular es clave. Cuanto más practiques, más rápido y preciso te volverás. También es importante usar un buen mouse con botones receptivos, ya que esto facilita hacer clic a altas velocidades.",
+      "answer2": "Asegúrate de que la posición de tus dedos sea cómoda para mantener la precisión y la velocidad. Comienza con sesiones de clic más cortas para aumentar tu resistencia, aumentando gradualmente la duración para mejorar la resistencia. Finalmente, recuerda mantener tu mano relajada, ya que tensarte puede ralentizarte. Con práctica constante, verás cómo tu CPS se dispara y comenzarás a dominar cada juego que juegues."
+    }
+  },
+  "AimTrainerTest": {
+    "title": "Entrenador de Apuntes y Prueba de Precisión del Mouse",
+    "tagline": "El Entrenador de Apuntes te permite practicar tus habilidades de apuntar en competiciones de juegos y mejorar tu precisión con el mouse.",
+    "level": "nivel",
+    "targetSize": "Tamaño del objetivo",
+    "shapecolor": "Color de la forma",
+    "time": "Período de tiempo",
+    "close": "Cerrar",
+    "sloth": "¡Perezoso!",
+    "clickspeeddesc": "Hiciste clic a la velocidad de",
+    "clicksin": "Clics en",
+    "seconds": "segundos",
+    "feelings": "Deja de sentir pena por ti mismo, no seas un perdedor",
+    "tryagain": "Intenta de nuevo",
+    "container1": {
+      "question1": "¿Qué es ",
+      "questiontitle": "una Prueba de Entrenador de Apuntes?",
+      "answer1": "La Prueba de Entrenador de Apuntes es una herramienta diseñada para ayudarte a practicar y mejorar tus habilidades de apuntar al probar tu capacidad para hacer clic rápida y precisamente en los objetivos. Es ampliamente utilizada por los jugadores, especialmente en juegos de disparos en primera persona (FPS) u otros juegos competitivos, donde la precisión y los reflejos rápidos son críticos. La prueba desafía tu coordinación mano-ojo y tiempo de reacción, dándote retroalimentación instantánea sobre tu rendimiento de apuntar."
+    },
+    "container2": {
+      "question1": "¿Por qué es",
+      "questiontitle": "importante la precisión al apuntar?",
+      "answer1": "La precisión al apuntar es crucial en muchos escenarios de juego, especialmente para jugadores competitivos. En juegos como Counter-Strike, Call of Duty o Valorant, tu capacidad para apuntar y disparar rápida y precisamente determina tu rendimiento. Una alta precisión te da una ventaja para eliminar oponentes antes de que puedan reaccionar.",
+      "answer2": "El entrenamiento de apuntar mejora cómo trabajan juntos tus ojos y manos, permitiéndote apuntar con precisión a objetos en movimiento o pequeños en la pantalla. Un buen apunte no se trata solo de velocidad, sino también de precisión. Practicar te ayuda a reaccionar más rápido mientras mantienes la precisión, lo cual es especialmente útil en juegos rápidos donde cada milisegundo cuenta.",
+      "answer3": "Incluso fuera de los juegos de disparos, el entrenamiento de apuntar puede mejorar tu experiencia general de juego al hacerte más receptivo y concentrado."
+    },
+    "container3": {
+      "question1": "¿Cómo",
+      "questiontitle": "tomar la Prueba de Entrenador de Apuntes?",
+      "bullets": {
+        "bullet1": "Lanza nuestro sitio web y espera a que se cargue la Prueba de Entrenador de Apuntes.",
+        "bullet2": "Elige tu nivel de dificultad preferido. Puedes seleccionar entre principiante, intermedio o avanzado, dependiendo de tu nivel de habilidad.",
+        "bullet3": "Haz clic en el botón 'Iniciar Juego' para comenzar.",
+        "bullet4": "Cuando comience la prueba, apunta y haz clic en los objetivos tan pronto como aparezcan. Los objetivos se moverán por la pantalla o aparecerán aleatoriamente, poniendo a prueba tu velocidad y precisión.",
+        "bullet5": "Cuando comience la prueba, apunta y haz clic en los objetivos tan pronto como aparezcan. Los objetivos se moverán por la pantalla o aparecerán aleatoriamente, poniendo a prueba tu velocidad y precisión."
+      }
+    },
+    "container4": {
+      "question1": "¿Cómo",
+      "questiontitle": "mejorar tu puntería?",
+      "answer1": "La prueba de clics butterfly cuenta cuántas veces puedes hacer clic en un marco de tiempo específico. Registra cada clic y calcula tu CPS (clics por segundo). Nuestra prueba incluso muestra cuán consistente es tu velocidad de clic a lo largo del temporizador, para que puedas trabajar en mantenerte constante durante sesiones de juego más largas.",
+      "bullets": {
+        "bullet1": {
+          "part1": "Práctica constante: ",
+          "part2": "La práctica regular es clave para mejorar tu puntería. Usa herramientas de entrenamiento de puntería como la Prueba de Entrenador de Apuntes para trabajar en tu precisión y velocidad de reacción regularmente."
+        },
+        "bullet2": {
+          "part1": "Encuentra la sensibilidad del mouse adecuada:",
+          "part2": "Encontrar la sensibilidad del mouse y la configuración de DPI (puntos por pulgada) adecuadas es crucial para una puntería precisa. Un DPI más alto permite un movimiento más rápido, mientras que un DPI más bajo puede ofrecer un mejor control, dependiendo de tu preferencia."
+        },
+        "bullet3": {
+          "part1": "Mejora la coordinación mano-ojo: ",
+          "part2": "La puntería está directamente relacionada con la coordinación mano-ojo. Puedes mejorar esto practicando con ejercicios específicos, como enfocarte en objetos en movimiento rápido o jugar juegos que requieren precisión."
+        },
+        "bullet4": {
+          "part1": "Mejora el tiempo de reacción: ",
+          "part2": " Cuanto más rápido puedas reaccionar a los objetivos, mejor será tu puntería. Participa en ejercicios diseñados para mejorar tu tiempo de reacción, como jugar juegos rápidos o usar herramientas de entrenamiento de reacción especializadas."
+        }
+      }
+    }
+  },
+  "ReactionTest": {
+    "averageReactionTime": "Tu Tiempo de Reacción Promedio",
+    "clickOn": "Haz clic en",
+    "yourReactionTime": "Tu tiempo de reacción es",
+    "tryAgain": "Intenta de nuevo",
+    "title": "Prueba de Tiempo de Reacción",
+    "tagline": "Realiza una prueba de tiempo de reacción gratuita para convertirte en un profesional en tu desafío favorito:",
+    "tagline2": "Esta Prueba de Tiempo de Reacción fue diseñada originalmente por cpstest.io para medir el tiempo de reacción de los usuarios. Por favor, lee las instrucciones primero antes de proceder a jugar este juego de Prueba de Reflejos.",
+    "targetSize": "Tamaño del objetivo",
+    "shapecolor": "Color de la forma",
+    "time": "Período de tiempo",
+    "close": "Cerrar",
+    "sloth": "¡Perezoso!",
+    "clickspeeddesc": "Hiciste clic a la velocidad de",
+    "clicksin": "Clics en",
+    "seconds": "segundos",
+    "feelings": "Deja de sentir pena por ti mismo, no seas un perdedor",
+    "tryagain": "Intenta de nuevo",
+    "container1": {
+      "question1": "¿Qué es ",
+      "questiontitle": "una Prueba de Entrenador de Apuntes?",
+      "answer1": "La Prueba de Entrenador de Apuntes es una herramienta diseñada para ayudarte a practicar y mejorar tus habilidades de apuntar al probar tu capacidad para hacer clic rápida y precisamente en los objetivos. Es ampliamente utilizada por los jugadores, especialmente en juegos de disparos en primera persona (FPS) u otros juegos competitivos, donde la precisión y los reflejos rápidos son críticos. La prueba desafía tu coordinación mano-ojo y tiempo de reacción, dándote retroalimentación instantánea sobre tu rendimiento de apuntar."
+    },
+    "container2": {
+      "question1": "¿Por qué es",
+      "questiontitle": "importante la precisión al apuntar?",
+      "answer1": "La precisión al apuntar es crucial en muchos escenarios de juego, especialmente para jugadores competitivos. En juegos como Counter-Strike, Call of Duty o Valorant, tu capacidad para apuntar y disparar rápida y precisamente determina tu rendimiento. Una alta precisión te da una ventaja para eliminar oponentes antes de que puedan reaccionar.",
+      "answer2": "El entrenamiento de apuntar mejora cómo trabajan juntos tus ojos y manos, permitiéndote apuntar con precisión a objetos en movimiento o pequeños en la pantalla. Un buen apunte no se trata solo de velocidad, sino también de precisión. Practicar te ayuda a reaccionar más rápido mientras mantienes la precisión, lo cual es especialmente útil en juegos rápidos donde cada milisegundo cuenta.",
+      "answer3": "Incluso fuera de los juegos de disparos, el entrenamiento de apuntar puede mejorar tu experiencia general de juego al hacerte más receptivo y concentrado."
+    },
+    "container3": {
+      "question1": "¿Cómo",
+      "questiontitle": "tomar la Prueba de Entrenador de Apuntes?",
+      "bullets": {
+        "bullet1": "Lanza nuestro sitio web y espera a que se cargue la Prueba de Entrenador de Apuntes.",
+        "bullet2": "Elige tu nivel de dificultad preferido. Puedes seleccionar entre principiante, intermedio o avanzado, dependiendo de tu nivel de habilidad.",
+        "bullet3": "Haz clic en el botón 'Iniciar Juego' para comenzar.",
+        "bullet4": "Cuando comience la prueba, apunta y haz clic en los objetivos tan pronto como aparezcan. Los objetivos se moverán por la pantalla o aparecerán aleatoriamente, poniendo a prueba tu velocidad y precisión.",
+        "bullet5": "Cuando comience la prueba, apunta y haz clic en los objetivos tan pronto como aparezcan. Los objetivos se moverán por la pantalla o aparecerán aleatoriamente, poniendo a prueba tu velocidad y precisión."
+      }
+    },
+    "container4": {
+      "question1": "¿Cómo",
+      "questiontitle": "mejorar tu puntería?",
+      "answer1": "La prueba de clics butterfly cuenta cuántas veces puedes hacer clic en un marco de tiempo específico. Registra cada clic y calcula tu CPS (clics por segundo). Nuestra prueba incluso muestra cuán consistente es tu velocidad de clic a lo largo del temporizador, para que puedas trabajar en mantenerte constante durante sesiones de juego más largas.",
+      "bullets": {
+        "bullet1": {
+          "part1": "Práctica constante: ",
+          "part2": "La práctica regular es clave para mejorar tu puntería. Usa herramientas de entrenamiento de puntería como la Prueba de Entrenador de Apuntes para trabajar en tu precisión y velocidad de reacción regularmente."
+        },
+        "bullet2": {
+          "part1": "Encuentra la sensibilidad del mouse adecuada:",
+          "part2": "Encontrar la sensibilidad del mouse y la configuración de DPI (puntos por pulgada) adecuadas es crucial para una puntería precisa. Un DPI más alto permite un movimiento más rápido, mientras que un DPI más bajo puede ofrecer un mejor control, dependiendo de tu preferencia."
+        },
+        "bullet3": {
+          "part1": "Mejora la coordinación mano-ojo: ",
+          "part2": "La puntería está directamente relacionada con la coordinación mano-ojo. Puedes mejorar esto practicando con ejercicios específicos, como enfocarte en objetos en movimiento rápido o jugar juegos que requieren precisión."
+        },
+        "bullet4": {
+          "part1": "Mejora el tiempo de reacción: ",
+          "part2": " Cuanto más rápido puedas reaccionar a los objetivos, mejor será tu puntería. Participa en ejercicios diseñados para mejorar tu tiempo de reacción, como jugar juegos rápidos o usar herramientas de entrenamiento de reacción especializadas."
+        }
+      }
+    }
+  },
+  "about": {
+    "headerTitle": "Acerca de",
+    "whoWeAre": "Quiénes Somos",
+    "whoWeAreText": "En TapSpeedTest.com, hemos construido una comunidad próspera de individuos que son apasionados por los juegos y la tecnología. Entendemos la importancia de la velocidad y la precisión en los juegos competitivos, por lo que hemos desarrollado nuestra prueba de velocidad de clics (Prueba CPS) con un fuerte enfoque en la precisión y la experiencia del usuario.",
+    "ourMission": "Nuestra Misión",
+    "ourMissionText": "Nuestra misión es proporcionar a los jugadores las mejores herramientas para rastrear y mejorar su velocidad de clics. Priorizamos la precisión y la facilidad de uso, permitiendo a los jugadores de todos los niveles probar sus habilidades de manera rápida y eficiente. A través de nuestras pruebas, buscamos ayudar a los usuarios a mejorar su rendimiento en los juegos, un clic a la vez.",
+    "whatWeOffer": "Lo Que Ofrecemos",
+    "ourVision": "Nuestra Visión",
+    "ourVisionText": "Visualizamos TapSpeedTest.com como una plataforma líder donde los jugadores pueden mejorar continuamente sus habilidades con herramientas adaptadas a sus necesidades. Nuestro objetivo es seguir mejorando la plataforma introduciendo más variaciones y modos para satisfacer las demandas en evolución de la comunidad de jugadores.",
+    "stayConnected": "Mantente Conectado",
+    "stayConnectedText": "Estamos en constante evolución y te animamos a seguir visitando nuestro sitio a medida que lanzamos nuevas funciones y herramientas. Si tienes alguna pregunta, comentario o sugerencia, no dudes en comunicarte con nosotros a través de la página de contacto.",
+    "thankYou": "¡Gracias por elegir TapSpeedTest.com — hagamos clic hacia la victoria!"
+  },
+  "AimTrainerTestModal": {
+    "title": "Tus Resultados",
+    "hits": "Acertados: ",
+    "missed": "Fallados: ",
+    "time": "Tiempo: ",
+    "close": "Cerrar"
+  },
+  "ContactUs": {
+    "headerTitle": "Contáctanos",
+    "customerSupport": {
+      "heading": "Soporte al Cliente",
+      "paragraph": "¿Te sientes perdido o necesitas ayuda? ¡Nuestros héroes de Soporte al Cliente están listos para ayudar! Si nuestros recursos de soporte no han resuelto tu problema, no dudes en comunicarte directamente a support@tapspeedtest.com. Te responderemos lo antes posible para asegurarnos de que tu experiencia con Tap Speed Test sea placentera."
+    },
+    "communitySupport": {
+      "heading": "Soporte Comunitario",
+      "paragraph": "¿Necesitas ayuda con el inicio de sesión, registro o uso de nuestras herramientas? ¡Nuestra increíble comunidad de usuarios está aquí para ayudar! Comparte tus preguntas, vota por ideas y participa con otros usuarios que son tan apasionados por Tap Speed Test como tú. Si estás atascado, deja un mensaje y un compañero usuario estará encantado de ayudar. También puedes contactarnos en community@tapspeedtest.com."
+    },
+    "reportBug": {
+      "heading": "Reportar un Error",
+      "paragraph": "¡Ups! ¿Encontraste un error mientras usabas una de nuestras herramientas o juegos? ¡Háznoslo saber! Tus informes son invaluables para ayudarnos a mantener Tap Speed Test funcionando sin problemas. Si encuentras un fallo, envíanos los detalles junto con cualquier imagen o video a bugs@tapspeedtest.com. Trabajaremos rápidamente para solucionar el problema y mejorar tu experiencia."
+    },
+    "collaboration": {
+      "heading": "Colaboración y Publicidad",
+      "paragraph": "¿Tienes ideas emocionantes o quieres explorar oportunidades de colaboración y publicidad con Tap Speed Test? ¡Estamos listos para escucharte! Ya sea que busques colaborar o aportar algo nuevo, hagamos algo increíble juntos. Contáctanos en collaborate@tapspeedtest.com y hagamos magia."
+    },
+    "socialMedia": {
+      "heading": "Redes Sociales:",
+      "paragraph": "Mantente conectado y contáctanos en las redes sociales para obtener soporte rápido y actualizaciones: Twitter: @TapSpeedTest"
+    }
+  },
+  "CarousalComponent": {
+    "header": "Otras Herramientas",
+    "description": "Para crear carruseles receptivos y ricos en funciones en React, bibliotecas como react-slick y swiper ofrecen extensas."
+  },
+  "Disclaimer": {
+    "title": "Descargo de Responsabilidad",
+    "content": "La información contenida en este sitio web es solo para fines informativos generales. Tap Speed Test no hace representaciones ni garantías de ningún tipo sobre la precisión o confiabilidad de las herramientas o el sitio web o los productos o servicios contenidos en este sitio web para ningún propósito. Si bien la información se actualiza periódicamente, pueden ocurrir errores y omisiones. No se garantiza que la información proporcionada en este sitio web sea correcta y esté actualizada. Los usuarios pueden confiar en dicha información bajo su propio riesgo. En ningún caso Tap Speed Test y sus colaboradores serán responsables o responderán por cualquier pérdida o daño que surja del uso del contenido o las herramientas en el sitio web.",
+    "externalWebsites": "A través de este sitio web, puedes visitar otros sitios web externos siguiendo hipervínculos. No tenemos control ni responsabilidad sobre el contenido y la disponibilidad de estos sitios, aunque nos esforzamos por proporcionar solo enlaces de calidad a sitios legítimos y valiosos.",
+    "consent": "Al usar el sitio web, aceptas los Términos de Uso. Tap Speed Test y sus colaboradores tienen el derecho de alterar, modificar o actualizar estos términos de uso en cualquier momento. Por favor, lee estos términos y condiciones cuidadosamente. Los términos y condiciones se pueden acceder desde el enlace en la parte inferior de cualquier página de nuestro sitio web.",
+    "updates": "Constantemente nos esforzamos por mantener el sitio web y asegurar su funcionalidad sin problemas. Sin embargo, Tap Speed Test no será responsable si el sitio web está temporalmente no disponible debido a problemas técnicos que no están bajo nuestro control.",
+    "copyright": "Tap Speed Test y sus proveedores poseen todos los derechos de autor en este sitio web. Te recomendamos que no copies ni muestres contenido o cualquier parte de este sitio para redistribuirlo a terceros sin el permiso de Tap Speed Test."
+  },
+  "footer": {
+    "copyright": "Copyright © 2024 tapspeedtest.com Todos los derechos reservados",
+    "privacyPolicy": "Política de Privacidad",
+    "disclaimer": "Descargo de Responsabilidad",
+    "contactUs": "Contáctanos",
+    "about": "Acerca de"
+  },
+  "privacy": {
+    "tagline": "Si deseas más información o tienes preguntas sobre nuestra política de privacidad, no dudes en comunicarte con nosotros. La privacidad de nuestros visitantes es de suma importancia para nosotros. La siguiente información describe cómo se recibe y recopila la información personal.",
+    "heading": "Política de Privacidad de Tap Speed Test",
+    "content1": "En Tap Speed Test, accesible en",
+    "content2": "una de nuestras principales prioridades es la privacidad de nuestros visitantes. Este documento de Política de Privacidad contiene tipos de información que son recopilados y registrados por Tap Speed Test y cómo los usamos. Si tienes preguntas adicionales o requieres más información sobre nuestra Política de Privacidad, no dudes en contactarnos por correo electrónico a",
+    "policyDescription": "Esta política de privacidad se aplica solo a nuestras actividades en línea y es válida para los visitantes de nuestro sitio web con respecto a la información que comparten y/o recopilan en Tap Speed Test. Esta política no se aplica a ninguna información recopilada fuera de línea o a través de canales distintos a este sitio web.",
+    "consentHeading": "Consentimiento",
+    "consentText": "Al usar nuestro sitio web, por la presente consientes nuestra Política de Privacidad y aceptas sus términos.",
+    "informationHeading": "Información que recopilamos",
+    "informationDescription": "La información personal que se te pide proporcionar, y las razones por las que se te pide que la proporciones, se dejarán claras en el momento en que te pidamos que proporciones tu información personal.",
+    "contactDescription": "Si te contactas con nosotros directamente, podemos recibir información adicional sobre ti, como tu nombre, dirección de correo electrónico, número de teléfono, el contenido del mensaje y/o archivos adjuntos que puedas enviarnos, y cualquier otra información que elijas proporcionar.",
+    "registrationDescription": "Cuando te registras para una cuenta, podemos pedirte tu información de contacto, incluidos elementos como nombre, nombre de la empresa, dirección, dirección de correo electrónico y número de teléfono.",
+    "usageHeading": "Cómo usamos tu información",
+    "usageDescription": "Usamos la información que recopilamos de varias maneras, incluyendo:",
+    "usageItem1": "Proporcionar, operar y mantener nuestro sitio web",
+    "usageItem2": "Mejorar, personalizar y expandir nuestro sitio web",
+    "usageItem3": "Entender y analizar cómo usas nuestro sitio web",
+    "usageItem4": "Desarrollar nuevos productos, servicios, características y funcionalidades",
+    "usageItem5": "Comunicarnos contigo, ya sea directamente o a través de uno de nuestros socios, incluyendo para servicio al cliente, para proporcionarte actualizaciones y otra información relacionada con el sitio web, y para fines de marketing y promoción",
+    "usageItem6": "Enviarte correos electrónicos",
+    "usageItem7": "Encontrar y prevenir fraudes",
+    "logFileHeading": "Archivo de Registro",
+    "logFileDescription": "Tap Speed Test sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando visitan sitios web. Todas las empresas de alojamiento hacen esto como parte de los servicios de análisis de alojamiento. La información recopilada por los archivos de registro incluye direcciones de protocolo de internet (IP), tipo de navegador, proveedor de servicios de internet (ISP), fecha y hora de la marca, páginas de referencia/salida y posiblemente el número de clics. Estos no están vinculados a ninguna información de identificación personal. El propósito de la información es analizar tendencias, administrar el sitio, rastrear el movimiento de los usuarios en el sitio web y recopilar información demográfica.",
+    "cookiesHeading": "Cookies y Balizas Web",
+    "cookiesDescription": "Al igual que cualquier otro sitio web, Tap Speed Test utiliza 'cookies'. Estas cookies se utilizan para almacenar información, incluidas las preferencias de los visitantes, y las páginas en el sitio web que el visitante accedió o visitó. La información se utiliza para optimizar la experiencia de los usuarios personalizando el contenido de nuestra página web según el tipo de navegador de los visitantes y/o otra información.",
+    "dartCookieHeading": "Cookie DART de DoubleClick",
+    "dartCookieDescription": "Google es uno de los proveedores externos en nuestro sitio. También utiliza cookies, conocidas como cookies DART, para servir anuncios a los visitantes de nuestro sitio en función de su visita a otros sitios en internet. Sin embargo, los visitantes pueden optar por rechazar el uso de cookies DART visitando la Política de Privacidad de la red de anuncios y contenido de Google en la siguiente URL – Algunos anunciantes en nuestro sitio pueden usar cookies y balizas web.",
+    "advertisingPoliciesHeading": "Políticas de Privacidad de Socios Publicitarios",
+    "advertisingPoliciesDescription": "Puedes consultar esta lista para encontrar la Política de Privacidad de cada uno de los socios publicitarios de Tap Speed Test. Los servidores de anuncios de terceros o las redes de anuncios utilizan tecnologías como cookies, JavaScript o balizas web que se utilizan en sus respectivos anuncios y enlaces que aparecen en Tap Speed Test, que se envían directamente a los navegadores de los usuarios. Estos reciben automáticamente tu dirección IP cuando esto ocurre. Estas tecnologías se utilizan para medir la efectividad de sus campañas publicitarias y/o para personalizar el contenido publicitario que ves en los sitios web que visitas.",
+    "gdprHeading": "Política de Privacidad GDPR (Derechos de Protección de Datos)",
+    "gdprDescription": "Nos gustaría asegurarnos de que estés completamente al tanto de todos tus derechos de protección de datos. Cada usuario tiene derecho a lo siguiente: El derecho de acceso – Tienes derecho a solicitar copias de tus datos personales. Podemos cobrarte una pequeña tarifa por este servicio. El derecho de rectificación – Tienes derecho a solicitar que corrijamos cualquier información que creas que es inexacta. También tienes derecho a solicitar que completemos la información que creas que está incompleta. El derecho de borrado – Tienes derecho a solicitar que borremos tus datos personales, bajo ciertas condiciones. El derecho a restringir el procesamiento – Tienes derecho a solicitar que restrinjamos el procesamiento de tus datos personales, bajo ciertas condiciones. El derecho a oponerte al procesamiento – Tienes derecho a oponerte a nuestro procesamiento de tus datos personales, bajo ciertas condiciones. El derecho a la portabilidad de datos – Tienes derecho a solicitar que transfiramos los datos que hemos recopilado a otra organización, o directamente a ti, bajo ciertas condiciones.",
+    "childrenHeading": "Información de Niños",
+    "childrenDescription": "Otra parte de nuestra prioridad es agregar protección para los niños mientras usan internet. Animamos a los padres y tutores a observar, participar y/o monitorear y guiar su actividad en línea. Tap Speed Test no recopila intencionalmente ninguna Información de Identificación Personal de niños menores de 13 años. Si crees que tu hijo proporcionó este tipo de información en nuestro sitio web, te instamos a que te contactes con nosotros de inmediato y haremos nuestro mejor esfuerzo para eliminar dicha información de nuestros registros."
+  },
+  "jitterDetails": {
+    "heading1": "¿Qué es el Jitter Clicking?",
+    "detail1": "El jitter clicking es una técnica utilizada para hacer clic en un botón del mouse a una velocidad extremadamente alta, a menudo con fines de juego, particularmente en juegos como Minecraft o disparos en primera persona donde hacer clic rápido puede dar a los jugadores una ventaja. La idea detrás del jitter clicking es tensar los músculos del brazo o la muñeca para crear vibraciones rápidas que permiten que tu dedo presione el botón del mouse mucho más rápido que el clic normal.",
+    "heading2": "¿Cuál es un buen resultado en la prueba de jitter?",
+    "detail2": "Un buen resultado en la prueba de jitter generalmente mide los Clics Por Segundo (CPS). Una persona promedio puede hacer clic alrededor de 6-7 CPS, mientras que los clicadores experimentados pueden alcanzar entre 10-15 CPS o incluso más. Sin embargo, cualquier cosa por encima de 12 CPS se considera generalmente un buen resultado en los juegos.",
+    "heading3": "¿Cómo hacer jitter clicking?",
+    "steps": [
+      "1. Agarra el mouse: Sostén el mouse firmemente pero no lo agarres demasiado fuerte. La mayoría de las personas prefieren un agarre de garra o de punta para hacer jitter clicking.",
+      "2. Tensa tu brazo: Concéntrate en tensar los músculos de tu antebrazo y muñeca para producir vibraciones rápidas. Evita mover solo tu dedo.",
+      "3. Vibra tu dedo: Permite que la vibración se transfiera a tu dedo para que se mueva hacia arriba y hacia abajo en el botón del mouse, creando clics rápidos.",
+      "4. Practica: Como cualquier habilidad, hacer jitter clicking requiere práctica para controlar la velocidad y la precisión. Puede llevar tiempo acostumbrarse a la técnica."
+    ],
+    "heading4": "¿Es malo hacer jitter clicking?",
+    "detail3": "Se ha sabido que hacer jitter clicking causa algunas formas de incomodidad en numerosos casos. Puede doler los músculos de tu brazo y muñeca ya que causa una tensión excesiva durante un largo período de tiempo, lo que lleva a condiciones como tendinitis e incluso síndrome del túnel carpiano. En algunos casos, incluso puedes enfrentar una pérdida de control de los músculos porque estás vibrando tu mano constantemente. Esto puede reducir tu precisión cuando juegas juegos como Minecraft.",
+    "heading5": "Alternativas a la Prueba de Jitter Click",
+    "detail4": "Si te preocupan los riesgos de hacer jitter clicking, hay alternativas más seguras para hacer clic rápido:",
+    "alternative1": "Butterfly Clicking: Esto implica usar dos dedos para alternar clics en el mismo botón. Es más fácil para las manos y también puede lograr un alto CPS.",
+    "alternative2": "Drag Clicking: Al arrastrar ligeramente tu dedo sobre el botón del mouse, la fricción puede crear un alto número de clics por segundo, aunque esta es una técnica más avanzada y no se recomienda para todos los mouse.",
+    "alternative3": "Clic Normal: Aunque es más lento, hacer clic normalmente ejerce menos tensión en tus manos y brazos, lo que lo convierte en una opción más segura.",
+    "conclusion": "Cada método tiene su propia curva de aprendizaje y potencial de CPS, pero el Butterfly Clicking suele ser la alternativa más viable para un CPS rápido sin tensión excesiva."
+  },
+  "ReactionDetail": {
+    "header1": "¿Qué es una Prueba de Tiempo de Reacción?",
+    "paragraph1": "Una prueba de tiempo de reacción mide qué tan rápido una persona responde a un estímulo, como una señal visual o auditiva. Evalúa tus reflejos y velocidad de procesamiento cognitivo. Las pruebas de tiempo de reacción se utilizan comúnmente en una variedad de campos, desde evaluaciones médicas hasta deportes y juegos, para determinar qué tan rápido puede reaccionar una persona a ciertos desencadenantes.",
+    "header2": "¿Por qué es importante el tiempo de reacción?",
+    "subHeader1": "Ayuda a identificar problemas de salud",
+    "paragraph2": "El tiempo de reacción puede ser un indicador de condiciones neurológicas como el TDAH (Trastorno por Déficit de Atención e Hiperactividad) o la enfermedad de Parkinson, donde las respuestas retrasadas o inconsistentes pueden sugerir problemas de salud subyacentes.",
+    "subHeader2": "Mejora tu rendimiento en juegos competitivos",
+    "paragraph3": "Los tiempos de reacción más rápidos dan a los jugadores una ventaja significativa en juegos competitivos, donde las decisiones rápidas y los reflejos pueden marcar la diferencia entre ganar y perder.",
+    "subHeader3": "Te hace un mejor conductor",
+    "paragraph4": "Un tiempo de reacción más rápido te permite responder más eficazmente a cambios repentinos en el tráfico, reduciendo el riesgo de accidentes.",
+    "subHeader4": "Te hace mejor en trabajos que requieren atención",
+    "paragraph5": "Las profesiones que requieren enfoque y alerta, como controladores de tráfico aéreo, cirujanos o atletas, se benefician enormemente de un tiempo de reacción agudo, lo que permite una toma de decisiones más rápida y precisa.",
+    "header3": "¿Cómo probar tu tiempo de reacción?",
+    "paragraph6": "Aquí te mostramos cómo puedes probar tu tiempo de reacción:",
+    "bullet1": "1. Lanza nuestro sitio web.",
+    "bullet2": "2. Lee las instrucciones proporcionadas antes de comenzar la prueba para asegurarte de entender el proceso.",
+    "bullet3": "3. Haz clic en el botón 'Iniciar Prueba' para comenzar. Se te pedirá que respondas a un estímulo lo más rápido posible.",
+    "bullet4": "4. Tu tiempo de reacción se registrará según qué tan rápido respondas a la señal, y los resultados se mostrarán al final de la prueba.",
+    "header4": "¿Cómo mejorar el tiempo de reacción?",
+    "bulletPoint1": "Entrena tus puntos débiles: Identifica áreas específicas donde tu tiempo de reacción pueda ser más lento y concéntrate en mejorar esas áreas a través de ejercicios o entrenamientos específicos.",
+    "bulletPoint2": "Practica: La práctica constante te ayuda a ser más rápido. Participar en actividades como videojuegos, deportes o ejercicios de tiempo de reacción puede mejorar significativamente tu tiempo de respuesta con el tiempo.",
+    "bulletPoint3": "Ten la ingesta nutricional adecuada: Una dieta saludable y equilibrada apoya la función cognitiva. Nutrientes como los ácidos grasos omega-3, que se encuentran en el pescado, y los antioxidantes, que se encuentran en frutas y verduras, son esenciales para mantener la salud cerebral y el pensamiento rápido.",
+    "bulletPoint4": "Participa en ejercicios físicos: La condición física mejora tanto la capacidad del cerebro como del cuerpo para reaccionar rápidamente. Ejercicios cardiovasculares, entrenamiento de fuerza y ejercicios de coordinación pueden agudizar tus reflejos.",
+    "bulletPoint5": "Practica ejercicios cognitivos: Participa en ejercicios mentales como rompecabezas, juegos de entrenamiento cerebral o tareas que requieren decisiones rápidas para estimular la velocidad cognitiva y mejorar tu tiempo de reacción.",
+    "header5": "Factores que influyen en el tiempo de reacción",
+    "bulletPoint6": "Edad: A medida que envejecemos, nuestros tiempos de reacción tienden a ralentizarse debido al declive cognitivo y físico natural.",
+    "bulletPoint7": "Condición física: Niveles más altos de condición física están asociados con tiempos de reacción más rápidos debido a una mejor coordinación y respuesta muscular.",
+    "bulletPoint8": "Complejidad del estímulo: Estímulos más simples resultan en tiempos de reacción más rápidos, mientras que estímulos más complejos pueden ralentizar el tiempo de respuesta ya que requieren más procesamiento.",
+    "bulletPoint9": "Hidratación: La deshidratación puede afectar negativamente la función cognitiva y la velocidad de reacción. Mantenerse adecuadamente hidratado es importante para mantener un rendimiento óptimo del cerebro y el cuerpo."
+  },
+  "testName" : {
+    "kohi" : "Prueba de Clic de Kohi",
+    "reaction" : "Prueba de Clic de Reacción",
+    "butter" : "Clic de Mariposa",
+    "aim" : "Prueba de Entrenador de Objetivo",
+    "cps" : "Prueba de CPS"
   }
-  
+}

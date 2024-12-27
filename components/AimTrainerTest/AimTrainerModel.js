@@ -1,17 +1,20 @@
 import React from 'react';
 import { View, Text, StyleSheet, Modal, TouchableOpacity } from 'react-native';
+import { useLanguage } from '../../src/context/LanguageContext';
 
 const AimTrainerModal = ({ closeModal, hits, miss, time }) => {
+    const { texts } = useLanguage();
+
     return (
         <Modal transparent={true} visible={true}>
             <View style={styles.modalOverlay}>
                 <View style={styles.modalContainer}>
-                    <Text style={styles.modalTitle}>Your Results</Text>
-                    <Text style={styles.resultText}>Hits: {hits}</Text>
-                    <Text style={styles.resultText}>Missed: {miss}</Text>
-                    <Text style={styles.resultText}>Time: {time}s</Text>
+                    <Text style={styles.modalTitle}>{texts?.AimTrainerTestModal?.title}</Text>
+                    <Text style={styles.resultText}>{texts?.AimTrainerTestModal?.hits}{hits}</Text>
+                    <Text style={styles.resultText}>{texts?.AimTrainerTestModal?.missed}{miss}</Text>
+                    <Text style={styles.resultText}>{texts?.AimTrainerTestModal?.time}{time}s</Text>
                     <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
-                        <Text style={styles.closeButtonText}>Close</Text>
+                        <Text style={styles.closeButtonText}>{texts?.AimTrainerTestModal?.close}</Text>
                     </TouchableOpacity>
                 </View>
             </View>
