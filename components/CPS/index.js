@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, Modal, Image, Dimensions } from 'react-native';
-import { Svg, Circle } from 'react-native-svg';
+import { Svg, Defs, ClipPath, G, Circle } from 'react-native-svg';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Audio } from 'expo-av';
 import LeftTestListBar from './LeftTestListBar';
@@ -101,6 +101,17 @@ export default function CPSTest({ navigation }) {
     }
   };
 
+  const handleRipple = (event) => {
+    const { locationX, locationY } = event.nativeEvent;
+    console.log(locationX, locationY);
+    if (locationX >= 100) {
+      setRipples([...ripples, { x: locationX, y: locationY }]);
+    }
+    setTimeout(() => {
+      setRipples(ripples.slice(1));
+    }, 500);
+  };
+
   const handleClick = (event) => {
     if (!isTestRunning) {
       setIsTestRunning(true);
@@ -108,6 +119,7 @@ export default function CPSTest({ navigation }) {
       setTimePassed(0);
       setCps(0);
     }
+    handleRipple(event);
 
     if (isTestRunning && timePassed < selectedTime) {
       const currentTime = Date.now();
@@ -122,12 +134,12 @@ export default function CPSTest({ navigation }) {
       playSound();
 
       const { locationX, locationY } = event.nativeEvent;
-      setRipples([...ripples, { x: locationX, y: locationY }]);
+      // setRipples([...ripples, { x: locationX, y: locationY }]);
       setTimeout(() => {
         setRipples((prevRipples) => prevRipples.slice(1));
       }, 500);
     }
-  };
+  };;
 
   const resetTest = () => {
     setIsTestRunning(false);
@@ -232,7 +244,7 @@ export default function CPSTest({ navigation }) {
                           ))}
                         </Svg>
                         <Text style={styles.clickText}>
-                          {!isTestRunning ? texts.cpsTest.circletext:
+                          {!isTestRunning ? texts.cpsTest.circletext :
                             timePassed >= selectedTime ? '' : ''}
                         </Text>
                       </TouchableOpacity>
@@ -292,7 +304,7 @@ export default function CPSTest({ navigation }) {
                               <Text style={styles.normalText}>{texts?.cpsTest?.clickspeeddesc}</Text>
                             </View>
                             <View style={styles.cpsStatRow}>
-                              <Text style={styles.statHeading}>{cps.toFixed(2)} CPS</Text>
+                            <Text style={styles.statHeading}>{isFinite(clicks/selectedTime) ? (clicks/selectedTime).toFixed(2) : 0.0} CPS</Text>
                             </View>
                             <View style={styles.cpsStatRow}>
                               <Text style={styles.statSubheading}>{clicks} {texts?.cpsTest?.clicksin} {selectedTime} {texts?.cpsTest?.seconds}</Text>
@@ -316,7 +328,7 @@ export default function CPSTest({ navigation }) {
 
             </View>
           </ImageBackground>
-          <CPSDetail navigation={navigation}/>
+          <CPSDetail navigation={navigation} />
           {/* <CarousalComponent/> */}
           <Footer navigation={navigation} />
         </>
@@ -347,26 +359,26 @@ export default function CPSTest({ navigation }) {
           <View style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 50, marginBottom: 10 }}>
             <TouchableOpacity
               style={{
-                width: screenWidth-50,
-                height: screenWidth-50,
-                display:'flex',
+                width: screenWidth - 50,
+                height: screenWidth - 50,
+                display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 alignSelf: 'center',
-                borderRadius:220,
-                overflow:'hidden'
+                borderRadius: 220,
+                overflow: 'hidden'
               }}
               onPress={handleClick}
               activeOpacity={0.7}
             >
-              <Svg width={screenWidth} height={screenWidth-50}>
+              <Svg width={screenWidth} height={screenWidth - 50}>
                 <Circle
                   stroke={circleColor}
                   fill="transparent"
                   strokeWidth="15"
                   r={screenWidth / 2 - 45}
                   cx={screenWidth / 2}
-                  cy={screenWidth / 2 -20}
+                  cy={screenWidth / 2 - 20}
                 />
                 <Circle
                   stroke="#b32f60"
@@ -374,7 +386,7 @@ export default function CPSTest({ navigation }) {
                   strokeWidth="15"
                   r={screenWidth / 2 - 45}
                   cx={screenWidth / 2}
-                  cy={screenWidth / 2 -20}
+                  cy={screenWidth / 2 - 20}
                   strokeDasharray={circumference}
                   strokeDashoffset={circumference - (timePassed / selectedTime) * circumference}
                 />
@@ -385,6 +397,14 @@ export default function CPSTest({ navigation }) {
                     cy={ripple.y}
                     r={30}
                     fill="rgba(255, 255, 255, 0.3)"
+                    style={{
+                      transformOrigin: `${ripple.x}px ${ripple.y}px`,
+                      position: 'relative',
+                      borderRadius: '50%',
+                      fill: 'rgba(255, 255, 255, 0.5)',
+                      animation: 'ripple-animation 0.5s ease',
+                      animationIterationCount: 1,
+                    }}
                   />
                 ))}
               </Svg>
@@ -395,68 +415,68 @@ export default function CPSTest({ navigation }) {
             </TouchableOpacity>
           </View>
           <View style={{ marginTop: 100, width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <Stats cps={cps} timePassed={timePassed} score={clicks} /> {/* Pass props to Stats */}
+          <Stats cps={clicks / timePassed} timePassed={timePassed} score={clicks} /> {/* Pass props to Stats */}
           </View>
           <Modal
-                animationType="slide"
-                transparent={true}
-                visible={isModalVisible}
-                onRequestClose={resetTest}
+            animationType="slide"
+            transparent={true}
+            visible={isModalVisible}
+            onRequestClose={resetTest}
+          >
+            <View style={styles.modalOverlay}>
+              <ImageBackground
+                source={require('../../assets/modal-bg.jpg')} // Replace with your modal background image path
+                style={styles.modalInnerContainer}
               >
-                <View style={styles.modalOverlay}>
-                  <ImageBackground
-                    source={require('../../assets/modal-bg.jpg')} // Replace with your modal background image path
-                    style={styles.modalInnerContainer}
-                  >
-                    <View style={styles.modalTopBar}>
-                      <TouchableOpacity onPress={resetTest} style={styles.closeBtn}>
-                        <Text style={styles.closeBtnText}>{texts?.cpsTest?.close}</Text>
-                      </TouchableOpacity>
+                <View style={styles.modalTopBar}>
+                  <TouchableOpacity onPress={resetTest} style={styles.closeBtn}>
+                    <Text style={styles.closeBtnText}>{texts?.cpsTest?.close}</Text>
+                  </TouchableOpacity>
 
-                      <View style={styles.modalTitleContainer}>
-                        <Text style={styles.modalTitle}>{texts?.cpsTest?.achievementtitle}</Text>
-                      </View>
-                    </View>
-                    <View style={styles.resultOuterContainer}>
-                      <View style={styles.resultContainer}>
-                        <View style={styles.animationContainer}>
-                          <View style={styles.animeLgDisplay}>
-                            <Image
-                              source={require('../../assets/sloath.jpg')} // Replace with your image path
-                              style={styles.animationImage}
-                            />
-                          </View>
-                        </View>
-                        <View style={styles.resultContentContainer}>
-                          <View style={styles.resultContentRow}>
-                            <Text style={styles.animeTitle}>{texts?.cpsTest?.sloth}</Text>
-                          </View>
-                          <View style={styles.modalStatsContainer}>
-                            <View style={styles.cpsStatRow}>
-                              <Text style={styles.normalText}>{texts?.cpsTest?.clickspeeddesc}</Text>
-                            </View>
-                            <View style={styles.cpsStatRow}>
-                              <Text style={styles.statHeading}>{cps.toFixed(2)} CPS</Text>
-                            </View>
-                            <View style={styles.cpsStatRow}>
-                              <Text style={styles.statSubheading}>{clicks} {texts?.cpsTest?.clicksin} {selectedTime} {texts?.cpsTest?.seconds}</Text>
-                            </View>
-                          </View>
-                          <View style={styles.resultContentRow}>
-                            <Text style={styles.modalNote}>{texts?.cpsTest?.feelings}</Text>
-                          </View>
-                          <View style={styles.resultContentRow}>
-                            <TouchableOpacity style={styles.tryBtn} onPress={resetTest}>
-                              <Text style={styles.tryBtnText}>{texts?.cpsTest?.tryagain} </Text>
-                            </TouchableOpacity>
-                          </View>
-                        </View>
-                      </View>
-                    </View>
-
-                  </ImageBackground>
+                  <View style={styles.modalTitleContainer}>
+                    <Text style={styles.modalTitle}>{texts?.cpsTest?.achievementtitle}</Text>
+                  </View>
                 </View>
-              </Modal>
+                <View style={styles.resultOuterContainer}>
+                  <View style={styles.resultContainer}>
+                    <View style={styles.animationContainer}>
+                      <View style={styles.animeLgDisplay}>
+                        <Image
+                          source={require('../../assets/sloath.jpg')} // Replace with your image path
+                          style={styles.animationImage}
+                        />
+                      </View>
+                    </View>
+                    <View style={styles.resultContentContainer}>
+                      <View style={styles.resultContentRow}>
+                        <Text style={styles.animeTitle}>{texts?.cpsTest?.sloth}</Text>
+                      </View>
+                      <View style={styles.modalStatsContainer}>
+                        <View style={styles.cpsStatRow}>
+                          <Text style={styles.normalText}>{texts?.cpsTest?.clickspeeddesc}</Text>
+                        </View>
+                        <View style={styles.cpsStatRow}>
+                        <Text style={styles.statHeading}>{isFinite(clicks/selectedTime) ? (clicks/selectedTime).toFixed(2) : 0.0} CPS</Text>
+                        </View>
+                        <View style={styles.cpsStatRow}>
+                          <Text style={styles.statSubheading}>{clicks} {texts?.cpsTest?.clicksin} {selectedTime} {texts?.cpsTest?.seconds}</Text>
+                        </View>
+                      </View>
+                      <View style={styles.resultContentRow}>
+                        <Text style={styles.modalNote}>{texts?.cpsTest?.feelings}</Text>
+                      </View>
+                      <View style={styles.resultContentRow}>
+                        <TouchableOpacity style={styles.tryBtn} onPress={resetTest}>
+                          <Text style={styles.tryBtnText}>{texts?.cpsTest?.tryagain} </Text>
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+
+              </ImageBackground>
+            </View>
+          </Modal>
         </ImageBackground>
       )}
     </ScrollView>

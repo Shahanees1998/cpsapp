@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, Modal, Image, Dimensions } from 'react-native';
-import { Svg, Circle } from 'react-native-svg';
+import { Svg, Defs, ClipPath, G, Circle } from 'react-native-svg';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Audio } from 'expo-av';
 import LeftTestListBar from '../CPS/LeftTestListBar';
@@ -98,6 +98,17 @@ export default function KohiTest({ navigation }) {
     }
   };
 
+  const handleRipple = (event) => {
+    const { locationX, locationY } = event.nativeEvent;
+    console.log(locationX, locationY);
+    if (locationX >= 100) {
+      setRipples([...ripples, { x: locationX, y: locationY }]);
+    }
+    setTimeout(() => {
+      setRipples(ripples.slice(1));
+    }, 500);
+  };
+
   const handleClick = (event) => {
     if (!isTestRunning) {
       setIsTestRunning(true);
@@ -105,6 +116,7 @@ export default function KohiTest({ navigation }) {
       setTimePassed(0);
       setCps(0);
     }
+    handleRipple(event);
 
     if (isTestRunning && timePassed < selectedTime) {
       const currentTime = Date.now();
@@ -119,12 +131,12 @@ export default function KohiTest({ navigation }) {
       playSound();
 
       const { locationX, locationY } = event.nativeEvent;
-      setRipples([...ripples, { x: locationX, y: locationY }]);
+      // setRipples([...ripples, { x: locationX, y: locationY }]);
       setTimeout(() => {
         setRipples((prevRipples) => prevRipples.slice(1));
       }, 500);
     }
-  };
+  };;
 
   const resetTest = () => {
     setIsTestRunning(false);
@@ -289,7 +301,7 @@ export default function KohiTest({ navigation }) {
                               <Text style={styles.normalText}>{texts?.ButterflyTest?.clickspeeddesc}</Text>
                             </View>
                             <View style={styles.cpsStatRow}>
-                              <Text style={styles.statHeading}>{cps.toFixed(2)} CPS</Text>
+                              <Text style={styles.statHeading}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
                             </View>
                             <View style={styles.cpsStatRow}>
                               <Text style={styles.statSubheading}>{clicks} {texts?.ButterflyTest?.clicksin} {selectedTime} {texts?.ButterflyTest?.seconds}</Text>
@@ -382,6 +394,14 @@ export default function KohiTest({ navigation }) {
                     cy={ripple.y}
                     r={30}
                     fill="rgba(255, 255, 255, 0.3)"
+                    style={{
+                      transformOrigin: `${ripple.x}px ${ripple.y}px`,
+                      position: 'relative',
+                      borderRadius: '50%',
+                      fill: 'rgba(255, 255, 255, 0.5)',
+                      animation: 'ripple-animation 0.5s ease',
+                      animationIterationCount: 1,
+                    }}
                   />
                 ))}
               </Svg>
@@ -392,67 +412,67 @@ export default function KohiTest({ navigation }) {
             </TouchableOpacity>
           </View>
           <View style={{ marginTop: 100, width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <Stats cps={cps} timePassed={timePassed} score={clicks} /> {/* Pass props to Stats */}
+            <Stats cps={clicks / timePassed} timePassed={timePassed} score={clicks} /> 
           </View>
           <Modal
-                animationType="slide"
-                transparent={true}
-                visible={isModalVisible}
-                onRequestClose={resetTest}
+            animationType="slide"
+            transparent={true}
+            visible={isModalVisible}
+            onRequestClose={resetTest}
+          >
+            <View style={styles.modalOverlay}>
+              <ImageBackground
+                source={require('../../assets/modal-bg.jpg')} // Replace with your modal background image path
+                style={styles.modalInnerContainer}
               >
-                <View style={styles.modalOverlay}>
-                  <ImageBackground
-                    source={require('../../assets/modal-bg.jpg')} // Replace with your modal background image path
-                    style={styles.modalInnerContainer}
-                  >
-                    <View style={styles.modalTopBar}>
-                      <TouchableOpacity onPress={resetTest} style={styles.closeBtn}>
-                        <Text style={styles.closeBtnText}>{texts?.ButterflyTest?.close}</Text>
-                      </TouchableOpacity>
-                      <View style={styles.modalTitleContainer}>
-                        <Text style={styles.modalTitle}>{texts?.ButterflyTest?.achievementtitle}</Text>
-                      </View>
-                    </View>
-                    <View style={styles.resultOuterContainer}>
-                      <View style={styles.resultContainer}>
-                        <View style={styles.animationContainer}>
-                          <View style={styles.animeLgDisplay}>
-                            <Image
-                              source={require('../../assets/sloath.jpg')} // Replace with your image path
-                              style={styles.animationImage}
-                            />
-                          </View>
-                        </View>
-                        <View style={styles.resultContentContainer}>
-                          <View style={styles.resultContentRow}>
-                            <Text style={styles.animeTitle}>{texts?.ButterflyTest?.sloth}</Text>
-                          </View>
-                          <View style={styles.modalStatsContainer}>
-                            <View style={styles.cpsStatRow}>
-                              <Text style={styles.normalText}>{texts?.ButterflyTest?.clickspeeddesc}</Text>
-                            </View>
-                            <View style={styles.cpsStatRow}>
-                              <Text style={styles.statHeading}>{cps.toFixed(2)} CPS</Text>
-                            </View>
-                            <View style={styles.cpsStatRow}>
-                              <Text style={styles.statSubheading}>{clicks} {texts?.ButterflyTest?.clicksin} {selectedTime} {texts?.ButterflyTest?.seconds}</Text>
-                            </View>
-                          </View>
-                          <View style={styles.resultContentRow}>
-                            <Text style={styles.modalNote}>{texts?.ButterflyTest?.feelings}</Text>
-                          </View>
-                          <View style={styles.resultContentRow}>
-                            <TouchableOpacity style={styles.tryBtn} onPress={resetTest}>
-                              <Text style={styles.tryBtnText}>{texts?.ButterflyTest?.tryagain}</Text>
-                            </TouchableOpacity>
-                          </View>
-                        </View>
-                      </View>
-                    </View>
-
-                  </ImageBackground>
+                <View style={styles.modalTopBar}>
+                  <TouchableOpacity onPress={resetTest} style={styles.closeBtn}>
+                    <Text style={styles.closeBtnText}>{texts?.ButterflyTest?.close}</Text>
+                  </TouchableOpacity>
+                  <View style={styles.modalTitleContainer}>
+                    <Text style={styles.modalTitle}>{texts?.ButterflyTest?.achievementtitle}</Text>
+                  </View>
                 </View>
-              </Modal>
+                <View style={styles.resultOuterContainer}>
+                  <View style={styles.resultContainer}>
+                    <View style={styles.animationContainer}>
+                      <View style={styles.animeLgDisplay}>
+                        <Image
+                          source={require('../../assets/sloath.jpg')} // Replace with your image path
+                          style={styles.animationImage}
+                        />
+                      </View>
+                    </View>
+                    <View style={styles.resultContentContainer}>
+                      <View style={styles.resultContentRow}>
+                        <Text style={styles.animeTitle}>{texts?.ButterflyTest?.sloth}</Text>
+                      </View>
+                      <View style={styles.modalStatsContainer}>
+                        <View style={styles.cpsStatRow}>
+                          <Text style={styles.normalText}>{texts?.ButterflyTest?.clickspeeddesc}</Text>
+                        </View>
+                        <View style={styles.cpsStatRow}>
+                          <Text style={styles.statHeading}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
+                        </View>
+                        <View style={styles.cpsStatRow}>
+                          <Text style={styles.statSubheading}>{clicks} {texts?.ButterflyTest?.clicksin} {selectedTime} {texts?.ButterflyTest?.seconds}</Text>
+                        </View>
+                      </View>
+                      <View style={styles.resultContentRow}>
+                        <Text style={styles.modalNote}>{texts?.ButterflyTest?.feelings}</Text>
+                      </View>
+                      <View style={styles.resultContentRow}>
+                        <TouchableOpacity style={styles.tryBtn} onPress={resetTest}>
+                          <Text style={styles.tryBtnText}>{texts?.ButterflyTest?.tryagain}</Text>
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+
+              </ImageBackground>
+            </View>
+          </Modal>
 
         </ImageBackground>
       )}

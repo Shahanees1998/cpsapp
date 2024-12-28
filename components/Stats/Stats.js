@@ -21,16 +21,12 @@ const StatBox = ({ icon, label }) => {
     );
 };
 
-const Stats = () => {
-    const cps = 5.0;
-    const timePassed = 10;
-    const score = 100;
+const Stats = ({ cps, timePassed, score }) => {
+    const updatedCPS = isFinite(cps) ? cps.toFixed(2) : 0.0;
     return (
-
         <View style={styles.container}>
-            <StatsDisplay cps={cps} timePassed={timePassed} score={score} />
+            <StatsDisplay cps={updatedCPS} timePassed={timePassed} score={score} />
         </View>
-
     );
 };
 
