@@ -4,49 +4,52 @@ import { View, Text, StyleSheet, ImageBackground, ScrollView } from 'react-nativ
 import Carousel from "../CPS/CarousalComponent";
 import Footer from "../Footer";
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export default function About({ navigation }) {
     const { texts } = useLanguage(); // Access the language context
 
     return (
         <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
-            <ImageBackground
-                source={require('../../assets/background-image.png')}
-                style={styles.headerBackground}
-            >
-                <Text style={styles.headerTitle}>{texts?.about?.headerTitle}</Text>
-            </ImageBackground>
+            <TouchableWithoutFeedback onPress={() => toggleScroll()}>
+                <ImageBackground
+                    source={require('../../assets/background-image.png')}
+                    style={styles.headerBackground}
+                >
+                    <Text style={styles.headerTitle}>{texts?.about?.headerTitle}</Text>
+                </ImageBackground>
 
-            <View style={styles.contentContainer}>
-                <Text style={styles.heading}>{texts?.about?.whoWeAre}</Text>
-                <Text style={styles.paragraph}>
-                    {texts?.about?.whoWeAreText}
-                </Text>
-                <Text style={styles.heading}>{texts?.about?.ourMission}</Text>
-                <Text style={styles.paragraph}>
-                    {texts?.about?.ourMissionText}
-                </Text>
-                <Text style={styles.heading}>{texts?.about?.whatWeOffer}</Text>
-                <View style={styles.listContainer}>
-                    <Text style={styles.listItem}><Text style={styles.bold}>Accurate and Fast Results:</Text> Our CPS Test is designed to give precise measurements of your clicking speed over multiple time intervals.</Text>
-                    <Text style={styles.listItem}><Text style={styles.bold}>Multiple Click Tests:</Text> Practice consistently with a range of tests, including the Jitter Click Test and Kohi Click Test, to sharpen your skills.</Text>
-                    <Text style={styles.listItem}><Text style={styles.bold}>Unlimited Free Access:</Text> Users can practice as much as they want, completely free of charge.</Text>
-                    <Text style={styles.listItem}><Text style={styles.bold}>User-Friendly Interface:</Text> Our platform is simple and intuitive, making it easy for gamers of any age to use without any hassle.</Text>
+                <View style={styles.contentContainer}>
+                    <Text style={styles.heading}>{texts?.about?.whoWeAre}</Text>
+                    <Text style={styles.paragraph}>
+                        {texts?.about?.whoWeAreText}
+                    </Text>
+                    <Text style={styles.heading}>{texts?.about?.ourMission}</Text>
+                    <Text style={styles.paragraph}>
+                        {texts?.about?.ourMissionText}
+                    </Text>
+                    <Text style={styles.heading}>{texts?.about?.whatWeOffer}</Text>
+                    <View style={styles.listContainer}>
+                        <Text style={styles.listItem}><Text style={styles.bold}>Accurate and Fast Results:</Text> Our CPS Test is designed to give precise measurements of your clicking speed over multiple time intervals.</Text>
+                        <Text style={styles.listItem}><Text style={styles.bold}>Multiple Click Tests:</Text> Practice consistently with a range of tests, including the Jitter Click Test and Kohi Click Test, to sharpen your skills.</Text>
+                        <Text style={styles.listItem}><Text style={styles.bold}>Unlimited Free Access:</Text> Users can practice as much as they want, completely free of charge.</Text>
+                        <Text style={styles.listItem}><Text style={styles.bold}>User-Friendly Interface:</Text> Our platform is simple and intuitive, making it easy for gamers of any age to use without any hassle.</Text>
+                    </View>
+                    <Text style={styles.heading}>{texts?.about?.ourVision}</Text>
+                    <Text style={styles.paragraph}>
+                        {texts?.about?.ourVisionText}
+                    </Text>
+                    <Text style={styles.paragraph}>
+                        {texts?.about?.stayConnectedText}
+                    </Text>
+                    <Text style={styles.paragraph}>
+                        {texts?.about?.thankYou}
+                    </Text>
                 </View>
-                <Text style={styles.heading}>{texts?.about?.ourVision}</Text>
-                <Text style={styles.paragraph}>
-                    {texts?.about?.ourVisionText}
-                </Text>
-                <Text style={styles.paragraph}>
-                    {texts?.about?.stayConnectedText}
-                </Text>
-                <Text style={styles.paragraph}>
-                    {texts?.about?.thankYou}
-                </Text>
-            </View>
 
-            <Carousel />
-            <Footer navigation={navigation}/>
+                <Carousel />
+                <Footer navigation={navigation} />
+            </TouchableWithoutFeedback>
         </ScrollView>
     );
 }

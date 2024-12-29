@@ -1,12 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Linking } from 'react-native';
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 const AimTrainerDetail = () => {
   const { texts } = useLanguage();
   return (
     <View style={styles.detailBackground}>
       <ScrollView onScroll={() => toggleScroll && toggleScroll()} contentContainerStyle={styles.contentScreen}>
+      <TouchableWithoutFeedback onPress={() => toggleScroll()}>
+
         <View style={styles.mainContentContainer}>
           <View style={styles.cpsTest}>
             <Text style={styles.header}>
@@ -54,6 +57,7 @@ const AimTrainerDetail = () => {
             </View>
           </View>
         </View>
+        </TouchableWithoutFeedback>
       </ScrollView>
     </View>
   );

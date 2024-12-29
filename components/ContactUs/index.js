@@ -5,98 +5,102 @@ import Carousel from "../CPS/CarousalComponent";
 import Footer from "../Footer";
 import Navbar from '../Navbar';
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export default function ContactUs({ navigation }) {
     const { texts } = useLanguage();
 
     return (
         <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
-            <ImageBackground
-                source={require('../../assets/header-top-image.png')}
-                style={{ width: "100%", height: 200 }}
-            >
-                <Navbar navigation={navigation}/>
-                <Text style={styles.headerTitle}>{texts.ContactUs.headerTitle}</Text>
-            </ImageBackground>
+            <TouchableWithoutFeedback onPress={() => toggleScroll()}>
 
-            <View style={styles.contentContainer}>
-                <View style={styles.contactGrid}>
-                    <View style={styles.contactFirstPart}>
-                        <View style={styles.contactFirstPartLeft}>
-                            <Image
-                                source={require('../../assets/Lets-Talk.png')}
-                                style={styles.imageIcon}
-                            />
+                <ImageBackground
+                    source={require('../../assets/header-top-image.png')}
+                    style={{ width: "100%", height: 200 }}
+                >
+                    <Navbar navigation={navigation} />
+                    <Text style={styles.headerTitle}>{texts.ContactUs.headerTitle}</Text>
+                </ImageBackground>
+
+                <View style={styles.contentContainer}>
+                    <View style={styles.contactGrid}>
+                        <View style={styles.contactFirstPart}>
+                            <View style={styles.contactFirstPartLeft}>
+                                <Image
+                                    source={require('../../assets/Lets-Talk.png')}
+                                    style={styles.imageIcon}
+                                />
+                            </View>
+                            <View style={styles.contactSecondPartLeft}>
+                                <Text style={styles.contactHeading}>{texts.ContactUs.customerSupport.heading}</Text>
+                                <Text style={styles.paragraph}>
+                                    {texts.ContactUs.customerSupport.paragraph}
+                                </Text>
+                            </View>
                         </View>
-                        <View style={styles.contactSecondPartLeft}>
-                            <Text style={styles.contactHeading}>{texts.ContactUs.customerSupport.heading}</Text>
-                            <Text style={styles.paragraph}>
-                                {texts.ContactUs.customerSupport.paragraph}
-                            </Text>
+
+                        <View style={styles.contactFirstPart}>
+                            <View style={styles.contactFirstPartLeft}>
+                                <Image
+                                    source={require('../../assets/Cps-Tester-Community.png')}
+                                    style={styles.imageIcon}
+                                />
+                            </View>
+                            <View style={styles.contactSecondPartLeft}>
+                                <Text style={styles.contactHeading}>{texts.ContactUs.communitySupport.heading}</Text>
+                                <Text style={styles.paragraph}>
+                                    {texts.ContactUs.communitySupport.paragraph}
+                                </Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.contactFirstPart}>
+                            <View style={styles.contactFirstPartLeft}>
+                                <Image
+                                    source={require('../../assets/Report-Bug.png')}
+                                    style={styles.imageIcon}
+                                />
+                            </View>
+                            <View style={styles.contactSecondPartLeft}>
+                                <Text style={styles.contactHeading}>{texts.ContactUs.reportBug.heading}</Text>
+                                <Text style={styles.paragraph}>
+                                    {texts.ContactUs.reportBug.paragraph}
+                                </Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.contactFirstPart}>
+                            <View style={styles.contactFirstPartLeft}>
+                                <Image
+                                    source={require('../../assets/collaboration-and-advertising.png')}
+                                    style={styles.imageIcon}
+                                />
+                            </View>
+                            <View style={styles.contactSecondPartLeft}>
+                                <Text style={styles.contactHeading}>{texts.ContactUs.collaboration.heading}</Text>
+                                <Text style={styles.paragraph}>
+                                    {texts.ContactUs.collaboration.paragraph}
+                                </Text>
+                            </View>
                         </View>
                     </View>
-
                     <View style={styles.contactFirstPart}>
-                        <View style={styles.contactFirstPartLeft}>
+                        <View style={styles.contactSecondPartLeft}>
                             <Image
-                                source={require('../../assets/Cps-Tester-Community.png')}
+                                source={require('../../assets/Twiter.png')}
                                 style={styles.imageIcon}
                             />
-                        </View>
-                        <View style={styles.contactSecondPartLeft}>
-                            <Text style={styles.contactHeading}>{texts.ContactUs.communitySupport.heading}</Text>
+                            <Text style={styles.contactHeading}>{texts.ContactUs.socialMedia.heading}</Text>
                             <Text style={styles.paragraph}>
-                                {texts.ContactUs.communitySupport.paragraph}
-                            </Text>
-                        </View>
-                    </View>
-
-                    <View style={styles.contactFirstPart}>
-                        <View style={styles.contactFirstPartLeft}>
-                            <Image
-                                source={require('../../assets/Report-Bug.png')}
-                                style={styles.imageIcon}
-                            />
-                        </View>
-                        <View style={styles.contactSecondPartLeft}>
-                            <Text style={styles.contactHeading}>{texts.ContactUs.reportBug.heading}</Text>
-                            <Text style={styles.paragraph}>
-                                {texts.ContactUs.reportBug.paragraph}
-                            </Text>
-                        </View>
-                    </View>
-
-                    <View style={styles.contactFirstPart}>
-                        <View style={styles.contactFirstPartLeft}>
-                            <Image
-                                source={require('../../assets/collaboration-and-advertising.png')}
-                                style={styles.imageIcon}
-                            />
-                        </View>
-                        <View style={styles.contactSecondPartLeft}>
-                            <Text style={styles.contactHeading}>{texts.ContactUs.collaboration.heading}</Text>
-                            <Text style={styles.paragraph}>
-                                {texts.ContactUs.collaboration.paragraph}
+                                {texts.ContactUs.socialMedia.paragraph}
                             </Text>
                         </View>
                     </View>
                 </View>
-                <View style={styles.contactFirstPart}>
-                <View style={styles.contactSecondPartLeft}>
-                    <Image
-                        source={require('../../assets/Twiter.png')}
-                        style={styles.imageIcon}
-                    />
-                    <Text style={styles.contactHeading}>{texts.ContactUs.socialMedia.heading}</Text>
-                    <Text style={styles.paragraph}>
-                        {texts.ContactUs.socialMedia.paragraph}
-                    </Text>
-                </View>
-                </View>
-            </View>
 
-            <Carousel />
-            <Footer navigation={navigation} />
+                <Carousel />
+                <Footer navigation={navigation} />
+            </TouchableWithoutFeedback>
         </ScrollView>
     );
 }
@@ -115,17 +119,17 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         marginTop: 30,
-        
-       
+
+
         margin: 20,
-        
+
     },
     contactGrid: {
         marginBottom: 20,
     },
     contactFirstPart: {
         flex: 1,
-       
+
         alignItems: "center",
         marginBottom: 20,
         backgroundColor: "#bfbfbf",
@@ -134,7 +138,7 @@ const styles = StyleSheet.create({
     },
     contactFirstPartLeft: {
         marginRight: 10,
-justifyContent:"center"
+        justifyContent: "center"
     },
     contactSecondPartLeft: {
         flex: 1,

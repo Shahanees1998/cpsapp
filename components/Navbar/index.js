@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image, Pressable, Animated, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, Pressable, Animated, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import { Link } from 'expo-router';
 import { MenuIcon } from '../icons';
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
@@ -49,86 +49,94 @@ const Navbar = ({ onMenuToggle, navigation }) => {
     }
   }, [isScroll]);
 
+  const handleOutsidePress = () => {
+    if (isMenuOpen) {
+      toggleMenu();
+    }
+  };
+
   return (
-    <View style={styles.container}>
-      <View style={styles.navbar}>
-        <TouchableOpacity onPress={() => navigation.navigate('CPSTest')} style={styles.logoContainer}>
-          <Image
-            source={require('../../assets/Logo.png')}
-            style={styles.logo}
-            resizeMode="contain"
-          />
-        </TouchableOpacity>
-
-        <Pressable onPress={toggleMenu} style={styles.menuButton}>
-          <View style={styles.menuIconContainer}>
-            <MenuIcon isOpen={false} />
-          </View>
-        </Pressable>
-      </View>
-
-      <Animated.View style={[styles.dropdown, { height: menuHeight }]}>
-        <TouchableOpacity onPress={() => navigation.navigate('KohiTest')} style={styles.menuItem}>
-          <Text style={styles.menuText}>{texts?.testName?.kohi}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('ButterflyTest')} style={styles.menuItem}>
-          <Text style={styles.menuText}>{texts?.testName?.butter}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('ReactionTest')} style={styles.menuItem}>
-          <Text style={styles.menuText}>{texts?.testName?.reaction}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('AimTrainerTest')} style={styles.menuItem}>
-          <Text style={styles.menuText}>{texts?.testName?.aim}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('CPSTest')} style={styles.menuItem}>
-          <Text style={styles.menuText}>{texts?.testName?.cps}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={toggleLanguage} style={styles.menuItem}>
-          <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-            <Text style={styles.menuText}>{language.toUpperCase()}</Text>
-            <TriangleIcon 
-              size={10} 
-              style={{ 
-                transform: !isLanguageOpen ? [{ rotate: '180deg' }] : [],
-                paddingLeft: 20 
-              }} 
+    <TouchableWithoutFeedback onPress={handleOutsidePress}>
+      <View style={styles.container}>
+        <View style={styles.navbar}>
+          <TouchableOpacity onPress={() => navigation.navigate('CPSTest')} style={styles.logoContainer}>
+            <Image
+              source={require('../../assets/Logo.png')}
+              style={styles.logo}
+              resizeMode="contain"
             />
-          </View>
-        </TouchableOpacity>
-        <Animated.View style={[styles.dropdown, { height: languageHeight }]}>
-          <TouchableOpacity onPress={() => changeLanguage('en')} style={styles.menuItem}>
+          </TouchableOpacity>
+
+          <Pressable onPress={toggleMenu} style={styles.menuButton}>
+            <View style={styles.menuIconContainer}>
+              <MenuIcon isOpen={false} />
+            </View>
+          </Pressable>
+        </View>
+
+        <Animated.View style={[styles.dropdown, { height: menuHeight }]}>
+          <TouchableOpacity onPress={() => navigation.navigate('KohiTest')} style={styles.menuItem}>
+            <Text style={styles.menuText}>{texts?.testName?.kohi}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('ButterflyTest')} style={styles.menuItem}>
+            <Text style={styles.menuText}>{texts?.testName?.butter}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('ReactionTest')} style={styles.menuItem}>
+            <Text style={styles.menuText}>{texts?.testName?.reaction}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('AimTrainerTest')} style={styles.menuItem}>
+            <Text style={styles.menuText}>{texts?.testName?.aim}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('CPSTest')} style={styles.menuItem}>
+            <Text style={styles.menuText}>{texts?.testName?.cps}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={toggleLanguage} style={styles.menuItem}>
             <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-              <Image
-                source={require('../../assets/en.jpg')}
-                style={{ width: 30, height: 30, marginRight: 10 }}
-                resizeMode="contain"
+              <Text style={styles.menuText}>{language.toUpperCase()}</Text>
+              <TriangleIcon 
+                size={10} 
+                style={{ 
+                  transform: !isLanguageOpen ? [{ rotate: '180deg' }] : [],
+                  paddingLeft: 20 
+                }} 
               />
-              <Text style={styles.menuText}>English</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => changeLanguage('es')} style={styles.menuItem}>
-            <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-              <Image
-                source={require('../../assets/es.png')}
-                style={{ width: 30, height: 30, marginRight: 10 }}
-                resizeMode="contain"
-              />
-              <Text style={styles.menuText}>Spanish</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => changeLanguage('fr')} style={styles.menuItem}>
-            <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-              <Image
-                source={require('../../assets/fr.jpg')}
-                style={{ width: 30, height: 30, marginRight: 10 }}
-                resizeMode="contain"
-              />
-              <Text style={styles.menuText}>French</Text>
-            </View>
-          </TouchableOpacity>
+          <Animated.View style={[styles.dropdown, { height: languageHeight }]}>
+            <TouchableOpacity onPress={() => changeLanguage('en')} style={styles.menuItem}>
+              <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                <Image
+                  source={require('../../assets/en.jpg')}
+                  style={{ width: 30, height: 30, marginRight: 10 }}
+                  resizeMode="contain"
+                />
+                <Text style={styles.menuText}>English</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => changeLanguage('es')} style={styles.menuItem}>
+              <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                <Image
+                  source={require('../../assets/es.png')}
+                  style={{ width: 30, height: 30, marginRight: 10 }}
+                  resizeMode="contain"
+                />
+                <Text style={styles.menuText}>Spanish</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => changeLanguage('fr')} style={styles.menuItem}>
+              <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                <Image
+                  source={require('../../assets/fr.jpg')}
+                  style={{ width: 30, height: 30, marginRight: 10 }}
+                  resizeMode="contain"
+                />
+                <Text style={styles.menuText}>French</Text>
+              </View>
+            </TouchableOpacity>
+          </Animated.View>
         </Animated.View>
-      </Animated.View>
-    </View>
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 

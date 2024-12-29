@@ -9,11 +9,12 @@ import CarousalComponent from "../CPS/CarousalComponent";
 import AimTrainerDetail from "./AimTrainerDetail";
 import Footer from "../Footer";
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 const Dot = ({ id, x, y, onRemove, onHit, size, color }) => {
   const [currentSize, setCurrentSize] = useState(size);
   const [growing, setGrowing] = useState(true);
-  
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -155,108 +156,111 @@ export default function AimTrainerTest({ navigation }) {
 
   return (
     <ScrollView onScroll={() => toggleScroll && toggleScroll()}>
-      <ImageBackground
-        source={require('../../assets/background-image.png')}
-        style={styles.imageBackground}
-      >
-        <View style={styles.container}>
-          <Navbar onToggle={toggleFullScreen} navigation={navigation}/>
-          <View style={styles.headerContainer}>
-            <Text style={styles.headerTitle}>{texts?.AimTrainerTest?.title}</Text>
-            <Text style={styles.tagline}> {texts?.AimTrainerTest?.tagline} </Text>
-          </View>
+      <TouchableWithoutFeedback onPress={() => toggleScroll()}>
 
-          {isTestRunning ? (
-            <View style={styles.testArea}>
-              <View style={styles.statsContainer}>
-                <Text style={styles.statText}>Score: {score}</Text>
-                <Text style={styles.statText}>Misses: {misses}</Text>
-                <Text style={styles.statText}>Time: {selectedTime - timePassed}s</Text>
-              </View>
-              <View style={styles.aimGameArea}>
-                {dots.map((dot) => (
-                  <Dot
-                    key={dot.id}
-                    id={dot.id}
-                    x={dot.x}
-                    y={dot.y}
-                    onRemove={handleDotRemove}
-                    onHit={handleDotHit}
-                    size={targetSize}
-                    color={selectedColor}
-                  />
-                ))}
-              </View>
+        <ImageBackground
+          source={require('../../assets/background-image.png')}
+          style={styles.imageBackground}
+        >
+          <View style={styles.container}>
+            <Navbar onToggle={toggleFullScreen} navigation={navigation} />
+            <View style={styles.headerContainer}>
+              <Text style={styles.headerTitle}>{texts?.AimTrainerTest?.title}</Text>
+              <Text style={styles.tagline}> {texts?.AimTrainerTest?.tagline} </Text>
             </View>
-          ) : (
-            <View style={styles.configurationContainer}>
-              <Text style={styles.dropdownLabel}>{texts?.AimTrainerDetail?.shapecolor}</Text>
-              <Picker
-                selectedValue={selectedColor}
-                onValueChange={(itemValue) => setSelectedColor(itemValue)}
-                style={styles.picker}
-              >
-                <Picker.Item label="Red" value="#FF0000" />
-                <Picker.Item label="Blue" value="#0000FF" />
-                <Picker.Item label="Green" value="#008000" />
-                <Picker.Item label="Yellow" value="#FFFF00" />
-                <Picker.Item label="Purple" value="#800080" />
-                <Picker.Item label="Orange" value="#FFA500" />
-              </Picker>
 
-              <Text style={styles.dropdownLabel}>{texts?.AimTrainerDetail?.targetSize}</Text>
-              <Picker
-                selectedValue={targetSize}
-                onValueChange={(itemValue) => setTargetSize(itemValue)}
-                style={styles.picker}
-              >
-                <Picker.Item label="Small" value={30} />
-                <Picker.Item label="Medium" value={40} />
-                <Picker.Item label="Large" value={50} />
-                <Picker.Item label="Extra Large" value={65} />
-              </Picker>
+            {isTestRunning ? (
+              <View style={styles.testArea}>
+                <View style={styles.statsContainer}>
+                  <Text style={styles.statText}>Score: {score}</Text>
+                  <Text style={styles.statText}>Misses: {misses}</Text>
+                  <Text style={styles.statText}>Time: {selectedTime - timePassed}s</Text>
+                </View>
+                <View style={styles.aimGameArea}>
+                  {dots.map((dot) => (
+                    <Dot
+                      key={dot.id}
+                      id={dot.id}
+                      x={dot.x}
+                      y={dot.y}
+                      onRemove={handleDotRemove}
+                      onHit={handleDotHit}
+                      size={targetSize}
+                      color={selectedColor}
+                    />
+                  ))}
+                </View>
+              </View>
+            ) : (
+              <View style={styles.configurationContainer}>
+                <Text style={styles.dropdownLabel}>{texts?.AimTrainerDetail?.shapecolor}</Text>
+                <Picker
+                  selectedValue={selectedColor}
+                  onValueChange={(itemValue) => setSelectedColor(itemValue)}
+                  style={styles.picker}
+                >
+                  <Picker.Item label="Red" value="#FF0000" />
+                  <Picker.Item label="Blue" value="#0000FF" />
+                  <Picker.Item label="Green" value="#008000" />
+                  <Picker.Item label="Yellow" value="#FFFF00" />
+                  <Picker.Item label="Purple" value="#800080" />
+                  <Picker.Item label="Orange" value="#FFA500" />
+                </Picker>
 
-              <Text style={styles.dropdownLabel}>{texts?.AimTrainerDetail?.time}</Text>
-              <Picker
-                selectedValue={selectedTime}
-                onValueChange={(itemValue) => setSelectedTime(itemValue)}
-                style={styles.picker}
-              >
-                <Picker.Item label="15 seconds" value={15} />
-                <Picker.Item label="30 seconds" value={30} />
-                <Picker.Item label="45 seconds" value={45} />
-                <Picker.Item label="60 seconds" value={60} />
-              </Picker>
+                <Text style={styles.dropdownLabel}>{texts?.AimTrainerDetail?.targetSize}</Text>
+                <Picker
+                  selectedValue={targetSize}
+                  onValueChange={(itemValue) => setTargetSize(itemValue)}
+                  style={styles.picker}
+                >
+                  <Picker.Item label="Small" value={30} />
+                  <Picker.Item label="Medium" value={40} />
+                  <Picker.Item label="Large" value={50} />
+                  <Picker.Item label="Extra Large" value={65} />
+                </Picker>
 
-              <TouchableOpacity style={styles.startButton} onPress={() => setIsTestRunning(true)}>
-                <Text style={styles.startButtonText}>Start Test</Text>
-              </TouchableOpacity>
-            </View>
-          )}
+                <Text style={styles.dropdownLabel}>{texts?.AimTrainerDetail?.time}</Text>
+                <Picker
+                  selectedValue={selectedTime}
+                  onValueChange={(itemValue) => setSelectedTime(itemValue)}
+                  style={styles.picker}
+                >
+                  <Picker.Item label="15 seconds" value={15} />
+                  <Picker.Item label="30 seconds" value={30} />
+                  <Picker.Item label="45 seconds" value={45} />
+                  <Picker.Item label="60 seconds" value={60} />
+                </Picker>
 
-          {/* Modal for displaying results */}
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={isModalVisible}
-            onRequestClose={resetTest}
-          >
-            <View style={styles.modalOverlay}>
-              <View style={styles.modalInnerContainer}>
-                <Text style={styles.modalTitle}>Test Complete!</Text>
-                <Text style={styles.modalText}>Score: {score}</Text>
-                <Text style={styles.modalText}>Misses: {misses}</Text>
-                <Text style={styles.modalText}>Accuracy: {accuracy.toFixed(1)}%</Text>
-                <TouchableOpacity style={styles.closeButton} onPress={resetTest}>
-                  <Text style={styles.closeButtonText}>Close</Text>
+                <TouchableOpacity style={styles.startButton} onPress={() => setIsTestRunning(true)}>
+                  <Text style={styles.startButtonText}>Start Test</Text>
                 </TouchableOpacity>
               </View>
-            </View>
-          </Modal>
-        </View>
-      </ImageBackground>
-      <AimTrainerDetail />
-      <Footer navigation={navigation} />
+            )}
+
+            {/* Modal for displaying results */}
+            <Modal
+              animationType="slide"
+              transparent={true}
+              visible={isModalVisible}
+              onRequestClose={resetTest}
+            >
+              <View style={styles.modalOverlay}>
+                <View style={styles.modalInnerContainer}>
+                  <Text style={styles.modalTitle}>Test Complete!</Text>
+                  <Text style={styles.modalText}>Score: {score}</Text>
+                  <Text style={styles.modalText}>Misses: {misses}</Text>
+                  <Text style={styles.modalText}>Accuracy: {accuracy.toFixed(1)}%</Text>
+                  <TouchableOpacity style={styles.closeButton} onPress={resetTest}>
+                    <Text style={styles.closeButtonText}>Close</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </Modal>
+          </View>
+        </ImageBackground>
+        <AimTrainerDetail />
+        <Footer navigation={navigation} />
+      </TouchableWithoutFeedback>
     </ScrollView>
   );
 }
@@ -309,7 +313,7 @@ const styles = StyleSheet.create({
     height: 400,
     backgroundColor: 'rgba(3,109,248,.234)',
     borderRadius: 8,
-    padding:20
+    padding: 20
   },
   dropdownLabel: {
     color: '#fff',

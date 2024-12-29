@@ -6,7 +6,7 @@ import { Audio } from 'expo-av';
 import LeftTestListBar from './LeftTestListBar';
 import TimeListBar from './TimeListBar';
 import styles from './Styles';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Navbar from "../Navbar";
 import CPSDetail from './CPSDetail';
 import Footer from '../Footer';
@@ -168,237 +168,245 @@ export default function CPSTest({ navigation }) {
 
   return (
     <ScrollView onScroll={() => toggleScroll && toggleScroll()}>
-      {!isFullScreen ? (
-        <>
-          <ImageBackground
-            source={require('../../assets/background-image.png')}
-            style={styles.imageBackground}
-          >
-            <View style={styles.container}>
-              <Navbar onToggle={toggleFullScreen} navigation={navigation} />
-              <View style={styles.headerContainer}>
-                <Text style={styles.headerTitle}>{texts?.cpsTest?.title}</Text>
-                <Text style={styles.tagline}>
-                  {texts?.cpsTest?.tagline}
-                </Text>
-              </View>
-              <View style={styles.mainLayout}>
-                <LeftTestListBar navigation={navigation} title={texts?.cpsTest?.leftsidetitle} />
-                <Text style={styles.sidebarTitle}>{selectedTime} {texts?.cpsTest?.selectTimetitle}</Text>
-                <View style={styles.mainContent}>
-                  <View style={styles.centerContent}>
-                    <View style={styles.testArea}>
-                      <View style={styles.controlBar}>
-                        <TouchableOpacity onPress={toggleFullScreen}>
-                          <MaterialIcons name={isFullScreen ? "fullscreen-exit" : "fullscreen"} size={24} color="#fff" />
-                        </TouchableOpacity>
-                        <View style={{ display: "flex", flexDirection: "row" }}>
-                          <TouchableOpacity
-                            style={{ marginRight: 10 }}
-                            onPress={() => {
-                              setIsMusicOn(!isMusicOn);
+      <TouchableWithoutFeedback onPress={() => toggleScroll()}>
 
-                            }}
-                          >
-                            <MusicIcon isEnabled={isMusicOn} />
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={toggleSound}>
-                            <SoundIcon isEnabled={isSoundOn} />
-                          </TouchableOpacity>
-                        </View>
-                      </View>
-
-                      <TouchableOpacity
-                        style={styles.clickCircle}
-                        onPress={handleClick}
-                        activeOpacity={0.7}
-                      >
-                        <Svg width={width} height={height}>
-                          <Circle
-                            stroke={circleColor}
-                            fill="transparent"
-                            strokeWidth="15"
-                            r={r + 20}
-                            cx={cx}
-                            cy={cy}
-                          />
-                          <Circle
-                            stroke="#b32f60"
-                            fill="transparent"
-                            strokeWidth={isTestRunning ? 15 : 0}
-                            r={r + 20}
-                            cx={cx}
-                            cy={cy}
-                            strokeDasharray={circumference}
-                            strokeDashoffset={circumference - (timePassed / selectedTime) * circumference}
-                          />
-                          {ripples.map((ripple, index) => (
-                            <Circle
-                              key={index}
-                              cx={ripple.x}
-                              cy={ripple.y}
-                              r={40}
-                              fill="rgba(255, 255, 255, 0.3)"
-                            />
-                          ))}
-                        </Svg>
-                        <Text style={styles.clickText}>
-                          {!isTestRunning ? texts.cpsTest.circletext :
-                            timePassed >= selectedTime ? '' : ''}
-                        </Text>
-                      </TouchableOpacity>
-                    </View>
-
-                    <View style={{ marginTop: 20 }}>
-                      <TimeListBar
-                        selectedTime={selectedTime}
-                        onTimeSelect={(time) => {
-                          setSelectedTime(time);
-                          resetTest();
-                        }}
-                      />
-                    </View>
-                  </View>
+        {!isFullScreen ? (
+          <>
+            <ImageBackground
+              source={require('../../assets/background-image.png')}
+              style={styles.imageBackground}
+            >
+              <View style={styles.container}>
+                <Navbar onToggle={toggleFullScreen} navigation={navigation} />
+                <View style={styles.headerContainer}>
+                  <Text style={styles.headerTitle}>{texts?.cpsTest?.title}</Text>
+                  <Text style={styles.tagline}>
+                    {texts?.cpsTest?.tagline}
+                  </Text>
                 </View>
-                <View style={{ height: 100 }}>
-                </View>
-              </View>
+                <View style={styles.mainLayout}>
+                  <LeftTestListBar navigation={navigation} title={texts?.cpsTest?.leftsidetitle} />
+                  <Text style={styles.sidebarTitle}>{selectedTime} {texts?.cpsTest?.selectTimetitle}</Text>
+                  <View style={styles.mainContent}>
+                    <View style={styles.centerContent}>
+                      <View style={styles.testArea}>
+                        <View style={styles.controlBar}>
+                          <TouchableOpacity onPress={toggleFullScreen}>
+                            <MaterialIcons name={isFullScreen ? "fullscreen-exit" : "fullscreen"} size={24} color="#fff" />
+                          </TouchableOpacity>
+                          <View style={{ display: "flex", flexDirection: "row" }}>
+                            <TouchableOpacity
+                              style={{ marginRight: 10 }}
+                              onPress={() => {
+                                setIsMusicOn(!isMusicOn);
 
-              <Modal
-                animationType="slide"
-                transparent={true}
-                visible={isModalVisible}
-                onRequestClose={resetTest}
-              >
-                <View style={styles.modalOverlay}>
-                  <ImageBackground
-                    source={require('../../assets/modal-bg.jpg')} // Replace with your modal background image path
-                    style={styles.modalInnerContainer}
-                  >
-                    <View style={styles.modalTopBar}>
-                      <TouchableOpacity onPress={resetTest} style={styles.closeBtn}>
-                        <Text style={styles.closeBtnText}>{texts?.cpsTest?.close}</Text>
-                      </TouchableOpacity>
-
-                      <View style={styles.modalTitleContainer}>
-                        <Text style={styles.modalTitle}>{texts?.cpsTest?.achievementtitle}</Text>
-                      </View>
-                    </View>
-                    <View style={styles.resultOuterContainer}>
-                      <View style={styles.resultContainer}>
-                        <View style={styles.animationContainer}>
-                          <View style={styles.animeLgDisplay}>
-                            <Image
-                              source={require('../../assets/sloath.jpg')} // Replace with your image path
-                              style={styles.animationImage}
-                            />
-                          </View>
-                        </View>
-                        <View style={styles.resultContentContainer}>
-                          <View style={styles.resultContentRow}>
-                            <Text style={styles.animeTitle}>{texts?.cpsTest?.sloth}</Text>
-                          </View>
-                          <View style={styles.modalStatsContainer}>
-                            <View style={styles.cpsStatRow}>
-                              <Text style={styles.normalText}>{texts?.cpsTest?.clickspeeddesc}</Text>
-                            </View>
-                            <View style={styles.cpsStatRow}>
-                              <Text style={styles.statHeading}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
-                            </View>
-                            <View style={styles.cpsStatRow}>
-                              <Text style={styles.statSubheading}>{clicks} {texts?.cpsTest?.clicksin} {selectedTime} {texts?.cpsTest?.seconds}</Text>
-                            </View>
-                          </View>
-                          <View style={styles.resultContentRow}>
-                            <Text style={styles.modalNote}>{texts?.cpsTest?.feelings}</Text>
-                          </View>
-                          <View style={styles.resultContentRow}>
-                            <TouchableOpacity style={styles.tryBtn} onPress={resetTest}>
-                              <Text style={styles.tryBtnText}>{texts?.cpsTest?.tryagain} </Text>
+                              }}
+                            >
+                              {isMusicOn ?
+                                <View style={{ width: 28, height: 28, display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 100, backgroundColor: '#7455CA' }}>
+                                  <Image source={require('../../assets/music-on.png')} style={{ width: 15, height: 15 }} /> </View> : <MusicIcon isEnabled={isMusicOn} />
+                              }
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={toggleSound}>
+                              <SoundIcon isEnabled={isSoundOn} />
                             </TouchableOpacity>
                           </View>
                         </View>
+
+                        <TouchableOpacity
+                          style={styles.clickCircle}
+                          onPress={handleClick}
+                          activeOpacity={0.7}
+                        >
+                          <Svg width={width} height={height}>
+                            <Circle
+                              stroke={circleColor}
+                              fill="transparent"
+                              strokeWidth="15"
+                              r={r + 20}
+                              cx={cx}
+                              cy={cy}
+                            />
+                            <Circle
+                              stroke="#b32f60"
+                              fill="transparent"
+                              strokeWidth={isTestRunning ? 15 : 0}
+                              r={r + 20}
+                              cx={cx}
+                              cy={cy}
+                              strokeDasharray={circumference}
+                              strokeDashoffset={circumference - (timePassed / selectedTime) * circumference}
+                            />
+                            {ripples.map((ripple, index) => (
+                              <Circle
+                                key={index}
+                                cx={ripple.x}
+                                cy={ripple.y}
+                                r={40}
+                                fill="rgba(255, 255, 255, 0.3)"
+                              />
+                            ))}
+                          </Svg>
+                          <Text style={styles.clickText}>
+                            {!isTestRunning ? texts.cpsTest.circletext :
+                              timePassed >= selectedTime ? '' : ''}
+                          </Text>
+                        </TouchableOpacity>
+                      </View>
+
+                      <View style={{ marginTop: 20 }}>
+                        <TimeListBar
+                          selectedTime={selectedTime}
+                          onTimeSelect={(time) => {
+                            setSelectedTime(time);
+                            resetTest();
+                          }}
+                        />
                       </View>
                     </View>
-
-                  </ImageBackground>
+                  </View>
+                  <View style={{ height: 100 }}>
+                  </View>
                 </View>
-              </Modal>
 
+                <Modal
+                  animationType="slide"
+                  transparent={true}
+                  visible={isModalVisible}
+                  onRequestClose={resetTest}
+                >
+                  <View style={styles.modalOverlay}>
+                    <ImageBackground
+                      source={require('../../assets/modal-bg.jpg')} // Replace with your modal background image path
+                      style={styles.modalInnerContainer}
+                    >
+                      <View style={styles.modalTopBar}>
+                        <TouchableOpacity onPress={resetTest} style={styles.closeBtn}>
+                          <Text style={styles.closeBtnText}>{texts?.cpsTest?.close}</Text>
+                        </TouchableOpacity>
+
+                        <View style={styles.modalTitleContainer}>
+                          <Text style={styles.modalTitle}>{texts?.cpsTest?.achievementtitle}</Text>
+                        </View>
+                      </View>
+                      <View style={styles.resultOuterContainer}>
+                        <View style={styles.resultContainer}>
+                          <View style={styles.animationContainer}>
+                            <View style={styles.animeLgDisplay}>
+                              <Image
+                                source={require('../../assets/sloath.jpg')} // Replace with your image path
+                                style={styles.animationImage}
+                              />
+                            </View>
+                          </View>
+                          <View style={styles.resultContentContainer}>
+                            <View style={styles.resultContentRow}>
+                              <Text style={styles.animeTitle}>{texts?.cpsTest?.sloth}</Text>
+                            </View>
+                            <View style={styles.modalStatsContainer}>
+                              <View style={styles.cpsStatRow}>
+                                <Text style={styles.normalText}>{texts?.cpsTest?.clickspeeddesc}</Text>
+                              </View>
+                              <View style={styles.cpsStatRow}>
+                                <Text style={styles.statHeading}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
+                              </View>
+                              <View style={styles.cpsStatRow}>
+                                <Text style={styles.statSubheading}>{clicks} {texts?.cpsTest?.clicksin} {selectedTime} {texts?.cpsTest?.seconds}</Text>
+                              </View>
+                            </View>
+                            <View style={styles.resultContentRow}>
+                              <Text style={styles.modalNote}>{texts?.cpsTest?.feelings}</Text>
+                            </View>
+                            <View style={styles.resultContentRow}>
+                              <TouchableOpacity style={styles.tryBtn} onPress={resetTest}>
+                                <Text style={styles.tryBtnText}>{texts?.cpsTest?.tryagain} </Text>
+                              </TouchableOpacity>
+                            </View>
+                          </View>
+                        </View>
+                      </View>
+
+                    </ImageBackground>
+                  </View>
+                </Modal>
+
+              </View>
+            </ImageBackground>
+            <CPSDetail navigation={navigation} />
+            {/* <CarousalComponent/> */}
+            <Footer navigation={navigation} />
+          </>
+        ) : (
+          <ImageBackground
+            source={require('../../assets/background-image.png')}
+            style={styles.imageBackgroundfull}
+          >
+            <View style={styles.controlBar}>
+              <TouchableOpacity onPress={() => setIsFullScreen(false)}>
+                <MaterialIcons name={isFullScreen ? "fullscreen-exit" : "fullscreen"} size={24} color="#fff" />
+              </TouchableOpacity>
+              <View style={{ display: "flex", flexDirection: "row" }}>
+                <TouchableOpacity
+                  onPress={() => {
+                    setIsMusicOn(!isMusicOn);
+
+                  }}
+                  style={{ marginRight: 10 }}
+                >
+                  {isMusicOn ?
+                    <View style={{ width: 28, height: 28, display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 100, backgroundColor: '#7455CA' }}>
+                      <Image source={require('../../assets/music-on.png')} style={{ width: 15, height: 15 }} /> </View> : <MusicIcon isEnabled={isMusicOn} />
+                  }
+                </TouchableOpacity>
+                <TouchableOpacity onPress={toggleSound}>
+                  <SoundIcon isEnabled={isSoundOn} />
+                </TouchableOpacity>
+              </View>
             </View>
-          </ImageBackground>
-          <CPSDetail navigation={navigation} />
-          {/* <CarousalComponent/> */}
-          <Footer navigation={navigation} />
-        </>
-      ) : (
-        <ImageBackground
-          source={require('../../assets/background-image.png')}
-          style={styles.imageBackgroundfull}
-        >
-          <View style={styles.controlBar}>
-            <TouchableOpacity onPress={() => setIsFullScreen(false)}>
-              <MaterialIcons name={isFullScreen ? "fullscreen-exit" : "fullscreen"} size={24} color="#fff" />
-            </TouchableOpacity>
-            <View style={{ display: "flex", flexDirection: "row" }}>
+            <View style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 50, marginBottom: 10 }}>
               <TouchableOpacity
-                onPress={() => {
-                  setIsMusicOn(!isMusicOn);
-
+                style={{
+                  width: screenWidth - 50,
+                  height: screenWidth - 50,
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  alignSelf: 'center',
+                  borderRadius: 220,
+                  overflow: 'hidden'
                 }}
-                style={{ marginRight: 10 }}
+                onPress={handleClick}
+                activeOpacity={0.7}
               >
-                <MusicIcon isEnabled={isMusicOn} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={toggleSound}>
-                <SoundIcon isEnabled={isSoundOn} />
-              </TouchableOpacity>
-            </View>
-          </View>
-          <View style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 50, marginBottom: 10 }}>
-            <TouchableOpacity
-              style={{
-                width: screenWidth - 50,
-                height: screenWidth - 50,
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                alignSelf: 'center',
-                borderRadius: 220,
-                overflow: 'hidden'
-              }}
-              onPress={handleClick}
-              activeOpacity={0.7}
-            >
-              <Svg width={screenWidth} height={screenWidth - 50}>
-                <Circle
-                  stroke={circleColor}
-                  fill="transparent"
-                  strokeWidth="15"
-                  r={screenWidth / 2 - 30}
-                  cx={screenWidth / 2}
-                  cy={screenWidth / 2 -25}
-                />
-                <Circle
-                  stroke="#b32f60"
-                  fill="transparent"
-                  strokeWidth="15"
-                  r={screenWidth / 2 - 30}
-                  cx={screenWidth / 2}
-                  cy={screenWidth / 2 - 25}
-                  strokeDasharray={circumference}
-                  strokeDashoffset={circumference - (timePassed / selectedTime) * circumference}
-                />
-                {ripples.map((ripple, index) => (
+                <Svg width={screenWidth} height={screenWidth - 50}>
                   <Circle
-                    key={index}
-                    cx={ripple.x}
-                    cy={ripple.y}
-                    r={40}
-                    fill="rgba(255, 255, 255, 0.3)"
+                    stroke={circleColor}
+                    fill="transparent"
+                    strokeWidth="15"
+                    r={screenWidth / 2 - 30}
+                    cx={screenWidth / 2}
+                    cy={screenWidth / 2 - 25}
                   />
-                ))}
-                {/* {ripples.map((ripple, index) => (
+                  <Circle
+                    stroke="#b32f60"
+                    fill="transparent"
+                    strokeWidth="15"
+                    r={screenWidth / 2 - 30}
+                    cx={screenWidth / 2}
+                    cy={screenWidth / 2 - 25}
+                    strokeDasharray={circumference}
+                    strokeDashoffset={circumference - (timePassed / selectedTime) * circumference}
+                  />
+                  {ripples.map((ripple, index) => (
+                    <Circle
+                      key={index}
+                      cx={ripple.x}
+                      cy={ripple.y}
+                      r={40}
+                      fill="rgba(255, 255, 255, 0.3)"
+                    />
+                  ))}
+                  {/* {ripples.map((ripple, index) => (
                   <Circle
                     key={index}
                     cx={ripple.x}
@@ -415,78 +423,80 @@ export default function CPSTest({ navigation }) {
                     }}
                   />
                 ))} */}
-              </Svg>
-              <Text style={styles.clickText}>
-                {!isTestRunning ? 'Click to Start' :
-                  timePassed >= selectedTime ? 'Test Complete' : 'Click!'}
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 50, marginBottom: 10 }}>
-            <Stats cps={clicks / timePassed} timePassed={timePassed} score={clicks} /> {/* Pass props to Stats */}
-          </View>
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={isModalVisible}
-            onRequestClose={resetTest}
-          >
-            <View style={styles.modalOverlay}>
-              <ImageBackground
-                source={require('../../assets/modal-bg.jpg')} // Replace with your modal background image path
-                style={styles.modalInnerContainer}
-              >
-                <View style={styles.modalTopBar}>
-                  <TouchableOpacity onPress={resetTest} style={styles.closeBtn}>
-                    <Text style={styles.closeBtnText}>{texts?.cpsTest?.close}</Text>
-                  </TouchableOpacity>
-
-                  <View style={styles.modalTitleContainer}>
-                    <Text style={styles.modalTitle}>{texts?.cpsTest?.achievementtitle}</Text>
-                  </View>
-                </View>
-                <View style={styles.resultOuterContainer}>
-                  <View style={styles.resultContainer}>
-                    <View style={styles.animationContainer}>
-                      <View style={styles.animeLgDisplay}>
-                        <Image
-                          source={require('../../assets/sloath.jpg')} // Replace with your image path
-                          style={styles.animationImage}
-                        />
-                      </View>
-                    </View>
-                    <View style={styles.resultContentContainer}>
-                      <View style={styles.resultContentRow}>
-                        <Text style={styles.animeTitle}>{texts?.cpsTest?.sloth}</Text>
-                      </View>
-                      <View style={styles.modalStatsContainer}>
-                        <View style={styles.cpsStatRow}>
-                          <Text style={styles.normalText}>{texts?.cpsTest?.clickspeeddesc}</Text>
-                        </View>
-                        <View style={styles.cpsStatRow}>
-                          <Text style={styles.statHeading}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
-                        </View>
-                        <View style={styles.cpsStatRow}>
-                          <Text style={styles.statSubheading}>{clicks} {texts?.cpsTest?.clicksin} {selectedTime} {texts?.cpsTest?.seconds}</Text>
-                        </View>
-                      </View>
-                      <View style={styles.resultContentRow}>
-                        <Text style={styles.modalNote}>{texts?.cpsTest?.feelings}</Text>
-                      </View>
-                      <View style={styles.resultContentRow}>
-                        <TouchableOpacity style={styles.tryBtn} onPress={resetTest}>
-                          <Text style={styles.tryBtnText}>{texts?.cpsTest?.tryagain} </Text>
-                        </TouchableOpacity>
-                      </View>
-                    </View>
-                  </View>
-                </View>
-
-              </ImageBackground>
+                </Svg>
+                <Text style={styles.clickText}>
+                  {!isTestRunning ? 'Click to Start' :
+                    timePassed >= selectedTime ? 'Test Complete' : 'Click!'}
+                </Text>
+              </TouchableOpacity>
             </View>
-          </Modal>
-        </ImageBackground>
-      )}
+            <View style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 50, marginBottom: 10 }}>
+              <Stats cps={clicks / timePassed} timePassed={timePassed} score={clicks} /> {/* Pass props to Stats */}
+            </View>
+            <Modal
+              animationType="slide"
+              transparent={true}
+              visible={isModalVisible}
+              onRequestClose={resetTest}
+            >
+              <View style={styles.modalOverlay}>
+                <ImageBackground
+                  source={require('../../assets/modal-bg.jpg')} // Replace with your modal background image path
+                  style={styles.modalInnerContainer}
+                >
+                  <View style={styles.modalTopBar}>
+                    <TouchableOpacity onPress={resetTest} style={styles.closeBtn}>
+                      <Text style={styles.closeBtnText}>{texts?.cpsTest?.close}</Text>
+                    </TouchableOpacity>
+
+                    <View style={styles.modalTitleContainer}>
+                      <Text style={styles.modalTitle}>{texts?.cpsTest?.achievementtitle}</Text>
+                    </View>
+                  </View>
+                  <View style={styles.resultOuterContainer}>
+                    <View style={styles.resultContainer}>
+                      <View style={styles.animationContainer}>
+                        <View style={styles.animeLgDisplay}>
+                          <Image
+                            source={require('../../assets/sloath.jpg')} // Replace with your image path
+                            style={styles.animationImage}
+                          />
+                        </View>
+                      </View>
+                      <View style={styles.resultContentContainer}>
+                        <View style={styles.resultContentRow}>
+                          <Text style={styles.animeTitle}>{texts?.cpsTest?.sloth}</Text>
+                        </View>
+                        <View style={styles.modalStatsContainer}>
+                          <View style={styles.cpsStatRow}>
+                            <Text style={styles.normalText}>{texts?.cpsTest?.clickspeeddesc}</Text>
+                          </View>
+                          <View style={styles.cpsStatRow}>
+                            <Text style={styles.statHeading}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
+                          </View>
+                          <View style={styles.cpsStatRow}>
+                            <Text style={styles.statSubheading}>{clicks} {texts?.cpsTest?.clicksin} {selectedTime} {texts?.cpsTest?.seconds}</Text>
+                          </View>
+                        </View>
+                        <View style={styles.resultContentRow}>
+                          <Text style={styles.modalNote}>{texts?.cpsTest?.feelings}</Text>
+                        </View>
+                        <View style={styles.resultContentRow}>
+                          <TouchableOpacity style={styles.tryBtn} onPress={resetTest}>
+                            <Text style={styles.tryBtnText}>{texts?.cpsTest?.tryagain} </Text>
+                          </TouchableOpacity>
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+
+                </ImageBackground>
+              </View>
+            </Modal>
+          </ImageBackground>
+        )}
+      </TouchableWithoutFeedback>
     </ScrollView>
+
   );
 }
