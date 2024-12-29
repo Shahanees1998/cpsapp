@@ -101,7 +101,6 @@ export default function KohiTest({ navigation }) {
 
   const handleRipple = (event) => {
     const { locationX, locationY } = event.nativeEvent;
-    console.log(locationX, locationY);
     if (locationX >= 80) {
       setRipples([...ripples, { x: locationX, y: locationY }]);
     }
@@ -218,15 +217,15 @@ export default function KohiTest({ navigation }) {
                             stroke={circleColor}
                             fill="transparent"
                             strokeWidth="15"
-                            r={r}
+                            r={r + 20}
                             cx={cx}
                             cy={cy}
                           />
                           <Circle
                             stroke="#b32f60"
                             fill="transparent"
-                            strokeWidth="15"
-                            r={r}
+                            strokeWidth={isTestRunning ? 15 : 0}
+                            r={r + 20}
                             cx={cx}
                             cy={cy}
                             strokeDasharray={circumference}
@@ -243,7 +242,7 @@ export default function KohiTest({ navigation }) {
                           ))}
                         </Svg>
                         <Text style={styles.clickText}>
-                          {!isTestRunning ? texts?.ButterflyTest?.circletext :
+                          {!isTestRunning ? texts.cpsTest.circletext :
                             timePassed >= selectedTime ? '' : ''}
                         </Text>
                       </TouchableOpacity>
@@ -374,17 +373,17 @@ export default function KohiTest({ navigation }) {
                   stroke={circleColor}
                   fill="transparent"
                   strokeWidth="15"
-                  r={screenWidth / 2 - 45}
+                  r={screenWidth / 2 - 30}
                   cx={screenWidth / 2}
-                  cy={screenWidth / 2 - 20}
+                  cy={screenWidth / 2 - 25}
                 />
                 <Circle
                   stroke="#b32f60"
                   fill="transparent"
                   strokeWidth="15"
-                  r={screenWidth / 2 - 45}
+                  r={screenWidth / 2 - 30}
                   cx={screenWidth / 2}
-                  cy={screenWidth / 2 - 20}
+                  cy={screenWidth / 2 - 25}
                   strokeDasharray={circumference}
                   strokeDashoffset={circumference - (timePassed / selectedTime) * circumference}
                 />
@@ -393,7 +392,16 @@ export default function KohiTest({ navigation }) {
                     key={index}
                     cx={ripple.x}
                     cy={ripple.y}
-                    r={30}
+                    r={40}
+                    fill="rgba(255, 255, 255, 0.3)"
+                  />
+                ))}
+                {/* {ripples.map((ripple, index) => (
+                  <Circle
+                    key={index}
+                    cx={ripple.x}
+                    cy={ripple.y}
+                    r={40}
                     fill="rgba(255, 255, 255, 0.3)"
                     style={{
                       transformOrigin: `${ripple.x}px ${ripple.y}px`,
@@ -404,7 +412,7 @@ export default function KohiTest({ navigation }) {
                       animationIterationCount: 1,
                     }}
                   />
-                ))}
+                ))} */}
               </Svg>
               <Text style={styles.clickText}>
                 {!isTestRunning ? 'Click to Start' :
@@ -413,7 +421,7 @@ export default function KohiTest({ navigation }) {
             </TouchableOpacity>
           </View>
           <View style={{ marginTop: 100, width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <Stats cps={clicks / timePassed} timePassed={timePassed} score={clicks} /> 
+            <Stats cps={clicks / timePassed} timePassed={timePassed} score={clicks} />
           </View>
           <Modal
             animationType="slide"

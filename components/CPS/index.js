@@ -104,7 +104,6 @@ export default function CPSTest({ navigation }) {
 
   const handleRipple = (event) => {
     const { locationX, locationY } = event.nativeEvent;
-    console.log(locationX, locationY);
     if (locationX >= 80) {
       setRipples([...ripples, { x: locationX, y: locationY }]);
     }
@@ -121,7 +120,6 @@ export default function CPSTest({ navigation }) {
       setCps(0);
     }
     handleRipple(event);
-
     if (isTestRunning && timePassed < selectedTime) {
       const currentTime = Date.now();
       const elapsedTime = (currentTime - startTime) / 1000;
@@ -220,15 +218,15 @@ export default function CPSTest({ navigation }) {
                             stroke={circleColor}
                             fill="transparent"
                             strokeWidth="15"
-                            r={r}
+                            r={r + 20}
                             cx={cx}
                             cy={cy}
                           />
                           <Circle
                             stroke="#b32f60"
                             fill="transparent"
-                            strokeWidth="15"
-                            r={r}
+                            strokeWidth={isTestRunning ? 15 : 0}
+                            r={r + 20}
                             cx={cx}
                             cy={cy}
                             strokeDasharray={circumference}
@@ -305,7 +303,7 @@ export default function CPSTest({ navigation }) {
                               <Text style={styles.normalText}>{texts?.cpsTest?.clickspeeddesc}</Text>
                             </View>
                             <View style={styles.cpsStatRow}>
-                            <Text style={styles.statHeading}>{isFinite(clicks/selectedTime) ? (clicks/selectedTime).toFixed(2) : 0.0} CPS</Text>
+                              <Text style={styles.statHeading}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
                             </View>
                             <View style={styles.cpsStatRow}>
                               <Text style={styles.statSubheading}>{clicks} {texts?.cpsTest?.clicksin} {selectedTime} {texts?.cpsTest?.seconds}</Text>
@@ -358,7 +356,74 @@ export default function CPSTest({ navigation }) {
             </View>
           </View>
           <View style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 50, marginBottom: 10 }}>
-          <Stats cps={clicks / timePassed} timePassed={timePassed} score={clicks} /> {/* Pass props to Stats */}
+            <TouchableOpacity
+              style={{
+                width: screenWidth - 50,
+                height: screenWidth - 50,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                alignSelf: 'center',
+                borderRadius: 220,
+                overflow: 'hidden'
+              }}
+              onPress={handleClick}
+              activeOpacity={0.7}
+            >
+              <Svg width={screenWidth} height={screenWidth - 50}>
+                <Circle
+                  stroke={circleColor}
+                  fill="transparent"
+                  strokeWidth="15"
+                  r={screenWidth / 2 - 30}
+                  cx={screenWidth / 2}
+                  cy={screenWidth / 2 -25}
+                />
+                <Circle
+                  stroke="#b32f60"
+                  fill="transparent"
+                  strokeWidth="15"
+                  r={screenWidth / 2 - 30}
+                  cx={screenWidth / 2}
+                  cy={screenWidth / 2 - 25}
+                  strokeDasharray={circumference}
+                  strokeDashoffset={circumference - (timePassed / selectedTime) * circumference}
+                />
+                {ripples.map((ripple, index) => (
+                  <Circle
+                    key={index}
+                    cx={ripple.x}
+                    cy={ripple.y}
+                    r={40}
+                    fill="rgba(255, 255, 255, 0.3)"
+                  />
+                ))}
+                {/* {ripples.map((ripple, index) => (
+                  <Circle
+                    key={index}
+                    cx={ripple.x}
+                    cy={ripple.y}
+                    r={40}
+                    fill="rgba(255, 255, 255, 0.3)"
+                    style={{
+                      transformOrigin: `${ripple.x}px ${ripple.y}px`,
+                      position: 'relative',
+                      borderRadius: '50%',
+                      fill: 'rgba(255, 255, 255, 0.5)',
+                      animation: 'ripple-animation 0.5s ease',
+                      animationIterationCount: 1,
+                    }}
+                  />
+                ))} */}
+              </Svg>
+              <Text style={styles.clickText}>
+                {!isTestRunning ? 'Click to Start' :
+                  timePassed >= selectedTime ? 'Test Complete' : 'Click!'}
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 50, marginBottom: 10 }}>
+            <Stats cps={clicks / timePassed} timePassed={timePassed} score={clicks} /> {/* Pass props to Stats */}
           </View>
           <Modal
             animationType="slide"
@@ -399,7 +464,7 @@ export default function CPSTest({ navigation }) {
                           <Text style={styles.normalText}>{texts?.cpsTest?.clickspeeddesc}</Text>
                         </View>
                         <View style={styles.cpsStatRow}>
-                        <Text style={styles.statHeading}>{isFinite(clicks/selectedTime) ? (clicks/selectedTime).toFixed(2) : 0.0} CPS</Text>
+                          <Text style={styles.statHeading}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
                         </View>
                         <View style={styles.cpsStatRow}>
                           <Text style={styles.statSubheading}>{clicks} {texts?.cpsTest?.clicksin} {selectedTime} {texts?.cpsTest?.seconds}</Text>

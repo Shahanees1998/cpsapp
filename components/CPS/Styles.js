@@ -125,9 +125,11 @@ iconCircle: {
   clickCircle: {
     width: 220,
     height: 220,
-    borderRadius: 110,
+    borderRadius: 200,
+    overflow:'hidden',
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 0,
     alignSelf: 'center',
     // backgroundColor: '#3a3a7e',
   },
