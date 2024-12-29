@@ -1,13 +1,13 @@
 // ReactionTestDetail.js
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { useLanguage } from '../../src/context/LanguageContext';
+import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
 const ReactionDetail = () => {
   const { texts } = useLanguage();
   return (
     <View style={styles.detailBackground}>
-      <ScrollView contentContainerStyle={styles.contentScreen}>
+      <ScrollView onScroll={() => toggleScroll && toggleScroll()} contentContainerStyle={styles.contentScreen}>
         <View style={styles.mainContentContainer}>
           <View style={styles.cpsTest}>
             <Text style={styles.header}>

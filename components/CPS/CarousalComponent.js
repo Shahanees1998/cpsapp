@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, ImageBackground, Image } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
-import { useLanguage } from '../../src/context/LanguageContext';
+import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
 // Example SVG Icon for Drag Click Test
 const DragClickIcon = () => (

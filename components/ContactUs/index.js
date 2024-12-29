@@ -4,18 +4,18 @@ import { View, Text, StyleSheet, ImageBackground, ScrollView, Image } from 'reac
 import Carousel from "../CPS/CarousalComponent";
 import Footer from "../Footer";
 import Navbar from '../Navbar';
-import { useLanguage } from '../../src/context/LanguageContext';
+import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
 export default function ContactUs({ navigation }) {
     const { texts } = useLanguage();
 
     return (
-        <ScrollView>
+        <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
             <ImageBackground
                 source={require('../../assets/header-top-image.png')}
                 style={{ width: "100%", height: 200 }}
             >
-                <Navbar />
+                <Navbar navigation={navigation}/>
                 <Text style={styles.headerTitle}>{texts.ContactUs.headerTitle}</Text>
             </ImageBackground>
 

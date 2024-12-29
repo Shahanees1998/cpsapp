@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Modal, TouchableOpacity } from 'react-native';
-import { useLanguage } from '../../src/context/LanguageContext';
+import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
 const AimTrainerModal = ({ closeModal, hits, miss, time }) => {
     const { texts } = useLanguage();

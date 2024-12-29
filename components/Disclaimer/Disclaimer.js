@@ -3,18 +3,18 @@ import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, Modal, Image
 import { ScrollView } from 'react-native-gesture-handler';
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-import { useLanguage } from '../../src/context/LanguageContext';
+import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
 export default function PrivacyPolicy({ navigation }) {
     const { texts } = useLanguage();
 
     return (
-        <ScrollView>
+        <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
             <ImageBackground
                 source={require('../../assets/header-top-image.png')}
                 style={{ width: "100%", height: 200 }}
             >
-                <Navbar />
+                <Navbar navigation={navigation}/>
                 <Text style={{ fontSize: 24, color: "#fff", fontWeight: "700", textAlign: "center" }}>{texts.Disclaimer.title}</Text>
             </ImageBackground>
             <View style={styles.contentContainer}>

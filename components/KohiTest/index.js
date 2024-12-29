@@ -11,7 +11,7 @@ import Navbar from "../Navbar";
 import Footer from '../Footer';
 import Stats from '../Stats/Stats';
 import { MusicIcon, SoundIcon } from '../icons';
-import { useLanguage } from '../../src/context/LanguageContext';
+import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 import KohiDetails from './KohiDetail';
 
 
@@ -65,7 +65,7 @@ export default function KohiTest({ navigation }) {
 
   useEffect(() => {
     if (isTestRunning) {
-      if (isMusicOn) {
+      if (isMusicOn && !isModalVisible) {
         backgroundMusic?.playAsync();
       }
     } else {
@@ -81,6 +81,7 @@ export default function KohiTest({ navigation }) {
           if (prev >= selectedTime - 1) {
             setIsTestRunning(false);
             clearInterval(interval);
+            backgroundMusic?.stopAsync();
             setIsModalVisible(true); // Show modal when test completes
             return selectedTime;
           }
@@ -104,7 +105,7 @@ export default function KohiTest({ navigation }) {
   const handleRipple = (event) => {
     const { locationX, locationY } = event.nativeEvent;
     console.log(locationX, locationY);
-    if (locationX >= 100) {
+    if (locationX >= 80) {
       setRipples([...ripples, { x: locationX, y: locationY }]);
     }
     setTimeout(() => {
@@ -286,7 +287,7 @@ export default function KohiTest({ navigation }) {
   // };
 
   return (
-    <ScrollView>
+    <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
       {!isFullScreen ? (
         <>
           <ImageBackground
@@ -365,7 +366,7 @@ export default function KohiTest({ navigation }) {
                                 key={index}
                                 cx={ripple.x}
                                 cy={ripple.y}
-                                r={30}
+                                r={40}
                                 fill="rgba(255, 255, 255, 0.3)"
                               />
                             ))}

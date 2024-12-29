@@ -1,7 +1,7 @@
 // CPSDetail.js
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Linking, ImageBackground, TouchableOpacity } from 'react-native';
-import { useLanguage } from '../../src/context/LanguageContext';
+import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 const CPSDetail = (navigation) => {
   const { texts } = useLanguage();
   return (

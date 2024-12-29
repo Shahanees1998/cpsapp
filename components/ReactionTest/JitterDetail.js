@@ -1,12 +1,12 @@
 // path/to/your/component/JitterDetail.js
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Linking } from 'react-native';
-import { useLanguage } from '../../contexts/LanguageContext';
+import { useLanguage, toggleScroll } from '../../contexts/LanguageContext';
 
 const JitterDetail = () => {
     const { texts } = useLanguage();
     return (
-        <ScrollView style={styles.container}>
+        <ScrollView onScroll={() => toggleScroll && toggleScroll() style={styles.container}>
             <View style={styles.detailBackground}>
                 <View style={styles.contentScreen}>
                     <View style={styles.mainContentContainer}>

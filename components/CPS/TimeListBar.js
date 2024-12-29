@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './Styles';
-import { useLanguage } from '@/src/context/LanguageContext';
+import { useLanguage, toggleScroll } from '@/src/context/LanguageContext';
 const TimeListBar = ({ selectedTime, onTimeSelect }) => {
   const times = [1, 5, 10, 60, 100];
   const {texts} = useLanguage()

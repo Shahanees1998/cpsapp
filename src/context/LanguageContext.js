@@ -6,11 +6,17 @@ import fr from '../locales/fr.json';
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('es');
-  const texts = language === 'en' ? en : language === 'es' ? es : fr;
+  const [language, setLanguage] = useState('en');
+  const [isScroll, setIsScroll] = useState(false);
+
+  const toggleScroll = () => {
+    setIsScroll(prev => !prev);
+  };
+
+  const texts = language === 'fr' ? fr : language === 'es' ? es : en;
 
   return (
-    <LanguageContext.Provider value={{ texts, setLanguage }}>
+    <LanguageContext.Provider value={{ texts, setLanguage,language, isScroll, toggleScroll }}>
       {children}
     </LanguageContext.Provider>
   );

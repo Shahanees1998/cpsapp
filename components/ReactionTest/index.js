@@ -16,7 +16,7 @@ import styles from '../CPS/Styles';
 import Navbar from '../Navbar';
 import ReactionDetail from './ReactionDetails';
 import { HeartIcon, ClubIcon, SpadeIcon, TriangleIcon, TrophyIcon, BugIcon } from './Icon'
-import { useLanguage } from '../../src/context/LanguageContext';
+import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
 const colors = [
   { code: '#E90379', label: 'red' },
@@ -175,14 +175,14 @@ export default function ReactionTest({ navigation }) {
   };
 
   return (
-    <ScrollView>
+    <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
       <ImageBackground
         source={require('../../assets/background-image.png')}
         style={styles.imageBackground}
       >
         <View style={styles.container}>
           <View>
-            <Navbar onToggle={toggleFullScreen} />
+            <Navbar onToggle={toggleFullScreen} navigation={navigation}/>
           </View>
           <View style={styles.headerContainer}>
             <Text style={styles.headerTitle}>{texts?.ReactionTest?.title}</Text>

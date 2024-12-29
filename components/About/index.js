@@ -3,13 +3,13 @@ import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, ScrollView } from 'react-native';
 import Carousel from "../CPS/CarousalComponent";
 import Footer from "../Footer";
-import { useLanguage } from '../../src/context/LanguageContext';
+import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
 export default function About({ navigation }) {
     const { texts } = useLanguage(); // Access the language context
 
     return (
-        <ScrollView>
+        <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
             <ImageBackground
                 source={require('../../assets/background-image.png')}
                 style={styles.headerBackground}

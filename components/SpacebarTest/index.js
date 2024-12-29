@@ -84,7 +84,7 @@ export default function SpacebarTest({ navigation }) {
       source={require('../../assets/background-image.png')} 
       style={styles.container}
     >
-      <ScrollView>
+      <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
         <View style={styles.headerContainer}>
           <Text style={styles.headerTitle}>Spacebar Test</Text>
           <Text style={styles.tagline}>Press the spacebar as fast as you can for {selectedTime} seconds!</Text>

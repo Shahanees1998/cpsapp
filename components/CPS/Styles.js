@@ -217,14 +217,17 @@ iconCircle: {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     justifyContent: 'center',
     alignItems: 'center',
+    overflow:'hidden',
     padding: 20
   },
-  modalInnerContainer: {
 
-    borderRadius: 30,
+  modalInnerContainer: {
+    borderRadius: 20,
     padding: 20,
     alignItems: 'center',
+    overflow:'hidden'
   },
+
   modalTopBar: {
     width: '100%',
 

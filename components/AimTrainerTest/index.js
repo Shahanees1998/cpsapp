@@ -8,7 +8,7 @@ import Navbar from '../Navbar'
 import CarousalComponent from "../CPS/CarousalComponent";
 import AimTrainerDetail from "./AimTrainerDetail";
 import Footer from "../Footer";
-import { useLanguage } from '../../src/context/LanguageContext';
+import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
 const Dot = ({ id, x, y, onRemove, onHit, size, color }) => {
   const [currentSize, setCurrentSize] = useState(size);
@@ -154,13 +154,13 @@ export default function AimTrainerTest({ navigation }) {
   };
 
   return (
-    <ScrollView >
+    <ScrollView onScroll={() => toggleScroll && toggleScroll()}>
       <ImageBackground
         source={require('../../assets/background-image.png')}
         style={styles.imageBackground}
       >
         <View style={styles.container}>
-          <Navbar onToggle={toggleFullScreen} />
+          <Navbar onToggle={toggleFullScreen} navigation={navigation}/>
           <View style={styles.headerContainer}>
             <Text style={styles.headerTitle}>{texts?.AimTrainerTest?.title}</Text>
             <Text style={styles.tagline}> {texts?.AimTrainerTest?.tagline} </Text>

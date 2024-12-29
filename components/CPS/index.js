@@ -13,7 +13,7 @@ import Footer from '../Footer';
 import Stats from '../Stats/Stats';
 import CarousalComponent from './CarousalComponent';
 import { MusicIcon, SoundIcon } from '../icons';
-import { useLanguage } from '../../src/context/LanguageContext';
+import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
 export default function CPSTest({ navigation }) {
   const [clicks, setClicks] = useState(0);
@@ -30,7 +30,7 @@ export default function CPSTest({ navigation }) {
   const [circleColor, setCircleColor] = useState('#7455CA'); // Initial circle color
   const [isSoundOn, setIsSoundOn] = useState(true);
   const [isMusicOn, setIsMusicOn] = useState(true);
-  const { texts } = useLanguage();
+  const { texts, toggleScroll } = useLanguage();
 
 
   // Get screen dimensions
@@ -65,7 +65,7 @@ export default function CPSTest({ navigation }) {
 
   useEffect(() => {
     if (isTestRunning) {
-      if (isMusicOn) {
+      if (isMusicOn && !isModalVisible) {
         backgroundMusic?.playAsync();
       }
     } else {
@@ -81,6 +81,7 @@ export default function CPSTest({ navigation }) {
           if (prev >= selectedTime - 1) {
             setIsTestRunning(false);
             clearInterval(interval);
+            backgroundMusic?.stopAsync();
             setIsModalVisible(true); // Show modal when test completes
             return selectedTime;
           }
@@ -104,7 +105,7 @@ export default function CPSTest({ navigation }) {
   const handleRipple = (event) => {
     const { locationX, locationY } = event.nativeEvent;
     console.log(locationX, locationY);
-    if (locationX >= 100) {
+    if (locationX >= 80) {
       setRipples([...ripples, { x: locationX, y: locationY }]);
     }
     setTimeout(() => {
@@ -168,7 +169,7 @@ export default function CPSTest({ navigation }) {
   };
 
   return (
-    <ScrollView>
+    <ScrollView onScroll={() => toggleScroll && toggleScroll()}>
       {!isFullScreen ? (
         <>
           <ImageBackground
@@ -238,7 +239,7 @@ export default function CPSTest({ navigation }) {
                               key={index}
                               cx={ripple.x}
                               cy={ripple.y}
-                              r={30}
+                              r={40}
                               fill="rgba(255, 255, 255, 0.3)"
                             />
                           ))}
@@ -357,64 +358,6 @@ export default function CPSTest({ navigation }) {
             </View>
           </View>
           <View style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 50, marginBottom: 10 }}>
-            <TouchableOpacity
-              style={{
-                width: screenWidth - 50,
-                height: screenWidth - 50,
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                alignSelf: 'center',
-                borderRadius: 220,
-                overflow: 'hidden'
-              }}
-              onPress={handleClick}
-              activeOpacity={0.7}
-            >
-              <Svg width={screenWidth} height={screenWidth - 50}>
-                <Circle
-                  stroke={circleColor}
-                  fill="transparent"
-                  strokeWidth="15"
-                  r={screenWidth / 2 - 45}
-                  cx={screenWidth / 2}
-                  cy={screenWidth / 2 - 20}
-                />
-                <Circle
-                  stroke="#b32f60"
-                  fill="transparent"
-                  strokeWidth="15"
-                  r={screenWidth / 2 - 45}
-                  cx={screenWidth / 2}
-                  cy={screenWidth / 2 - 20}
-                  strokeDasharray={circumference}
-                  strokeDashoffset={circumference - (timePassed / selectedTime) * circumference}
-                />
-                {ripples.map((ripple, index) => (
-                  <Circle
-                    key={index}
-                    cx={ripple.x}
-                    cy={ripple.y}
-                    r={30}
-                    fill="rgba(255, 255, 255, 0.3)"
-                    style={{
-                      transformOrigin: `${ripple.x}px ${ripple.y}px`,
-                      position: 'relative',
-                      borderRadius: '50%',
-                      fill: 'rgba(255, 255, 255, 0.5)',
-                      animation: 'ripple-animation 0.5s ease',
-                      animationIterationCount: 1,
-                    }}
-                  />
-                ))}
-              </Svg>
-              <Text style={styles.clickText}>
-                {!isTestRunning ? 'Click to Start' :
-                  timePassed >= selectedTime ? 'Test Complete' : 'Click!'}
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={{ marginTop: 100, width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
           <Stats cps={clicks / timePassed} timePassed={timePassed} score={clicks} /> {/* Pass props to Stats */}
           </View>
           <Modal
