@@ -12,15 +12,15 @@ export default function ContactUs({ navigation }) {
 
     return (
         <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
-            <TouchableWithoutFeedback onPress={() => toggleScroll()}>
 
-                <ImageBackground
-                    source={require('../../assets/header-top-image.png')}
-                    style={{ width: "100%", height: 200 }}
-                >
-                    <Navbar navigation={navigation} />
-                    <Text style={styles.headerTitle}>{texts.ContactUs.headerTitle}</Text>
-                </ImageBackground>
+            <ImageBackground
+                source={require('../../assets/header-top-image.png')}
+                style={{ width: "100%", height: 200 }}
+            >
+                <Navbar navigation={navigation} />
+                <Text style={styles.headerTitle}>{texts.ContactUs.headerTitle}</Text>
+            </ImageBackground>
+            <TouchableWithoutFeedback onPress={() => toggleScroll()}>
 
                 <View style={styles.contentContainer}>
                     <View style={styles.contactGrid}>

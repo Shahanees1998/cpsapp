@@ -10,15 +10,16 @@ export default function PrivacyPolicy({ navigation }) {
 
     return (
         <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
+
+            <ImageBackground
+                source={require('../../assets/header-top-image.png')}
+                style={{ width: "100%", height: 200 }}
+            >
+                <Navbar navigation={navigation} />
+                <Text style={{ fontSize: 24, color: "#fff", fontWeight: "700", textAlign: "center" }}>{texts.Disclaimer.title}</Text>
+            </ImageBackground>
             <TouchableWithoutFeedback onPress={() => toggleScroll()}>
 
-                <ImageBackground
-                    source={require('../../assets/header-top-image.png')}
-                    style={{ width: "100%", height: 200 }}
-                >
-                    <Navbar navigation={navigation} />
-                    <Text style={{ fontSize: 24, color: "#fff", fontWeight: "700", textAlign: "center" }}>{texts.Disclaimer.title}</Text>
-                </ImageBackground>
                 <View style={styles.contentContainer}>
                     <Text style={styles.heading}>Content</Text>
                     <Text style={styles.paragraph}>{texts.Disclaimer.content}</Text>

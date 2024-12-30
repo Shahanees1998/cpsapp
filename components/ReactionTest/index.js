@@ -177,16 +177,17 @@ export default function ReactionTest({ navigation }) {
 
   return (
     <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
-      <TouchableWithoutFeedback onPress={() => toggleScroll()}>
 
-        <ImageBackground
-          source={require('../../assets/background-image.png')}
-          style={styles.imageBackground}
-        >
-          <View style={styles.container}>
-            <View>
-              <Navbar onToggle={toggleFullScreen} navigation={navigation} />
-            </View>
+      <ImageBackground
+        source={require('../../assets/background-image.png')}
+        style={styles.imageBackground}
+      >
+        <View style={styles.container}>
+          <View>
+            <Navbar onToggle={toggleFullScreen} navigation={navigation} />
+          </View>
+          <TouchableWithoutFeedback onPress={() => toggleScroll()}>
+
             <View style={styles.headerContainer}>
               <Text style={styles.headerTitle}>{texts?.ReactionTest?.title}</Text>
               <Text style={styles.tagline}>{texts?.ReactionTest?.tagline}</Text>
@@ -354,11 +355,12 @@ export default function ReactionTest({ navigation }) {
                   </View>
                 </View>
             }
-          </View>
-        </ImageBackground>
-        <ReactionDetail />
-        <Footer navigation={navigation} />
-      </TouchableWithoutFeedback>
+          </TouchableWithoutFeedback>
+
+        </View>
+      </ImageBackground>
+      <ReactionDetail />
+      <Footer navigation={navigation} />
     </ScrollView>
   );
 }

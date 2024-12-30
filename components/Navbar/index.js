@@ -37,7 +37,7 @@ const Navbar = ({ onMenuToggle, navigation }) => {
       useNativeDriver: false,
     }).start();
   };
-
+console.log(menuHeight, languageHeight)
   const changeLanguage = (lang) => {
     setLanguage(lang);
     toggleLanguage();

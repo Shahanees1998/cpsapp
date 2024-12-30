@@ -156,19 +156,19 @@ export default function AimTrainerTest({ navigation }) {
 
   return (
     <ScrollView onScroll={() => toggleScroll && toggleScroll()}>
-      <TouchableWithoutFeedback onPress={() => toggleScroll()}>
 
-        <ImageBackground
-          source={require('../../assets/background-image.png')}
-          style={styles.imageBackground}
-        >
-          <View style={styles.container}>
-            <Navbar onToggle={toggleFullScreen} navigation={navigation} />
+      <ImageBackground
+        source={require('../../assets/background-image.png')}
+        style={styles.imageBackground}
+      >
+        <View style={styles.container}>
+          <Navbar onToggle={toggleFullScreen} navigation={navigation} />
+
+          <TouchableWithoutFeedback onPress={() => toggleScroll()}>
             <View style={styles.headerContainer}>
               <Text style={styles.headerTitle}>{texts?.AimTrainerTest?.title}</Text>
               <Text style={styles.tagline}> {texts?.AimTrainerTest?.tagline} </Text>
             </View>
-
             {isTestRunning ? (
               <View style={styles.testArea}>
                 <View style={styles.statsContainer}>
@@ -236,31 +236,31 @@ export default function AimTrainerTest({ navigation }) {
                 </TouchableOpacity>
               </View>
             )}
-
-            {/* Modal for displaying results */}
-            <Modal
-              animationType="slide"
-              transparent={true}
-              visible={isModalVisible}
-              onRequestClose={resetTest}
-            >
-              <View style={styles.modalOverlay}>
-                <View style={styles.modalInnerContainer}>
-                  <Text style={styles.modalTitle}>Test Complete!</Text>
-                  <Text style={styles.modalText}>Score: {score}</Text>
-                  <Text style={styles.modalText}>Misses: {misses}</Text>
-                  <Text style={styles.modalText}>Accuracy: {accuracy.toFixed(1)}%</Text>
-                  <TouchableOpacity style={styles.closeButton} onPress={resetTest}>
-                    <Text style={styles.closeButtonText}>Close</Text>
-                  </TouchableOpacity>
-                </View>
+          </TouchableWithoutFeedback>
+          {/* Modal for displaying results */}
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={isModalVisible}
+            onRequestClose={resetTest}
+          >
+            <View style={styles.modalOverlay}>
+              <View style={styles.modalInnerContainer}>
+                <Text style={styles.modalTitle}>Test Complete!</Text>
+                <Text style={styles.modalText}>Score: {score}</Text>
+                <Text style={styles.modalText}>Misses: {misses}</Text>
+                <Text style={styles.modalText}>Accuracy: {accuracy.toFixed(1)}%</Text>
+                <TouchableOpacity style={styles.closeButton} onPress={resetTest}>
+                  <Text style={styles.closeButtonText}>Close</Text>
+                </TouchableOpacity>
               </View>
-            </Modal>
-          </View>
-        </ImageBackground>
-        <AimTrainerDetail />
-        <Footer navigation={navigation} />
-      </TouchableWithoutFeedback>
+            </View>
+          </Modal>
+        </View>
+      </ImageBackground>
+      <AimTrainerDetail />
+      <Footer navigation={navigation} />
+
     </ScrollView>
   );
 }
