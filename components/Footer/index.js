@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
 const Footer = ({navigation}) => {
-    const { texts } = useLanguage();
+    const { texts, toggleScroll } = useLanguage();
 
     return (
         <View style={styles.footer}>
@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     footer: {
         padding: 10,
         alignItems: 'center', 
+        backgroundColor:"white"
     },
     footerText: {
         fontSize: 14,

@@ -134,9 +134,6 @@ export default function CPSTest({ navigation }) {
 
       const { locationX, locationY } = event.nativeEvent;
       // setRipples([...ripples, { x: locationX, y: locationY }]);
-      setTimeout(() => {
-        setRipples((prevRipples) => prevRipples.slice(1));
-      }, 500);
     }
   };;
 
@@ -186,7 +183,7 @@ export default function CPSTest({ navigation }) {
                 </View>
                 <View style={styles.mainLayout}>
                   <LeftTestListBar navigation={navigation} title={texts?.cpsTest?.leftsidetitle} />
-                  <Text style={styles.sidebarTitle}>{selectedTime} {texts?.cpsTest?.selectTimetitle}</Text>
+                  <Text style={styles.sidebarTitle}>{selectedTime}{texts?.cpsTest?.selectTimetitle}</Text>
                   <View style={styles.mainContent}>
                     <View style={styles.centerContent}>
                       <View style={styles.testArea}>
@@ -295,7 +292,7 @@ export default function CPSTest({ navigation }) {
                         <View style={styles.animationContainer}>
                           <View style={styles.animeLgDisplay}>
                             <Image
-                              source={require('../../assets/sloath.jpg')} // Replace with your image path
+                              source={require('../../assets/sloath.png')} // Replace with your image path
                               style={styles.animationImage}
                             />
                           </View>
@@ -459,7 +456,7 @@ export default function CPSTest({ navigation }) {
                     <View style={styles.animationContainer}>
                       <View style={styles.animeLgDisplay}>
                         <Image
-                          source={require('../../assets/sloath.jpg')} // Replace with your image path
+                          source={require('../../assets/sloath.png')} // Replace with your image path
                           style={styles.animationImage}
                         />
                       </View>

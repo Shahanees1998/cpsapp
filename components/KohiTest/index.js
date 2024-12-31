@@ -134,10 +134,8 @@ export default function KohiTest({ navigation }) {
       playSound();
 
       const { locationX, locationY } = event.nativeEvent;
+      console.log('locationX', locationX, 'locationY', locationY);
       // setRipples([...ripples, { x: locationX, y: locationY }]);
-      setTimeout(() => {
-        setRipples((prevRipples) => prevRipples.slice(1));
-      }, 500);
     }
   };
 
@@ -305,7 +303,7 @@ export default function KohiTest({ navigation }) {
                 </View>
                 <View style={styles.mainLayout}>
                   <LeftTestListBar navigation={navigation} title={texts?.KohiTest?.leftsidetitle} />
-                  <Text style={styles.sidebarTitle}>{selectedTime} {texts?.KohiTest?.selectTimetitle}</Text>
+                  <Text style={styles.sidebarTitle}>{selectedTime}{texts?.KohiTest?.selectTimetitle}</Text>
                   <View style={styles.mainContent}>
                     <View style={styles.centerContent}>
                       <View style={styles.testArea}>
@@ -353,8 +351,11 @@ export default function KohiTest({ navigation }) {
                               r={r + 20}
                               cx={cx}
                               cy={cy}
+                              style={{                              
+                                transition: 'stroke-dashoffset 0.1s linear',
+                              }}
                               strokeDasharray={circumference}
-                              strokeDashoffset={circumference - (timePassed / selectedTime) * circumference}
+                              strokeDashoffset={circumference - (timePassed % selectedTime / selectedTime) * circumference}
                             />
                             {ripples.map((ripple, index) => (
                               <Circle
@@ -414,7 +415,7 @@ export default function KohiTest({ navigation }) {
                         <View style={styles.animationContainer}>
                           <View style={styles.animeLgDisplay}>
                             <Image
-                              source={require('../../assets/sloath.jpg')} // Replace with your image path
+                              source={require('../../assets/sloath.png')} // Replace with your image path
                               style={styles.animationImage}
                             />
                           </View>
@@ -515,7 +516,7 @@ export default function KohiTest({ navigation }) {
                   cx={screenWidth / 2}
                   cy={screenWidth / 2 - 25}
                   strokeDasharray={circumference}
-                  strokeDashoffset={circumference - (timePassed / selectedTime) * circumference}
+                  strokeDashoffset={circumference - (timePassed % selectedTime / selectedTime) * circumference}
                 />
                 {ripples.map((ripple, index) => (
                   <Circle
@@ -577,7 +578,7 @@ export default function KohiTest({ navigation }) {
                     <View style={styles.animationContainer}>
                       <View style={styles.animeLgDisplay}>
                         <Image
-                          source={require('../../assets/sloath.jpg')} // Replace with your image path
+                          source={require('../../assets/sloath.png')} // Replace with your image path
                           style={styles.animationImage}
                         />
                       </View>

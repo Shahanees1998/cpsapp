@@ -13,7 +13,7 @@ const DragClickIcon = () => (
 
 const CarousalComponent = () => {
     const scrollViewRef = useRef(null);
-    const { texts } = useLanguage();
+    const { texts, toggleScroll } = useLanguage();
 
     // Function to scroll to the next card
     const scrollToNext = () => {

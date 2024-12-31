@@ -4,9 +4,9 @@ import { View, Text, StyleSheet, ScrollView, Linking } from 'react-native';
 import { useLanguage, toggleScroll } from '../../contexts/LanguageContext';
 
 const JitterDetail = () => {
-    const { texts } = useLanguage();
+    const { texts, toggleScroll } = useLanguage();
     return (
-        <ScrollView onScroll={() => toggleScroll && toggleScroll() style={styles.container}>
+        <ScrollView onScroll={() => toggleScroll && toggleScroll()} style={styles.container}>
             <View style={styles.detailBackground}>
                 <View style={styles.contentScreen}>
                     <View style={styles.mainContentContainer}>
@@ -55,20 +55,25 @@ const JitterDetail = () => {
                         <View style={styles.cpsTestMainHr}>
                             <View style={styles.hr} />
                         </View>
-                        <View style={styles.cpsTest}>
-                            <Text style={styles.heading}>
-                                {texts?.jitterDetails?.heading5}
-                            </Text>
-                            <Text>
-                                {texts?.jitterDetails?.detail4}
-                            </Text>
-                            <Text style={styles.listItem}>{texts?.jitterDetails?.alternative1}</Text>
-                            <Text style={styles.listItem}>{texts?.jitterDetails?.alternative2}</Text>
-                            <Text style={styles.listItem}>{texts?.jitterDetails?.alternative3}</Text>
-                            <Text>
-                                {texts?.jitterDetails?.conclusion}
-                            </Text>
-                        </View>
+                        <ImageBackground
+                            source={require('../../assets/center-bg.png')}
+                            style={styles.bgImage}
+                        >
+                            <View style={{ paddingInline: 35, paddingBottom: 10 }}>
+                                <Text style={styles.heading}>
+                                    {texts?.jitterDetails?.heading5}
+                                </Text>
+                                <Text>
+                                    {texts?.jitterDetails?.detail4}
+                                </Text>
+                                <Text style={styles.listItem}>{texts?.jitterDetails?.alternative1}</Text>
+                                <Text style={styles.listItem}>{texts?.jitterDetails?.alternative2}</Text>
+                                <Text style={styles.listItem}>{texts?.jitterDetails?.alternative3}</Text>
+                                <Text>
+                                    {texts?.jitterDetails?.conclusion}
+                                </Text>
+                            </View>
+                        </ImageBackground>
                         <View style={styles.cpsTestMainHr}>
                             <View style={styles.hr} />
                         </View>
@@ -128,6 +133,12 @@ const styles = StyleSheet.create({
         color: '#007BFF', // Change to your desired link color
         textDecorationLine: 'underline',
     },
+    bgImage: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        resizeMode: 'cover',
+      },
 });
 
 export default JitterDetail;

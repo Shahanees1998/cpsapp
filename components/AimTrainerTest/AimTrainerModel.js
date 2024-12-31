@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Modal, TouchableOpacity } from 'react-native';
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
 const AimTrainerModal = ({ closeModal, hits, miss, time }) => {
-    const { texts } = useLanguage();
+    const { texts, toggleScroll } = useLanguage();
 
     return (
         <Modal transparent={true} visible={true}>

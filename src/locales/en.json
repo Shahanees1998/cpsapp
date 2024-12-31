@@ -215,7 +215,25 @@
       "question1": "How to",
       "questiontitle": "Get Better at Butterfly Clicking?",
       "answer1": "To get better at butterfly clicking, regular practice is key. The more you practice, the faster and more precise you'll become. It’s also important to use a good mouse with responsive buttons, as this makes it easier to click at high speeds.",
-      "answer2": "Make sure your finger positioning is comfortable to maintain accuracy and speed. Start with shorter clicking sessions to build up your endurance, gradually increasing the duration to improve stamina. Finally, remember to keep your hand relaxed since tensing up can slow you down. With consistent practice, you'll see your CPS soar and start dominating every game you play!"
+      "answer2": "Make sure your finger positioning is comfortable to maintain accuracy and speed. Start with shorter clicking sessions to build up your endurance, gradually increasing the duration to improve stamina. Finally, remember to keep your hand relaxed since tensing up can slow you down. With consistent practice, you'll see your CPS soar and start dominating every game you play!",
+      "bullets": {
+        "bullet1": {
+          "part1": "Boosted clicking speed: ",
+          "part2": "It’s faster than regular clicking, helping you hit those higher CPS numbers. Whether it's for work or gaming, high CPS numbers make you better at what you do"
+        },
+        "bullet2": {
+          "part1": "Better finger coordination:",
+          "part2": "Using two fingers instead of one helps improve your hand speed and coordination."
+        },
+        "bullet3": {
+          "part1": "Gaming advantage: ",
+          "part2": " In PvP or games that need quick reactions, butterfly clicking can be a game-changer. You can defeat enemies, build anything on a large scale, and do it all faster than before!"
+        },
+        "bullet4": {
+          "part1": "Less finger fatigue:",
+          "part2": "Switching between fingers helps reduce the strain on a single finger, keeping you in the game longer."
+        }
+      }
     }
   },
   "AimTrainerTest": {
@@ -465,9 +483,11 @@
     "conclusion": "Each method comes with its own learning curve and CPS potential, but Butterfly Clicking is usually the most viable alternative for fast CPS without excessive strain."
   },
   "ReactionDetail": {
-    "header1": "What is a Reaction Time Test?",
+    "header1": "What is",
+    "header1B": "a Reaction Time Test?",
     "paragraph1": "A reaction time test measures how quickly a person responds to a stimulus, such as a visual or auditory cue. It evaluates your reflexes and cognitive processing speed. Reaction time tests are commonly used in a variety of fields—from medical assessments to sports and gaming—to determine how fast a person can react to certain triggers.",
-    "header2": "Why is Reaction Time Important?",
+    "header2": "Why is",
+    "header2B": "Reaction Time Important?",
     "subHeader1": "Helps identify health issues",
     "paragraph2": "Reaction time can be an indicator of neurological conditions like ADHD (Attention Deficit Hyperactivity Disorder) or Parkinson's disease, where delayed or inconsistent responses can suggest underlying health concerns.",
     "subHeader2": "Improves your performance in competitive gaming",
@@ -476,19 +496,22 @@
     "paragraph4": "A quicker reaction time allows you to respond more effectively to sudden changes in traffic, reducing the risk of accidents.",
     "subHeader4": "Makes you better at attention-focused jobs",
     "paragraph5": "Professions requiring focus and alertness, such as air traffic controllers, surgeons, or athletes, benefit greatly from a sharp reaction time, allowing for faster and more accurate decision-making.",
-    "header3": "How to Test Your Reaction Time?",
+    "header3": "How to",
+    "header3B": "Test Your Reaction Time?",
     "paragraph6": "Here’s how you can test your reaction time:",
     "bullet1": "1. Launch our website.",
     "bullet2": "2. Read the instructions provided before starting the test to ensure you understand the process.",
     "bullet3": "3. Click on the “Start Test” button to begin. You’ll be prompted to respond to a stimulus as quickly as possible.",
     "bullet4": "4. Your reaction time will be recorded based on how fast you respond to the cue, and the results will be displayed at the end of the test.",
-    "header4": "How to Improve Reaction Time?",
+    "header4": "How to", 
+    "header4B": "Improve Reaction Time?",
     "bulletPoint1": "Train your weak points: Identify specific areas where your reaction time might be slower and focus on improving those areas through targeted exercises or drills.",
     "bulletPoint2": "Practice: Consistent practice helps you get faster. Engaging in activities like video games, sports, or reaction time drills can significantly enhance your response time over time.",
     "bulletPoint3": "Have the right nutrition intake: A healthy, balanced diet supports cognitive function. Nutrients like omega-3 fatty acids, found in fish, and antioxidants, found in fruits and vegetables, are essential for maintaining brain health and quick thinking.",
     "bulletPoint4": "Engage in physical exercises: Physical fitness improves both the brain and body’s ability to react quickly. Cardiovascular exercises, strength training, and coordination drills can sharpen your reflexes.",
     "bulletPoint5": "Practice cognitive exercises: Engage in mental exercises like puzzles, brain-training games, or tasks that require quick decisions to stimulate cognitive speed and improve your reaction time.",
-    "header5": "Factors that Influence Reaction Time",
+    "header5": "Factors that Influence",
+    "header5B": "Reaction Time",
     "bulletPoint6": "Age: As we age, our reaction times tend to slow down due to natural cognitive and physical decline.",
     "bulletPoint7": "Fitness: Higher levels of physical fitness are associated with faster reaction times because of improved coordination and muscle response.",
     "bulletPoint8": "Stimulus complexity: Simpler stimuli result in faster reaction times, while more complex stimuli may slow down response time as they require more processing.",

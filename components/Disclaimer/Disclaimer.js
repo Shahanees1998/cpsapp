@@ -6,7 +6,7 @@ import Footer from "../Footer";
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
 export default function PrivacyPolicy({ navigation }) {
-    const { texts } = useLanguage();
+    const { texts, toggleScroll } = useLanguage();
 
     return (
         <ScrollView onScroll={() => toggleScroll && toggleScroll()} >

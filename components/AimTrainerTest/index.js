@@ -82,7 +82,7 @@ export default function AimTrainerTest({ navigation }) {
   const [dots, setDots] = useState([]);
   const [selectedColor, setSelectedColor] = useState('#FF0000'); // Default color
   const [targetSize, setTargetSize] = useState(30); // Default size
-  const { texts } = useLanguage();
+  const { texts, toggleScroll } = useLanguage();
 
   const toggleFullScreen = () => {
     setIsFullScreen(!isFullScreen);

@@ -1,25 +1,26 @@
 // ReactionTestDetail.js
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, ImageBackground } from 'react-native';
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
 const ReactionDetail = () => {
-  const { texts } = useLanguage();
+  const { texts, toggleScroll } = useLanguage();
   return (
     <View style={styles.detailBackground}>
       <ScrollView onScroll={() => toggleScroll && toggleScroll()} contentContainerStyle={styles.contentScreen}>
         <View style={styles.mainContentContainer}>
           <View style={styles.cpsTest}>
             <Text style={styles.header}>
-              {texts?.ReactionDetail?.header1}
+              {texts?.ReactionDetail?.header1} <Text style={styles.cpsColor}>{texts?.ReactionDetail?.header1B}</Text>
             </Text>
+
             <Text style={styles.paragraph}>
               {texts?.ReactionDetail?.paragraph1}
             </Text>
           </View>
           <View style={styles.cpsTest}>
             <Text style={styles.header}>
-              {texts?.ReactionDetail?.header2}
+              {texts?.ReactionDetail?.header2} <Text style={styles.cpsColor}>{texts?.ReactionDetail?.header2B}</Text>
             </Text>
             <Text style={styles.subHeader}>{texts?.ReactionDetail?.subHeader1}</Text>
             <Text style={styles.paragraph}>
@@ -40,7 +41,7 @@ const ReactionDetail = () => {
           </View>
           <View style={styles.cpsTest}>
             <Text style={styles.header}>
-              {texts?.ReactionDetail?.header3}
+              {texts?.ReactionDetail?.header3} <Text style={styles.cpsColor}>{texts?.ReactionDetail?.header3B}</Text>
             </Text>
             <Text style={styles.paragraph}>{texts?.ReactionDetail?.paragraph6}</Text>
             <View style={styles.bulletList}>
@@ -52,7 +53,7 @@ const ReactionDetail = () => {
           </View>
           <View style={styles.cpsTest}>
             <Text style={styles.header}>
-              {texts?.ReactionDetail?.header4}
+              {texts?.ReactionDetail?.header4} <Text style={styles.cpsColor}>{texts?.ReactionDetail?.header4B}</Text>
             </Text>
             <View style={styles.bulletList}>
               <Text style={styles.bulletPoint}>{texts?.ReactionDetail?.bulletPoint1}</Text>
@@ -62,17 +63,22 @@ const ReactionDetail = () => {
               <Text style={styles.bulletPoint}>{texts?.ReactionDetail?.bulletPoint5}</Text>
             </View>
           </View>
-          <View style={styles.cpsTest}>
-            <Text style={styles.header}>
-              {texts?.ReactionDetail?.header5}
-            </Text>
-            <View style={styles.bulletList}>
-              <Text style={styles.bulletPoint}>{texts?.ReactionDetail?.bulletPoint6}</Text>
-              <Text style={styles.bulletPoint}>{texts?.ReactionDetail?.bulletPoint7}</Text>
-              <Text style={styles.bulletPoint}>{texts?.ReactionDetail?.bulletPoint8}</Text>
-              <Text style={styles.bulletPoint}>{texts?.ReactionDetail?.bulletPoint9}</Text>
+          <ImageBackground
+            source={require('../../assets/center-bg.png')}
+            style={styles.bgImage}
+          >
+            <View style={{ paddingInline: 35, paddingBottom: 10 }}>
+              <Text style={styles.header}>
+                {texts?.ReactionDetail?.header5} <Text style={styles.cpsColor}>{texts?.ReactionDetail?.header5B}</Text>
+              </Text>
+              <View style={styles.bulletList}>
+                <Text style={styles.bulletPoint}>{texts?.ReactionDetail?.bulletPoint6}</Text>
+                <Text style={styles.bulletPoint}>{texts?.ReactionDetail?.bulletPoint7}</Text>
+                <Text style={styles.bulletPoint}>{texts?.ReactionDetail?.bulletPoint8}</Text>
+                <Text style={styles.bulletPoint}>{texts?.ReactionDetail?.bulletPoint9}</Text>
+              </View>
             </View>
-          </View>
+          </ImageBackground>
         </View>
       </ScrollView>
     </View>
@@ -82,8 +88,8 @@ const ReactionDetail = () => {
 const styles = StyleSheet.create({
   detailBackground: {
     flex: 1,
-    padding: 35,
-    backgroundColor: "transparent",
+    backgroundColor: "white",
+    paddingTop: 30
   },
   contentScreen: {
     flexGrow: 1,
@@ -93,6 +99,7 @@ const styles = StyleSheet.create({
   },
   cpsTest: {
     marginBottom: 20,
+    paddingInline: 35,
   },
   bulletList: {
     marginLeft: 10, // Indent the bullet points
@@ -115,12 +122,24 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-Regular",
   },
   link: {
-    color: '#007BFF',
-    textDecorationLine: 'underline',
+    color: 'black',
+    textDecorationLine: 'none',
   },
   bold: {
     fontWeight: 'bold',
   },
+  cpsTestMainHr: {
+    marginVertical: 10,
+  },
+  hr: {
+    height: 1,
+    backgroundColor: '#ccc',
+  },
+  bgImage: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    resizeMode: 'cover',
+  },
 });
-
 export default ReactionDetail;

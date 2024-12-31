@@ -7,7 +7,7 @@ import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export default function About({ navigation }) {
-    const { texts } = useLanguage(); // Access the language context
+    const { texts, toggleScroll } = useLanguage(); // Access the language context
 
     return (
         <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
