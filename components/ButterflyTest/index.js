@@ -329,7 +329,7 @@ export default function KohiTest({ navigation }) {
 
             </View>
           </ImageBackground>
-          <ButterflyDetail />
+          {/* <ButterflyDetail /> */}
           {/* <CarousalComponent/> */}
           <Footer navigation={navigation} />
         </>

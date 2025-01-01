@@ -359,7 +359,7 @@ export default function ReactionTest({ navigation }) {
 
         </View>
       </ImageBackground>
-      <ReactionDetail />
+      {/* <ReactionDetail /> */}
       <Footer navigation={navigation} />
     </ScrollView>
   );

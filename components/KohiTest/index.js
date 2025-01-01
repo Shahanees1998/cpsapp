@@ -453,7 +453,7 @@ export default function KohiTest({ navigation }) {
 
             </View>
           </ImageBackground>
-          <KohiDetails />
+          {/* <KohiDetails /> */}
           {/* <CarousalComponent/> */}
           <Footer navigation={navigation} />
         </>

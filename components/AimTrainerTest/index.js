@@ -404,7 +404,7 @@ export default function AimTrainerTest({ navigation }) {
           </Modal>
         </View>
       </ImageBackground>
-      <AimTrainerDetail />
+      {/* <AimTrainerDetail /> */}
       <Footer navigation={navigation} />
     </ScrollView>
   );
