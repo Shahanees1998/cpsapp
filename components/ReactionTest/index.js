@@ -11,13 +11,13 @@ import {
 import { Audio } from 'expo-av';
 import Footer from '../Footer';
 import { Icon1, Icon2, Icon3, Icon4, Icon5, Icon6 } from './Icon'; // Import your icons
-import { MaterialIcons } from 'react-native-vector-icons'; // Import MaterialIcons for tick icon
 import styles from '../CPS/Styles';
 import Navbar from '../Navbar';
 import ReactionDetail from './ReactionDetails';
 import { HeartIcon, ClubIcon, SpadeIcon, TriangleIcon, TrophyIcon, BugIcon } from './Icon'
-import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
+import { useLanguage } from '../../src/context/LanguageContext';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { CheckIcon } from '../icons';
 
 const colors = [
   { code: '#E90379', label: 'red' },
@@ -28,8 +28,9 @@ const colors = [
   { code: '#964B00', label: 'brown' },
 ];
 
-const icons = [Icon1, Icon2, Icon3, Icon4, Icon5, Icon6];
-
+const iconsList1 = [Icon1, Icon2, Icon3];
+const iconsList2 = [Icon4, Icon5, Icon6];
+const icons = [...iconsList1, ...iconsList2];
 export default function ReactionTest({ navigation }) {
   const [isTestRunning, setIsTestRunning] = useState(false);
   const [reactionTime, setReactionTime] = useState(null);
@@ -47,7 +48,7 @@ export default function ReactionTest({ navigation }) {
   const [colorDisplayTime, setColorDisplayTime] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [colorChangeTimes, setColorChangeTimes] = useState([]);
-  const { texts, setLanguage } = useLanguage();
+  const { texts, toggleScroll } = useLanguage();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -104,7 +105,6 @@ export default function ReactionTest({ navigation }) {
     setReactionTime(null);
     setIsModalVisible(false);
     setRandomIconIndex(null)
-    // setRandomIconIndex(Math.floor(Math.random() * icons.length));
 
     // Pick a random color and set its name
     const availableColors = colors.filter((color, index) =>
@@ -147,7 +147,7 @@ export default function ReactionTest({ navigation }) {
   };
 
   const tryAgain = () => {
-    setIsTestRunning(false);
+    setIsTestRunning(true);
     setShowModal(false)
     setSelectedColor(null);
     setRandomIconIndex(null);
@@ -197,57 +197,60 @@ export default function ReactionTest({ navigation }) {
               style={{
                 backgroundColor: 'rgba(3,109,248,.234)',
                 borderRadius: 8,
-                padding: 15,
+                padding: 5,
                 marginBottom: 150,
-                maxHeight: 700,
                 alignItems: 'center',
                 flexDirection: 'row',
                 flexWrap: 'wrap',
                 justifyContent: 'space-around',
               }}
             >
-              <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center' }}>
-                <Text style={{ width: 220, color: 'white', fontSize: 16, textAlign: 'center', marginTop: 50, marginBottom: 50 }}>
+              <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center', paddingInline: 20 }}>
+                <Text style={{ width: 250, color: 'white', fontSize: 16, textAlign: 'center', marginTop: 30, marginBottom: 50 }}>
                   {texts?.ReactionTest?.tagline2}
                 </Text>
               </View>
-              <HeartIcon size={40} />
-              <ClubIcon size={40} />
-              <SpadeIcon size={40} />
-              <TriangleIcon size={40} />
-              <TrophyIcon size={40} />
-              <BugIcon size={40} />
+              <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
+                <HeartIcon size={17} />
+              </View>
+              <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
+                <ClubIcon size={17} />
+              </View>
+              <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
+                <SpadeIcon size={17} />
+              </View>
+              <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
+                <TriangleIcon size={17} />
+              </View>
+              <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
+                <TrophyIcon size={17} />
+              </View>
+              <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
+                <BugIcon size={17} />
+              </View>
 
               <View style={styles.noticeBoard}>
                 <View style={styles.noticeRow}>
-                  <View style={styles.pointBox}>
-                    <MaterialIcons name="check" size={20} color="#fff" />
-                  </View>
+                  <CheckIcon />
                   <Text style={styles.pointLine}>
                     You have to click on start test to begin Reflex Test.
                   </Text>
                 </View>
                 <View style={styles.noticeRow}>
-                  <View style={styles.pointBox}>
-                    <MaterialIcons name="check" size={20} color="#fff" />
-                  </View>
+                  <CheckIcon />
                   <Text style={styles.pointLine}>
                     Every time you will see 6 monsters on screen.
                   </Text>
                 </View>
                 <View style={styles.noticeRow}>
-                  <View style={styles.pointBox}>
-                    <MaterialIcons name="check" size={20} color="#fff" />
-                  </View>
+                  <CheckIcon />
                   <Text style={styles.pointLine}>
                     Whenever any monster changes its color, you have to click on
                     it quickly.
                   </Text>
                 </View>
                 <View style={styles.noticeRow}>
-                  <View style={styles.pointBox}>
-                    <MaterialIcons name="check" size={20} color="#fff" />
-                  </View>
+                  <CheckIcon />
                   <Text style={styles.pointLine}>
                     The time duration between clicking on the monster who changed
                     its color will result in your reaction or reflex time.
@@ -266,7 +269,7 @@ export default function ReactionTest({ navigation }) {
               isTestRunning ?
                 <View style={{ backgroundColor: 'rgba(3,109,248,.234)', borderRadius: 20 }}>
                   {
-                    showModal ? <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: 300 }}>
+                    showModal ? <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingVertical: 20 }}>
                       <Image
                         source={require('../../assets/reaction-time.png')}
                         style={styles.animationImage}
@@ -279,7 +282,6 @@ export default function ReactionTest({ navigation }) {
                     </View>
                       :
                       <View>
-                        {selectedColorName && <View style={{ width: '100%', marginTop: 20, display: 'flex', alignItems: 'center', justifyContent: 'center' }}> <Text style={{ color: 'white' }}>{texts?.ReactionTest?.clickOn} <Text style={{ color: selectedColor, fontSize: 18 }}>{selectedColorName} icon</Text></Text></View>}
                         {reactionTime != null && <Text style={{ color: 'white' }}>{texts?.ReactionTest?.yourReactionTime} {reactionTime} milliseconds</Text>}
                         <View style={{
                           borderRadius: 50,
@@ -291,53 +293,67 @@ export default function ReactionTest({ navigation }) {
                           flexWrap: 'wrap',
                           justifyContent: 'space-around',
                         }}>
-                          {icons.map((Icon, index) => {
-                            // Check if the icon exists in colorChangeTimes
-                            const colorChange = colorChangeTimes.find(change => change.icon === index);
-                            const iconColor = colorChange ? colorChange?.code : (index === randomIconIndex ? selectedColor : "white");
+                          <View style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', flexWrap: 'wrap', width: '100%' }}>
+                            {iconsList1.map((Icon, index) => {
+                              // Check if the icon exists in colorChangeTimes
+                              const colorChange = colorChangeTimes.find(change => change.icon === index);
+                              const iconColor = colorChange ? colorChange?.code : (index === randomIconIndex ? selectedColor : "white");
 
-                            return (
-                              <View key={index} style={{ marginTop: 10, marginBottom: 10, paddingTop: 20, paddingBottom: 20 }}>
-                                <TouchableOpacity onPress={() => handleIconClick(index)}>
-                                  {React.createElement(Icon, {
-                                    style: {
-                                      width: "50px",
-                                      height: "50px",
-                                      backgroundColor: iconColor,
-                                      margin: "10px",
-                                      paddingTop: 20,
-                                      paddingBottom: 20,
-                                      cursor: "pointer",
-                                    },
-                                    color: iconColor
-                                  })}
-                                </TouchableOpacity>
-                              </View>
-                            );
-                          })}
+                              return (
+                                <View key={index} style={{ marginTop: 40, marginBottom: 40, paddingTop: 20, paddingBottom: 20 }}>
+                                  <TouchableOpacity onPress={() => handleIconClick(index)}>
+                                    {React.createElement(Icon, {
+                                      style: {
+                                        width: "50px",
+                                        height: "50px",
+                                        backgroundColor: iconColor,
+                                        margin: "10px",
+                                        paddingTop: 20,
+                                        paddingBottom: 20,
+                                        cursor: "pointer",
+                                      },
+                                      color: iconColor
+                                    })}
+                                  </TouchableOpacity>
+                                </View>
+                              );
+                            })}
+                          </View>
+                          {selectedColorName && <View style={{ width: '100%', marginTop: 20, display: 'flex', alignItems: 'center', justifyContent: 'center' }}> <Text style={{ color: 'white', fontSize: 26 }}>{texts?.ReactionTest?.clickOn} <Text style={{ color: selectedColor, fontSize: 26 }}>{selectedColorName.toLocaleUpperCase()} icon</Text></Text></View>}
+                          <View style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', flexWrap: 'wrap', width: '100%' }}>
+
+                            {iconsList2.map((Icon, index) => {
+                              // Check if the icon exists in colorChangeTimes
+                              const newIndex = index + 3;
+                              const colorChange = colorChangeTimes.find(change => change.icon === newIndex);
+                              const iconColor = colorChange ? colorChange?.code : (newIndex === randomIconIndex ? selectedColor : "white");
+
+                              return (
+                                <View key={index} style={{ marginTop: 40, marginBottom: 40, paddingTop: 20, paddingBottom: 20 }}>
+                                  <TouchableOpacity onPress={() => handleIconClick(newIndex)}>
+                                    {React.createElement(Icon, {
+                                      style: {
+                                        width: "50px",
+                                        height: "50px",
+                                        backgroundColor: iconColor,
+                                        margin: "10px",
+                                        paddingTop: 20,
+                                        paddingBottom: 20,
+                                        cursor: "pointer",
+                                      },
+                                      color: iconColor
+                                    })}
+                                  </TouchableOpacity>
+                                </View>
+                              );
+                            })}
+                          </View>
                         </View>
                       </View>}
-                  {/* <View style={{ height: 200 }}></View>
-              <View style={{
-                borderRadius: 8,
-                padding: 15,
-                maxHeight: 500,
-                alignItems: 'center',
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                justifyContent: 'space-around',
-              }}>
-                {icons.slice(3).map((Icon, index) => (
-                  <Icon
-                    key={index}
-                    color={colors[index]?.code}
-                  />
-                ))}
-              </View> */}
                 </View>
 
                 :
-                <View style={{ backgroundColor: 'rgba(3,109,248,.234)', borderRadius: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: 450 }}>
+                <View style={{ backgroundColor: 'rgba(3,109,248,.234)', borderRadius: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingVertical: 20 }}>
                   <Text style={{ color: 'white', width: '80%', paddingVertical: 10, textAlign: 'center', fontSize: 22 }}>{texts?.ReactionTest?.averageReactionTime}</Text>
                   <Image
                     source={require('../../assets/reaction-time.png')}
@@ -358,9 +374,9 @@ export default function ReactionTest({ navigation }) {
           </TouchableWithoutFeedback>
 
         </View>
-      </ImageBackground>
+      </ImageBackground >
       {/* <ReactionDetail /> */}
-      <Footer navigation={navigation} />
-    </ScrollView>
+      < Footer navigation={navigation} />
+    </ScrollView >
   );
 }

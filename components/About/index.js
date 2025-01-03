@@ -3,7 +3,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, ScrollView } from 'react-native';
 import Carousel from "../CPS/CarousalComponent";
 import Footer from "../Footer";
-import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
+import { useLanguage } from '../../src/context/LanguageContext';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export default function About({ navigation }) {

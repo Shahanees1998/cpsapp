@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Linking, ImageBackground } from 'react-native';
-import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
+import { useLanguage } from '../../src/context/LanguageContext';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 const AimTrainerDetail = () => {

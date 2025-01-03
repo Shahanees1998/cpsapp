@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, Modal, Image
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
+import { useLanguage} from '../../src/context/LanguageContext';
 
 export default function PrivacyPolicy({ navigation }) {
     const { texts, toggleScroll } = useLanguage();

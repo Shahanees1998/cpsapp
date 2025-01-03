@@ -53,18 +53,18 @@ export default StyleSheet.create({
 },
 noticeBoard: {
   marginVertical: 20,
-  padding: 10,
-  height:500,
+  padding: 20,
   borderRadius: 5,
-  width: '85%',
+  width: '100%',
 },
 noticeRow: {
   flexDirection: 'row',
-  alignItems: 'center',
+  alignItems: 'flex-start',
+  gap:10,
   marginVertical: 5,
 },
 pointBox: {
-  marginRight: 10,
+  marginRight: 0,
 },
 pointIcon: {
   width: 20,
@@ -73,6 +73,7 @@ pointIcon: {
 pointLine: {
   fontSize: 14,
   color: 'white',
+  paddingRight:20,
   fontFamily:"Poppins-Regular"
 },
 iconCircle: {
@@ -274,8 +275,8 @@ iconCircle: {
     // Styles for large display
   },
   animationImage: {
-    width: 130,
-    height: 130,
+    width: 80,
+    height: 80,
   },
   resultContentContainer: {
     alignItems: 'center',
@@ -382,11 +383,13 @@ iconCircle: {
     fontSize: 16,
   },
   startButton:{
-    padding:9,
+    paddingVertical:5,
+    marginTop:20,
+    paddingHorizontal:20,
     backgroundColor:"#7655CA",
     borderRadius:9,
     maxWidth:150,
-    marginVertical:10,
+    marginVertical:0,
     alignSelf:"center"
     
   },

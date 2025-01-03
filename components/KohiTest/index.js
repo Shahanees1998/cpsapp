@@ -10,8 +10,8 @@ import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handl
 import Navbar from "../Navbar";
 import Footer from '../Footer';
 import Stats from '../Stats/Stats';
-import { MusicIcon, SoundIcon } from '../icons';
-import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
+import { MusicIcon, SoundIcon, ZoomInIcon, ZoomOutIcon } from '../icons';
+import { useLanguage } from '../../src/context/LanguageContext';
 import KohiDetails from './KohiDetail';
 
 
@@ -309,7 +309,7 @@ export default function KohiTest({ navigation }) {
                       <View style={styles.testArea}>
                         <View style={styles.controlBar}>
                           <TouchableOpacity onPress={toggleFullScreen}>
-                            <MaterialIcons name={isFullScreen ? "fullscreen-exit" : "fullscreen"} size={24} color="#fff" />
+                          {isFullScreen ? <ZoomOutIcon /> : <ZoomInIcon />}
                           </TouchableOpacity>
                           <View style={{ display: "flex", flexDirection: "row" }}>
                             <TouchableOpacity
@@ -464,7 +464,7 @@ export default function KohiTest({ navigation }) {
         >
           <View style={styles.controlBar}>
             <TouchableOpacity onPress={() => setIsFullScreen(false)}>
-              <MaterialIcons name={isFullScreen ? "fullscreen-exit" : "fullscreen"} size={24} color="#fff" />
+            {isFullScreen ? <ZoomOutIcon /> : <ZoomInIcon />}
             </TouchableOpacity>
             <View style={{ display: "flex", flexDirection: "row" }}>
               <TouchableOpacity

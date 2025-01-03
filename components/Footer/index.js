@@ -24,7 +24,7 @@ const Footer = ({navigation}) => {
                 </TouchableOpacity>
                 <Text style={styles.separator}>/</Text>
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate("About")} style={{alignSelf:"flex-start",marginLeft:30}}>
+            <TouchableOpacity onPress={() => navigation.navigate("About")} style={{alignSelf:"flex-start",marginLeft:0}}>
                 <Text style={styles.footerLink}>{texts?.footer?.about}</Text>
             </TouchableOpacity>
         </View>
@@ -33,8 +33,9 @@ const Footer = ({navigation}) => {
 
 const styles = StyleSheet.create({
     footer: {
-        padding: 10,
-        alignItems: 'center', 
+        paddingVertical: 30,
+        paddingHorizontal: 20,
+        alignItems: 'flex-start', 
         backgroundColor:"white"
     },
     footerText: {
@@ -44,9 +45,7 @@ const styles = StyleSheet.create({
     },
     footerLinks: {
         flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        maxWidth:100
+        justifyContent: 'flex-start',
     },
     footerLink: {
       
@@ -54,7 +53,6 @@ const styles = StyleSheet.create({
         textDecorationLine: 'none',
     },
     separator: {
-        marginHorizontal: 5, 
         color: '#333', 
     },
 });

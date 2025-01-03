@@ -6,12 +6,9 @@ import Navbar from '../Navbar';
 import AimTrainerDetail from "./AimTrainerDetail";
 import Footer from "../Footer";
 
-import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
+import { useLanguage } from '../../src/context/LanguageContext';
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import PlusIcon from '../icons/PlusIcon';
-import ArrowIcon from '../icons/ArrowIcon';
 import AnimatedButton from '../../components/AnimatedButton';
-import MusicVolumeButton from '../MusicVolumeButton';
 import { MusicIcon, SoundIcon } from '../icons/index';
 const Dot = ({ id, x, y, onRemove, onHit, size, color }) => {
   const [currentSize, setCurrentSize] = useState(size);
@@ -279,29 +276,18 @@ export default function AimTrainerTest({ navigation }) {
                   </Picker>
                 </View>
                 <Text style={styles.dropdownLabel}>Color</Text>
-                <TouchableOpacity
-                  style={styles.colorInput}
-                  onPress={() => setShowColorDropdown(!showColorDropdown)}
-                >
-                  <View style={[styles.colorCircle, { backgroundColor: selectedColor }]} />
-                </TouchableOpacity>
-                {showColorDropdown && (
-                  <View style={styles.colorDropdown}>
+                <View style={styles.pickerContainer}>
+                  <Picker
+                    selectedValue={selectedColor}
+                    onValueChange={(itemValue) => setSelectedColor(itemValue)}
+                    style={styles.picker}
+                    itemStyle={styles.pickerItem}
+                  >
                     {colors.map((color) => (
-                      <TouchableOpacity
-                        key={color.value}
-                        style={styles.colorOption}
-                        onPress={() => {
-                          setSelectedColor(color.value);
-                          setShowColorDropdown(false);
-                        }}
-                      >
-                        <View style={[styles.colorCircle, { backgroundColor: color.value }]} />
-
-                      </TouchableOpacity>
+                      <Picker.Item key={color.value} label={color.label} value={color.value} />
                     ))}
-                  </View>
-                )}
+                  </Picker>
+                </View>
                 <AnimatedButton />
                 <Text style={styles.dropdownLabel}>Time</Text>
                 <View style={styles.pickerContainer}>
@@ -317,7 +303,7 @@ export default function AimTrainerTest({ navigation }) {
                     <Picker.Item label="60" value={60} />
                   </Picker>
                 </View>
-                <View style={{ display: "flex", flexDirection: "row", marginVertical: 5 }}>
+                <View style={{ display: "flex", flexDirection: "row", marginVertical: 20 }}>
                   <TouchableOpacity
                     style={{ marginRight: 10 }}
                     onPress={() => {
@@ -411,10 +397,13 @@ export default function AimTrainerTest({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  imageBackground : {
+    height:1200
+  },
   container: {
     flex: 1,
     padding: 20,
-    height: 900
+    height: '100%'
   },
   headerContainer: {
     marginBottom: 20,
@@ -462,7 +451,8 @@ const styles = StyleSheet.create({
   },
   dropdownLabel: {
     color: '#fff',
-    marginBottom: 5,
+    marginBottom: 15,
+    marginTop:10
   },
   pickerContainer: {
     borderRadius: 10,

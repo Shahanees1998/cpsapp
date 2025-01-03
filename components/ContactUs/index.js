@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, ImageBackground, ScrollView, Image } from 'reac
 import Carousel from "../CPS/CarousalComponent";
 import Footer from "../Footer";
 import Navbar from '../Navbar';
-import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
+import { useLanguage  } from '../../src/context/LanguageContext';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export default function ContactUs({ navigation }) {
