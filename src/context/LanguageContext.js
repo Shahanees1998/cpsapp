@@ -13,7 +13,7 @@ export const LanguageProvider = ({ children }) => {
     setIsScroll(prev => !prev);
   };
 
-  const texts = language === 'fr' ? fr : language === 'es' ? es : es;
+  const texts = language === 'fr' ? fr : language === 'es' ? es : en;
 
   return (
     <LanguageContext.Provider value={{ texts, setLanguage,language, isScroll, toggleScroll }}>

@@ -41,7 +41,6 @@ export default function KohiTest({ navigation }) {
   const cx = width / 2;
   const cy = height / 2 + (isFullScreen ? 20 : 0); // Add margin when in full screen
   const circumference = 2 * Math.PI * r;
-console.log(circumference,'/>>>>>>>>>>>',circumference - (timePassed / selectedTime) * circumference)
   useEffect(() => {
     async function loadSounds() {
       const { sound: clickSnd } = await Audio.Sound.createAsync(
@@ -104,7 +103,7 @@ console.log(circumference,'/>>>>>>>>>>>',circumference - (timePassed / selectedT
 
   const handleRipple = (event) => {
     const { locationX, locationY } = event.nativeEvent;
-    if(locationX >= 50 && locationY >= 50){
+    if (locationX >= 50 && locationY >= 50) {
       setRipples([...ripples, { x: locationX, y: locationY }]);
       setTimeout(() => {
         setRipples(ripples.slice(1));
@@ -123,6 +122,7 @@ console.log(circumference,'/>>>>>>>>>>>',circumference - (timePassed / selectedT
     handleRipple(event);
 
     if (isTestRunning && timePassed < selectedTime) {
+      playSound();
       const currentTime = Date.now();
       const elapsedTime = (currentTime - startTime) / 1000;
 
@@ -132,7 +132,6 @@ console.log(circumference,'/>>>>>>>>>>>',circumference - (timePassed / selectedT
         return newClicks;
       });
 
-      playSound();
 
       const { locationX, locationY } = event.nativeEvent;
       // console.log('locationX', locationX, 'locationY', locationY);
@@ -165,124 +164,6 @@ console.log(circumference,'/>>>>>>>>>>>',circumference - (timePassed / selectedT
   const toggleMusic = () => {
     setIsMusicOn(!isMusicOn);
   };
-
-  // const [clicks, setClicks] = useState(0);
-  // const [cps, setCps] = useState(0);
-  // const [selectedTime, setSelectedTime] = useState(5);
-  // const [isTestRunning, setIsTestRunning] = useState(false);
-  // const [timePassed, setTimePassed] = useState(0);
-  // const [clickSound, setClickSound] = useState();
-  // const [backgroundMusic, setBackgroundMusic] = useState();
-  // const [isModalVisible, setIsModalVisible] = useState(false);
-  // const [isFullScreen, setIsFullScreen] = useState(false);
-  // const [isSoundOn, setIsSoundOn] = useState(true);
-  // const [isMusicOn, setIsMusicOn] = useState(false);
-  // const {texts} = useLanguage();
-  // // Get screen dimensions
-  // const { width: screenWidth } = Dimensions.get('window');
-  // const width = isFullScreen ? screenWidth : 220;
-  // const height = isFullScreen ? screenWidth : 220;
-  // const r = isFullScreen ? screenWidth / 2 - 15 : 90;
-  // const cx = width / 2;
-  // const cy = height / 2 + (isFullScreen ? 20 : 0);
-  // const circumference = 2 * Math.PI * r;
-
-  // useEffect(() => {
-  //   async function loadSounds() {
-  //     const { sound: clickSnd } = await Audio.Sound.createAsync(
-  //       require('../../assets/cps-test-click.mp3')
-  //     );
-  //     const { sound: bgMusic } = await Audio.Sound.createAsync(
-  //       require('../../assets/background-music.mp3'),
-  //       { isLooping: true }
-  //     );
-  //     setClickSound(clickSnd);
-  //     setBackgroundMusic(bgMusic);
-  //   }
-
-  //   loadSounds();
-
-  //   return () => {
-  //     if (clickSound) clickSound.unloadAsync();
-  //     if (backgroundMusic) backgroundMusic.unloadAsync();
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   if (isTestRunning) {
-  //     if (isMusicOn) {
-  //       backgroundMusic?.playAsync();
-  //     }
-  //   } else {
-  //     backgroundMusic?.stopAsync();
-  //   }
-  // }, [isTestRunning, isMusicOn]);
-
-  // useEffect(() => {
-  //   let interval;
-  //   if (isTestRunning) {
-  //     interval = setInterval(() => {
-  //       setTimePassed((prev) => {
-  //         if (prev >= selectedTime - 1) {
-  //           setIsTestRunning(false);
-  //           clearInterval(interval);
-  //           setIsModalVisible(true); // Show modal when test completes
-  //           return selectedTime;
-  //         }
-  //         return prev + 1;
-  //       });
-  //     }, 1000);
-  //     return () => clearInterval(interval);
-  //   }
-  // }, [isTestRunning, selectedTime]);
-
-  // const playSound = async () => {
-  //   if (isSoundOn && clickSound) {
-  //     try {
-  //       await clickSound.replayAsync();
-  //     } catch (error) {
-  //       console.log('Error playing sound:', error);
-  //     }
-  //   }
-  // };
-
-  // const handleClick = () => {
-  //   if (!isTestRunning) {
-  //     setIsTestRunning(true);
-  //     setClicks(0);
-  //     setTimePassed(0);
-  //   }
-
-  //   if (isTestRunning) {
-  //     setClicks((prev) => prev + 1);
-  //     const elapsedTime = timePassed + 1; // Increment time passed
-  //     setCps((clicks + 1) / elapsedTime); // Calculate CPS
-  //     playSound();
-  //   }
-  // };
-
-  // const resetTest = () => {
-  //   setIsTestRunning(false);
-  //   setClicks(0);
-  //   setCps(0);
-  //   setTimePassed(0);
-  //   setIsModalVisible(false);
-  // };
-
-  // const toggleFullScreen = () => {
-  //   setIsFullScreen(!isFullScreen);
-  //   if (!isFullScreen) {
-  //     resetTest(); 
-  //   }
-  // };
-
-  // const toggleSound = () => {
-  //   setIsSoundOn(!isSoundOn);
-  // };
-
-  // const toggleMusic = () => {
-  //   setIsMusicOn(!isMusicOn);
-  // };
 
   return (
     <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
@@ -357,7 +238,7 @@ console.log(circumference,'/>>>>>>>>>>>',circumference - (timePassed / selectedT
                                 strokeDashoffset: circumference - (timePassed / selectedTime) * circumference,
                                 transition: 'stroke-dashoffset 0.1s linear',
                               }}
-         
+
                             />
                             {ripples.map((ripple, index) => (
                               <Circle
@@ -523,16 +404,8 @@ console.log(circumference,'/>>>>>>>>>>>',circumference - (timePassed / selectedT
                   strokeDasharray={circumference}
                   strokeDashoffset={circumference - (timePassed / selectedTime) * circumference}
                 />
+
                 {ripples.map((ripple, index) => (
-                  <Circle
-                    key={index}
-                    cx={ripple.x}
-                    cy={ripple.y}
-                    r={40}
-                    fill="rgba(255, 255, 255, 0.3)"
-                  />
-                ))}
-                {/* {ripples.map((ripple, index) => (
                   <Circle
                     key={index}
                     cx={ripple.x}
@@ -548,7 +421,7 @@ console.log(circumference,'/>>>>>>>>>>>',circumference - (timePassed / selectedT
                       animationIterationCount: 1,
                     }}
                   />
-                ))} */}
+                ))}
               </Svg>
               <Text style={styles.clickText}>
                 {!isTestRunning ? 'Click to Start' :
@@ -618,7 +491,6 @@ console.log(circumference,'/>>>>>>>>>>>',circumference - (timePassed / selectedT
               </ImageBackground>
             </View>
           </Modal>
-
         </ImageBackground>
       )}
     </ScrollView>
