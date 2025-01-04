@@ -29,7 +29,7 @@ export default function CPSTest({ navigation }) {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [circleColor, setCircleColor] = useState('#7455CA'); // Initial circle color
   const [isSoundOn, setIsSoundOn] = useState(true);
-  const [isMusicOn, setIsMusicOn] = useState(true);
+  const [isMusicOn, setIsMusicOn] = useState(false);
   const { texts, toggleScroll } = useLanguage();
 
 
@@ -183,7 +183,7 @@ export default function CPSTest({ navigation }) {
                 </View>
                 <View style={styles.mainLayout}>
                   <LeftTestListBar navigation={navigation} title={texts?.cpsTest?.leftsidetitle} />
-                  <Text style={styles.sidebarTitle}>{selectedTime}{texts?.cpsTest?.selectTimetitle}</Text>
+                  <Text style={styles.sidebarTitle}>{selectedTime} {texts?.cpsTest?.selectTimetitle}</Text>
                   <View style={styles.mainContent}>
                     <View style={styles.centerContent}>
                       <View style={styles.testArea}>

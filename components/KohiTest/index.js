@@ -29,7 +29,7 @@ export default function KohiTest({ navigation }) {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [circleColor, setCircleColor] = useState('#7455CA'); // Initial circle color
   const [isSoundOn, setIsSoundOn] = useState(true);
-  const [isMusicOn, setIsMusicOn] = useState(true);
+  const [isMusicOn, setIsMusicOn] = useState(false);
   const { texts, toggleScroll } = useLanguage();
 
 
@@ -41,7 +41,7 @@ export default function KohiTest({ navigation }) {
   const cx = width / 2;
   const cy = height / 2 + (isFullScreen ? 20 : 0); // Add margin when in full screen
   const circumference = 2 * Math.PI * r;
-
+console.log(circumference,'/>>>>>>>>>>>',circumference - (timePassed / selectedTime) * circumference)
   useEffect(() => {
     async function loadSounds() {
       const { sound: clickSnd } = await Audio.Sound.createAsync(
@@ -104,12 +104,13 @@ export default function KohiTest({ navigation }) {
 
   const handleRipple = (event) => {
     const { locationX, locationY } = event.nativeEvent;
-    if (locationX >= 80) {
+    if(locationX >= 50 && locationY >= 50){
       setRipples([...ripples, { x: locationX, y: locationY }]);
+      setTimeout(() => {
+        setRipples(ripples.slice(1));
+      }, 200);
     }
-    setTimeout(() => {
-      setRipples(ripples.slice(1));
-    }, 500);
+
   };
 
   const handleClick = (event) => {
@@ -134,7 +135,7 @@ export default function KohiTest({ navigation }) {
       playSound();
 
       const { locationX, locationY } = event.nativeEvent;
-      console.log('locationX', locationX, 'locationY', locationY);
+      // console.log('locationX', locationX, 'locationY', locationY);
       // setRipples([...ripples, { x: locationX, y: locationY }]);
     }
   };
@@ -175,7 +176,7 @@ export default function KohiTest({ navigation }) {
   // const [isModalVisible, setIsModalVisible] = useState(false);
   // const [isFullScreen, setIsFullScreen] = useState(false);
   // const [isSoundOn, setIsSoundOn] = useState(true);
-  // const [isMusicOn, setIsMusicOn] = useState(true);
+  // const [isMusicOn, setIsMusicOn] = useState(false);
   // const {texts} = useLanguage();
   // // Get screen dimensions
   // const { width: screenWidth } = Dimensions.get('window');
@@ -309,7 +310,7 @@ export default function KohiTest({ navigation }) {
                       <View style={styles.testArea}>
                         <View style={styles.controlBar}>
                           <TouchableOpacity onPress={toggleFullScreen}>
-                          {isFullScreen ? <ZoomOutIcon /> : <ZoomInIcon />}
+                            {isFullScreen ? <ZoomOutIcon /> : <ZoomInIcon />}
                           </TouchableOpacity>
                           <View style={{ display: "flex", flexDirection: "row" }}>
                             <TouchableOpacity
@@ -351,11 +352,12 @@ export default function KohiTest({ navigation }) {
                               r={r + 20}
                               cx={cx}
                               cy={cy}
-                              style={{                              
+                              style={{
+                                strokeDasharray: circumference,
+                                strokeDashoffset: circumference - (timePassed / selectedTime) * circumference,
                                 transition: 'stroke-dashoffset 0.1s linear',
                               }}
-                              strokeDasharray={circumference}
-                              strokeDashoffset={circumference - (timePassed % selectedTime / selectedTime) * circumference}
+         
                             />
                             {ripples.map((ripple, index) => (
                               <Circle
@@ -364,6 +366,9 @@ export default function KohiTest({ navigation }) {
                                 cy={ripple.y}
                                 r={40}
                                 fill="rgba(255, 255, 255, 0.3)"
+                                style={{
+                                  ...styles.ripple, transformOrigin: `${ripple.x}px ${ripple.y}px`,
+                                }}
                               />
                             ))}
                           </Svg>
@@ -464,7 +469,7 @@ export default function KohiTest({ navigation }) {
         >
           <View style={styles.controlBar}>
             <TouchableOpacity onPress={() => setIsFullScreen(false)}>
-            {isFullScreen ? <ZoomOutIcon /> : <ZoomInIcon />}
+              {isFullScreen ? <ZoomOutIcon /> : <ZoomInIcon />}
             </TouchableOpacity>
             <View style={{ display: "flex", flexDirection: "row" }}>
               <TouchableOpacity
@@ -511,12 +516,12 @@ export default function KohiTest({ navigation }) {
                 <Circle
                   stroke="#b32f60"
                   fill="transparent"
-                  strokeWidth="15"
+                  strokeWidth={15}
                   r={screenWidth / 2 - 30}
                   cx={screenWidth / 2}
                   cy={screenWidth / 2 - 25}
                   strokeDasharray={circumference}
-                  strokeDashoffset={circumference - (timePassed % selectedTime / selectedTime) * circumference}
+                  strokeDashoffset={circumference - (timePassed / selectedTime) * circumference}
                 />
                 {ripples.map((ripple, index) => (
                   <Circle

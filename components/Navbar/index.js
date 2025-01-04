@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, Pressable, Animated, TouchableOpacity, T
 import { Link } from 'expo-router';
 import { MenuIcon } from '../icons';
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
-import { TriangleIcon } from '../ReactionTest/Icon';
+import { GlobeIcon, TriangleIcon } from '../ReactionTest/Icon';
 
 const Navbar = ({ onMenuToggle, navigation }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -91,6 +91,7 @@ const Navbar = ({ onMenuToggle, navigation }) => {
           </TouchableOpacity>
           <TouchableOpacity onPress={toggleLanguage} style={styles.menuItem}>
             <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+              <GlobeIcon size={20} />
               <Text style={styles.menuText}>{language.toUpperCase()}</Text>
               <TriangleIcon 
                 size={10} 
@@ -147,8 +148,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-
-    paddingHorizontal: 16,
+    paddingHorizontal: 6,
     paddingVertical: 12,
     borderRadius: 8,
   },

@@ -83,7 +83,7 @@ export default function AimTrainerTest({ navigation }) {
   const [showColorDropdown, setShowColorDropdown] = useState(false); // State to control color dropdown visibility
   const [backgroundMusic, setBackgroundMusic] = useState();
   const [isSoundOn, setIsSoundOn] = useState(true);
-  const [isMusicOn, setIsMusicOn] = useState(true);
+  const [isMusicOn, setIsMusicOn] = useState(false);
 
 
   const toggleFullScreen = () => {
@@ -224,9 +224,9 @@ export default function AimTrainerTest({ navigation }) {
             {isTestRunning ? (
               <View style={styles.testArea}>
                 <View style={styles.statsContainer}>
-                  <Text style={styles.statText}>Score: {score}</Text>
-                  <Text style={styles.statText}>Misses: {misses}</Text>
-                  <Text style={styles.statText}>Time: {selectedTime - timePassed}s</Text>
+                  <Text style={styles.statText}>{texts?.locales?.score}: {score}</Text>
+                  <Text style={styles.statText}>{texts?.locales?.misses}: {misses}</Text>
+                  <Text style={styles.statText}>{texts?.locales?.time}: {selectedTime - timePassed}s</Text>
                 </View>
                 <View style={styles.aimGameArea}>
                   {dots.map((dot) => (
@@ -245,7 +245,7 @@ export default function AimTrainerTest({ navigation }) {
               </View>
             ) : (
               <View style={styles.configurationContainer}>
-                <Text style={styles.dropdownLabel}>Level</Text>
+                <Text style={styles.dropdownLabel}>{texts?.locales?.level}</Text>
                 <View style={styles.pickerContainer}>
                   <Picker
                     selectedValue={selectedLevel}
@@ -253,14 +253,14 @@ export default function AimTrainerTest({ navigation }) {
                     style={styles.picker}
                     itemStyle={styles.pickerItem}
                   >
-                    <Picker.Item label="Easy" value="easy" />
-                    <Picker.Item label="Normal" value="normal" />
-                    <Picker.Item label="Medium" value="medium" />
-                    <Picker.Item label="Fast" value="fast" />
+                    <Picker.Item label={texts?.locales?.easy} value="easy" />
+                    <Picker.Item label={texts?.locales?.normal} value="normal" />
+                    <Picker.Item label={texts?.locales?.medium} value="medium" />
+                    <Picker.Item label={texts?.locales?.fast} value="fast" />
                   </Picker>
                 </View>
 
-                <Text style={styles.dropdownLabel}>Target Size</Text>
+                <Text style={styles.dropdownLabel}>{texts?.locales?.targetSize}</Text>
                 <View style={styles.pickerContainer}>
                   <Picker
                     selectedValue={targetSize}
@@ -268,14 +268,14 @@ export default function AimTrainerTest({ navigation }) {
                     style={styles.picker}
                     itemStyle={styles.pickerItem}
                   >
-                    <Picker.Item label="Tiny" value={20} />
-                    <Picker.Item label="Small" value={30} />
-                    <Picker.Item label="Medium" value={40} />
-                    <Picker.Item label="Large" value={50} />
-                    <Picker.Item label="Extra Large" value={65} />
+                    <Picker.Item label={texts?.locales?.tiny} value={20} />
+                    <Picker.Item label={texts?.locales?.small} value={30} />
+                    <Picker.Item label={texts?.locales?.medium} value={40} />
+                    <Picker.Item label={texts?.locales?.large} value={50} />
+                    <Picker.Item label={texts?.locales?.extraLarge} value={65} />
                   </Picker>
                 </View>
-                <Text style={styles.dropdownLabel}>Color</Text>
+                <Text style={styles.dropdownLabel}>{texts?.locales?.color}</Text>
                 <View style={styles.pickerContainer}>
                   <Picker
                     selectedValue={selectedColor}
@@ -289,7 +289,7 @@ export default function AimTrainerTest({ navigation }) {
                   </Picker>
                 </View>
                 <AnimatedButton />
-                <Text style={styles.dropdownLabel}>Time</Text>
+                <Text style={styles.dropdownLabel}>{texts?.locales?.time}</Text>
                 <View style={styles.pickerContainer}>
                   <Picker
                     selectedValue={selectedTime}
@@ -321,7 +321,7 @@ export default function AimTrainerTest({ navigation }) {
                   </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={styles.startButton} onPress={() => setIsTestRunning(true)}>
-                  <Text style={styles.startButtonText}>Start Test</Text>
+                  <Text style={styles.startButtonText}>{texts?.locales?.startTest}</Text>
                 </TouchableOpacity>
 
               </View>
@@ -341,11 +341,10 @@ export default function AimTrainerTest({ navigation }) {
               >
                 <View style={styles.modalTopBar}>
                   <TouchableOpacity onPress={resetTest} style={styles.closeBtn}>
-                    <Text style={styles.closeBtnText}>{texts?.cpsTest?.close}</Text>
+                    <Text style={styles.closeBtnText}>{texts?.KohiTest?.close}</Text>
                   </TouchableOpacity>
-
                   <View style={styles.modalTitleContainer}>
-                    <Text style={styles.modalTitle}>{texts?.cpsTest?.achievementtitle}</Text>
+                    <Text style={styles.modalTitle}>{texts?.KohiTest?.achievementtitle}</Text>
                   </View>
                 </View>
                 <View style={styles.resultOuterContainer}>
@@ -367,10 +366,10 @@ export default function AimTrainerTest({ navigation }) {
                           <Text style={styles.normalText}>{texts?.cpsTest?.clickspeeddesc}</Text>
                         </View>
                         <View style={styles.cpsStatRow}>
-                          <Text style={styles.statHeading}>Scores: {score}</Text>
+                          <Text style={styles.statHeading}>{texts?.locales?.score}: {score}</Text>
                         </View>
                         <View style={styles.cpsStatRow}>
-                          <Text style={styles.statSubheading}>Misses: {misses}</Text>
+                          <Text style={styles.statSubheading}>{texts?.locales?.misses}: {misses}</Text>
                         </View>
                       </View>
                       <View style={styles.resultContentRow}>
@@ -397,8 +396,8 @@ export default function AimTrainerTest({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  imageBackground : {
-    height:1200
+  imageBackground: {
+    height: 1200
   },
   container: {
     flex: 1,
@@ -452,7 +451,7 @@ const styles = StyleSheet.create({
   dropdownLabel: {
     color: '#fff',
     marginBottom: 15,
-    marginTop:10
+    marginTop: 10
   },
   pickerContainer: {
     borderRadius: 10,
@@ -489,7 +488,8 @@ const styles = StyleSheet.create({
     width: 300,
     padding: 20,
     backgroundColor: '#fff',
-    borderRadius: 10,
+    borderRadius: 20,
+    overflow: 'hidden',
     alignItems: 'center',
   },
   modalTitle: {
@@ -518,6 +518,13 @@ const styles = StyleSheet.create({
   animeLgDisplay: {
     // Styles for large display
   },
+  modalTitleContainer: {
+    alignItems: 'center',
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    marginVertical: 20,
+    padding: 10
+  },
   animationImage: {
     width: 130,
     height: 130,
@@ -529,6 +536,12 @@ const styles = StyleSheet.create({
   resultContentRow: {
     marginVertical: 5,
   },
+  modalTopBar: {
+    width: '80%',
+  },
+  closeBtn: {
+    alignSelf: "flex-end",
+  },
   modalStatsContainer: {
     display: "flex",
     alignItems: 'center',
@@ -537,7 +550,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     borderColor: '#fff',
     backgroundColor: "#481b91",
-    maxWidth: 200,
     justifyContent: "center"
   },
   cpsStatRow: {

@@ -4,7 +4,7 @@
     "title": "CPS TEST | CLICKS PER SECOND",
     "tagline": "Test your click speed with our Click Speed Test. Choose from 1 to 100 seconds to measure and improve your CPS quickly and accurately!",
     "leftsidetitle": "CPS Test Online",
-    "selectTimetitle": "Seconds Click CPS Test",
+    "selectTimetitle": "Seconds CPS Test",
     "circletext": "Click to Start",
     "achievementtitle": "Your Achievements",
     "close": "Close",
@@ -78,7 +78,7 @@
     "title": "Kohi Click Test",
     "tagline": "Try the Kohi Click Test to measure your CPS over 1 to 100 seconds. Track your clicking speed and refine your skills with custom time ranges.",
     "leftsidetitle": "Kohi Test Online",
-    "selectTimetitle": " Seconds Click Kohi Test",
+    "selectTimetitle": " Seconds Kohi Test",
     "circletext": "Click to Start",
     "achievementtitle": "Your Achievements",
     "close": "Close",
@@ -149,10 +149,10 @@
     }
   },
   "ButterflyTest": {
-    "title": "Butterfly Click Test",
+    "title": "Butterfly Test",
     "tagline": "Take the Butterfly Click Test and choose a time range from 1 to 100 seconds. Perfect your butterfly clicking and maximize your CPS!",
     "leftsidetitle": "Butterfly Test Online",
-    "selectTimetitle": " Seconds Click Kohi Test",
+    "selectTimetitle": " Seconds Butterfly Test",
     "circletext": "Click to Start",
     "achievementtitle": "Your Achievements",
     "close": "Close",
@@ -519,9 +519,28 @@
   },
   "testName" : {
     "kohi" : "Kohi Click Test",
-    "reaction" : "Reaction Click Test",
+    "reaction" : "Reaction Test",
     "butter" : "Butterfly Click",
     "aim" : "Aim Trainer Test",
     "cps" : "CPS Test"
+  },
+  "locales" : {
+    "score" : "Score",
+    "misses" : "Misses",
+    "time" : "Time",
+    "level" : "Level",
+    "targetSize" : "Target Size",
+    "timePeriod" : "Time Period",
+    "color" : "Color",
+    "startTest" : "Start Test",
+    "close" : "Close",
+    "tiny" : "Tiny",
+    "small" : "Small",
+    "medium" : "Medium",
+    "large" : "Large",
+    "extraLarge" : "Extra Large",
+    "easy" : "Easy",
+    "normal" : "Normal",
+    "fast" : "Fast"
   }
 }

@@ -3,6 +3,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
+    width:'100%',
     padding: 20,
   },
   fullScreenContainer: {
@@ -221,33 +222,45 @@ iconCircle: {
     justifyContent: 'center',
     alignItems: 'center',
     overflow:'hidden',
-    padding: 20
+    padding: 20,
+    width:'100%',
+    display:'relative'
   },
 
   modalInnerContainer: {
     borderRadius: 20,
     padding: 20,
     alignItems: 'center',
-    overflow:'hidden'
+    overflow:'hidden',
   },
 
   modalTopBar: {
     width: '100%',
-
+    width:'100%'
   },
   closeBtn: {
     alignSelf: "flex-end",
+    position:'absolute',
+    right:-65,
   },
   closeBtnText: {
     color: '#fff',
     fontWeight: 'normal',
-    marginRight: -40
+    marginRight:20
+  },
+  ripple: {
+    position: 'relative',
+    borderRadius: '50%',
+    fill: 'rgba(255, 255, 255, 0.5)',
+    animation: 'ripple-animation 0.5s ease',
+    animationIterationCount: 1,
   },
   modalTitleContainer: {
     alignItems: 'center',
     backgroundColor: "#fff",
     borderRadius: 10,
-    marginTop: 5,
+    marginTop: 30,
+    width:200,
     padding: 10
   },
   modalTitle: {
@@ -275,12 +288,12 @@ iconCircle: {
     // Styles for large display
   },
   animationImage: {
-    width: 80,
-    height: 80,
+    width: 120,
+    height: 140,
   },
   resultContentContainer: {
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 10
   },
   resultContentRow: {
     marginVertical: 5,
@@ -293,7 +306,6 @@ iconCircle: {
     borderRadius: 16,
     borderColor: '#fff',
     backgroundColor: "#481b91",
-    maxWidth: 200,
     justifyContent: "center"
   },
   cpsStatRow: {
@@ -407,4 +419,5 @@ iconCircle: {
   iconContainer: {
     
   },
+  
 });

@@ -28,7 +28,7 @@ export default function KohiTest({ navigation }) {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [circleColor, setCircleColor] = useState('#7455CA'); // Initial circle color
   const [isSoundOn, setIsSoundOn] = useState(true);
-  const [isMusicOn, setIsMusicOn] = useState(true);
+  const [isMusicOn, setIsMusicOn] = useState(false);
   const { texts, toggleScroll } = useLanguage();
 
   const { width: screenWidth } = Dimensions.get('window');

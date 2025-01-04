@@ -152,7 +152,7 @@
     "title": "Test de clic Butterfly",
     "tagline": "Passez le test de clic Butterfly et choisissez une plage de temps de 1 à 100 secondes. Perfectionnez votre clic butterfly et maximisez votre CPS !",
     "leftsidetitle": "Test Butterfly en ligne",
-    "selectTimetitle": "Test Kohi en secondes",
+    "selectTimetitle": "Butterfly en secondes",
     "circletext": "Cliquez pour commencer",
     "achievementtitle": "Vos réalisations",
     "close": "Fermer",
@@ -370,5 +370,24 @@
     "butter" : "Clic papillon",
     "aim" : "Test d'entraînement à la visée",
     "cps" : "Test CPS"
+  },
+  "locales" : {
+    "score" : "Score",
+    "misses" : "Erreurs",
+    "time" : "Temps",
+    "level" : "Niveau",
+    "targetSize" : "Taille de la cible",
+    "timePeriod" : "Période de temps",
+    "color" : "Couleur",
+    "startTest" : "Démarrer le test",
+    "close" : "Fermer",
+    "tiny" : "Très petit",
+    "small" : "Petit",
+    "medium" : "Moyen",
+    "large" : "Grand",
+    "extraLarge" : "Très grand",
+    "easy" : "Facile",
+    "normal" : "Normal",
+    "fast" : "Rapide"
   }
 }

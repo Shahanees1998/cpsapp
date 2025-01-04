@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 5,
     elevation: 3,
-    width: 80, // Set a fixed width for the button
     overflow: 'hidden', // Prevent overflow
   },
   iconContainer: {
@@ -79,8 +78,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   circle: {
-    width: 30,
-    height: 30,
+    width: 20,
+    height: 20,
     borderRadius: 15,
     backgroundColor: '#8B4513', // Brown color
     alignItems: 'center',

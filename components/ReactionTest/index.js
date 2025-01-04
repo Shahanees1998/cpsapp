@@ -105,7 +105,7 @@ export default function ReactionTest({ navigation }) {
     setReactionTime(null);
     setIsModalVisible(false);
     setRandomIconIndex(null)
-
+ 
     // Pick a random color and set its name
     const availableColors = colors.filter((color, index) =>
       !colorChangeTimes.some(change => change?.code === color?.code)
@@ -114,6 +114,7 @@ export default function ReactionTest({ navigation }) {
     const color = availableColors[randomColorIndex];
     setSelectedColor(color?.code);
     setSelectedColorName(color?.label);
+    setStartTime(Date.now());
 
     const delay = Math.random() * (5000 - 1000) + 1000;
     setTimeout(() => {
@@ -205,8 +206,8 @@ export default function ReactionTest({ navigation }) {
                 justifyContent: 'space-around',
               }}
             >
-              <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center', paddingInline: 20 }}>
-                <Text style={{ width: 250, color: 'white', fontSize: 16, textAlign: 'center', marginTop: 30, marginBottom: 50 }}>
+              <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center', paddingInline: 10 }}>
+                <Text style={{ width: '98%', color: 'white', fontSize: 16, textAlign: 'center', marginTop: 30, marginBottom: 50 }}>
                   {texts?.ReactionTest?.tagline2}
                 </Text>
               </View>
@@ -353,7 +354,7 @@ export default function ReactionTest({ navigation }) {
                 </View>
 
                 :
-                <View style={{ backgroundColor: 'rgba(3,109,248,.234)', borderRadius: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingVertical: 20 }}>
+                <View style={{ backgroundColor: 'rgba(3,109,248,.234)',width:'100%', borderRadius: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingVertical: 20 }}>
                   <Text style={{ color: 'white', width: '80%', paddingVertical: 10, textAlign: 'center', fontSize: 22 }}>{texts?.ReactionTest?.averageReactionTime}</Text>
                   <Image
                     source={require('../../assets/reaction-time.png')}
