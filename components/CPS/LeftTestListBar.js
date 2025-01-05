@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { KohiIcon, ButterflyIcon, AimIcon, ReactionIcon, APMIcon } from '../icons'; // Adjust the import path as necessary
 import styles from './Styles';
 import { useLanguage, toggleScroll } from '@/src/context/LanguageContext';
@@ -26,7 +26,9 @@ const LeftTestListBar = ({ navigation, title }) => {
               onPress={() => navigation.navigate(test.route)} // Navigate to the corresponding test
             >
               <View style={{ width: 20, height: 20}}>
-                <test.Icon /> 
+                {
+                  test.route === 'ButterflyTest' ? <Image source={require('../../assets/butterfly.png')} style={{ width: 20, height: 20 }} /> : <test.Icon /> 
+                }
               </View>
               <Text style={styles.testItemText}>{test.name}</Text>
             </TouchableOpacity>
