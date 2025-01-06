@@ -91,14 +91,18 @@ const Navbar = ({ onMenuToggle, navigation }) => {
           </TouchableOpacity>
           <TouchableOpacity onPress={toggleLanguage} style={styles.menuItem}>
             <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-              <GlobeIcon size={20} />
+              <Image
+                source={require('../../assets/globe.png')}
+                style={{ width: 20, height: 20, marginBottom:5, marginRight:5 }}
+                resizeMode="contain"
+              />
               <Text style={styles.menuText}>{language.toUpperCase()}</Text>
-              <TriangleIcon 
-                size={10} 
-                style={{ 
+              <TriangleIcon
+                size={10}
+                style={{
                   transform: !isLanguageOpen ? [{ rotate: '180deg' }] : [],
-                  paddingLeft: 20 
-                }} 
+                  paddingLeft: 20
+                }}
               />
             </View>
           </TouchableOpacity>
