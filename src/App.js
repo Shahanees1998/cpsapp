@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as Font from 'expo-font'; // Import expo-font
 import CPSTest from '../components/CPS';
+import CPSResultScreen from '../components/CPS/CPSResultScreen'
 import KohiTest from '../components/KohiTest';
 import ButterflyTest from "../components/ButterflyTest";
 import SpacebarTest from "../components/SpacebarTest";
@@ -15,6 +16,10 @@ import ContactUs from "../components/ContactUs";
 import ReactionTest from "../components/ReactionTest";
 import CarousalComponent from '../components/CPS/CarousalComponent';
 import { LanguageProvider } from './context/LanguageContext';
+import HomeScreen from '../components/HomeScreen';
+import LeftTestScreen from '../components/LeftTestScreen';
+import SplashScreen from '../components/SplashScreen';
+import TimeSelectionScreen from '../components/TimeSelectionScreen'
 
 const Stack = createStackNavigator();
 
@@ -40,8 +45,13 @@ const App = () => {
 
   return (
     <LanguageProvider>
-      <Stack.Navigator initialRouteName="CPSTest">
+      <Stack.Navigator initialRouteName="SplashScreen">
+        <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="LeftTestScreen" component={LeftTestScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="TimeSelectionScreen" component={TimeSelectionScreen} options={{ headerShown: false }} />
         <Stack.Screen name="CPSTest" component={CPSTest} options={{ headerShown: false }} />
+        <Stack.Screen name="CPSResultScreen" component={CPSResultScreen} options={{ headerShown: false }} />
         <Stack.Screen name="KohiTest" component={KohiTest} options={{ headerShown: false }} />
         <Stack.Screen name="ReactionTest" component={ReactionTest} options={{ headerShown: false }} />
         <Stack.Screen name="ButterflyTest" component={ButterflyTest} options={{ headerShown: false }} />

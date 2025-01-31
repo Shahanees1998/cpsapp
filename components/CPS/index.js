@@ -11,14 +11,15 @@ import Navbar from "../Navbar";
 import CPSDetail from './CPSDetail';
 import Footer from '../Footer';
 import Stats from '../Stats/Stats';
-import CarousalComponent from './CarousalComponent';
+
 import { MusicIcon, SoundIcon, ZoomInIcon, ZoomOutIcon } from '../icons';
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
-export default function CPSTest({ navigation }) {
+export default function CPSTest({ navigation, route }) {
+  const { selectedTime } = route.params; 
   const [clicks, setClicks] = useState(0);
   const [cps, setCps] = useState(0);
-  const [selectedTime, setSelectedTime] = useState(5);
+  // const [selectedTime, setSelectedTime] = useState(5);
   const [ripples, setRipples] = useState([]);
   const [isTestRunning, setIsTestRunning] = useState(false);
   const [startTime, setStartTime] = useState(null);
@@ -82,7 +83,8 @@ export default function CPSTest({ navigation }) {
             setIsTestRunning(false);
             clearInterval(interval);
             backgroundMusic?.stopAsync();
-            setIsModalVisible(true); // Show modal when test completes
+            navigation.navigate('CPSResultScreen', { clicks, selectedTime, cps: clicks / selectedTime });
+            // setIsModalVisible(true); // Show modal when test completes
             return selectedTime;
           }
           return prev + 1;
@@ -173,43 +175,30 @@ export default function CPSTest({ navigation }) {
             style={styles.imageBackground}
           >
             <View style={styles.container}>
-              <Navbar onToggle={toggleFullScreen} navigation={navigation} />
+              {/* <Navbar onToggle={toggleFullScreen} navigation={navigation} /> */}
               <TouchableWithoutFeedback onPress={() => toggleScroll()}>
-                <View style={styles.headerContainer}>
+                <Text>Test Speed Test Game</Text>
+                {/* <View style={styles.headerContainer}>
                   <Text style={styles.headerTitle}>{texts?.cpsTest?.title}</Text>
                   <Text style={styles.tagline}>
                     {texts?.cpsTest?.tagline}
                   </Text>
-                </View>
+                </View> */}
                 <View style={styles.mainLayout}>
-                  <LeftTestListBar navigation={navigation} title={texts?.cpsTest?.leftsidetitle} />
+                  {/* <LeftTestListBar navigation={navigation} title={texts?.cpsTest?.leftsidetitle} /> */}
                   <Text style={styles.sidebarTitle}>{selectedTime} {texts?.cpsTest?.selectTimetitle}</Text>
                   <View style={styles.mainContent}>
                     <View style={styles.centerContent}>
                       <View style={styles.testArea}>
                         <View style={styles.controlBar}>
-                          <TouchableOpacity onPress={toggleFullScreen}>
+                          <View></View>
+                          {/* <TouchableOpacity onPress={toggleFullScreen}>
                             {isFullScreen ? <ZoomOutIcon /> : <ZoomInIcon />}
-                          </TouchableOpacity>
-                          <View style={{ display: "flex", flexDirection: "row" }}>
-                            <TouchableOpacity
-                              style={{ marginRight: 10 }}
-                              onPress={() => {
-                                setIsMusicOn(!isMusicOn);
+                          </TouchableOpacity> */}
 
-                              }}
-                            >
-                              {isMusicOn ?
-                                <View style={{ width: 28, height: 28, display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 100, backgroundColor: '#7455CA' }}>
-                                  <Image source={require('../../assets/music-on.png')} style={{ width: 15, height: 15 }} /> </View> : <MusicIcon isEnabled={isMusicOn} />
-                              }
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={toggleSound}>
-                              <SoundIcon isEnabled={isSoundOn} />
-                            </TouchableOpacity>
-                          </View>
                         </View>
-
+                        <Text style={styles.normalTexttime}>{clicks ? clicks : 0} clicks</Text>
+                        <Text style={styles.normalTexttime}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
                         <TouchableOpacity
                           style={styles.clickCircle}
                           onPress={handleClick}
@@ -249,9 +238,28 @@ export default function CPSTest({ navigation }) {
                               timePassed >= selectedTime ? '' : ''}
                           </Text>
                         </TouchableOpacity>
+                        <Text style={styles.normalTexttime}>{clicks ? clicks : 0} clicks</Text>
+                        <Text style={styles.normalTexttime}>{timePassed} seconds</Text>
+                        <View style={{ display: "flex",justifyContent:"center",flexDirection:"row" }}>
+                          <TouchableOpacity
+                            style={{ marginRight: 10 }}
+                            onPress={() => {
+                              setIsMusicOn(!isMusicOn);
+
+                            }}
+                          >
+                            {isMusicOn ?
+                              <View style={{ width: 28, height: 28, display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 100, backgroundColor: '#7455CA' }}>
+                                <Image source={require('../../assets/music-on.png')} style={{ width: 15, height: 15 }} /> </View> : <MusicIcon isEnabled={isMusicOn} />
+                            }
+                          </TouchableOpacity>
+                          <TouchableOpacity onPress={toggleSound}>
+                            <SoundIcon isEnabled={isSoundOn} />
+                          </TouchableOpacity>
+                        </View>
                       </View>
 
-                      <View style={{ marginTop: 20 }}>
+                      {/* <View style={{ marginTop: 20 }}>
                         <TimeListBar
                           selectedTime={selectedTime}
                           onTimeSelect={(time) => {
@@ -259,7 +267,7 @@ export default function CPSTest({ navigation }) {
                             resetTest();
                           }}
                         />
-                      </View>
+                      </View> */}
                     </View>
                   </View>
                   <View style={{ height: 100 }}>
@@ -267,7 +275,7 @@ export default function CPSTest({ navigation }) {
                 </View>
               </TouchableWithoutFeedback>
 
-              <Modal
+              {/* <Modal
                 animationType="slide"
                 transparent={true}
                 visible={isModalVisible}
@@ -326,13 +334,13 @@ export default function CPSTest({ navigation }) {
 
                   </ImageBackground>
                 </View>
-              </Modal>
+              </Modal> */}
 
             </View>
           </ImageBackground>
           {/* <CPSDetail navigation={navigation} /> */}
           {/* <CarousalComponent/> */}
-          <Footer navigation={navigation} />
+          {/* <Footer navigation={navigation} /> */}
         </>
       ) : (
         <ImageBackground
@@ -340,9 +348,9 @@ export default function CPSTest({ navigation }) {
           style={styles.imageBackgroundfull}
         >
           <View style={styles.controlBar}>
-            <TouchableOpacity onPress={() => setIsFullScreen(false)}>
+            {/* <TouchableOpacity onPress={() => setIsFullScreen(false)}>
               {isFullScreen ? <ZoomOutIcon /> : <ZoomInIcon />}
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <View style={{ display: "flex", flexDirection: "row" }}>
               <TouchableOpacity
                 onPress={() => {
@@ -431,7 +439,7 @@ export default function CPSTest({ navigation }) {
           <View style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 50, marginBottom: 10 }}>
             <Stats cps={clicks / timePassed} timePassed={timePassed} score={clicks} /> {/* Pass props to Stats */}
           </View>
-          <Modal
+          {/* <Modal
             animationType="slide"
             transparent={true}
             visible={isModalVisible}
@@ -490,7 +498,7 @@ export default function CPSTest({ navigation }) {
 
               </ImageBackground>
             </View>
-          </Modal>
+          </Modal> */}
         </ImageBackground>
       )}
     </ScrollView>

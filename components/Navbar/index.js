@@ -173,9 +173,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    
   },
   dropdown: {
-    backgroundColor: 'transparent', // More transparent
+    backgroundColor: 'transparent',
     borderRadius: 8,
 
     overflow: 'hidden',

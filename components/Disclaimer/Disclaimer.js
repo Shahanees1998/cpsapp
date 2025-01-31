@@ -32,7 +32,7 @@ export default function PrivacyPolicy({ navigation }) {
                     <Text style={styles.heading}>Copyright</Text>
                     <Text style={styles.paragraph}>{texts.Disclaimer.copyright}</Text>
                 </View>
-                <Footer navigation={navigation} />
+                {/* <Footer navigation={navigation} /> */}
 
             </TouchableWithoutFeedback>
         </ScrollView>

@@ -99,7 +99,7 @@ export default function ContactUs({ navigation }) {
                 </View>
 
                 <Carousel />
-                <Footer navigation={navigation} />
+                {/* <Footer navigation={navigation} /> */}
             </TouchableWithoutFeedback>
         </ScrollView>
     );

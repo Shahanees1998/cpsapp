@@ -81,7 +81,7 @@ export default function PrivacyPolicy({ navigation }) {
                 {texts?.privacy.childrenDescription}
             </Text>
         </View>
-        <Footer navigation={navigation}/>
+        {/* <Footer navigation={navigation}/> */}
     </ScrollView>
     );
 }

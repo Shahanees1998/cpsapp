@@ -48,7 +48,7 @@ export default function About({ navigation }) {
                 </View>
 
                 <Carousel />
-                <Footer navigation={navigation} />
+                {/* <Footer navigation={navigation} /> */}
             </TouchableWithoutFeedback>
         </ScrollView>
     );

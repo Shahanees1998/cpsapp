@@ -85,10 +85,10 @@ export default function SpacebarTest({ navigation }) {
       style={styles.container}
     >
       <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
-        <View style={styles.headerContainer}>
+        {/* <View style={styles.headerContainer}>
           <Text style={styles.headerTitle}>Spacebar Test</Text>
           <Text style={styles.tagline}>Press the spacebar as fast as you can for {selectedTime} seconds!</Text>
-        </View>
+        </View> */}
         <View style={styles.mainLayout}>
           <LeftTestListBar navigation={navigation} title={"Spacebar Test Online"} />
           <Text style={styles.sidebarTitle}>{selectedTime} Second Per Click</Text>

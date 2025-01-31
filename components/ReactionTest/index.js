@@ -185,15 +185,15 @@ export default function ReactionTest({ navigation }) {
       >
         <View style={styles.container}>
           <View>
-            <Navbar onToggle={toggleFullScreen} navigation={navigation} />
+            {/* <Navbar onToggle={toggleFullScreen} navigation={navigation} /> */}
           </View>
           <TouchableWithoutFeedback onPress={() => toggleScroll()}>
 
-            <View style={styles.headerContainer}>
+            {/* <View style={styles.headerContainer}>
               <Text style={styles.headerTitle}>{texts?.ReactionTest?.title}</Text>
               <Text style={styles.tagline}>{texts?.ReactionTest?.tagline}</Text>
               <Text style={styles.colorDisplay}>{selectedColorName}</Text>
-            </View>
+            </View> */}
             {!isStartGame ? <View
               style={{
                 backgroundColor: 'rgba(3,109,248,.234)',
@@ -377,7 +377,7 @@ export default function ReactionTest({ navigation }) {
         </View>
       </ImageBackground >
       {/* <ReactionDetail /> */}
-      < Footer navigation={navigation} />
+      {/* < Footer navigation={navigation} /> */}
     </ScrollView >
   );
 }

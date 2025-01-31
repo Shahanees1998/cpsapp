@@ -115,7 +115,8 @@ export default function AimTrainerTest({ navigation }) {
         setTimePassed((prev) => {
           if (prev >= selectedTime - 1) {
             setIsTestRunning(false);
-            setIsModalVisible(true); // Show modal when time is up
+            navigation.navigate('CPSResultScreen', { clicks, selectedTime, cps: clicks / selectedTime });
+            // setIsModalVisible(true); // Show modal when time is up
             clearInterval(interval);
             return selectedTime;
           }
@@ -215,12 +216,12 @@ export default function AimTrainerTest({ navigation }) {
         style={styles.imageBackground}
       >
         <View style={styles.container}>
-          <Navbar onToggle={toggleFullScreen} navigation={navigation} />
+          {/* <Navbar onToggle={toggleFullScreen} navigation={navigation} /> */}
           <TouchableWithoutFeedback onPress={() => toggleScroll()}>
-            <View style={styles.headerContainer}>
+            {/* <View style={styles.headerContainer}>
               <Text style={styles.headerTitle}>{texts?.AimTrainerTest?.title}</Text>
               <Text style={styles.tagline}>{texts?.AimTrainerTest?.tagline}</Text>
-            </View>
+            </View> */}
             {isTestRunning ? (
               <View style={styles.testArea}>
                 <View style={styles.statsContainer}>
@@ -328,7 +329,7 @@ export default function AimTrainerTest({ navigation }) {
             )}
           </TouchableWithoutFeedback>
 
-          <Modal
+          {/* <Modal
             animationType="slide"
             transparent={true}
             visible={isModalVisible}
@@ -386,11 +387,11 @@ export default function AimTrainerTest({ navigation }) {
 
               </ImageBackground>
             </View>
-          </Modal>
+          </Modal> */}
         </View>
       </ImageBackground>
       {/* <AimTrainerDetail /> */}
-      <Footer navigation={navigation} />
+      {/* <Footer navigation={navigation} /> */}
     </ScrollView>
   );
 }

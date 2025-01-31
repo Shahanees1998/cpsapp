@@ -3,12 +3,13 @@ import { StyleSheet, Dimensions } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    width:'100%',
+    width: '100%',
     padding: 20,
+    
   },
   fullScreenContainer: {
     flex: 1,
-    backgroundColor: '#000', 
+    backgroundColor: '#000',
   },
   headerContainer: {
     marginBottom: 10,
@@ -27,7 +28,7 @@ export default StyleSheet.create({
     marginTop: 5,
     fontFamily: "Poppins-Regular",
     marginBottom: 20,
-    paddingHorizontal:32
+    paddingHorizontal: 32
   },
   mainContent: {
     flex: 1,
@@ -43,7 +44,7 @@ export default StyleSheet.create({
     padding: 20,
   },
   reactiontestArea: {
-    backgroundColor:'#212529',
+    backgroundColor: '#212529',
     borderRadius: 8,
     padding: 20,
   },
@@ -51,33 +52,33 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: '100%',
-},
-noticeBoard: {
-  marginVertical: 20,
-  padding: 20,
-  borderRadius: 5,
-  width: '100%',
-},
-noticeRow: {
-  flexDirection: 'row',
-  alignItems: 'flex-start',
-  gap:10,
-  marginVertical: 5,
-},
-pointBox: {
-  marginRight: 0,
-},
-pointIcon: {
-  width: 20,
-  height: 20,
-},
-pointLine: {
-  fontSize: 14,
-  color: 'white',
-  paddingRight:20,
-  fontFamily:"Poppins-Regular"
-},
-iconCircle: {
+  },
+  noticeBoard: {
+    marginVertical: 20,
+    padding: 20,
+    borderRadius: 5,
+    width: '100%',
+  },
+  noticeRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 10,
+    marginVertical: 5,
+  },
+  pointBox: {
+    marginRight: 0,
+  },
+  pointIcon: {
+    width: 20,
+    height: 20,
+  },
+  pointLine: {
+    fontSize: 14,
+    color: 'white',
+    paddingRight: 20,
+    fontFamily: "Poppins-Regular"
+  },
+  iconCircle: {
     width: 40,
     height: 40,
     borderRadius: 25,
@@ -87,24 +88,24 @@ iconCircle: {
     alignItems: 'center',
     backgroundColor: 'transparent', // Optional: Add a transparent background
     margin: 5,
-},
+  },
   controlBar: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    
+
   },
   imageBackground: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    // minHeight:"100%"
+    minHeight:"100%"
   },
   imageBackgroundfull: {
     flex: 1,
-    padding:20,
+    padding: 20,
     // justifyContent: 'center',
     // alignItems: 'center',
-    minHeight:"100%"
+    minHeight: "100%"
   },
   statsContainer: {
     position: 'absolute',
@@ -128,7 +129,7 @@ iconCircle: {
     width: 220,
     height: 220,
     borderRadius: 200,
-    overflow:'hidden',
+    overflow: 'hidden',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 0,
@@ -139,8 +140,8 @@ iconCircle: {
     color: '#fff',
     fontSize: 18,
     position: 'absolute',
-    width:120,
-    textAlign:"center"
+    width: 120,
+    textAlign: "center"
   },
   statsContainer: {
     flexDirection: 'row',
@@ -170,30 +171,51 @@ iconCircle: {
     paddingVertical: 40,
     paddingHorizontal: 25,
     marginBottom: 10,
-    marginTop: 10
+    marginTop: 10,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   sidebarTitle: {
     fontSize: 24,
     color: '#fff',
     marginHorizontal: 5,
     fontFamily: "Poppins-Regular",
-    marginLeft:30
+    marginLeft: 30
+  },
+  timesidebarTitle: {
+    fontSize: 16,
+    color: '#fff',
+    marginHorizontal: 5,
+    fontFamily: "Poppins-Regular",
+    // marginLeft:30
+  },
+  normalTexttime: {
+    fontSize: 14,
+    color: "#fff",
+    marginBottom: 10,
+    textAlign: "center"
   },
   testList: {
     gap: 20,
+    display: "flex",
+    justifyContent: "center"
   },
   testItem: {
     flexDirection: 'row',
-    alignItems: 'center',
+    // alignItems: 'center',
+    // justifyContent:"center",
     gap: 10,
     backgroundColor: '#64639c',
     padding: 10,
-    borderRadius: 3,
+    borderRadius: 50,
+    minWidth: 200,
+    boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)'
   },
   testItemText: {
     color: '#fff',
     fontSize: 15,
-    fontFamily:"Poppins-Regular"
+    fontFamily: "Poppins-Regular"
   },
   timeListContainer: {
     backgroundColor: '#2a2a5e',
@@ -215,38 +237,38 @@ iconCircle: {
     color: '#fff',
     fontSize: 14,
   },
-  
+
   modalOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     justifyContent: 'center',
     alignItems: 'center',
-    overflow:'hidden',
+    overflow: 'hidden',
     padding: 20,
-    width:'100%',
-    display:'relative'
+    width: '100%',
+    display: 'relative'
   },
 
   modalInnerContainer: {
     borderRadius: 20,
     padding: 20,
     alignItems: 'center',
-    overflow:'hidden',
+    overflow: 'hidden',
   },
 
   modalTopBar: {
     width: '100%',
-    width:'100%'
+    width: '100%'
   },
   closeBtn: {
     alignSelf: "flex-end",
-    position:'absolute',
-    right:-65,
+    position: 'absolute',
+    right: -65,
   },
   closeBtnText: {
     color: '#fff',
     fontWeight: 'normal',
-    marginRight:20
+    marginRight: 20
   },
   ripple: {
     position: 'relative',
@@ -260,7 +282,7 @@ iconCircle: {
     backgroundColor: "#fff",
     borderRadius: 10,
     marginTop: 30,
-    width:200,
+    width: 200,
     padding: 10
   },
   modalTitle: {
@@ -394,22 +416,22 @@ iconCircle: {
     color: '#fff',
     fontSize: 16,
   },
-  startButton:{
-    paddingVertical:5,
-    marginTop:20,
-    paddingHorizontal:20,
-    backgroundColor:"#7655CA",
-    borderRadius:9,
-    maxWidth:150,
-    marginVertical:0,
-    alignSelf:"center"
-    
+  startButton: {
+    paddingVertical: 5,
+    marginTop: 20,
+    paddingHorizontal: 20,
+    backgroundColor: "#7655CA",
+    borderRadius: 9,
+    maxWidth: 150,
+    marginVertical: 0,
+    alignSelf: "center"
+
   },
-  startButtonText:{
-    color:"white",
-    fontFamily:"Poppins-Regular",
-    fontSize:18,
-    textAlign:"center"
+  startButtonText: {
+    color: "white",
+    fontFamily: "Poppins-Regular",
+    fontSize: 18,
+    textAlign: "center"
   },
   row: {
     display: "flex",
@@ -417,7 +439,7 @@ iconCircle: {
     marginBottom: "20px",
   },
   iconContainer: {
-    
+
   },
-  
+
 });
