@@ -16,14 +16,14 @@ import { MusicIcon, SoundIcon, ZoomInIcon, ZoomOutIcon } from '../icons';
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
 export default function CPSTest({ navigation, route }) {
-  const { selectedTime } = route.params; 
+  const { selectedTime } = route.params;
   const [clicks, setClicks] = useState(0);
   const [cps, setCps] = useState(0);
   // const [selectedTime, setSelectedTime] = useState(5);
   const [ripples, setRipples] = useState([]);
   const [isTestRunning, setIsTestRunning] = useState(false);
   const [startTime, setStartTime] = useState(null);
-  const [timePassed, setTimePassed] = useState(0);
+  const [timePassed, setTimePassed] = useState(0.0);
   const [clickSound, setClickSound] = useState();
   const [backgroundMusic, setBackgroundMusic] = useState();
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -32,7 +32,7 @@ export default function CPSTest({ navigation, route }) {
   const [isSoundOn, setIsSoundOn] = useState(true);
   const [isMusicOn, setIsMusicOn] = useState(false);
   const { texts, toggleScroll } = useLanguage();
-
+  const [countdown, setCountdown] = useState(null);
 
   // Get screen dimensions
   const { width: screenWidth } = Dimensions.get('window');
@@ -115,6 +115,24 @@ export default function CPSTest({ navigation, route }) {
   };
 
   const handleClick = (event) => {
+    if (!isTestRunning && countdown === null) {
+      // Start the countdown
+      setCountdown(3);
+      const countdownInterval = setInterval(() => {
+        setCountdown((prevCountdown) => {
+          if (prevCountdown === 1) {
+            clearInterval(countdownInterval);
+            setIsTestRunning(true);
+            setStartTime(Date.now());
+            setTimePassed(0);
+            setCps(0);
+            return null;
+          }
+          return prevCountdown - 1;
+        });
+      }, 1000);
+    }
+    if(countdown === null){
     if (!isTestRunning) {
       setIsTestRunning(true);
       setStartTime(Date.now());
@@ -137,7 +155,7 @@ export default function CPSTest({ navigation, route }) {
       const { locationX, locationY } = event.nativeEvent;
       // setRipples([...ripples, { x: locationX, y: locationY }]);
     }
-  };;
+  }};
 
   const resetTest = () => {
     setIsTestRunning(false);
@@ -184,7 +202,7 @@ export default function CPSTest({ navigation, route }) {
                     {texts?.cpsTest?.tagline}
                   </Text>
                 </View> */}
-                <View style={styles.mainLayout}>
+                <View style={{textAlign : "center", display : "flex", justifyContent : "center", alignItems : "center", flexDirection : "column"}}>
                   {/* <LeftTestListBar navigation={navigation} title={texts?.cpsTest?.leftsidetitle} /> */}
                   <Text style={styles.sidebarTitle}>{selectedTime} {texts?.cpsTest?.selectTimetitle}</Text>
                   <View style={styles.mainContent}>
@@ -198,14 +216,14 @@ export default function CPSTest({ navigation, route }) {
 
                         </View>
                         <Text style={styles.normalTexttime}>{clicks ? clicks : 0} clicks</Text>
-                        <Text style={styles.normalTexttime}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
+                        <Text style={styles.normalTextTime}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
                         <TouchableOpacity
                           style={styles.clickCircle}
                           onPress={handleClick}
                           activeOpacity={0.7}
                         >
                           <Svg width={width} height={height}>
-                            <Circle
+                            {/* <Circle
                               stroke={circleColor}
                               fill="transparent"
                               strokeWidth="15"
@@ -231,16 +249,17 @@ export default function CPSTest({ navigation, route }) {
                                 r={40}
                                 fill="rgba(255, 255, 255, 0.3)"
                               />
-                            ))}
+                            ))} */}
                           </Svg>
                           <Text style={styles.clickText}>
-                            {!isTestRunning ? texts.cpsTest.circletext :
-                              timePassed >= selectedTime ? '' : ''}
+                            {countdown !== null ? countdown :
+                              !isTestRunning ? texts.cpsTest.circletext :
+                                timePassed >= selectedTime ? '' : ''}
                           </Text>
                         </TouchableOpacity>
-                        <Text style={styles.normalTexttime}>{clicks ? clicks : 0} clicks</Text>
+                        {/* <Text style={styles.normalTexttime}>{clicks ? clicks : 0} clicks</Text> */}
                         <Text style={styles.normalTexttime}>{timePassed} seconds</Text>
-                        <View style={{ display: "flex",justifyContent:"center",flexDirection:"row" }}>
+                        <View style={{ display: "flex", justifyContent: "center", flexDirection: "row" }}>
                           <TouchableOpacity
                             style={{ marginRight: 10 }}
                             onPress={() => {

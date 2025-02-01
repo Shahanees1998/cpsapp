@@ -20,14 +20,15 @@ const LeftTestListBar = ({ navigation, title }) => {
       <Text style={styles.sidebarTitle}>{title}</Text>
       <View style={styles.leftSidebar}>
         <View style={styles.testList}>
+
           {tests.map((test, index) => (
             <TouchableOpacity 
               key={index} 
               style={styles.testItem} 
               onPress={() => navigation.navigate(test.route, { testType: test.nextroute })} // Pass the test name as a parameter
             >
-              <View style={{ width: 20, height: 20 }}>
-                {test.route === 'ButterflyTest' ? (
+              <View style={{ width: 20, height: 20, display:'flex', alignItems:'center', justifyContent:'center' }}>
+                {test.nextroute === 'ButterflyTest' ? (
                   <Image source={require('../../assets/butterfly.png')} style={{ width: 20, height: 20 }} />
                 ) : (
                   <test.Icon />

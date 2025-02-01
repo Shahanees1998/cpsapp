@@ -46,16 +46,15 @@ const styles = StyleSheet.create({
 
   },
   heading: {
-    marginBottom: 150,
-    fontSize:30,
-    fontWeight:"700",
+    marginBottom: 100,
+    fontSize:28,
     color:'#b32f60'
     
   },
   startButton: {
     backgroundColor: '#7655CA',
     padding: 15,
-    width: '50%', // Set width to 100%
+    width: '70%', // Set width to 100%
     borderRadius: 50,
     marginBottom: 20,
     elevation: 5,
@@ -64,10 +63,11 @@ const styles = StyleSheet.create({
   closeButton: {
     backgroundColor: '#7655CA',
     padding: 15,
-    width: '50%', // Set width to 100%
+    width: '70%', // Set width to 100%
     borderRadius: 50,
     elevation: 5,
-    boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.9)'
+    marginTop: 20,
+    boxShadow: '0px 0px 20px 0px rgba(0,0,0,0.9)'
   },
   buttonText: {
     color: '#fff',

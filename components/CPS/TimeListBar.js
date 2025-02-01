@@ -7,7 +7,7 @@ const TimeListBar = ({ selectedTime, onTimeSelect }) => {
   const {texts} = useLanguage()
   return (
     <View style={styles.timeListContainer}>
-        <Text style={styles.timesidebarTitle}>Select Your Preferred Time </Text>
+      <Text style={styles.heading}>Select Your Preferred Time</Text>
       {times.map((time) => (
         <TouchableOpacity 
           key={time}

@@ -12,7 +12,6 @@ import Footer from '../Footer';
 import Stats from '../Stats/Stats';
 import { MusicIcon, SoundIcon, ZoomInIcon, ZoomOutIcon } from '../icons';
 import { useLanguage } from '../../src/context/LanguageContext';
-import KohiDetails from './KohiDetail';
 
 
 export default function KohiTest({ navigation }) {
@@ -31,6 +30,7 @@ export default function KohiTest({ navigation }) {
   const [isSoundOn, setIsSoundOn] = useState(true);
   const [isMusicOn, setIsMusicOn] = useState(false);
   const { texts, toggleScroll } = useLanguage();
+  const [countdown, setCountdown] = useState(null);
 
   const { width: screenWidth } = Dimensions.get('window');
   const width = isFullScreen ? screenWidth : 220;
@@ -112,6 +112,23 @@ export default function KohiTest({ navigation }) {
   };
 
   const handleClick = (event) => {
+    if (!isTestRunning && countdown === null) {
+      // Start the countdown
+      setCountdown(3);
+      const countdownInterval = setInterval(() => {
+        setCountdown((prevCountdown) => {
+          if (prevCountdown === 1) {
+            clearInterval(countdownInterval);
+            setIsTestRunning(true);
+            setStartTime(Date.now());
+            setTimePassed(0);
+            setCps(0);
+            return null;
+          }
+          return prevCountdown - 1;
+        });
+      }, 1000);
+    }
     if (!isTestRunning) {
       setIsTestRunning(true);
       setStartTime(Date.now());
@@ -204,7 +221,7 @@ export default function KohiTest({ navigation }) {
                           activeOpacity={0.7}
                         >
                           <Svg width={width} height={height}>
-                            <Circle
+                            {/* <Circle
                               stroke={circleColor}
                               fill="transparent"
                               strokeWidth="15"
@@ -237,11 +254,12 @@ export default function KohiTest({ navigation }) {
                                   ...styles.ripple, transformOrigin: `${ripple.x}px ${ripple.y}px`,
                                 }}
                               />
-                            ))}
+                            ))} */}
                           </Svg>
                           <Text style={styles.clickText}>
-                            {!isTestRunning ? texts.cpsTest.circletext :
-                              timePassed >= selectedTime ? '' : ''}
+                          {countdown !== null ? countdown :
+                              !isTestRunning ? texts.cpsTest.circletext :
+                                timePassed >= selectedTime ? '' : ''}
                           </Text>
                         </TouchableOpacity>
                         <View style={{ display: "flex",marginTop:10,marginBottom:10, flexDirection: "row",justifyContent:"center" }}>

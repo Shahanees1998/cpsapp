@@ -32,14 +32,15 @@ export default StyleSheet.create({
   },
   mainContent: {
     flex: 1,
-    flexDirection: "column"
+    flexDirection: "column",
+    marginTop: 50
   },
   centerContent: {
     flex: 1,
     marginTop: 0
   },
   testArea: {
-    backgroundColor: '#2a2a5e',
+    // backgroundColor: '#2a2a5e',
     borderRadius: 8,
     padding: 20,
   },
@@ -126,19 +127,26 @@ export default StyleSheet.create({
     gap: 10,
   },
   clickCircle: {
-    width: 220,
-    height: 220,
+    width: 180,
+    height: 180,
     borderRadius: 200,
-    overflow: 'hidden',
+    overflow: 'hidden', 
+    background: 'linear-gradient(145deg, #2a2a5e, #3a3a7e)', /* Gradient background */
+    boxShadow: 
+      '8px 8px 16px #1f1f4a, 0px 0px 16px #4a4a92, inset 4px 4px 8px rgba(0, 0, 0, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.1)',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 0,
     alignSelf: 'center',
+    marginTop: 40,
+    marginBottom: 40,
+    backgroundColor: '#2a2a5e',
+
     // backgroundColor: '#3a3a7e',
   },
   clickText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 20,
     position: 'absolute',
     width: 120,
     textAlign: "center"
@@ -166,7 +174,7 @@ export default StyleSheet.create({
   },
   leftSidebar: {
     width: '100%',
-    backgroundColor: '#2a2a5e',
+    // backgroundColor: '#2a2a5e',
     borderRadius: 8,
     paddingVertical: 40,
     paddingHorizontal: 25,
@@ -181,7 +189,6 @@ export default StyleSheet.create({
     color: '#fff',
     marginHorizontal: 5,
     fontFamily: "Poppins-Regular",
-    marginLeft: 30
   },
   timesidebarTitle: {
     fontSize: 16,
@@ -190,26 +197,50 @@ export default StyleSheet.create({
     fontFamily: "Poppins-Regular",
     // marginLeft:30
   },
+  heading: {
+    fontSize: 22,
+    color: '#b32f60',
+    marginBottom: 50
+  },
   normalTexttime: {
-    fontSize: 14,
+    fontSize: 21,
     color: "#fff",
-    marginBottom: 10,
-    textAlign: "center"
+    marginBottom: 20,
+    marginTop: 20,
+    textAlign: "center",
+    fontWeight : "bold"
+  },
+  normalTextTime: {
+    fontSize: 25,
+    color: "#fff",
+    marginBottom: 20,
+    marginTop: 20,
+    textAlign: "center",
+    fontWeight : "bold"
   },
   testList: {
     gap: 20,
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
+    width: '100%',
+    marginTop: -20
   },
   testItem: {
     flexDirection: 'row',
     // alignItems: 'center',
     // justifyContent:"center",
     gap: 10,
-    backgroundColor: '#64639c',
+    // backgroundColor: '#64639c',
+    backgroundColor: '#7655CA',
     padding: 10,
     borderRadius: 50,
+    textAlign: "center",
+    alignItems:'center',
+    justifyContent:'center',
+    marginBottom: 10,
     minWidth: 200,
+    padding: 15,
+    width: '100%',
     boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)'
   },
   testItemText: {
@@ -218,24 +249,43 @@ export default StyleSheet.create({
     fontFamily: "Poppins-Regular"
   },
   timeListContainer: {
-    backgroundColor: '#2a2a5e',
+    // backgroundColor: '#2a2a5e',
     borderRadius: 8,
     padding: 20,
     gap: 10,
   },
+  // timeButton: {
+  //   backgroundColor: '#434f65',
+  //   paddingVertical: 12,
+  //   paddingHorizontal: 20,
+  //   borderRadius: 2,
+  //   alignItems: 'center',
+  // },
+
   timeButton: {
-    backgroundColor: '#434f65',
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 2,
-    alignItems: 'center',
+    flexDirection: 'row',
+    // alignItems: 'center',
+    // justifyContent:"center",
+    gap: 10,
+    // backgroundColor: '#64639c',
+    backgroundColor: '#7655CA',
+    padding: 10,
+    borderRadius: 50,
+    textAlign: "center",
+    alignItems:'center',
+    justifyContent:'center',
+    marginBottom: 15,
+    minWidth: 200,
+    padding: 20,
+    boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)'
   },
   activeTimeButton: {
-    backgroundColor: '#7455CA',
+    // backgroundColor: '#7455CA',
+    backgroundColor: '#b32f60',
   },
   timeButtonText: {
     color: '#fff',
-    fontSize: 14,
+    fontSize: 16,
   },
 
   modalOverlay: {

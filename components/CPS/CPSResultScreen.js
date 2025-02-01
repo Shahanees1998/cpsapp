@@ -26,9 +26,6 @@ const CPSResultScreen = ({ navigation, route }) => {
         <TouchableOpacity style={styles.tryAgainButton} onPress={handleTryAgain}>
           <Text style={styles.tryAgainText}>{texts?.cpsTest?.tryagain}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.tryAgainButton} onPress={()=>navigation.navigate('Home')}>
-          <Text style={styles.tryAgainText}>Title</Text>
-        </TouchableOpacity>
       </View>
     </ImageBackground>
   );
@@ -46,24 +43,28 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
+    fontWeight: 'bold',
     marginBottom: 20,
     color: '#fff',
   },
   resultText: {
-    fontSize: 18,
+    fontSize: 22,
     color: '#fff',
+    marginTop: 20,
+    marginBottom: 20,
   },
   statText: {
-    fontSize: 16,
+    fontSize: 22,
+    marginBottom: 20,
     color: '#fff',
   },
   tryAgainButton: {
     backgroundColor: '#7655CA',
-    padding: 15,
+    padding: 10,
     borderRadius: 40,
+    minWidth:'50%',
     marginTop: 20,
-    minWidth:'80%'
   },
   tryAgainText: {
     color: '#fff',

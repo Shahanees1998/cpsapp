@@ -40,28 +40,18 @@ const LeftTestScreen = ({ navigation }) => {
       source={require('../assets/background-image.png')} // Replace with your background image path
       style={styles.background}
     >
-      <TouchableOpacity onPress={toggleLanguage} style={styles.menuItem}>
-        <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: "center" }}>
-          <TouchableOpacity style={styles.logoContainer}>
-            <Image
-              source={require('../assets/Logo.png')}
-              style={styles.logo}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
-        </View>
-      </TouchableOpacity>
       <Text style={styles.heading}>Which test will you take?</Text>
       <LeftTestListBar navigation={navigation} title={texts?.testName?.selectTest} /> {/* Pass navigation to LeftTestListBar */}
     </ImageBackground>
   );
 };
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   background: {
     flex: 1,
     padding: 20,
     justifyContent: 'center',
+    alignItems: 'center',
   },
   logoContainer: {
     height: 60,
