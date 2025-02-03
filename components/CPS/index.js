@@ -215,8 +215,9 @@ export default function CPSTest({ navigation, route }) {
                           </TouchableOpacity> */}
 
                         </View>
-                        <Text style={styles.normalTexttime}>{clicks ? clicks : 0} clicks</Text>
-                        <Text style={styles.normalTextTime}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
+                        <Text style={styles.normalTexttime}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
+                        <Text style={styles.normalTextTime}>{clicks ? clicks : 0} clicks</Text>
+                       
                         <TouchableOpacity
                           style={styles.clickCircle}
                           onPress={handleClick}

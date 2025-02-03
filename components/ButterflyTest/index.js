@@ -203,8 +203,8 @@ export default function KohiTest({ navigation }) {
                     <View style={styles.centerContent}>
                       <View style={styles.testArea}>
                       <Text style={styles.normalTexttime}>{clicks ? clicks : 0} clicks</Text>
-                      <Text style={styles.normalTexttime}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} KTS</Text>
-                      
+                      <Text style={styles.normalTextTime}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} BTS</Text>
+                     
 
                         <TouchableOpacity
                           style={styles.clickCircle}
@@ -267,7 +267,7 @@ export default function KohiTest({ navigation }) {
                               <SoundIcon isEnabled={isSoundOn} />
                             </TouchableOpacity>
                           </View>
-                          <Text style={styles.normalTexttime}>{clicks ? clicks : 0} clicks</Text>
+                          {/* <Text style={styles.normalTexttime}>{clicks ? clicks : 0} clicks</Text> */}
                           <Text style={styles.normalTexttime}>{timePassed} seconds</Text>
                         {/* </View> */}
                       </View>

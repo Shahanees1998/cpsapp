@@ -196,7 +196,7 @@ export default function ReactionTest({ navigation }) {
             </View> */}
             {!isStartGame ? <View
               style={{
-                backgroundColor: 'rgba(3,109,248,.234)',
+                // backgroundColor: 'rgba(3,109,248,.234)',
                 borderRadius: 8,
                 padding: 5,
                 marginBottom: 150,
@@ -268,15 +268,18 @@ export default function ReactionTest({ navigation }) {
 
             </View> :
               isTestRunning ?
-                <View style={{ backgroundColor: 'rgba(3,109,248,.234)', borderRadius: 20 }}>
+                <View style={{ 
+               marginTop:80,
+                  // backgroundColor: 'rgba(3,109,248,.234)', 
+                  borderRadius: 20 }}>
                   {
                     showModal ? <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingVertical: 20 }}>
                       <Image
                         source={require('../../assets/reaction-time.png')}
                         style={styles.animationImage}
                       />
-                      <Text style={{ color: 'black', fontSize: 40 }}>{reactionTime} MS</Text>
-                      <Text style={{ color: 'black', fontSize: 20 }}>{texts?.ReactionTest?.averageReactionTime}</Text>
+                      <Text style={{ color: 'white', fontSize: 40 }}>{reactionTime} MS</Text>
+                      <Text style={{ color: 'white', fontSize: 20 }}>{texts?.ReactionTest?.averageReactionTime}</Text>
                       <TouchableOpacity onPress={() => { setShowModal(false); resetTest() }}>
                         <Text style={{ color: 'white', backgroundColor: '#7655ca', paddingInline: 40, paddingVertical: 10, borderRadius: 10, marginTop: 20 }}>{texts?.ReactionTest?.tryAgain}</Text>
                       </TouchableOpacity>
@@ -363,11 +366,11 @@ export default function ReactionTest({ navigation }) {
                   <Text style={{ color: 'black', fontSize: 30, paddingVertical: 10 }}>{calculateAverageTime()} MS</Text>
                   <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'between', flexWrap: 'wrap' }}>
                     {colorChangeTimes.map((time, index) => (
-                      <Text key={index} style={{ color: time?.code, paddingLeft: 2, paddingRight: 2, fontSize: 10 }}>{time.time} MS</Text>
+                      <Text key={index} style={{ color: time?.code, paddingLeft: 2, paddingRight: 2, fontSize: 10,color:"#fff" }}>{time.time} MS</Text>
                     ))}
                   </View>
                   <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
-                    <TouchableOpacity onPress={() => tryAgain()}><Text style={{ marginRight: 10, color: 'white', backgroundColor: '#7655ca', paddingInline: 30, paddingVertical: 10, borderRadius: 10, marginTop: 20 }}>Try Again</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={() => tryAgain()}><Text style={{ marginRight: 10, color: 'white', backgroundColor: '#7655ca', paddingInline: 30, paddingVertical: 10, borderRadius: 30, marginTop: 20 }}>Try Again</Text></TouchableOpacity>
                     <TouchableOpacity onPress={() => { setIsStartGame(false) }}><Text style={{ marginLeft: 10, color: 'white', backgroundColor: '#7655ca', paddingInline: 30, paddingVertical: 10, borderRadius: 10, marginTop: 20 }}>Close</Text></TouchableOpacity>
                   </View>
                 </View>

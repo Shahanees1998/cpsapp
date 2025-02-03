@@ -245,7 +245,7 @@ export default function AimTrainerTest({ navigation }) {
                 </View>
               </View>
             ) : (
-              <View style={styles.configurationContainer}>
+              <View >
                 <Text style={styles.dropdownLabel}>{texts?.locales?.level}</Text>
                 <View style={styles.pickerContainer}>
                   <Picker
@@ -421,7 +421,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   testArea: {
-    backgroundColor: '#2a2a5e',
+    // backgroundColor: '#2a2a5e',
     borderRadius: 8,
     padding: 20,
   },
@@ -451,11 +451,12 @@ const styles = StyleSheet.create({
   },
   dropdownLabel: {
     color: '#fff',
+    fontSize:18,
     marginBottom: 15,
     marginTop: 10
   },
   pickerContainer: {
-    borderRadius: 10,
+    borderRadius: 50,
     backgroundColor: "#fff",
     marginBottom: 10,
 
@@ -469,9 +470,9 @@ const styles = StyleSheet.create({
 
   },
   startButton: {
-    backgroundColor: '#7655ca',
+    backgroundColor: '#7455CA',
     padding: 15,
-    borderRadius: 8,
+    borderRadius: 30,
     alignItems: 'center',
   },
   startButtonText: {

@@ -360,8 +360,8 @@ export default StyleSheet.create({
     // Styles for large display
   },
   animationImage: {
-    width: 120,
-    height: 140,
+    width: 50,
+    height: 50,
   },
   resultContentContainer: {
     alignItems: 'center',
@@ -471,7 +471,7 @@ export default StyleSheet.create({
     marginTop: 20,
     paddingHorizontal: 20,
     backgroundColor: "#7655CA",
-    borderRadius: 9,
+    borderRadius: 20,
     maxWidth: 150,
     marginVertical: 0,
     alignSelf: "center"

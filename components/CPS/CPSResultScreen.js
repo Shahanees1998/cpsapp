@@ -17,15 +17,19 @@ const CPSResultScreen = ({ navigation, route }) => {
     >
       <View style={styles.container}>
         <Text style={styles.title}>Results</Text>
+        <View style={{display:"flex",marginTop:150}}>
+
+    
         <Text style={styles.resultText}>Tap for {selectedTime} seconds</Text>
-        <Text style={styles.statText}>Count: {isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
-        <Text style={styles.statText}>{clicks} {texts?.cpsTest?.clicksin} {selectedTime} {texts?.cpsTest?.seconds}</Text>
+        <Text style={styles.statText}>Count:       {clicks} </Text>
+        <Text style={styles.statText}>Speed:        {isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} time/sec</Text>
         <TouchableOpacity style={styles.tryAgainButton} onPress={handleTryAgain}>
           <Text style={styles.tryAgainText}>Share</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.tryAgainButton} onPress={handleTryAgain}>
           <Text style={styles.tryAgainText}>{texts?.cpsTest?.tryagain}</Text>
         </TouchableOpacity>
+        </View>
       </View>
     </ImageBackground>
   );
@@ -34,8 +38,8 @@ const CPSResultScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
   container: {
     alignItems: 'center',
@@ -43,28 +47,34 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: 'bold',
     marginBottom: 20,
     color: '#fff',
+    marginTop:30
   },
   resultText: {
-    fontSize: 22,
+    fontSize: 28,
     color: '#fff',
     marginTop: 20,
     marginBottom: 20,
   },
   statText: {
-    fontSize: 22,
+    fontSize: 28,
     marginBottom: 20,
     color: '#fff',
   },
   tryAgainButton: {
     backgroundColor: '#7655CA',
     padding: 10,
-    borderRadius: 40,
-    minWidth:'50%',
-    marginTop: 20,
+    borderRadius: 50,
+    textAlign: "center",
+    alignItems:'center',
+    justifyContent:'center',
+    marginBottom: 15,
+    minWidth: 200,
+    padding: 20,
+    boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)'
   },
   tryAgainText: {
     color: '#fff',
