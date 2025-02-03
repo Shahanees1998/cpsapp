@@ -75,7 +75,6 @@ export default function KohiTest({ navigation }) {
             setIsTestRunning(false);
             clearInterval(interval);
             backgroundMusic?.stopAsync();
-            navigation.navigate('CPSResultScreen', { clicks, selectedTime, cps: clicks / selectedTime });
             // setIsModalVisible(true); // Show modal when test completes
             return selectedTime;
           }
@@ -106,6 +105,17 @@ export default function KohiTest({ navigation }) {
     }, 500);
   };
 
+  const navigate = () => {
+    navigation.navigate('CPSResultScreen', { clicks, selectedTime, cps: clicks / selectedTime });
+  };
+  
+  // Add this useEffect to call navigate when the test ends
+  useEffect(() => {
+    if (!isTestRunning && timePassed > 0) {
+      navigate();
+    }
+  }, [isTestRunning, timePassed]);
+
   const handleClick = (event) => {
     if (!isTestRunning && countdown === null) {
       // Start the countdown
@@ -123,31 +133,33 @@ export default function KohiTest({ navigation }) {
           return prevCountdown - 1;
         });
       }, 1000);
-    }
-    if (!isTestRunning) {
       setIsTestRunning(true);
       setStartTime(Date.now());
       setTimePassed(0);
       setCps(0);
     }
-    handleRipple(event);
+    if (isTestRunning && countdown === null) {
+      handleRipple(event);
 
-    if (isTestRunning && timePassed < selectedTime) {
-      const currentTime = Date.now();
-      const elapsedTime = (currentTime - startTime) / 1000;
+      if (isTestRunning && timePassed < selectedTime) {
+        playSound();
+        const currentTime = Date.now();
+        const elapsedTime = (currentTime - startTime) / 1000;
 
-      setClicks((prevClicks) => {
-        const newClicks = prevClicks + 1;
-        setCps(newClicks / elapsedTime);
-        return newClicks;
-      });
+        setClicks((prevClicks) => {
+          const newClicks = prevClicks + 1;
+          setCps(newClicks / elapsedTime);
+          return newClicks;
+        });
 
-      playSound();
 
-      const { locationX, locationY } = event.nativeEvent;
-      // setRipples([...ripples, { x: locationX, y: locationY }]);
+        const { locationX, locationY } = event.nativeEvent;
+        // console.log('locationX', locationX, 'locationY', locationY);
+        // setRipples([...ripples, { x: locationX, y: locationY }]);
+      }
     }
-  };;
+  };
+
 
   const resetTest = () => {
     setIsTestRunning(false);
@@ -196,15 +208,16 @@ export default function KohiTest({ navigation }) {
                     {texts?.ButterflyTest?.tagline}
                   </Text>
                 </View> */}
-                <View style={styles.mainLayout}>
-                  {/* <LeftTestListBar navigation={navigation} title={texts?.ButterflyTest?.leftsidetitle} /> */}
+                <View style={{display:'flex', alignItems:'center', justifyContent:'center', flexDirection:'column', marginTop:15}}>
+                {/* <LeftTestListBar navigation={navigation} title={texts?.ButterflyTest?.leftsidetitle} /> */}
                   <Text style={styles.sidebarTitle}>{selectedTime}{texts?.ButterflyTest?.selectTimetitle}</Text>
                   <View style={styles.mainContent}>
                     <View style={styles.centerContent}>
                       <View style={styles.testArea}>
-                      <Text style={styles.normalTexttime}>{clicks ? clicks : 0} clicks</Text>
-                      <Text style={styles.normalTextTime}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} BTS</Text>
+                      <Text style={styles.normalTexttime}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} time/sec</Text>
+                      <Text style={styles.normalTextTime}>{clicks ? clicks : 0} clicks</Text>
                      
+
 
                         <TouchableOpacity
                           style={styles.clickCircle}
@@ -240,12 +253,14 @@ export default function KohiTest({ navigation }) {
                               />
                             ))} */}
                           </Svg>
-                          <Text style={styles.clickText}>
-                          {countdown !== null ? countdown :
+                          <Text style={[styles.clickText, countdown !== null && { fontSize: 50 }]}>
+                            {countdown !== null ? countdown :
                               !isTestRunning ? texts.cpsTest.circletext :
                                 timePassed >= selectedTime ? '' : ''}
                           </Text>
                         </TouchableOpacity>
+                        <Text style={styles.normalTexttime}>{timePassed} seconds</Text>
+
                         {/* <View style={styles.controlBar}> */}
                           {/* <TouchableOpacity onPress={toggleFullScreen}>
                           {isFullScreen ? <ZoomOutIcon /> : <ZoomInIcon />}
@@ -268,7 +283,6 @@ export default function KohiTest({ navigation }) {
                             </TouchableOpacity>
                           </View>
                           {/* <Text style={styles.normalTexttime}>{clicks ? clicks : 0} clicks</Text> */}
-                          <Text style={styles.normalTexttime}>{timePassed} seconds</Text>
                         {/* </View> */}
                       </View>
 

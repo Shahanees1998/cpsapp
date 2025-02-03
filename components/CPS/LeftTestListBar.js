@@ -16,7 +16,7 @@ const LeftTestListBar = ({ navigation, title }) => {
   ];
 
   return (
-    <View>
+    <View style={{width:'100%'}}>
       <Text style={styles.sidebarTitle}>{title}</Text>
       <View style={styles.leftSidebar}>
         <View style={styles.testList}>
@@ -25,7 +25,7 @@ const LeftTestListBar = ({ navigation, title }) => {
             <TouchableOpacity 
               key={index} 
               style={styles.testItem} 
-              onPress={() => navigation.navigate(test.route, { testType: test.nextroute })} // Pass the test name as a parameter
+              onPress={() => navigation.navigate((test.nextroute !== 'AimTrainerTest' && test.nextroute !== 'ReactionTest') ? test.route : test.nextroute, { testType: test.nextroute })} // Pass the test name as a parameter
             >
               <View style={{ width: 20, height: 20, display:'flex', alignItems:'center', justifyContent:'center' }}>
                 {test.nextroute === 'ButterflyTest' ? (

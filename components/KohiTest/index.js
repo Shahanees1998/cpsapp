@@ -70,6 +70,7 @@ export default function KohiTest({ navigation }) {
     }
   }, [isTestRunning, isMusicOn]);
 
+
   useEffect(() => {
     let interval;
     if (isTestRunning) {
@@ -77,9 +78,9 @@ export default function KohiTest({ navigation }) {
         setTimePassed((prev) => {
           if (prev >= selectedTime - 1) {
             setIsTestRunning(false);
+            setCountdown(null)
             clearInterval(interval);
             backgroundMusic?.stopAsync();
-            navigation.navigate('CPSResultScreen', { clicks, selectedTime, cps: clicks / selectedTime });
             // setIsModalVisible(true); // Show modal when test completes
             return selectedTime;
           }
@@ -111,6 +112,17 @@ export default function KohiTest({ navigation }) {
 
   };
 
+  const navigate = () => {
+    navigation.navigate('CPSResultScreen', { clicks, selectedTime, cps: clicks / selectedTime });
+  };
+  
+  // Add this useEffect to call navigate when the test ends
+  useEffect(() => {
+    if (!isTestRunning && timePassed > 0) {
+      navigate();
+    }
+  }, [isTestRunning, timePassed]);
+
   const handleClick = (event) => {
     if (!isTestRunning && countdown === null) {
       // Start the countdown
@@ -128,35 +140,36 @@ export default function KohiTest({ navigation }) {
           return prevCountdown - 1;
         });
       }, 1000);
-    }
-    if (!isTestRunning) {
       setIsTestRunning(true);
       setStartTime(Date.now());
       setTimePassed(0);
       setCps(0);
     }
-    handleRipple(event);
+    if (isTestRunning && countdown === null) {
+      handleRipple(event);
 
-    if (isTestRunning && timePassed < selectedTime) {
-      playSound();
-      const currentTime = Date.now();
-      const elapsedTime = (currentTime - startTime) / 1000;
+      if (isTestRunning && timePassed < selectedTime) {
+        playSound();
+        const currentTime = Date.now();
+        const elapsedTime = (currentTime - startTime) / 1000;
 
-      setClicks((prevClicks) => {
-        const newClicks = prevClicks + 1;
-        setCps(newClicks / elapsedTime);
-        return newClicks;
-      });
+        setClicks((prevClicks) => {
+          const newClicks = prevClicks + 1;
+          setCps(newClicks / elapsedTime);
+          return newClicks;
+        });
 
 
-      const { locationX, locationY } = event.nativeEvent;
-      // console.log('locationX', locationX, 'locationY', locationY);
-      // setRipples([...ripples, { x: locationX, y: locationY }]);
+        const { locationX, locationY } = event.nativeEvent;
+        // console.log('locationX', locationX, 'locationY', locationY);
+        // setRipples([...ripples, { x: locationX, y: locationY }]);
+      }
     }
   };
 
   const resetTest = () => {
     setIsTestRunning(false);
+    setCountdown(null);
     setClicks(0);
     setCps(0);
     setTimePassed(0);
@@ -199,21 +212,21 @@ export default function KohiTest({ navigation }) {
                     {texts?.KohiTest?.tagline}
                   </Text>
                 </View> */}
-                <View style={styles.mainLayout}>
+                <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', marginTop: 15 }}>
                   {/* <LeftTestListBar navigation={navigation} title={texts?.KohiTest?.leftsidetitle} /> */}
                   <Text style={styles.sidebarTitle}>{selectedTime}{texts?.KohiTest?.selectTimetitle}</Text>
                   <View style={styles.mainContent}>
                     <View style={styles.centerContent}>
                       <View style={styles.testArea}>
-                      <Text style={styles.normalTexttime}>{clicks ? clicks : 0} clicks</Text>
-                      <Text style={styles.normalTextTime}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} KTS</Text>
-                     
+                        <Text style={styles.normalTexttime}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} time/sec</Text>
+                        <Text style={styles.normalTextTime}>{clicks ? clicks : 0} clicks</Text>
+
                         <View style={styles.controlBar}>
-                          
+
                           {/* <TouchableOpacity onPress={toggleFullScreen}>
                             {isFullScreen ? <ZoomOutIcon /> : <ZoomInIcon />}
                           </TouchableOpacity> */}
-                        
+
                         </View>
 
                         <TouchableOpacity
@@ -257,31 +270,31 @@ export default function KohiTest({ navigation }) {
                               />
                             ))} */}
                           </Svg>
-                          <Text style={styles.clickText}>
-                          {countdown !== null ? countdown :
+                          <Text style={[styles.clickText, countdown !== null && { fontSize: 50 }]}>
+                            {countdown !== null ? countdown :
                               !isTestRunning ? texts.cpsTest.circletext :
                                 timePassed >= selectedTime ? '' : ''}
                           </Text>
                         </TouchableOpacity>
-                        <View style={{ display: "flex",marginTop:10,marginBottom:10, flexDirection: "row",justifyContent:"center" }}>
-                            <TouchableOpacity
-                              style={{ marginRight: 10 }}
-                              onPress={() => {
-                                setIsMusicOn(!isMusicOn);
+                        <Text style={styles.normalTexttime}>{timePassed} seconds</Text>
+                        <View style={{ display: "flex", marginTop: 10, marginBottom: 10, flexDirection: "row", justifyContent: "center" }}>
+                          <TouchableOpacity
+                            style={{ marginRight: 10 }}
+                            onPress={() => {
+                              setIsMusicOn(!isMusicOn);
 
-                              }}
-                            >
-                              {isMusicOn ?
-                                <View style={{ width: 28, height: 28, display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 100, backgroundColor: '#7455CA' }}>
-                                  <Image source={require('../../assets/music-on.png')} style={{ width: 15, height: 15 }} /> </View> : <MusicIcon isEnabled={isMusicOn} />
-                              }
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={toggleSound}>
-                              <SoundIcon isEnabled={isSoundOn} />
-                            </TouchableOpacity>
-                          </View>
-                          <Text style={styles.normalTexttime}>{clicks ? clicks : 0} clicks</Text>
-                          <Text style={styles.normalTexttime}>{timePassed} seconds</Text>
+                            }}
+                          >
+                            {isMusicOn ?
+                              <View style={{ width: 28, height: 28, display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 100, backgroundColor: '#7455CA' }}>
+                                <Image source={require('../../assets/music-on.png')} style={{ width: 15, height: 15 }} /> </View> : <MusicIcon isEnabled={isMusicOn} />
+                            }
+                          </TouchableOpacity>
+                          <TouchableOpacity onPress={toggleSound}>
+                            <SoundIcon isEnabled={isSoundOn} />
+                          </TouchableOpacity>
+                        </View>
+
                       </View>
 
                       {/* <View style={{ marginTop: 20 }}>
@@ -371,7 +384,7 @@ export default function KohiTest({ navigation }) {
           source={require('../../assets/background-image.png')}
           style={styles.imageBackgroundfull}
         >
-       
+
           <View style={styles.controlBar}>
             <View></View>
             {/* <TouchableOpacity onPress={() => setIsFullScreen(false)}>

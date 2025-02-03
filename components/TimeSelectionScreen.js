@@ -10,6 +10,7 @@ const TimeSelectionScreen = ({ navigation, route }) => {
 
   const handleTimeSelect = (time) => {
     setSelectedTime(time); // Set the selected time
+    navigation.navigate(testType, { selectedTime });
   };
 
   const handleStartTest = () => {
@@ -28,9 +29,9 @@ const TimeSelectionScreen = ({ navigation, route }) => {
       <View style={styles.container}>
         <Text style={styles.title}>{texts?.cpsTest?.selectTimeTitle}</Text>
         <TimeListBar selectedTime={selectedTime} onTimeSelect={handleTimeSelect} /> {/* Display TimeListBar */}
-        <TouchableOpacity style={styles.startButton} onPress={handleStartTest}>
+        {/* <TouchableOpacity style={styles.startButton} onPress={handleStartTest}>
           <Text style={styles.buttonText}>Start Test</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </ImageBackground>
   );

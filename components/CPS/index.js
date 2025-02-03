@@ -1,29 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, Modal, Image, Dimensions } from 'react-native';
 import { Svg, Defs, ClipPath, G, Circle } from 'react-native-svg';
-import { MaterialIcons } from '@expo/vector-icons';
 import { Audio } from 'expo-av';
-import LeftTestListBar from './LeftTestListBar';
-import TimeListBar from './TimeListBar';
-import styles from './Styles';
+import styles from '../CPS/Styles';
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import Navbar from "../Navbar";
-import CPSDetail from './CPSDetail';
-import Footer from '../Footer';
 import Stats from '../Stats/Stats';
-
 import { MusicIcon, SoundIcon, ZoomInIcon, ZoomOutIcon } from '../icons';
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 
-export default function CPSTest({ navigation, route }) {
-  const { selectedTime } = route.params;
+export default function CpsTest({ navigation }) {
   const [clicks, setClicks] = useState(0);
   const [cps, setCps] = useState(0);
-  // const [selectedTime, setSelectedTime] = useState(5);
+  const [selectedTime, setSelectedTime] = useState(5);
   const [ripples, setRipples] = useState([]);
   const [isTestRunning, setIsTestRunning] = useState(false);
   const [startTime, setStartTime] = useState(null);
-  const [timePassed, setTimePassed] = useState(0.0);
+
+  const [timePassed, setTimePassed] = useState(0);
   const [clickSound, setClickSound] = useState();
   const [backgroundMusic, setBackgroundMusic] = useState();
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -34,14 +27,18 @@ export default function CPSTest({ navigation, route }) {
   const { texts, toggleScroll } = useLanguage();
   const [countdown, setCountdown] = useState(null);
 
-  // Get screen dimensions
   const { width: screenWidth } = Dimensions.get('window');
   const width = isFullScreen ? screenWidth : 220;
   const height = isFullScreen ? screenWidth : 220;
   const r = isFullScreen ? screenWidth / 2 - 15 : 90;
   const cx = width / 2;
-  const cy = height / 2 + (isFullScreen ? 20 : 0); // Add margin when in full screen
+  const cy = height / 2 + (isFullScreen ? 20 : 0);
   const circumference = 2 * Math.PI * r;
+
+ useEffect(() => {
+  resetTest()
+ }, [])
+
 
   useEffect(() => {
     async function loadSounds() {
@@ -83,7 +80,6 @@ export default function CPSTest({ navigation, route }) {
             setIsTestRunning(false);
             clearInterval(interval);
             backgroundMusic?.stopAsync();
-            navigation.navigate('CPSResultScreen', { clicks, selectedTime, cps: clicks / selectedTime });
             // setIsModalVisible(true); // Show modal when test completes
             return selectedTime;
           }
@@ -114,6 +110,17 @@ export default function CPSTest({ navigation, route }) {
     }, 500);
   };
 
+  const navigate = () => {
+    navigation.navigate('CPSResultScreen', { clicks, selectedTime, cps: clicks / selectedTime });
+  };
+  
+  // Add this useEffect to call navigate when the test ends
+  useEffect(() => {
+    if (!isTestRunning && timePassed > 0) {
+      navigate();
+    }
+  }, [isTestRunning, timePassed]);
+
   const handleClick = (event) => {
     if (!isTestRunning && countdown === null) {
       // Start the countdown
@@ -131,31 +138,33 @@ export default function CPSTest({ navigation, route }) {
           return prevCountdown - 1;
         });
       }, 1000);
-    }
-    if(countdown === null){
-    if (!isTestRunning) {
       setIsTestRunning(true);
       setStartTime(Date.now());
       setTimePassed(0);
       setCps(0);
     }
-    handleRipple(event);
-    if (isTestRunning && timePassed < selectedTime) {
-      const currentTime = Date.now();
-      const elapsedTime = (currentTime - startTime) / 1000;
+    if (isTestRunning && countdown === null) {
+      handleRipple(event);
 
-      setClicks((prevClicks) => {
-        const newClicks = prevClicks + 1;
-        setCps(newClicks / elapsedTime);
-        return newClicks;
-      });
+      if (isTestRunning && timePassed < selectedTime) {
+        playSound();
+        const currentTime = Date.now();
+        const elapsedTime = (currentTime - startTime) / 1000;
 
-      playSound();
+        setClicks((prevClicks) => {
+          const newClicks = prevClicks + 1;
+          setCps(newClicks / elapsedTime);
+          return newClicks;
+        });
 
-      const { locationX, locationY } = event.nativeEvent;
-      // setRipples([...ripples, { x: locationX, y: locationY }]);
+
+        const { locationX, locationY } = event.nativeEvent;
+        // console.log('locationX', locationX, 'locationY', locationY);
+        // setRipples([...ripples, { x: locationX, y: locationY }]);
+      }
     }
-  }};
+  };
+
 
   const resetTest = () => {
     setIsTestRunning(false);
@@ -164,7 +173,7 @@ export default function CPSTest({ navigation, route }) {
     setTimePassed(0);
     setStartTime(null);
     setRipples([]);
-    setIsModalVisible(false);
+    // setIsModalVisible(false);
     setCircleColor('#7455CA'); // Reset circle color
   };
 
@@ -183,8 +192,9 @@ export default function CPSTest({ navigation, route }) {
     setIsMusicOn(!isMusicOn);
   };
 
+
   return (
-    <ScrollView onScroll={() => toggleScroll && toggleScroll()}>
+    <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
 
       {!isFullScreen ? (
         <>
@@ -195,29 +205,24 @@ export default function CPSTest({ navigation, route }) {
             <View style={styles.container}>
               {/* <Navbar onToggle={toggleFullScreen} navigation={navigation} /> */}
               <TouchableWithoutFeedback onPress={() => toggleScroll()}>
-                <Text>Test Speed Test Game</Text>
+
                 {/* <View style={styles.headerContainer}>
-                  <Text style={styles.headerTitle}>{texts?.cpsTest?.title}</Text>
+                  <Text style={styles.headerTitle}>{texts.ButterflyTest.title}</Text>
                   <Text style={styles.tagline}>
-                    {texts?.cpsTest?.tagline}
+                    {texts?.ButterflyTest?.tagline}
                   </Text>
                 </View> */}
-                <View style={{textAlign : "center", display : "flex", justifyContent : "center", alignItems : "center", flexDirection : "column"}}>
-                  {/* <LeftTestListBar navigation={navigation} title={texts?.cpsTest?.leftsidetitle} /> */}
+                <View style={{display:'flex', alignItems:'center', justifyContent:'center', flexDirection:'column', marginTop:15}}>
+                {/* <LeftTestListBar navigation={navigation} title={texts?.ButterflyTest?.leftsidetitle} /> */}
                   <Text style={styles.sidebarTitle}>{selectedTime} {texts?.cpsTest?.selectTimetitle}</Text>
                   <View style={styles.mainContent}>
                     <View style={styles.centerContent}>
                       <View style={styles.testArea}>
-                        <View style={styles.controlBar}>
-                          <View></View>
-                          {/* <TouchableOpacity onPress={toggleFullScreen}>
-                            {isFullScreen ? <ZoomOutIcon /> : <ZoomInIcon />}
-                          </TouchableOpacity> */}
+                      <Text style={styles.normalTexttime}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} time/sec</Text>
+                      <Text style={styles.normalTextTime}>{clicks ? clicks : 0} clicks</Text>
+                     
 
-                        </View>
-                        <Text style={styles.normalTexttime}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
-                        <Text style={styles.normalTextTime}>{clicks ? clicks : 0} clicks</Text>
-                       
+
                         <TouchableOpacity
                           style={styles.clickCircle}
                           onPress={handleClick}
@@ -252,31 +257,37 @@ export default function CPSTest({ navigation, route }) {
                               />
                             ))} */}
                           </Svg>
-                          <Text style={styles.clickText}>
+                          <Text style={[styles.clickText, countdown !== null && { fontSize: 50 }]}>
                             {countdown !== null ? countdown :
                               !isTestRunning ? texts.cpsTest.circletext :
                                 timePassed >= selectedTime ? '' : ''}
                           </Text>
                         </TouchableOpacity>
-                        {/* <Text style={styles.normalTexttime}>{clicks ? clicks : 0} clicks</Text> */}
                         <Text style={styles.normalTexttime}>{timePassed} seconds</Text>
-                        <View style={{ display: "flex", justifyContent: "center", flexDirection: "row" }}>
-                          <TouchableOpacity
-                            style={{ marginRight: 10 }}
-                            onPress={() => {
-                              setIsMusicOn(!isMusicOn);
 
-                            }}
-                          >
-                            {isMusicOn ?
-                              <View style={{ width: 28, height: 28, display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 100, backgroundColor: '#7455CA' }}>
-                                <Image source={require('../../assets/music-on.png')} style={{ width: 15, height: 15 }} /> </View> : <MusicIcon isEnabled={isMusicOn} />
-                            }
-                          </TouchableOpacity>
-                          <TouchableOpacity onPress={toggleSound}>
-                            <SoundIcon isEnabled={isSoundOn} />
-                          </TouchableOpacity>
-                        </View>
+                        {/* <View style={styles.controlBar}> */}
+                          {/* <TouchableOpacity onPress={toggleFullScreen}>
+                          {isFullScreen ? <ZoomOutIcon /> : <ZoomInIcon />}
+                          </TouchableOpacity> */}
+                          <View style={{ display: "flex", flexDirection: "row",marginTop:10,justifyContent:"center",marginBottom:10 }}>
+                            <TouchableOpacity
+                              style={{ marginRight: 10 }}
+                              onPress={() => {
+                                setIsMusicOn(!isMusicOn);
+
+                              }}
+                            >
+                              {isMusicOn ?
+                                <View style={{ width: 28, height: 28, display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 100, backgroundColor: '#7455CA' }}>
+                                  <Image source={require('../../assets/music-on.png')} style={{ width: 15, height: 15 }} /> </View> : <MusicIcon isEnabled={isMusicOn} />
+                              }
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={toggleSound}>
+                              <SoundIcon isEnabled={isSoundOn} />
+                            </TouchableOpacity>
+                          </View>
+                          {/* <Text style={styles.normalTexttime}>{clicks ? clicks : 0} clicks</Text> */}
+                        {/* </View> */}
                       </View>
 
                       {/* <View style={{ marginTop: 20 }}>
@@ -308,11 +319,10 @@ export default function CPSTest({ navigation, route }) {
                   >
                     <View style={styles.modalTopBar}>
                       <TouchableOpacity onPress={resetTest} style={styles.closeBtn}>
-                        <Text style={styles.closeBtnText}>{texts?.cpsTest?.close}</Text>
+                        <Text style={styles.closeBtnText}>{texts?.ButterflyTest?.close}</Text>
                       </TouchableOpacity>
-
                       <View style={styles.modalTitleContainer}>
-                        <Text style={styles.modalTitle}>{texts?.cpsTest?.achievementtitle}</Text>
+                        <Text style={styles.modalTitle}>{texts?.ButterflyTest?.achievementtitle}</Text>
                       </View>
                     </View>
                     <View style={styles.resultOuterContainer}>
@@ -327,25 +337,25 @@ export default function CPSTest({ navigation, route }) {
                         </View>
                         <View style={styles.resultContentContainer}>
                           <View style={styles.resultContentRow}>
-                            <Text style={styles.animeTitle}>{texts?.cpsTest?.sloth}</Text>
+                            <Text style={styles.animeTitle}>{texts?.ButterflyTest?.sloth}</Text>
                           </View>
                           <View style={styles.modalStatsContainer}>
                             <View style={styles.cpsStatRow}>
-                              <Text style={styles.normalText}>{texts?.cpsTest?.clickspeeddesc}</Text>
+                              <Text style={styles.normalText}>{texts?.ButterflyTest?.clickspeeddesc}</Text>
                             </View>
                             <View style={styles.cpsStatRow}>
                               <Text style={styles.statHeading}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
                             </View>
                             <View style={styles.cpsStatRow}>
-                              <Text style={styles.statSubheading}>{clicks} {texts?.cpsTest?.clicksin} {selectedTime} {texts?.cpsTest?.seconds}</Text>
+                              <Text style={styles.statSubheading}>{clicks} {texts?.ButterflyTest?.clicksin} {selectedTime} {texts?.ButterflyTest?.seconds}</Text>
                             </View>
                           </View>
                           <View style={styles.resultContentRow}>
-                            <Text style={styles.modalNote}>{texts?.cpsTest?.feelings}</Text>
+                            <Text style={styles.modalNote}>{texts?.ButterflyTest?.feelings}</Text>
                           </View>
                           <View style={styles.resultContentRow}>
                             <TouchableOpacity style={styles.tryBtn} onPress={resetTest}>
-                              <Text style={styles.tryBtnText}>{texts?.cpsTest?.tryagain} </Text>
+                              <Text style={styles.tryBtnText}>{texts?.ButterflyTest?.tryagain}</Text>
                             </TouchableOpacity>
                           </View>
                         </View>
@@ -358,7 +368,7 @@ export default function CPSTest({ navigation, route }) {
 
             </View>
           </ImageBackground>
-          {/* <CPSDetail navigation={navigation} /> */}
+          {/* <ButterflyDetail /> */}
           {/* <CarousalComponent/> */}
           {/* <Footer navigation={navigation} /> */}
         </>
@@ -368,9 +378,9 @@ export default function CPSTest({ navigation, route }) {
           style={styles.imageBackgroundfull}
         >
           <View style={styles.controlBar}>
-            {/* <TouchableOpacity onPress={() => setIsFullScreen(false)}>
-              {isFullScreen ? <ZoomOutIcon /> : <ZoomInIcon />}
-            </TouchableOpacity> */}
+            <TouchableOpacity onPress={() => setIsFullScreen(false)}>
+            {/* {isFullScreen ? <ZoomOutIcon /> : <ZoomInIcon />} */}
+            </TouchableOpacity>
             <View style={{ display: "flex", flexDirection: "row" }}>
               <TouchableOpacity
                 onPress={() => {
@@ -456,10 +466,10 @@ export default function CPSTest({ navigation, route }) {
               </Text>
             </TouchableOpacity>
           </View>
-          <View style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 50, marginBottom: 10 }}>
-            <Stats cps={clicks / timePassed} timePassed={timePassed} score={clicks} /> {/* Pass props to Stats */}
+          <View style={{ marginTop: 100, width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <Stats cps={clicks / timePassed} timePassed={timePassed} score={clicks} />
           </View>
-          {/* <Modal
+          <Modal
             animationType="slide"
             transparent={true}
             visible={isModalVisible}
@@ -472,11 +482,10 @@ export default function CPSTest({ navigation, route }) {
               >
                 <View style={styles.modalTopBar}>
                   <TouchableOpacity onPress={resetTest} style={styles.closeBtn}>
-                    <Text style={styles.closeBtnText}>{texts?.cpsTest?.close}</Text>
+                    <Text style={styles.closeBtnText}>{texts?.ButterflyTest?.close}</Text>
                   </TouchableOpacity>
-
                   <View style={styles.modalTitleContainer}>
-                    <Text style={styles.modalTitle}>{texts?.cpsTest?.achievementtitle}</Text>
+                    <Text style={styles.modalTitle}>{texts?.ButterflyTest?.achievementtitle}</Text>
                   </View>
                 </View>
                 <View style={styles.resultOuterContainer}>
@@ -491,25 +500,25 @@ export default function CPSTest({ navigation, route }) {
                     </View>
                     <View style={styles.resultContentContainer}>
                       <View style={styles.resultContentRow}>
-                        <Text style={styles.animeTitle}>{texts?.cpsTest?.sloth}</Text>
+                        <Text style={styles.animeTitle}>{texts?.ButterflyTest?.sloth}</Text>
                       </View>
                       <View style={styles.modalStatsContainer}>
                         <View style={styles.cpsStatRow}>
-                          <Text style={styles.normalText}>{texts?.cpsTest?.clickspeeddesc}</Text>
+                          <Text style={styles.normalText}>{texts?.ButterflyTest?.clickspeeddesc}</Text>
                         </View>
                         <View style={styles.cpsStatRow}>
                           <Text style={styles.statHeading}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} CPS</Text>
                         </View>
                         <View style={styles.cpsStatRow}>
-                          <Text style={styles.statSubheading}>{clicks} {texts?.cpsTest?.clicksin} {selectedTime} {texts?.cpsTest?.seconds}</Text>
+                          <Text style={styles.statSubheading}>{clicks} {texts?.ButterflyTest?.clicksin} {selectedTime} {texts?.ButterflyTest?.seconds}</Text>
                         </View>
                       </View>
                       <View style={styles.resultContentRow}>
-                        <Text style={styles.modalNote}>{texts?.cpsTest?.feelings}</Text>
+                        <Text style={styles.modalNote}>{texts?.ButterflyTest?.feelings}</Text>
                       </View>
                       <View style={styles.resultContentRow}>
                         <TouchableOpacity style={styles.tryBtn} onPress={resetTest}>
-                          <Text style={styles.tryBtnText}>{texts?.cpsTest?.tryagain} </Text>
+                          <Text style={styles.tryBtnText}>{texts?.ButterflyTest?.tryagain}</Text>
                         </TouchableOpacity>
                       </View>
                     </View>
@@ -518,10 +527,10 @@ export default function CPSTest({ navigation, route }) {
 
               </ImageBackground>
             </View>
-          </Modal> */}
+          </Modal>
+
         </ImageBackground>
       )}
     </ScrollView>
-
   );
 }

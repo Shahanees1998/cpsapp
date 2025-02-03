@@ -72,6 +72,7 @@ export default function AimTrainerTest({ navigation }) {
   const [misses, setMisses] = useState(0);
   const [selectedTime, setSelectedTime] = useState(30);
   const [selectedLevel, setSelectedLevel] = useState("easy"); // Default level
+
   const [isTestRunning, setIsTestRunning] = useState(false);
   const [timePassed, setTimePassed] = useState(0);
   const [clickSound, setClickSound] = useState();
@@ -86,12 +87,6 @@ export default function AimTrainerTest({ navigation }) {
   const [isMusicOn, setIsMusicOn] = useState(false);
 
 
-  const toggleFullScreen = () => {
-    setIsFullScreen(!isFullScreen);
-    if (!isFullScreen) {
-      resetTest();
-    }
-  };
   useEffect(() => {
     async function loadSound() {
       const { sound } = await Audio.Sound.createAsync(
@@ -108,15 +103,28 @@ export default function AimTrainerTest({ navigation }) {
     };
   }, []);
 
+
+console.log('===',score, misses)
+ 
+const navigate = () => {
+  navigation.navigate('CPSResultScreen', { clicks: score, misses: misses, selectedTime, cps: score / selectedTime });
+};
+
+// Add this useEffect to call navigate when the test ends
+useEffect(() => {
+  if (!isTestRunning && timePassed > 0) {
+    navigate();
+  }
+}, [isTestRunning, timePassed]);
+
   useEffect(() => {
     let interval;
+
     if (isTestRunning) {
       interval = setInterval(() => {
         setTimePassed((prev) => {
           if (prev >= selectedTime - 1) {
             setIsTestRunning(false);
-            navigation.navigate('CPSResultScreen', { clicks, selectedTime, cps: clicks / selectedTime });
-            // setIsModalVisible(true); // Show modal when time is up
             clearInterval(interval);
             return selectedTime;
           }
@@ -147,14 +155,14 @@ export default function AimTrainerTest({ navigation }) {
     handleDotRemove(id, false); // Mark as hit
   };
 
-  const resetTest = () => {
-    setIsTestRunning(false);
-    setScore(0);
-    setMisses(0);
-    setTimePassed(0);
-    setDots([]);
-    setIsModalVisible(false);
-  };
+  // const resetTest = () => {
+  //   setIsTestRunning(false);
+  //   setScore(0);
+  //   setMisses(0);
+  //   setTimePassed(0);
+  //   setDots([]);
+  //   setIsModalVisible(false);
+  // };
 
   const colors = [
     { label: "Red", value: "#FF0000" },
@@ -451,7 +459,7 @@ const styles = StyleSheet.create({
   },
   dropdownLabel: {
     color: '#fff',
-    fontSize:18,
+    fontSize: 18,
     marginBottom: 15,
     marginTop: 10
   },

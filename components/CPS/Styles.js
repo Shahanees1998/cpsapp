@@ -177,7 +177,6 @@ export default StyleSheet.create({
     // backgroundColor: '#2a2a5e',
     borderRadius: 8,
     paddingVertical: 40,
-    paddingHorizontal: 25,
     marginBottom: 10,
     marginTop: 10,
     display: "flex",
@@ -222,9 +221,11 @@ export default StyleSheet.create({
     gap: 20,
     display: "flex",
     justifyContent: "center",
+    alignItems: "center",
     width: '100%',
-    marginTop: -20
-  },
+    marginTop: -20,
+    textAlign:'center'
+    },
   testItem: {
     flexDirection: 'row',
     // alignItems: 'center',
@@ -239,8 +240,9 @@ export default StyleSheet.create({
     justifyContent:'center',
     marginBottom: 10,
     minWidth: 200,
-    padding: 15,
-    width: '100%',
+    paddingInline : 20,
+    width: '80%',
+    paddingVertical : 15,
     boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)'
   },
   testItemText: {
@@ -276,7 +278,7 @@ export default StyleSheet.create({
     justifyContent:'center',
     marginBottom: 15,
     minWidth: 200,
-    padding: 20,
+    padding: 17,
     boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)'
   },
   activeTimeButton: {
@@ -360,8 +362,10 @@ export default StyleSheet.create({
     // Styles for large display
   },
   animationImage: {
-    width: 50,
-    height: 50,
+    width: 70,
+    height: 70,
+    marginTop: 20,
+    marginBottom: 20
   },
   resultContentContainer: {
     alignItems: 'center',

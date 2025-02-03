@@ -124,15 +124,6 @@ export default function SpacebarTest({ navigation }) {
                 </TouchableOpacity>
               </View>
 
-              <View style={{ marginTop: 20 }}>
-                <TimeListBar 
-                  selectedTime={selectedTime}
-                  onTimeSelect={(time) => {
-                    setSelectedTime(time);
-                    resetTest();
-                  }}
-                />
-              </View>
             </View>
           </View>
         </View>

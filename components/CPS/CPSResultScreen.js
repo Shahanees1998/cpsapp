@@ -3,11 +3,11 @@ import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react
 import { useLanguage } from '../../src/context/LanguageContext';
 
 const CPSResultScreen = ({ navigation, route }) => {
-  const { clicks, selectedTime, cps } = route.params; 
+  const { clicks, misses, selectedTime, cps } = route.params; 
   const { texts } = useLanguage();
 
   const handleTryAgain = () => {
-    navigation.navigate('CPSTest', { selectedTime }); // Navigate back to the test with the selected time
+    navigation.navigate('LeftTestScreen', { selectedTime }); // Navigate back to the test with the selected time
   };
 
   return (
@@ -17,16 +17,19 @@ const CPSResultScreen = ({ navigation, route }) => {
     >
       <View style={styles.container}>
         <Text style={styles.title}>Results</Text>
-        <View style={{display:"flex",marginTop:150}}>
+        <View style={{display:"flex",marginTop:100}}>
 
     
-        <Text style={styles.resultText}>Tap for {selectedTime} seconds</Text>
-        <Text style={styles.statText}>Count:       {clicks} </Text>
-        <Text style={styles.statText}>Speed:        {isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} time/sec</Text>
-        <TouchableOpacity style={styles.tryAgainButton} onPress={handleTryAgain}>
+        <Text style={styles.resultText}>{misses != null ? `Aim Trainer ${selectedTime} seconds test` : `Tap for ${selectedTime} seconds`}</Text>
+        <Text style={styles.statText}>Count:  {clicks} </Text>
+        {misses != null && <Text style={styles.statText}>Misses:  {misses} </Text>}
+        <Text style={styles.statText}>Speed:  {isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} time/sec</Text>
+
+        <TouchableOpacity style={[styles.tryAgainButton, {marginTop:40}]}>
           <Text style={styles.tryAgainText}>Share</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.tryAgainButton} onPress={handleTryAgain}>
+
           <Text style={styles.tryAgainText}>{texts?.cpsTest?.tryagain}</Text>
         </TouchableOpacity>
         </View>
@@ -51,16 +54,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     color: '#fff',
-    marginTop:30
+    marginTop:60
   },
   resultText: {
-    fontSize: 28,
+    fontSize: 26,
     color: '#fff',
     marginTop: 20,
     marginBottom: 20,
   },
   statText: {
-    fontSize: 28,
+    fontSize: 26,
     marginBottom: 20,
     color: '#fff',
   },
@@ -73,7 +76,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     marginBottom: 15,
     minWidth: 200,
-    padding: 20,
+    padding: 15,
     boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)'
   },
   tryAgainText: {

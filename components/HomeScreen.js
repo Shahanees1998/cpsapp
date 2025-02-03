@@ -54,11 +54,11 @@ const styles = StyleSheet.create({
   },
   startButton: {
     backgroundColor: '#7655CA',
-    padding: 15,
+    padding: 12,
     width: '70%', // Set width to 100%
     borderRadius: 50,
     
-    paddingVertical:20,
+    paddingVertical:14,
     elevation: 5,
     // width: 180,
     // height: 180,
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     width: '70%', // Set width to 100%
     borderRadius: 50,
     
-    paddingVertical:20,
+    paddingVertical:14,
     elevation: 5,
     overflow: 'hidden', 
     background: 'linear-gradient(145deg, #2a2a5e, #3a3a7e)', /* Gradient background */

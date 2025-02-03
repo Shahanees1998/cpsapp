@@ -48,6 +48,7 @@ export default function ReactionTest({ navigation }) {
   const [colorDisplayTime, setColorDisplayTime] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [colorChangeTimes, setColorChangeTimes] = useState([]);
+  const [randomIndices, setRandomIndices] = useState([0, 1, 2, 3, 4, 5]);
   const { texts, toggleScroll } = useLanguage();
 
   useEffect(() => {
@@ -75,6 +76,7 @@ export default function ReactionTest({ navigation }) {
 
 
   const handleIconClick = (index) => {
+    console.log(index, randomIconIndex)
     if (index === randomIconIndex) {
       const endTime = Date.now();
       const timeTaken = endTime - startTime;
@@ -90,11 +92,14 @@ export default function ReactionTest({ navigation }) {
         const updatedTimes = [...prevTimes, colorData];
         if (updatedTimes.length === 6) {
           setIsTestRunning(false);
+          setShowModal(true);
+          setRandomIndices([0, 1, 2, 3, 4, 5]);
+          setRandomIconIndex(null);
+
         }
         return updatedTimes;
       });
-      setShowModal(true);
-      setRandomIconIndex(null);
+      startTest()
     }
   };
 
@@ -105,7 +110,7 @@ export default function ReactionTest({ navigation }) {
     setReactionTime(null);
     setIsModalVisible(false);
     setRandomIconIndex(null)
- 
+
     // Pick a random color and set its name
     const availableColors = colors.filter((color, index) =>
       !colorChangeTimes.some(change => change?.code === color?.code)
@@ -116,22 +121,22 @@ export default function ReactionTest({ navigation }) {
     setSelectedColorName(color?.label);
     setStartTime(Date.now());
 
-    const delay = Math.random() * (5000 - 1000) + 1000;
+    const delay = 1 * (5000 - 1000) + 1000;
     setTimeout(() => {
       setIconDisplayTime(Date.now());
       setColorDisplayTime(Date.now());
       setIsTestRunning(true);
       // Apply the selected color to a random icon after 2 seconds
       setTimeout(() => {
-        const getNewIndex = () => {
-          let newIndex;
-          do {
-            newIndex = Math.floor(Math.random() * icons.length);
-          } while (colorChangeTimes.some(change => change.icon === newIndex));
-          return newIndex;
+        const getRandomIndex = () => {
+          if (randomIndices.length === 0) return null;
+          const randomIndex = Math.floor(Math.random() * randomIndices.length);
+          const selectedIndex = randomIndices[randomIndex];
+          setRandomIndices(prev => prev.filter((_, index) => index !== randomIndex));
+          return selectedIndex;
         };
 
-        const newIndex = getNewIndex();
+        const newIndex = getRandomIndex();
         setRandomIconIndex(newIndex);
       }, 2000);
     }, delay);
@@ -157,13 +162,6 @@ export default function ReactionTest({ navigation }) {
     setIsModalVisible(false);
     setColorChangeTimes([]);
     startTest()
-  };
-
-  const toggleFullScreen = () => {
-    setIsFullScreen(!isFullScreen);
-    if (!isFullScreen) {
-      resetTest();
-    }
   };
 
   useEffect(() => {
@@ -267,26 +265,14 @@ export default function ReactionTest({ navigation }) {
 
 
             </View> :
-              isTestRunning ?
-                <View style={{ 
-               marginTop:80,
+              (isTestRunning && !showModal) ?
+                <View style={{
+                  marginTop: 140,
                   // backgroundColor: 'rgba(3,109,248,.234)', 
-                  borderRadius: 20 }}>
-                  {
-                    showModal ? <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingVertical: 20 }}>
-                      <Image
-                        source={require('../../assets/reaction-time.png')}
-                        style={styles.animationImage}
-                      />
-                      <Text style={{ color: 'white', fontSize: 40 }}>{reactionTime} MS</Text>
-                      <Text style={{ color: 'white', fontSize: 20 }}>{texts?.ReactionTest?.averageReactionTime}</Text>
-                      <TouchableOpacity onPress={() => { setShowModal(false); resetTest() }}>
-                        <Text style={{ color: 'white', backgroundColor: '#7655ca', paddingInline: 40, paddingVertical: 10, borderRadius: 10, marginTop: 20 }}>{texts?.ReactionTest?.tryAgain}</Text>
-                      </TouchableOpacity>
-                    </View>
-                      :
-                      <View>
-                        {reactionTime != null && <Text style={{ color: 'white' }}>{texts?.ReactionTest?.yourReactionTime} {reactionTime} milliseconds</Text>}
+                  borderRadius: 20
+                }}>
+                 <View>
+                        {/* {reactionTime != null && <Text style={{ color: 'white' }}>{texts?.ReactionTest?.yourReactionTime} {reactionTime} milliseconds</Text>} */}
                         <View style={{
                           borderRadius: 50,
                           overflow: 'hidden',
@@ -353,25 +339,25 @@ export default function ReactionTest({ navigation }) {
                             })}
                           </View>
                         </View>
-                      </View>}
+                      </View>
                 </View>
 
                 :
-                <View style={{ backgroundColor: 'rgba(3,109,248,.234)',width:'100%', borderRadius: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingVertical: 20 }}>
+                <View style={{ width: '100%', marginTop: 100, borderRadius: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingVertical: 20 }}>
                   <Text style={{ color: 'white', width: '80%', paddingVertical: 10, textAlign: 'center', fontSize: 22 }}>{texts?.ReactionTest?.averageReactionTime}</Text>
                   <Image
                     source={require('../../assets/reaction-time.png')}
                     style={styles.animationImage}
                   />
-                  <Text style={{ color: 'black', fontSize: 30, paddingVertical: 10 }}>{calculateAverageTime()} MS</Text>
+                  <Text style={{ color: 'white', marginBottom:20, fontSize: 30, paddingVertical: 10 }}>{calculateAverageTime()} MS</Text>
                   <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'between', flexWrap: 'wrap' }}>
                     {colorChangeTimes.map((time, index) => (
-                      <Text key={index} style={{ color: time?.code, paddingLeft: 2, paddingRight: 2, fontSize: 10,color:"#fff" }}>{time.time} MS</Text>
+                      <Text key={index} style={{ color: time?.code, paddingLeft: 2, paddingRight: 2, fontSize: 12, color: time?.code }}>{time.time} MS</Text>
                     ))}
                   </View>
-                  <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
+                  <View style={{ display: 'flex',marginTop:40, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
                     <TouchableOpacity onPress={() => tryAgain()}><Text style={{ marginRight: 10, color: 'white', backgroundColor: '#7655ca', paddingInline: 30, paddingVertical: 10, borderRadius: 30, marginTop: 20 }}>Try Again</Text></TouchableOpacity>
-                    <TouchableOpacity onPress={() => { setIsStartGame(false) }}><Text style={{ marginLeft: 10, color: 'white', backgroundColor: '#7655ca', paddingInline: 30, paddingVertical: 10, borderRadius: 10, marginTop: 20 }}>Close</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={() => { setIsStartGame(false) }}><Text style={{ marginLeft: 10, color: 'white', backgroundColor: '#7655ca', paddingInline: 30, paddingVertical: 10, borderRadius: 30, marginTop: 20 }}>Close</Text></TouchableOpacity>
                   </View>
                 </View>
             }
