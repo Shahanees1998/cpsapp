@@ -14,12 +14,12 @@ const AnimatedButton = () => {
 
     Animated.parallel([
       Animated.timing(plusTranslateX, {
-        toValue: isPlusActive ? 30 : 0,
+        toValue: isPlusActive ? 28 : 0,
         duration: 300,
         useNativeDriver: true,
       }),
       Animated.timing(pointerTranslateX, {
-        toValue: isPlusActive ? -38 : 0,
+        toValue: isPlusActive ? -32 : 0,
         duration: 300,
         useNativeDriver: true,
       }),

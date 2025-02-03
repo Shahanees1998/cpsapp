@@ -466,6 +466,7 @@ const styles = StyleSheet.create({
   pickerContainer: {
     borderRadius: 50,
     backgroundColor: "#fff",
+    paddingInline: 10,
     marginBottom: 10,
 
   },
@@ -479,9 +480,12 @@ const styles = StyleSheet.create({
   },
   startButton: {
     backgroundColor: '#7455CA',
-    padding: 15,
+    paddingInline: 15,
+    paddingVertical: 10,
+    marginTop: 20,
     borderRadius: 30,
     alignItems: 'center',
+    boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)'
   },
   startButtonText: {
     color: '#fff',

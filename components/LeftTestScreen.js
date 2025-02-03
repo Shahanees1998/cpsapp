@@ -61,8 +61,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center'
   },
   heading: {
-    fontSize: 26,
-    color: '#b32f60'
+    fontSize: 24,
+    // color: '#b32f60'
+    color: 'white'
   },
   logo: {
     height: '100%',

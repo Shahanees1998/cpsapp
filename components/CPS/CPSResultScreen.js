@@ -50,20 +50,19 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    marginBottom: 20,
+    fontSize: 30,
+    marginBottom: 0,
     color: '#fff',
     marginTop:60
   },
   resultText: {
-    fontSize: 26,
+    fontSize: 24,
     color: '#fff',
     marginTop: 20,
     marginBottom: 20,
   },
   statText: {
-    fontSize: 26,
+    fontSize: 24,
     marginBottom: 20,
     color: '#fff',
   },
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     marginBottom: 15,
     minWidth: 200,
-    padding: 15,
+    padding: 12,
     boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)'
   },
   tryAgainText: {

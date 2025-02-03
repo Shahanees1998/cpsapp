@@ -183,12 +183,13 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
+
   sidebarTitle: {
     fontSize: 24,
     color: '#fff',
-    marginHorizontal: 5,
-    fontFamily: "Poppins-Regular",
+    marginHorizontal: 5  
   },
+
   timesidebarTitle: {
     fontSize: 16,
     color: '#fff',
@@ -197,20 +198,19 @@ export default StyleSheet.create({
     // marginLeft:30
   },
   heading: {
-    fontSize: 22,
-    color: '#b32f60',
+    fontSize: 24,
+    color: 'white',
     marginBottom: 50
   },
   normalTexttime: {
-    fontSize: 21,
+    fontSize: 24,
     color: "#fff",
     marginBottom: 20,
     marginTop: 20,
     textAlign: "center",
-    fontWeight : "bold"
   },
   normalTextTime: {
-    fontSize: 25,
+    fontSize: 26,
     color: "#fff",
     marginBottom: 20,
     marginTop: 20,
@@ -242,7 +242,7 @@ export default StyleSheet.create({
     minWidth: 200,
     paddingInline : 20,
     width: '80%',
-    paddingVertical : 15,
+    paddingVertical : 12,
     boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)'
   },
   testItemText: {
@@ -253,7 +253,7 @@ export default StyleSheet.create({
   timeListContainer: {
     // backgroundColor: '#2a2a5e',
     borderRadius: 8,
-    padding: 20,
+
     gap: 10,
   },
   // timeButton: {
@@ -276,9 +276,9 @@ export default StyleSheet.create({
     textAlign: "center",
     alignItems:'center',
     justifyContent:'center',
-    marginBottom: 15,
+    marginBottom: 20,
     minWidth: 200,
-    padding: 17,
+    padding: 14,
     boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)'
   },
   activeTimeButton: {
@@ -478,14 +478,16 @@ export default StyleSheet.create({
     borderRadius: 20,
     maxWidth: 150,
     marginVertical: 0,
-    alignSelf: "center"
+    alignSelf: "center",
+    boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)'
+
 
   },
   startButtonText: {
     color: "white",
     fontFamily: "Poppins-Regular",
     fontSize: 18,
-    textAlign: "center"
+    textAlign: "center",
   },
   row: {
     display: "flex",

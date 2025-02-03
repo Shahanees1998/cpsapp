@@ -8,6 +8,7 @@ const TimeListBar = ({ selectedTime, onTimeSelect }) => {
   return (
     <View style={styles.timeListContainer}>
       <Text style={styles.heading}>Select Your Preferred Time</Text>
+      <View style={{paddingInline:20}}>
       {times.map((time) => (
         <TouchableOpacity 
           key={time}
@@ -21,7 +22,7 @@ const TimeListBar = ({ selectedTime, onTimeSelect }) => {
             {time} {time === 1 ? texts?.cpsTest?.second : texts?.cpsTest?.seconds}
           </Text>
         </TouchableOpacity>
-      ))}
+      ))}</View>
     </View>
   );
 };
