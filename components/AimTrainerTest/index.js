@@ -11,6 +11,7 @@ import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import AnimatedButton from '../../components/AnimatedButton';
 import { MusicIcon, SoundIcon } from '../icons/index';
 import { CursorIcon } from "../ReactionTest/Icon";
+import { useFocusEffect } from "@react-navigation/native";
 const Dot = ({ id, x, y, onRemove, onHit, size, color }) => {
   const [currentSize, setCurrentSize] = useState(size);
   const [growing, setGrowing] = useState(true);
@@ -105,7 +106,13 @@ export default function AimTrainerTest({ navigation }) {
   }, []);
 
 
-  console.log('===', score, misses)
+  useFocusEffect(
+    React.useCallback(() => {
+      setScore(0)
+      setMisses(0)
+      setIsTestRunning(false)
+    }, [])
+  );
 
   const navigate = () => {
     navigation.navigate('CPSResultScreen', { clicks: score, misses: misses, selectedTime, cps: score / selectedTime });
@@ -252,7 +259,7 @@ export default function AimTrainerTest({ navigation }) {
 
 
                     />
-                    <Text style={styles.statText}>{texts?.locales?.time}: {selectedTime - timePassed}s</Text>
+                    <Text style={styles.statText}>Timer: {selectedTime - timePassed}s</Text>
                   </View>
                   <View style={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center" }}>
                     <Animated.Image
@@ -481,10 +488,10 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: '100%',
     height: 500,
-    backgroundColor: 'rgba(3,109,248,.234)' ,
+    backgroundColor: 'rgba(3,109,248,.234)',
     borderRadius: 8,
     overflow: 'hidden',
-    boxShadow: 
+    boxShadow:
       '8px 8px 16px #1f1f4a, -1px -1px 16px #4a4a92, inset 4px 4px 8px rgba(0, 0, 0, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.1)',
     justifyContent: 'center',
 

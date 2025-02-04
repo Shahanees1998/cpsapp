@@ -7,6 +7,25 @@ export default StyleSheet.create({
     padding: 20,
     
   },
+  startTestItem: {
+    flexDirection: 'row',
+    // alignItems: 'center',
+    // justifyContent:"center",
+    gap: 10,
+    // backgroundColor: '#64639c',
+    backgroundColor: '#7655CA',
+    padding: 10,
+    borderRadius: 50,
+    textAlign: "center",
+    alignItems:'center',
+    justifyContent:'center',
+    marginBottom: 10,
+    minWidth: 200,
+    paddingInline : 20,
+    width: '80%',
+    paddingVertical : 12,
+    boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)'
+  },
   fullScreenContainer: {
     flex: 1,
     backgroundColor: '#000',

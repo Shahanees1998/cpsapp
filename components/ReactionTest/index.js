@@ -246,8 +246,8 @@ export default function ReactionTest({ navigation }) {
                           </View>
                         );
                       })}
+
                     </View>
-                    <View style={{ width: '100%', marginTop: 20, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><TouchableOpacity onPress={() => setIsStartGame(true)}><Text style={{ color: 'white', fontSize: 26 }}>Start Test</Text></TouchableOpacity></View>
                     <View style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', flexWrap: 'wrap', width: '100%' }}>
 
 
@@ -271,6 +271,15 @@ export default function ReactionTest({ navigation }) {
                           </View>
                         );
                       })}
+                      <TouchableOpacity
+                        style={styles.startTestItem}
+                        onPress={() => setIsStartGame(true)} // Pass the test name as a parameter
+                      >
+                        <Text style={{ width: '100%', color: 'white', textAlign:'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+
+                          Start Test
+                        </Text>
+                      </TouchableOpacity>
                     </View>
                   </View>
                 </View>
