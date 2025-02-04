@@ -7,6 +7,7 @@ import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handl
 import Stats from '../Stats/Stats';
 import { MusicIcon, SoundIcon, ZoomInIcon, ZoomOutIcon } from '../icons';
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function CpsTest({ navigation }) {
   const [clicks, setClicks] = useState(0);
@@ -173,6 +174,7 @@ export default function CpsTest({ navigation }) {
     setTimePassed(0);
     setStartTime(null);
     setRipples([]);
+    setCountdown(null);
     // setIsModalVisible(false);
     setCircleColor('#7455CA'); // Reset circle color
   };
@@ -192,6 +194,12 @@ export default function CpsTest({ navigation }) {
     setIsMusicOn(!isMusicOn);
   };
 
+  // Add this useFocusEffect to reset state when the screen is focused
+  useFocusEffect(
+    React.useCallback(() => {
+      resetTest(); // Call resetTest to reset all state variables
+    }, [])
+  );
 
   return (
     <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
@@ -263,7 +271,7 @@ export default function CpsTest({ navigation }) {
                                 timePassed >= selectedTime ? '' : ''}
                           </Text>
                         </TouchableOpacity>
-                        <Text style={styles.normalTexttime}>{timePassed} seconds</Text>
+                        <Text style={styles.normalTexttime}>{countdown !== null ? '0' : timePassed} seconds</Text>
 
                         {/* <View style={styles.controlBar}> */}
                           {/* <TouchableOpacity onPress={toggleFullScreen}>

@@ -8,6 +8,7 @@ import Stats from '../Stats/Stats';
 import { MusicIcon, SoundIcon, ZoomInIcon, ZoomOutIcon } from '../icons';
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
 import ButterflyDetail from './ButterflyDetail';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function KohiTest({ navigation }) {
   const [clicks, setClicks] = useState(0);
@@ -116,6 +117,12 @@ export default function KohiTest({ navigation }) {
     }
   }, [isTestRunning, timePassed]);
 
+  useFocusEffect(
+    React.useCallback(() => {
+      resetTest(); // Call resetTest to reset all state variables
+    }, [])
+  );
+
   const handleClick = (event) => {
     if (!isTestRunning && countdown === null) {
       // Start the countdown
@@ -168,6 +175,7 @@ export default function KohiTest({ navigation }) {
     setTimePassed(0);
     setStartTime(null);
     setRipples([]);
+    setCountdown(null);
     // setIsModalVisible(false);
     navigation.navigate('CPSResultScreen');
     setCircleColor('#7455CA'); // Reset circle color
@@ -259,7 +267,7 @@ export default function KohiTest({ navigation }) {
                                 timePassed >= selectedTime ? '' : ''}
                           </Text>
                         </TouchableOpacity>
-                        <Text style={styles.normalTexttime}>{timePassed} seconds</Text>
+                        <Text style={styles.normalTexttime}>{countdown !== null ? '0' : timePassed} seconds</Text>
 
                         {/* <View style={styles.controlBar}> */}
                           {/* <TouchableOpacity onPress={toggleFullScreen}>

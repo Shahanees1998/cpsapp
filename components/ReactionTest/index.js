@@ -19,14 +19,7 @@ import { useLanguage } from '../../src/context/LanguageContext';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { CheckIcon } from '../icons';
 
-const colors = [
-  { code: '#E90379', label: 'red' },
-  { code: '#00B507', label: 'green' },
-  { code: '#7655CA', label: 'purple' },
-  { code: '#FF8300', label: 'orange' },
-  { code: '#FFCC00', label: 'yellow' },
-  { code: '#964B00', label: 'brown' },
-];
+
 
 const iconsList1 = [Icon1, Icon2, Icon3];
 const iconsList2 = [Icon4, Icon5, Icon6];
@@ -50,6 +43,15 @@ export default function ReactionTest({ navigation }) {
   const [colorChangeTimes, setColorChangeTimes] = useState([]);
   const [randomIndices, setRandomIndices] = useState([0, 1, 2, 3, 4, 5]);
   const { texts, toggleScroll } = useLanguage();
+
+  const [colors, setColors] = useState([
+    { code: '#E90379', label: 'red' },
+    { code: '#00B507', label: 'green' },
+    { code: '#7655CA', label: 'purple' },
+    { code: '#FF8300', label: 'orange' },
+    { code: '#FFCC00', label: 'yellow' },
+    { code: '#964B00', label: 'brown' },
+  ]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -92,9 +94,18 @@ export default function ReactionTest({ navigation }) {
         const updatedTimes = [...prevTimes, colorData];
         if (updatedTimes.length === 6) {
           setIsTestRunning(false);
+          setColors([
+            { code: '#E90379', label: 'red' },
+            { code: '#00B507', label: 'green' },
+            { code: '#7655CA', label: 'purple' },
+            { code: '#FF8300', label: 'orange' },
+            { code: '#FFCC00', label: 'yellow' },
+            { code: '#964B00', label: 'brown' },
+          ])
           setShowModal(true);
           setRandomIndices([0, 1, 2, 3, 4, 5]);
           setRandomIconIndex(null);
+
 
         }
         return updatedTimes;
@@ -112,14 +123,18 @@ export default function ReactionTest({ navigation }) {
     setRandomIconIndex(null)
 
     // Pick a random color and set its name
-    const availableColors = colors.filter((color, index) =>
-      !colorChangeTimes.some(change => change?.code === color?.code)
-    );
-    const randomColorIndex = Math.floor(Math.random() * availableColors.length);
-    const color = availableColors[randomColorIndex];
+    // const availableColors = colors.filter((color, index) =>
+    //   !colorChangeTimes.some(change => change?.code === color?.code)
+    // );
+    const randomColorIndex = Math.floor(Math.random() * colors.length);
+    const color = colors[randomColorIndex];
+
+
+    setColors(colors.filter((color, index) => index !== randomColorIndex));
     setSelectedColor(color?.code);
     setSelectedColorName(color?.label);
     setStartTime(Date.now());
+
 
     const delay = 1 * (5000 - 1000) + 1000;
     setTimeout(() => {
@@ -193,79 +208,147 @@ export default function ReactionTest({ navigation }) {
               <Text style={styles.colorDisplay}>{selectedColorName}</Text>
             </View> */}
             {!isStartGame ?
-              <View
-                style={{
-                  // backgroundColor: 'rgba(3,109,248,.234)',
-                  borderRadius: 8,
-                  padding: 5,
-                  marginBottom: 150,
-                  alignItems: 'center',
-                  flexDirection: 'row',
-                  flexWrap: 'wrap',
-                  justifyContent: 'space-around',
-                }}
-              >
-                <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center', paddingInline: 10 }}>
-                  <Text style={{ width: '98%', color: 'white', fontSize: 16, textAlign: 'center', marginTop: 30, marginBottom: 50 }}>
-                    {texts?.ReactionTest?.tagline2}
-                  </Text>
-                </View>
-                <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
-                  <HeartIcon size={17} />
-                </View>
-                <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
-                  <ClubIcon size={17} />
-                </View>
-                <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
-                  <SpadeIcon size={17} />
-                </View>
-                <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
-                  <TriangleIcon size={17} />
-                </View>
-                <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
-                  <TrophyIcon size={17} />
-                </View>
-                <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
-                  <BugIcon size={17} />
-                </View>
-
-                <View style={styles.noticeBoard}>
-                  <View style={styles.noticeRow}>
-                    <CheckIcon />
-                    <Text style={styles.pointLine}>
-                      You have to click on start test to begin Reflex Test.
-                    </Text>
-                  </View>
-                  <View style={styles.noticeRow}>
-                    <CheckIcon />
-                    <Text style={styles.pointLine}>
-                      Every time you will see 6 monsters on screen.
-                    </Text>
-                  </View>
-                  <View style={styles.noticeRow}>
-                    <CheckIcon />
-                    <Text style={styles.pointLine}>
-                      Whenever any monster changes its color, you have to click on
-                      it quickly.
-                    </Text>
-                  </View>
-                  <View style={styles.noticeRow}>
-                    <CheckIcon />
-                    <Text style={styles.pointLine}>
-                      The time duration between clicking on the monster who changed
-                      its color will result in your reaction or reflex time.
-                    </Text>
-                  </View>
-                  <TouchableOpacity
-                    style={styles.startButton}
-                    onPress={() => setIsStartGame(true)}
-                  >
-                    <Text style={styles.startButtonText}>Start Test</Text>
-                  </TouchableOpacity>
-                </View>
+              <View style={{
+                marginTop: 140,
+                // backgroundColor: 'rgba(3,109,248,.234)', 
+                borderRadius: 20
+              }}>
+                <View>
+                  {/* {reactionTime != null && <Text style={{ color: 'white' }}>{texts?.ReactionTest?.yourReactionTime} {reactionTime} milliseconds</Text>} */}
+                  <View style={{
+                    borderRadius: 50,
+                    overflow: 'hidden',
+                    padding: 15,
+                    maxHeight: 500,
+                    alignItems: 'center',
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    justifyContent: 'space-around',
+                  }}>
+                    <View style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', flexWrap: 'wrap', width: '100%' }}>
+                      {iconsList1.map((Icon, index) => {
+                        return (
+                          <View key={index} style={{ marginTop: 40, marginBottom: 40, paddingTop: 20, paddingBottom: 20 }}>
+                            <TouchableOpacity>
+                              {React.createElement(Icon, {
+                                style: {
+                                  width: "50px",
+                                  height: "50px",
+                                  backgroundColor: 'white',
+                                  margin: "10px",
+                                  paddingTop: 20,
+                                  paddingBottom: 20,
+                                  cursor: "pointer",
+                                },
+                                color: 'white'
+                              })}
+                            </TouchableOpacity>
+                          </View>
+                        );
+                      })}
+                    </View>
+                    <View style={{ width: '100%', marginTop: 20, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><TouchableOpacity onPress={() => setIsStartGame(true)}><Text style={{ color: 'white', fontSize: 26 }}>Start Test</Text></TouchableOpacity></View>
+                    <View style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', flexWrap: 'wrap', width: '100%' }}>
 
 
-              </View> :
+                      {iconsList2.map((Icon, index) => {
+                        return (
+                          <View key={index} style={{ marginTop: 40, marginBottom: 40, paddingTop: 20, paddingBottom: 20 }}>
+                            <TouchableOpacity >
+                              {React.createElement(Icon, {
+                                style: {
+                                  width: "50px",
+                                  height: "50px",
+                                  backgroundColor: 'white',
+                                  margin: "10px",
+                                  paddingTop: 20,
+                                  paddingBottom: 20,
+                                  cursor: "pointer",
+                                },
+                                color: 'white'
+                              })}
+                            </TouchableOpacity>
+                          </View>
+                        );
+                      })}
+                    </View>
+                  </View>
+                </View>
+              </View>
+              // <View
+              //   style={{
+              //     // backgroundColor: 'rgba(3,109,248,.234)',
+              //     borderRadius: 8,
+              //     padding: 5,
+              //     marginBottom: 150,
+              //     alignItems: 'center',
+              //     flexDirection: 'row',
+              //     flexWrap: 'wrap',
+              //     justifyContent: 'space-around',
+              //   }}
+              // >
+              //   <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center', paddingInline: 10 }}>
+              //     <Text style={{ width: '98%', color: 'white', fontSize: 16, textAlign: 'center', marginTop: 30, marginBottom: 50 }}>
+              //       {texts?.ReactionTest?.tagline2}
+              //     </Text>
+              //   </View>
+              //   <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
+              //     <HeartIcon size={17} />
+              //   </View>
+              //   <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
+              //     <ClubIcon size={17} />
+              //   </View>
+              //   <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
+              //     <SpadeIcon size={17} />
+              //   </View>
+              //   <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
+              //     <TriangleIcon size={17} />
+              //   </View>
+              //   <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
+              //     <TrophyIcon size={17} />
+              //   </View>
+              //   <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", borderColor: "white", borderWidth: 2, borderRadius: 100, padding: 10 }}>
+              //     <BugIcon size={17} />
+              //   </View>
+
+              //   <View style={styles.noticeBoard}>
+              //     <View style={styles.noticeRow}>
+              //       <CheckIcon />
+              //       <Text style={styles.pointLine}>
+              //         You have to click on start test to begin Reflex Test.
+              //       </Text>
+              //     </View>
+              //     <View style={styles.noticeRow}>
+              //       <CheckIcon />
+              //       <Text style={styles.pointLine}>
+              //         Every time you will see 6 monsters on screen.
+              //       </Text>
+              //     </View>
+              //     <View style={styles.noticeRow}>
+              //       <CheckIcon />
+              //       <Text style={styles.pointLine}>
+              //         Whenever any monster changes its color, you have to click on
+              //         it quickly.
+              //       </Text>
+              //     </View>
+              //     <View style={styles.noticeRow}>
+              //       <CheckIcon />
+              //       <Text style={styles.pointLine}>
+              //         The time duration between clicking on the monster who changed
+              //         its color will result in your reaction or reflex time.
+              //       </Text>
+              //     </View>
+              //     <TouchableOpacity
+              //       style={styles.startButton}
+              //       onPress={() => setIsStartGame(true)}
+              //     >
+              //       <Text style={styles.startButtonText}>Start Test</Text>
+              //     </TouchableOpacity>
+              //   </View>
+
+
+              // </View>
+              :
               (isTestRunning && !showModal) ?
                 <View style={{
                   marginTop: 140,

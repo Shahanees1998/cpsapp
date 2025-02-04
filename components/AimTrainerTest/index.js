@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, Modal, StyleSheet, ScrollView, ImageBackground, Image } from "react-native";
+import { View, Text, TouchableOpacity, Modal, StyleSheet, ScrollView, ImageBackground, Image, Animated } from "react-native";
 import { Audio } from "expo-av";
 import { Picker } from '@react-native-picker/picker';
 import Navbar from '../Navbar';
@@ -10,6 +10,7 @@ import { useLanguage } from '../../src/context/LanguageContext';
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import AnimatedButton from '../../components/AnimatedButton';
 import { MusicIcon, SoundIcon } from '../icons/index';
+import { CursorIcon } from "../ReactionTest/Icon";
 const Dot = ({ id, x, y, onRemove, onHit, size, color }) => {
   const [currentSize, setCurrentSize] = useState(size);
   const [growing, setGrowing] = useState(true);
@@ -104,18 +105,18 @@ export default function AimTrainerTest({ navigation }) {
   }, []);
 
 
-console.log('===',score, misses)
- 
-const navigate = () => {
-  navigation.navigate('CPSResultScreen', { clicks: score, misses: misses, selectedTime, cps: score / selectedTime });
-};
+  console.log('===', score, misses)
 
-// Add this useEffect to call navigate when the test ends
-useEffect(() => {
-  if (!isTestRunning && timePassed > 0) {
-    navigate();
-  }
-}, [isTestRunning, timePassed]);
+  const navigate = () => {
+    navigation.navigate('CPSResultScreen', { clicks: score, misses: misses, selectedTime, cps: score / selectedTime });
+  };
+
+  // Add this useEffect to call navigate when the test ends
+  useEffect(() => {
+    if (!isTestRunning && timePassed > 0) {
+      navigate();
+    }
+  }, [isTestRunning, timePassed]);
 
   useEffect(() => {
     let interval;
@@ -233,9 +234,36 @@ useEffect(() => {
             {isTestRunning ? (
               <View style={styles.testArea}>
                 <View style={styles.statsContainer}>
-                  <Text style={styles.statText}>{texts?.locales?.score}: {score}</Text>
-                  <Text style={styles.statText}>{texts?.locales?.misses}: {misses}</Text>
-                  <Text style={styles.statText}>{texts?.locales?.time}: {selectedTime - timePassed}s</Text>
+                  <View style={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center" }}>
+                    <Animated.Image
+                      source={require('../../assets/arrow.png')}
+                      style={[styles.pointerImage]}
+
+
+
+                    />
+                    <Text style={styles.statText}>Hits: {score}</Text>
+                  </View>
+                  <View style={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center" }}>
+                    <Animated.Image
+                      source={require('../../assets/reaction-time.png')}
+                      style={[styles.pointerImage]}
+
+
+
+                    />
+                    <Text style={styles.statText}>{texts?.locales?.time}: {selectedTime - timePassed}s</Text>
+                  </View>
+                  <View style={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center" }}>
+                    <Animated.Image
+                      source={require('../../assets/arrow.png')}
+                      style={[styles.pointerImage]}
+
+
+
+                    />
+                    <Text style={styles.statText}>{texts?.locales?.misses}: {misses}</Text>
+                  </View>
                 </View>
                 <View style={styles.aimGameArea}>
                   {dots.map((dot) => (
@@ -431,24 +459,35 @@ const styles = StyleSheet.create({
   testArea: {
     // backgroundColor: '#2a2a5e',
     borderRadius: 8,
+    marginTop: 20,
     padding: 20,
   },
   statsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginBottom: 20,
+    marginBottom: 60,
+  },
+  pointerImage: {
+    width: 30,
+    height: 30,
   },
   statText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 14,
+    marginTop: 5,
   },
+
   aimGameArea: {
     position: 'relative',
     width: '100%',
-    height: 400,
-    backgroundColor: '#3a3a7e',
+    height: 500,
+    backgroundColor: 'rgba(3,109,248,.234)' ,
     borderRadius: 8,
     overflow: 'hidden',
+    boxShadow: 
+      '8px 8px 16px #1f1f4a, -1px -1px 16px #4a4a92, inset 4px 4px 8px rgba(0, 0, 0, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.1)',
+    justifyContent: 'center',
+
   },
   configurationContainer: {
     marginTop: 20,

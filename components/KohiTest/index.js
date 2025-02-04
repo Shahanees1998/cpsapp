@@ -12,6 +12,7 @@ import Footer from '../Footer';
 import Stats from '../Stats/Stats';
 import { MusicIcon, SoundIcon, ZoomInIcon, ZoomOutIcon } from '../icons';
 import { useLanguage } from '../../src/context/LanguageContext';
+import { useFocusEffect } from '@react-navigation/native';
 
 
 export default function KohiTest({ navigation }) {
@@ -167,6 +168,12 @@ export default function KohiTest({ navigation }) {
     }
   };
 
+  useFocusEffect(
+    React.useCallback(() => {
+      resetTest(); // Call resetTest to reset all state variables
+    }, [])
+  );
+
   const resetTest = () => {
     setIsTestRunning(false);
     setCountdown(null);
@@ -276,7 +283,7 @@ export default function KohiTest({ navigation }) {
                                 timePassed >= selectedTime ? '' : ''}
                           </Text>
                         </TouchableOpacity>
-                        <Text style={styles.normalTexttime}>{timePassed} seconds</Text>
+                        <Text style={styles.normalTexttime}>{countdown !== null ? '0' : timePassed} seconds</Text>
                         <View style={{ display: "flex", marginTop: 10, marginBottom: 10, flexDirection: "row", justifyContent: "center" }}>
                           <TouchableOpacity
                             style={{ marginRight: 10 }}
