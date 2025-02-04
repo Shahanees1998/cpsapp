@@ -7,16 +7,16 @@ import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handl
 import Stats from '../Stats/Stats';
 import { MusicIcon, SoundIcon, ZoomInIcon, ZoomOutIcon } from '../icons';
 import { useLanguage, toggleScroll } from '../../src/context/LanguageContext';
-import ButterflyDetail from './ButterflyDetail';
 import { useFocusEffect } from '@react-navigation/native';
 
-export default function KohiTest({ navigation }) {
+export default function ButterflyTest({ navigation }) {
   const [clicks, setClicks] = useState(0);
   const [cps, setCps] = useState(0);
   const [selectedTime, setSelectedTime] = useState(5);
   const [ripples, setRipples] = useState([]);
   const [isTestRunning, setIsTestRunning] = useState(false);
   const [startTime, setStartTime] = useState(null);
+
   const [timePassed, setTimePassed] = useState(0);
   const [clickSound, setClickSound] = useState();
   const [backgroundMusic, setBackgroundMusic] = useState();
@@ -35,6 +35,7 @@ export default function KohiTest({ navigation }) {
   const cx = width / 2;
   const cy = height / 2 + (isFullScreen ? 20 : 0);
   const circumference = 2 * Math.PI * r;
+
 
   useEffect(() => {
     async function loadSounds() {
@@ -117,19 +118,13 @@ export default function KohiTest({ navigation }) {
     }
   }, [isTestRunning, timePassed]);
 
-  useFocusEffect(
-    React.useCallback(() => {
-      resetTest(); // Call resetTest to reset all state variables
-    }, [])
-  );
-
   const handleClick = (event) => {
     if (!isTestRunning && countdown === null) {
       // Start the countdown
       setCountdown(3);
       const countdownInterval = setInterval(() => {
         setCountdown((prevCountdown) => {
-          if (prevCountdown === 1) {
+          if (prevCountdown < 2) {
             clearInterval(countdownInterval);
             setIsTestRunning(true);
             setStartTime(Date.now());
@@ -175,9 +170,8 @@ export default function KohiTest({ navigation }) {
     setTimePassed(0);
     setStartTime(null);
     setRipples([]);
-    setCountdown(null);
+    // setCountdown(null);
     // setIsModalVisible(false);
-    navigation.navigate('CPSResultScreen');
     setCircleColor('#7455CA'); // Reset circle color
   };
 
@@ -196,6 +190,12 @@ export default function KohiTest({ navigation }) {
     setIsMusicOn(!isMusicOn);
   };
 
+  // Add this useFocusEffect to reset state when the screen is focused
+  useFocusEffect(
+    React.useCallback(() => {
+      resetTest(); // Call resetTest to reset all state variables
+    }, [])
+  );
 
   return (
     <ScrollView onScroll={() => toggleScroll && toggleScroll()} >
@@ -218,8 +218,8 @@ export default function KohiTest({ navigation }) {
                 </View> */}
                 <View style={{display:'flex', alignItems:'center', justifyContent:'center', flexDirection:'column', marginTop:15}}>
                 {/* <LeftTestListBar navigation={navigation} title={texts?.ButterflyTest?.leftsidetitle} /> */}
-                  <Text style={styles.sidebarTitle}>{selectedTime}{texts?.ButterflyTest?.selectTimetitle}</Text>
-                  <View style={styles.mainContent}>
+                <Text style={styles.sidebarTitle}>{selectedTime}{texts?.ButterflyTest?.selectTimetitle}</Text>
+                <View style={styles.mainContent}>
                     <View style={styles.centerContent}>
                       <View style={styles.testArea}>
                       <Text style={styles.normalTexttime}>{isFinite(clicks / selectedTime) ? (clicks / selectedTime).toFixed(2) : 0.0} time/sec</Text>

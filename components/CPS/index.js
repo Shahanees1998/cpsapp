@@ -36,10 +36,6 @@ export default function CpsTest({ navigation }) {
   const cy = height / 2 + (isFullScreen ? 20 : 0);
   const circumference = 2 * Math.PI * r;
 
- useEffect(() => {
-  resetTest()
- }, [])
-
 
   useEffect(() => {
     async function loadSounds() {
@@ -128,7 +124,7 @@ export default function CpsTest({ navigation }) {
       setCountdown(3);
       const countdownInterval = setInterval(() => {
         setCountdown((prevCountdown) => {
-          if (prevCountdown === 1) {
+          if (prevCountdown < 2) {
             clearInterval(countdownInterval);
             setIsTestRunning(true);
             setStartTime(Date.now());
@@ -174,7 +170,7 @@ export default function CpsTest({ navigation }) {
     setTimePassed(0);
     setStartTime(null);
     setRipples([]);
-    setCountdown(null);
+    // setCountdown(null);
     // setIsModalVisible(false);
     setCircleColor('#7455CA'); // Reset circle color
   };
