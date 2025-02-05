@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, ImageBackground, Animated, Image } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, ImageBackground, Animated, Image, BackHandler } from 'react-native';
 import LeftTestListBar from '../components/CPS/LeftTestListBar'; // Import your LeftTestListBar component
 import { useLanguage } from '../src/context/LanguageContext';
 
@@ -34,6 +34,20 @@ const LeftTestScreen = ({ navigation }) => {
     setLanguage(lang);
     toggleLanguage();
   };
+
+  useEffect(() => {
+    const backAction = () => {
+      navigation.navigate('Home'); // Navigate to HomeScreen
+      return true; // Prevent default back action
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction
+    );
+
+    return () => backHandler.remove(); // Cleanup the event listener
+  }, [navigation]);
 
   return (
     <ImageBackground

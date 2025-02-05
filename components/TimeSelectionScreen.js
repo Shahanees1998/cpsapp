@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 import TimeListBar from './CPS/TimeListBar'; // Import your TimeListBar component
 import { useLanguage } from '@/src/context/LanguageContext'; // Import useLanguage for localization
 
@@ -10,15 +10,7 @@ const TimeSelectionScreen = ({ navigation, route }) => {
 
   const handleTimeSelect = (time) => {
     setSelectedTime(time); // Set the selected time
-    navigation.navigate(testType, { selectedTime });
-  };
-
-  const handleStartTest = () => {
-    if (selectedTime) {
-      navigation.navigate(testType, { selectedTime });
-    } else {
-      alert(texts?.cpsTest?.selectTime); 
-    }
+    navigation.navigate(testType, { selectedTime: time }); // Navigate immediately with the selected time
   };
 
   return (
@@ -29,9 +21,6 @@ const TimeSelectionScreen = ({ navigation, route }) => {
       <View style={styles.container}>
         <Text style={styles.title}>{texts?.cpsTest?.selectTimeTitle}</Text>
         <TimeListBar selectedTime={selectedTime} onTimeSelect={handleTimeSelect} /> {/* Display TimeListBar */}
-        {/* <TouchableOpacity style={styles.startButton} onPress={handleStartTest}>
-          <Text style={styles.buttonText}>Start Test</Text>
-        </TouchableOpacity> */}
       </View>
     </ImageBackground>
   );
@@ -53,19 +42,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: '#fff',
   },
-  startButton: {
-    // backgroundColor: '#7655CA',
-    backgroundColor: '#434f65',
-    padding: 15,
-    width: '100%',
-    borderRadius: 5,
-    marginTop: 20,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 18,
-    textAlign: 'center',
-  },
 });
 
-export default TimeSelectionScreen; 
+export default TimeSelectionScreen;

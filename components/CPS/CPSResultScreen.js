@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, BackHandler } from 'react-native';
 import { useLanguage } from '../../src/context/LanguageContext';
 
 const CPSResultScreen = ({ navigation, route }) => {
@@ -9,6 +9,20 @@ const CPSResultScreen = ({ navigation, route }) => {
   const handleTryAgain = () => {
     navigation.navigate('LeftTestScreen', { selectedTime }); // Navigate back to the test with the selected time
   };
+
+  // New function to handle back button press
+  const handleBackPress = () => {
+    navigation.navigate('LeftTestScreen', { selectedTime }); // Replace 'YourTargetScreen' with the desired screen name
+    return true; // Prevent default back action
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', handleBackPress);
+
+    return () => {
+      BackHandler.removeEventListener('hardwareBackPress', handleBackPress);
+    };
+  }, []);
 
   return (
     <ImageBackground
