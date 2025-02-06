@@ -50,6 +50,9 @@ export default function ButterflyTest({ navigation, route }) {
       if (isMusicOn) {
         backgroundMusic?.playAsync();
       }
+      else {
+        backgroundMusic?.stopAsync();
+      }
     } else {
       backgroundMusic?.stopAsync();
     }

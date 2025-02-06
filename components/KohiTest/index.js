@@ -49,6 +49,9 @@ export default function KohiTest({ navigation, route }) {
       if (isMusicOn) {
         backgroundMusic?.playAsync();
       }
+      else {
+        backgroundMusic?.stopAsync();
+      }
     } else {
       backgroundMusic?.stopAsync();
     }

@@ -74,10 +74,12 @@ export default function AimTrainerTest({ navigation }) {
   const [selectedLevel, setSelectedLevel] = useState("easy"); // Default level
 
   const [isTestRunning, setIsTestRunning] = useState(false);
+  const [isTestFinished, setIsTestFinished] = useState(false);
   const [timePassed, setTimePassed] = useState(0);
   const [clickSound, setClickSound] = useState();
   const [selectedColor, setSelectedColor] = useState('#FF0000'); // Default color
   const [targetSize, setTargetSize] = useState(30); // Default size
+
   const { texts, toggleScroll } = useLanguage();
   const [isModalVisible, setIsModalVisible] = useState(false); // Ensure modal visibility state is defined
   const [dots, setDots] = useState([]); // Ensure dots state is defined
@@ -109,6 +111,8 @@ export default function AimTrainerTest({ navigation }) {
       setScore(0)
       setMisses(0)
       setIsTestRunning(false)
+      setIsTestFinished(false)
+
     }, [])
   );
 
@@ -146,6 +150,7 @@ export default function AimTrainerTest({ navigation }) {
         setTimePassed((prev) => {
           if (prev >= selectedTime - 1) {
             setIsTestRunning(false);
+            setIsTestFinished(true)
             clearInterval(interval);
             return selectedTime;
           }
@@ -220,6 +225,9 @@ export default function AimTrainerTest({ navigation }) {
       if (isMusicOn) {
         backgroundMusic?.playAsync();
       }
+      else {
+        backgroundMusic?.stopAsync();
+      }
     } else {
       backgroundMusic?.stopAsync();
     }
@@ -251,137 +259,141 @@ export default function AimTrainerTest({ navigation }) {
               <Text style={styles.headerTitle}>{texts?.AimTrainerTest?.title}</Text>
               <Text style={styles.tagline}>{texts?.AimTrainerTest?.tagline}</Text>
             </View> */}
-            {isTestRunning ? (
-              <View style={styles.testArea}>
-                <View style={styles.statsContainer}>
-                  <View style={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center" }}>
-                    <Animated.Image
-                      source={require('../../assets/arrow.png')}
-                      style={[styles.pointerImage]}
-
-
-
-                    />
-                    <Text style={styles.statText}>Hits: {score}</Text>
-                  </View>
-                  <View style={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center" }}>
-                    <Animated.Image
-                      source={require('../../assets/reaction-time.png')}
-                      style={[styles.pointerImage]}
-
-
-
-                    />
-                    <Text style={styles.statText}>Timer: {selectedTime - timePassed}s</Text>
-                  </View>
-                  <View style={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center" }}>
-                    <Animated.Image
-                      source={require('../../assets/arrow.png')}
-                      style={[styles.pointerImage]}
-
-
-
-                    />
-                    <Text style={styles.statText}>{texts?.locales?.misses}: {misses}</Text>
-                  </View>
-                </View>
-                <View style={styles.aimGameArea}>
-                  {dots.map((dot) => (
-                    <Dot
-                      key={dot.id}
-                      id={dot.id}
-                      x={dot.x}
-                      y={dot.y}
-                      onRemove={handleDotRemove}
-                      onHit={handleDotHit}
-                      size={targetSize}
-                      color={selectedColor}
-                    />
-                  ))}
-                </View>
-              </View>
+            {(!isTestRunning && !isTestFinished) ? (
+                          <View >
+                          <Text style={styles.dropdownLabel}>{texts?.locales?.level}</Text>
+                          <View style={styles.pickerContainer}>
+                            <Picker
+                              selectedValue={selectedLevel}
+                              onValueChange={(itemValue) => setSelectedLevel(itemValue)}
+                              style={styles.picker}
+                              itemStyle={styles.pickerItem}
+                            >
+                              <Picker.Item label={texts?.locales?.easy} value="easy" />
+                              <Picker.Item label={texts?.locales?.normal} value="normal" />
+                              <Picker.Item label={texts?.locales?.medium} value="medium" />
+                              <Picker.Item label={texts?.locales?.fast} value="fast" />
+                            </Picker>
+                          </View>
+          
+                          <Text style={styles.dropdownLabel}>{texts?.locales?.targetSize}</Text>
+                          <View style={styles.pickerContainer}>
+                            <Picker
+                              selectedValue={targetSize}
+                              onValueChange={(itemValue) => setTargetSize(itemValue)}
+                              style={styles.picker}
+                              itemStyle={styles.pickerItem}
+                            >
+                              <Picker.Item label={texts?.locales?.tiny} value={20} />
+                              <Picker.Item label={texts?.locales?.small} value={30} />
+                              <Picker.Item label={texts?.locales?.medium} value={40} />
+                              <Picker.Item label={texts?.locales?.large} value={50} />
+                              <Picker.Item label={texts?.locales?.extraLarge} value={65} />
+                            </Picker>
+                          </View>
+                          <Text style={styles.dropdownLabel}>{texts?.locales?.color}</Text>
+                          <View style={styles.pickerContainer}>
+                            <Picker
+                              selectedValue={selectedColor}
+                              onValueChange={(itemValue) => setSelectedColor(itemValue)}
+                              style={styles.picker}
+                              itemStyle={styles.pickerItem}
+                            >
+                              {colors.map((color) => (
+                                <Picker.Item key={color.value} label={color.label} value={color.value} />
+                              ))}
+                            </Picker>
+                          </View>
+                          <AnimatedButton />
+                          <Text style={styles.dropdownLabel}>{texts?.locales?.time}</Text>
+                          <View style={styles.pickerContainer}>
+                            <Picker
+                              selectedValue={selectedTime}
+                              onValueChange={(itemValue) => setSelectedTime(itemValue)}
+                              style={styles.picker}
+                              itemStyle={styles.pickerItem}
+                            >
+                              <Picker.Item label="15" value={15} />
+                              <Picker.Item label="30" value={30} />
+                              <Picker.Item label="45" value={45} />
+                              <Picker.Item label="60" value={60} />
+                            </Picker>
+                          </View>
+                          <View style={{ display: "flex", flexDirection: "row", marginVertical: 20 }}>
+                            <TouchableOpacity
+                              style={{ marginRight: 10 }}
+                              onPress={() => {
+                                setIsMusicOn(!isMusicOn);
+          
+                              }}
+                            >
+                              {isMusicOn ?
+                                <View style={{ width: 28, height: 28, display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 100, backgroundColor: '#7455CA' }}>
+                                  <Image source={require('../../assets/music-on.png')} style={{ width: 15, height: 15 }} /> </View> : <MusicIcon isEnabled={isMusicOn} />
+                              }
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={toggleSound}>
+                              <SoundIcon isEnabled={isSoundOn} />
+                            </TouchableOpacity>
+                          </View>
+                          <TouchableOpacity style={styles.startButton} onPress={() => setIsTestRunning(true)}>
+                            <Text style={styles.startButtonText}>{texts?.locales?.startTest}</Text>
+                          </TouchableOpacity>
+          
+                        </View>
+                        
             ) : (
-              <View >
-                <Text style={styles.dropdownLabel}>{texts?.locales?.level}</Text>
-                <View style={styles.pickerContainer}>
-                  <Picker
-                    selectedValue={selectedLevel}
-                    onValueChange={(itemValue) => setSelectedLevel(itemValue)}
-                    style={styles.picker}
-                    itemStyle={styles.pickerItem}
-                  >
-                    <Picker.Item label={texts?.locales?.easy} value="easy" />
-                    <Picker.Item label={texts?.locales?.normal} value="normal" />
-                    <Picker.Item label={texts?.locales?.medium} value="medium" />
-                    <Picker.Item label={texts?.locales?.fast} value="fast" />
-                  </Picker>
-                </View>
 
-                <Text style={styles.dropdownLabel}>{texts?.locales?.targetSize}</Text>
-                <View style={styles.pickerContainer}>
-                  <Picker
-                    selectedValue={targetSize}
-                    onValueChange={(itemValue) => setTargetSize(itemValue)}
-                    style={styles.picker}
-                    itemStyle={styles.pickerItem}
-                  >
-                    <Picker.Item label={texts?.locales?.tiny} value={20} />
-                    <Picker.Item label={texts?.locales?.small} value={30} />
-                    <Picker.Item label={texts?.locales?.medium} value={40} />
-                    <Picker.Item label={texts?.locales?.large} value={50} />
-                    <Picker.Item label={texts?.locales?.extraLarge} value={65} />
-                  </Picker>
-                </View>
-                <Text style={styles.dropdownLabel}>{texts?.locales?.color}</Text>
-                <View style={styles.pickerContainer}>
-                  <Picker
-                    selectedValue={selectedColor}
-                    onValueChange={(itemValue) => setSelectedColor(itemValue)}
-                    style={styles.picker}
-                    itemStyle={styles.pickerItem}
-                  >
-                    {colors.map((color) => (
-                      <Picker.Item key={color.value} label={color.label} value={color.value} />
-                    ))}
-                  </Picker>
-                </View>
-                <AnimatedButton />
-                <Text style={styles.dropdownLabel}>{texts?.locales?.time}</Text>
-                <View style={styles.pickerContainer}>
-                  <Picker
-                    selectedValue={selectedTime}
-                    onValueChange={(itemValue) => setSelectedTime(itemValue)}
-                    style={styles.picker}
-                    itemStyle={styles.pickerItem}
-                  >
-                    <Picker.Item label="15" value={15} />
-                    <Picker.Item label="30" value={30} />
-                    <Picker.Item label="45" value={45} />
-                    <Picker.Item label="60" value={60} />
-                  </Picker>
-                </View>
-                <View style={{ display: "flex", flexDirection: "row", marginVertical: 20 }}>
-                  <TouchableOpacity
-                    style={{ marginRight: 10 }}
-                    onPress={() => {
-                      setIsMusicOn(!isMusicOn);
 
-                    }}
-                  >
-                    {isMusicOn ?
-                      <View style={{ width: 28, height: 28, display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 100, backgroundColor: '#7455CA' }}>
-                        <Image source={require('../../assets/music-on.png')} style={{ width: 15, height: 15 }} /> </View> : <MusicIcon isEnabled={isMusicOn} />
-                    }
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={toggleSound}>
-                    <SoundIcon isEnabled={isSoundOn} />
-                  </TouchableOpacity>
-                </View>
-                <TouchableOpacity style={styles.startButton} onPress={() => setIsTestRunning(true)}>
-                  <Text style={styles.startButtonText}>{texts?.locales?.startTest}</Text>
-                </TouchableOpacity>
 
+              <View style={styles.testArea}>
+              <View style={styles.statsContainer}>
+                <View style={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center" }}>
+                  <Animated.Image
+                    source={require('../../assets/arrow.png')}
+                    style={[styles.pointerImage]}
+
+
+
+                  />
+                  <Text style={styles.statText}>Hits: {score}</Text>
+                </View>
+                <View style={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center" }}>
+                  <Animated.Image
+                    source={require('../../assets/reaction-time.png')}
+                    style={[styles.pointerImage]}
+
+
+
+                  />
+                  <Text style={styles.statText}>Timer: {selectedTime - timePassed}s</Text>
+                </View>
+                <View style={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center" }}>
+                  <Animated.Image
+                    source={require('../../assets/arrow.png')}
+                    style={[styles.pointerImage]}
+
+
+
+                  />
+                  <Text style={styles.statText}>{texts?.locales?.misses}: {misses}</Text>
+                </View>
               </View>
+              <View style={styles.aimGameArea}>
+                {dots.map((dot) => (
+                  <Dot
+                    key={dot.id}
+                    id={dot.id}
+                    x={dot.x}
+                    y={dot.y}
+                    onRemove={handleDotRemove}
+                    onHit={handleDotHit}
+                    size={targetSize}
+                    color={selectedColor}
+                  />
+                ))}
+              </View>
+            </View>
             )}
           </TouchableWithoutFeedback>
 

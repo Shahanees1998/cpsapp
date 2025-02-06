@@ -458,13 +458,13 @@ export default function ReactionTest({ navigation }) {
                   <Text style={{ color: 'white', marginBottom: 20, fontSize: 30, paddingVertical: 10 }}>{calculateAverageTime()} MS</Text>
                   <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'between', flexWrap: 'wrap' }}>
                     {colorChangeTimes.map((time, index) => (
-                      <Text key={index} style={{ color: time?.code, paddingLeft: 2, paddingRight: 2, fontSize: 12, color: time?.code }}>{time.time} MS</Text>
+                      <Text key={index} style={{ color: time?.code, paddingLeft: 2, paddingRight: 2, fontSize: 11, color: time?.code }}>{time.time} MS</Text>
                     ))}
                   </View>
                   <View style={{ display: 'flex', marginTop: 40, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
-                    <TouchableOpacity onPress={() => tryAgain()}><Text style={{
+                    {/* <TouchableOpacity onPress={() => tryAgain()}><Text style={{
                       marginRight: 10, color: 'white', backgroundColor: '#7655ca', paddingInline: 30, paddingVertical: 10, borderRadius: 30, marginTop: 20, boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)'
-                    }}>Try Again</Text></TouchableOpacity>
+                    }}>Try Again</Text></TouchableOpacity> */}
                     <TouchableOpacity onPress={() => navigation.navigate('LeftTestScreen', { selectedTime : 5 })}><Text style={{ marginLeft: 10, color: 'white', backgroundColor: '#7655ca', paddingInline: 30, paddingVertical: 10, borderRadius: 30, marginTop: 20, boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)' }}>Close</Text></TouchableOpacity>
 
                 </View>

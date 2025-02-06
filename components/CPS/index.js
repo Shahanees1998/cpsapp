@@ -23,6 +23,7 @@ export default function CpsTest({ navigation, route }) {
   const [countdown, setCountdown] = useState(null);
   const width = 220;
   const height = 220;
+
   useEffect(() => {
     async function loadSounds() {
       const { sound: clickSnd } = await Audio.Sound.createAsync(
@@ -49,6 +50,10 @@ export default function CpsTest({ navigation, route }) {
       if (isMusicOn) {
         backgroundMusic?.playAsync();
       }
+      else {
+        backgroundMusic?.stopAsync();
+      }
+  
     } else {
       backgroundMusic?.stopAsync();
     }
