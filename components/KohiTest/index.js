@@ -46,7 +46,7 @@ export default function KohiTest({ navigation, route }) {
 
   useEffect(() => {
     if (isTestRunning) {
-      if (isMusicOn && !isModalVisible) {
+      if (isMusicOn) {
         backgroundMusic?.playAsync();
       }
     } else {

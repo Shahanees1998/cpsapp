@@ -4,9 +4,9 @@ import {
   Text,
   TouchableOpacity,
   ImageBackground,
-
   ScrollView,
   Image,
+  BackHandler,
 } from 'react-native';
 import { Audio } from 'expo-av';
 import Footer from '../Footer';
@@ -76,6 +76,19 @@ export default function ReactionTest({ navigation }) {
     };
   }, []);
 
+  useEffect(() => {
+    const backAction = () => {
+      navigation.navigate('LeftTestScreen', { selectedTime : 5 }); // Replace 'SpecificPage' with your target page
+      return true; // Prevent default back action
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction
+    );
+
+    return () => backHandler.remove(); // Clean up the event listener
+  }, [navigation]);
 
   const handleIconClick = (index) => {
     console.log(index, randomIconIndex)
@@ -275,7 +288,7 @@ export default function ReactionTest({ navigation }) {
                         style={styles.startTestItem}
                         onPress={() => setIsStartGame(true)} // Pass the test name as a parameter
                       >
-                        <Text style={{ width: '100%', color: 'white', textAlign:'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Text style={{ width: '100%', color: 'white', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 
                           Start Test
                         </Text>
@@ -452,17 +465,17 @@ export default function ReactionTest({ navigation }) {
                     <TouchableOpacity onPress={() => tryAgain()}><Text style={{
                       marginRight: 10, color: 'white', backgroundColor: '#7655ca', paddingInline: 30, paddingVertical: 10, borderRadius: 30, marginTop: 20, boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)'
                     }}>Try Again</Text></TouchableOpacity>
-                    <TouchableOpacity onPress={() => { setIsStartGame(false) }}><Text style={{ marginLeft: 10, color: 'white', backgroundColor: '#7655ca', paddingInline: 30, paddingVertical: 10, borderRadius: 30, marginTop: 20, boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)' }}>Close</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('LeftTestScreen', { selectedTime : 5 })}><Text style={{ marginLeft: 10, color: 'white', backgroundColor: '#7655ca', paddingInline: 30, paddingVertical: 10, borderRadius: 30, marginTop: 20, boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.6)' }}>Close</Text></TouchableOpacity>
 
-                  </View>
+                </View>
                 </View>
             }
-          </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback>
 
-        </View>
+    </View>
       </ImageBackground >
-      {/* <ReactionDetail /> */}
-      {/* < Footer navigation={navigation} /> */}
+    {/* <ReactionDetail /> */ }
+  {/* < Footer navigation={navigation} /> */ }
     </ScrollView >
   );
 }

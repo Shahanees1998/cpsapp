@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, Modal, StyleSheet, ScrollView, ImageBackground, Image, Animated } from "react-native";
+import { View, Text, TouchableOpacity, Modal, StyleSheet, ScrollView, ImageBackground, Image, Animated, BackHandler } from "react-native";
 import { Audio } from "expo-av";
 import { Picker } from '@react-native-picker/picker';
-import Navbar from '../Navbar';
-import AimTrainerDetail from "./AimTrainerDetail";
-import Footer from "../Footer";
+
 
 import { useLanguage } from '../../src/context/LanguageContext';
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
@@ -112,6 +110,21 @@ export default function AimTrainerTest({ navigation }) {
       setMisses(0)
       setIsTestRunning(false)
     }, [])
+  );
+
+  useFocusEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        navigation.navigate('LeftTestScreen', { selectedTime: 5 }); // Replace with your specific page name
+        return true; // Prevent default back action
+      };
+
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+      return () => {
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+      };
+    }, [navigation])
   );
 
   const navigate = () => {
@@ -441,11 +454,15 @@ export default function AimTrainerTest({ navigation }) {
 
 const styles = StyleSheet.create({
   imageBackground: {
-    height: 1200
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minHeight:"100%"
   },
   container: {
     flex: 1,
     padding: 20,
+    width: '100%',
     height: '100%'
   },
   headerContainer: {

@@ -46,12 +46,13 @@ export default function CpsTest({ navigation, route }) {
 
   useEffect(() => {
     if (isTestRunning) {
-      if (isMusicOn && !isModalVisible) {
+      if (isMusicOn) {
         backgroundMusic?.playAsync();
       }
     } else {
       backgroundMusic?.stopAsync();
     }
+
   }, [isTestRunning, isMusicOn]);
 
   useEffect(() => {
@@ -130,8 +131,8 @@ export default function CpsTest({ navigation, route }) {
 
   useEffect(() => {
     const backAction = () => {
-      navigation.navigate('LeftTestScreen', { selectedTime }); 
-      return true; 
+      navigation.navigate('LeftTestScreen', { selectedTime });
+      return true;
     };
 
     const backHandler = BackHandler.addEventListener(
@@ -185,7 +186,10 @@ export default function CpsTest({ navigation, route }) {
                       >
                         {isMusicOn ?
                           <View style={{ width: 28, height: 28, display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 100, backgroundColor: '#7455CA' }}>
-                            <Image source={require('../../assets/music-on.png')} style={{ width: 15, height: 15 }} /> </View> : <MusicIcon isEnabled={isMusicOn} />
+                            <Image source={require('../../assets/music-on.png')} style={{ width: 15, height: 15 }} />
+                          </View>
+                          :
+                          <MusicIcon isEnabled={isMusicOn} />
                         }
                       </TouchableOpacity>
                       <TouchableOpacity onPress={toggleSound}>

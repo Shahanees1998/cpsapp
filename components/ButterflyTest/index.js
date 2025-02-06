@@ -47,7 +47,7 @@ export default function ButterflyTest({ navigation, route }) {
 
   useEffect(() => {
     if (isTestRunning) {
-      if (isMusicOn && !isModalVisible) {
+      if (isMusicOn) {
         backgroundMusic?.playAsync();
       }
     } else {

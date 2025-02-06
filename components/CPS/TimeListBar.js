@@ -1,10 +1,28 @@
-import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, TouchableOpacity, BackHandler } from 'react-native';
 import styles from './Styles';
 import { useLanguage, toggleScroll } from '@/src/context/LanguageContext';
+import { useNavigation } from '@react-navigation/native';
+
 const TimeListBar = ({ selectedTime, onTimeSelect }) => {
   const times = [1, 5, 10, 60, 100];
   const {texts} = useLanguage()
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    const backAction = () => {
+      navigation.navigate('LeftTestScreen', { selectedTime });
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction
+    );
+
+    return () => backHandler.remove();
+  }, [navigation, selectedTime]);
+
   return (
     <View style={styles.timeListContainer}>
       <Text style={styles.heading}>Select Your Preferred Time</Text>
