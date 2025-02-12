@@ -12,7 +12,7 @@ export default function KohiTest({ navigation, route }) {
   const [clicks, setClicks] = useState(0);
   const [isTestRunning, setIsTestRunning] = useState(false);
   const [startTime, setStartTime] = useState(null);
-
+  const [stopGame, setIsStopGame] = useState(false)
 
   const [timePassed, setTimePassed] = useState(0);
   const [clickSound, setClickSound] = useState();
@@ -91,7 +91,7 @@ export default function KohiTest({ navigation, route }) {
   };
 
   useEffect(() => {
-    if (timePassed >= selectedTime) {
+    if (timePassed >= selectedTime && !stopGame) {
       navigate();
     }
   }, [isTestRunning, timePassed]);
@@ -133,9 +133,12 @@ export default function KohiTest({ navigation, route }) {
 
   useEffect(() => {
     const backAction = () => {
-      navigation.navigate('LeftTestScreen', { selectedTime }); 
-      return true; 
-    };
+      setIsTestRunning(false);
+      setIsStopGame(true);
+      clearInterval();
+      navigation.navigate('LeftTestScreen', { selectedTime });
+      return true;
+    };;
 
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
